@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier de Présentation Visuelle & Démonstration — Study Agent Pro | Missi Innovation</title>
+    <link rel="icon" type="image/svg+xml" href="img/missi_logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rust: #C2672B;
+            --rust-dark: #9A4C1B;
+            --rust-light: #FDF6F0;
+            --rust-subtle: #F6E2D0;
+            --text-dark: #1C1917;
+            --text-gray: #57534E;
+            --text-light: #78716C;
+            --border: #E8E5DD;
+            --border-warm: #E8D3BF;
+            --green: #059669;
+            --green-dark: #047857;
+            --green-light: #ECFDF5;
+            --green-border: #A7F3D0;
+            --blue: #2563EB;
+            --blue-light: #EFF6FF;
+            --amber: #D97706;
+            --amber-light: #FFFBEB;
+            --bg-app: #262220;
+            --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            --card-shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-app);
+            font-size: 11.5px;
+            line-height: 1.45;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', Georgia, serif;
+            letter-spacing: -0.015em;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ==========================================================================
+           HEADER UNIFIÉ MISSI INNOVATION (COHÉRENCE SHOWROOM & PROSPECTUS)
+           ========================================================================== */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #E8E5DD;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #1C1917;
+        }
+
+        .brand-logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: #1C1917;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
+            border: 1px solid #443E3A;
+            flex-shrink: 0;
+        }
+
+        .brand-title-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+
+        .brand-name-accent {
+            font-weight: 600;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #C2672B;
+        }
+
+        .brand-tagline {
+            font-size: 0.7rem;
+            color: #78716C;
+            font-weight: 500;
+        }
+
+        .nav-badges {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-doc-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            background: #FDF6F0;
+            color: #9A4C1B;
+            border: 1px solid #F5D6C1;
+            border-radius: 9999px;
+        }
+
+        .nav-link-btn {
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #57534E;
+            background: white;
+            border: 1px solid #E8E5DD;
+            padding: 5px 12px;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+        }
+
+        .nav-link-btn:hover {
+            border-color: #C2672B;
+            color: #C2672B;
+            background: #FDF6F0;
+        }
+
+        .btn-print-copper {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #C2672B;
+            color: white;
+            border: 1px solid #C2672B;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
+            transition: all 0.15s ease;
+        }
+
+        .btn-print-copper:hover {
+            background: #9A4C1B;
+            box-shadow: 0 4px 12px rgba(194, 103, 43, 0.35);
+        }
+
+        /* ==========================================================================
+           FEUILLE A4 (AFFICHAGE ÉCRAN & IMPRESSION)
+           ========================================================================== */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            padding: 12mm 16mm 10mm 16mm;
+            margin: 15mm auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .page-content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 5px;
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 8px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* HEADER DES PAGES */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1.5px solid var(--rust);
+            padding-bottom: 7px;
+            margin-bottom: 10px;
+        }
+
+        .header-left {
+            text-transform: uppercase;
+            font-size: 9.5px;
+            letter-spacing: 1px;
+            font-weight: 800;
+            color: var(--rust-dark);
+            line-height: 1.25;
+        }
+
+        .header-left .sub {
+            color: var(--text-light);
+            font-size: 8.5px;
+            letter-spacing: 0.4px;
+            font-weight: 500;
+            margin-top: 2px;
+            text-transform: none;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5px;
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+
+        .header-right strong {
+            color: var(--text-dark);
+            font-size: 10.5px;
+        }
+
+        /* ENCART MARQUE BLANCHE PRESTIGE (PAGE 1) */
+        .white-label-banner {
+            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%);
+            border: 1px solid #E2D9CF;
+            border-left: 4px solid var(--rust);
+            border-radius: 7px;
+            padding: 7px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 11px;
+            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.04);
+        }
+
+        .wlb-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .wlb-badge {
+            background: linear-gradient(135deg, #C2672B 0%, #9A4C1B 100%);
+            color: white;
+            font-size: 8.5px;
+            font-weight: 800;
+            padding: 3.5px 9px;
+            border-radius: 5px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 5px rgba(194, 103, 43, 0.25);
+        }
+
+        .wlb-text {
+            font-size: 9px;
+            color: var(--text-dark);
+            line-height: 1.35;
+        }
+
+        .wlb-text strong {
+            color: var(--rust-dark);
+            font-weight: 700;
+        }
+
+        .wlb-offline-tag {
+            font-size: 8.5px;
+            font-weight: 700;
+            color: #047857;
+            white-space: nowrap;
+            background: #ECFDF5;
+            padding: 3.5px 9px;
+            border-radius: 9999px;
+            border: 1px solid #A7F3D0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 1px 2px rgba(5, 150, 105, 0.08);
+        }
+
+        /* WINDOWS POUR CAPTURES D'ÉCRAN */
+        .screen-window {
+            background: #FDFBF7;
+            border: 1px solid #D5CFC7;
+            border-radius: 7px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            position: relative;
+        }
+
+        .screen-window:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .window-titlebar {
+            background: #EFECE6;
+            border-bottom: 1px solid #DDD8CE;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .window-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
+        .window-dot.red { background: #EF4444; }
+        .window-dot.yellow { background: #F59E0B; }
+        .window-dot.green { background: #10B981; }
+
+        .window-title {
+            font-size: 8.5px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .window-badge {
+            font-size: 7.5px;
+            font-weight: 700;
+            background: white;
+            color: var(--rust);
+            padding: 1px 5px;
+            border-radius: 3px;
+            border: 1px solid var(--border-warm);
+        }
+
+        .screen-img-wrap {
+            position: relative;
+            overflow: hidden;
+            background: #FAF8F5;
+        }
+
+        .screen-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .zoom-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            gap: 6px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .screen-window:hover .zoom-overlay {
+            opacity: 1;
+        }
+
+        /* ANNOTATIONS CALLOUT */
+        .callout-badge {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.9);
+            color: white;
+            font-size: 7.5px;
+            font-weight: 700;
+            padding: 3px 7px;
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.25);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            z-index: 2;
+        }
+
+        .callout-badge.green {
+            background: #047857;
+        }
+
+        .callout-badge.blue {
+            background: #1D4ED8;
+        }
+
+        .callout-badge.copper {
+            background: #9A4C1B;
+        }
+
+        /* TITRES DE SECTIONS */
+        .sec-title-wrap {
+            margin-bottom: 8px;
+        }
+
+        .sec-kicker {
+            font-size: 8px;
+            font-weight: 800;
+            color: var(--rust);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sec-kicker::before {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 2px;
+            background: var(--rust);
+        }
+
+        .sec-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.25;
+            margin-top: 1px;
+        }
+
+        .sec-desc {
+            font-size: 9px;
+            color: var(--text-gray);
+            line-height: 1.35;
+            margin-top: 2px;
+        }
+
+        /* PILLARS MINI-GRID */
+        .pillars-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7px;
+            margin-bottom: 9px;
+        }
+
+        .pillar-mini {
+            background: #FAF8F5;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 6px 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .pillar-mini.highlight {
+            background: var(--rust-light);
+            border-color: var(--rust-subtle);
+        }
+
+        .p-icon-title {
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .p-desc {
+            font-size: 7.8px;
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+
+        /* BENEFIT CARDS */
+        .benefit-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 7px 9px;
+            font-size: 8.5px;
+        }
+
+        .benefit-card strong {
+            color: var(--rust-dark);
+            font-size: 9.5px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+
+        /* GRILLES DE PRESENTATION */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7px;
+        }
+
+        /* CARTES DE FORMULES MENSUELLES (PAGE 4) */
+        .pricing-mini-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 8px 10px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-mini-card.featured {
+            border: 1.5px solid var(--rust);
+            background: var(--rust-light);
+        }
+
+        .pm-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .pm-title {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--text-dark);
+            text-transform: uppercase;
+        }
+
+        .pm-price {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--rust-dark);
+        }
+
+        .pm-price .unit {
+            font-size: 8px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .pm-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5px;
+            margin-top: 5px;
+            font-size: 8px;
+            color: var(--text-gray);
+        }
+
+        .pm-list li {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .pm-check {
+            color: var(--green);
+            font-weight: 800;
+            font-size: 8.5px;
+        }
+
+        /* ROADMAP & INNOVATIONS BOX (PAGE 4) */
+        .roadmap-box {
+            background: #FAF8F5;
+            border: 1px solid var(--border-warm);
+            border-radius: 6px;
+            padding: 7px 10px;
+            margin-bottom: 7px;
+        }
+
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .roadmap-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 5px 8px;
+        }
+
+        .roadmap-item strong {
+            font-size: 8.5px;
+            color: var(--rust-dark);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .roadmap-item p {
+            font-size: 7.8px;
+            color: var(--text-gray);
+            line-height: 1.25;
+            margin-top: 2px;
+        }
+
+        /* BON POUR ACCORD / SIGNATURE (PAGE 4) */
+        .bon-mini-box {
+            border: 1.5px dashed var(--rust);
+            border-radius: 6px;
+            padding: 7px 10px;
+            background: var(--rust-light);
+            margin-top: 6px;
+        }
+
+        .bon-mini-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .sig-mini {
+            background: white;
+            border: 1px solid var(--border-warm);
+            border-radius: 5px;
+            padding: 7px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 4px;
+            font-size: 7.6px;
+            color: var(--text-gray);
+            min-height: 52px;
+            box-sizing: border-box;
+        }
+
+        .sig-mini strong {
+            font-size: 8px;
+            color: var(--text-dark);
+        }
+
+        /* LIGHTBOX MODAL */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(10, 10, 15, 0.94);
+            backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            flex-direction: column;
+        }
+
+        #lightbox.active {
+            display: flex;
+        }
+
+        #lightbox-img {
+            max-width: 95vw;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            object-fit: contain;
+        }
+
+        #lightbox-caption {
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 14px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 20px;
+        }
+
+        #lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            font-size: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        #lightbox-close:hover {
+            background: var(--rust);
+        }
+
+        /* PRINT CALIBRATION EXACTEMENT 4 PAGES A4 */
+        @page {
+            size: A4 portrait;
+            margin: 0mm;
+        }
+
+        @media print {
+            html, body {
+                width: 210mm !important;
+                height: auto !important;
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .top-nav,
+            .no-print,
+            #lightbox,
+            .zoom-overlay {
+                display: none !important;
+                visibility: hidden !important;
+                height: 0 !important;
+                width: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow: hidden !important;
+            }
+
+            .page {
+                margin: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+                padding: 10mm 14mm 8mm 14mm !important;
+                width: 210mm !important;
+                max-width: 210mm !important;
+                height: 297mm !important;
+                min-height: 297mm !important;
+                max-height: 297mm !important;
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+                break-after: page !important;
+                break-inside: avoid !important;
+                overflow: hidden !important;
+                position: relative !important;
+                box-sizing: border-box !important;
+            }
+
+            .page:last-of-type {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
+
+            .screen-window {
+                box-shadow: none !important;
+                border: 1px solid #94A3B8 !important;
+            }
+
+            .callout-badge {
+                box-shadow: none !important;
+                border: 1px solid rgba(0,0,0,0.2) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" onclick="closeLightbox(event)">
+        <button id="lightbox-close" onclick="closeLightbox(event)" title="Fermer">✕</button>
+        <img id="lightbox-img" src="" alt="Capture plein écran">
+        <div id="lightbox-caption">Aperçu grand angle</div>
+    </div>
+
+    <!-- ==========================================================================
+         TOP NAV UNIFIÉ MISSI INNOVATION (COHÉRENT AVEC L'ACCUEIL)
+         ========================================================================== -->
+    <header class="top-nav no-print">
+        <div class="nav-inner">
+            <a href="index.html" class="brand-link">
+                <div class="brand-logo-mark">
+                    <svg width="22" height="22" viewBox="0 0 48 48" fill="none">
+                        <defs>
+                            <linearGradient id="navGlowVis" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#F59E0B"/>
+                                <stop offset="100%" stop-color="#C2672B"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M12 34V17.5C12 16.1 13.6 15.3 14.7 16.2L24 23.5L33.3 16.2C34.4 15.3 36 16.1 36 17.5V34" stroke="#FAF8F5" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="24" cy="12.5" r="2.5" fill="url(#navGlowVis)"/>
+                        <path d="M24 25.5V34" stroke="url(#navGlowVis)" stroke-width="3.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="brand-title-wrap">
+                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
+                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
+                </div>
+            </a>
+            <div class="nav-badges">
+                <div class="nav-doc-badge">
+                    <span>Study Agent Pro</span> &bull; Prospectus Visuel (12 Écrans Réels — 5 Pages)
+                </div>
+                <a href="index.html" class="nav-link-btn">← Catalogue Showroom</a>
+                <a href="proposition_commerciale.html" class="nav-link-btn">Proposition Tarifaire</a>
+                <button onclick="window.print()" class="btn-print-copper">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                    Imprimer Format A4 (5 Pages)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- PAGE 1 : COUVERTURE, MARQUE BLANCHE & DASHBOARD -->
+    <!-- ========================================== -->
+    <div class="page" id="page-1">
+        <div class="page-content-area">
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="header-left">
+                    <span>DOSSIER DE PRÉSENTATION TECHNIQUE & VISUELLE — ERP SCOLAIRE</span>
+                    <div class="sub">Plateforme Intégrée d'Excellence &bull; Édition Démonstration 2026-2027</div>
+                </div>
+                <div class="header-right">
+                    Émis en <strong>2026</strong><br>
+                    <span>Dossier Direction &bull; Déploiement Sous 48h</span>
+                </div>
+            </div>
+
+            <!-- White Label Banner Prestige -->
+            <div class="white-label-banner">
+                <div class="wlb-content">
+                    <span class="wlb-badge">
+                        <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        (Votre Logo Ici)
+                    </span>
+                    <div class="wlb-text">
+                        <strong>Solution Personnalisée en Marque Blanche :</strong> Le logiciel, les tickets thermiques 80 mm, les reçus et les bulletins de paie porteront le <strong>nom officiel et les armoiries de votre établissement</strong>.
+                    </div>
+                </div>
+                <div class="wlb-offline-tag">
+                    <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #059669;"></span>
+                    100% Hors-Ligne &bull; Zéro Dépendance Web
+                </div>
+            </div>
+
+            <!-- Hero Titles -->
+            <div style="margin-bottom: 9px;">
+                <h1 class="serif" style="font-size: 23px; font-weight: 700; color: var(--text-dark); line-height: 1.15; margin-bottom: 3px;">
+                    Système Intégré de Pilotage &amp; Forteresse Financière
+                </h1>
+                <h2 class="serif" style="font-size: 13px; font-weight: 600; color: var(--rust-dark); line-height: 1.3; margin-bottom: 5px;">
+                    La solution clés-en-main pour collèges, lycées et écoles privées d'excellence
+                </h2>
+                <p style="font-size: 9.2px; color: var(--text-gray); line-height: 1.45;">
+                    Spécialement développé pour les exigences des établissements scolaires à Madagascar, <strong>Study Agent Pro</strong> réconcilie la rigueur comptable, la traque active des impayés d'écolages et la sérénité absolue face aux coupures de courant de la JIRAMA.
+                </p>
+            </div>
+
+            <!-- Pillars Strip -->
+            <div class="pillars-strip">
+                <div class="pillar-mini highlight">
+                    <span class="p-icon-title">⚡ 100% Hors-Ligne</span>
+                    <span class="p-desc">Base SQLite WAL locale autonome. Zéro coupure pendant les pannes JIRAMA ou réseau.</span>
+                </div>
+                <div class="pillar-mini">
+                    <span class="p-icon-title">🛡️ Zéro Écart Caisse</span>
+                    <span class="p-desc">Billetage physique 20 000 à 100 Ar, Ticket Z 80 mm scellé et contre-passation anti-fraude.</span>
+                </div>
+                <div class="pillar-mini">
+                    <span class="p-icon-title">📈 Bouclier Impayés</span>
+                    <span class="p-desc">Détection instantanée des retards dès le 1er du mois. Recouvrement accéléré de +35%.</span>
+                </div>
+                <div class="pillar-mini">
+                    <span class="p-icon-title">☁️ Synchro Cloud LWW</span>
+                    <span class="p-desc">Auto-guérison multi-postes. Sauvegarde chiffrée dès que le signal internet est disponible.</span>
+                </div>
+            </div>
+
+            <!-- Grand Screen Window : Tableau de bord -->
+            <div class="screen-window" onclick="openLightbox('img/02_tableau_de_bord_directeur.png', 'Cockpit Direction — Tableau de bord synthétique en temps réel')">
+                <div class="window-titlebar">
+                    <div class="window-dots">
+                        <span class="window-dot red"></span>
+                        <span class="window-dot yellow"></span>
+                        <span class="window-dot green"></span>
+                    </div>
+                    <div class="window-title">
+                        <span>Écran 01 : Cockpit Direction & Pilotage Global en Temps Réel</span>
+                        <span class="window-badge" style="background: #FDF6F0; color: #9A4C1B; border: 1px solid #F6E2D0;">Vue Direction</span>
+                    </div>
+                    <div style="font-size: 8px; color: #64748B;">Recherche instantanée &bull; Cloud synchronisé</div>
+                </div>
+                <div class="screen-img-wrap" style="height: 136mm;">
+                    <img src="img/02_tableau_de_bord_directeur.png" alt="Tableau de bord Study Agent Pro" style="object-position: top center;">
+                    <div class="zoom-overlay">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                        Cliquer pour agrandir en haute résolution
+                    </div>
+                    <!-- Annotations Callouts -->
+                    <div class="callout-badge" style="top: 14px; left: 16px;">
+                        <span>✓ (Votre Logo Ici) Marque Blanche intégrée</span>
+                    </div>
+                    <div class="callout-badge green" style="top: 36px; right: 18px;">
+                        <span>Recettes Mois : 22 098 000 Ar</span>
+                    </div>
+                    <div class="callout-badge" style="top: 86px; left: 215px;">
+                        <span>Effectif Actif : 779 Élèves</span>
+                    </div>
+                    <div class="callout-badge copper" style="bottom: 45px; left: 215px; background: #DC2626;">
+                        <span>Alerte Impayés : 51 065 000 Ar traqués</span>
+                    </div>
+                    <div class="callout-badge blue" style="bottom: 18px; right: 28px;">
+                        <span>Tendance Trésorerie 30 Jours</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Takeaways Bar -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-top: 8px;">
+                <div class="benefit-card">
+                    <strong>Vision Stratégique Immédiate</strong>
+                    <p>Le Proviseur et la Direction disposent dès l'ouverture d'une photographie exacte de l'établissement sans solliciter le secrétariat.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Contrôle des Recettes au Jour le Jour</strong>
+                    <p>Suivi en direct des encaissements par semaine, mois et cumul historique. Détection visuelle des pics et creux de rentrées.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Zéro Conflit Réseau (Auto-Healing)</strong>
+                    <p>Les caissiers saisissent hors-ligne. Le moteur SQLite/Supabase résout automatiquement les synchronisations sans écrasement.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Agent Pro &bull; Dossier de Présentation Officiel</span>
+            <span>Page 01 / 05 &bull; Cockpit Exécutif</span>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 2 : SCOLARITÉ & FICHES INDIVIDUELLES ÉLÈVES -->
+    <!-- ========================================== -->
+    <div class="page" id="page-2">
+        <div class="page-content-area">
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="header-left">
+                    <span>SECTION 01 — DOSSIERS SCOLAIRES &amp; FICHES INDIVIDUELLES</span>
+                    <div class="sub">Répertoire Centralisé &bull; Dossier Financier Nominatif &bull; Échéancier Mois par Mois</div>
+                </div>
+                <div class="header-right">
+                    Module <strong>Scolarité &amp; Élèves</strong><br>
+                    <span>Vision 360° &bull; Suivi Nominatif</span>
+                </div>
+            </div>
+
+            <!-- Section Title -->
+            <div class="sec-title-wrap">
+                <div class="sec-kicker">Scolarité d'Excellence &amp; Visibilité 360°</div>
+                <h2 class="sec-title serif">Répertoire Général des Élèves &amp; Fiches Individuelles de Scolarité</h2>
+                <p class="sec-desc">
+                    De l'enregistrement administratif au calendrier minutieux des versements mensuels, chaque élève dispose d'une fiche complète, claire et incontestable.
+                </p>
+            </div>
+
+            <!-- ÉCRAN 02 : Répertoire général des élèves -->
+            <div class="screen-window" style="margin-bottom: 8px;" onclick="openLightbox('img/03_gestion_eleves_dossiers.png', 'Répertoire Général des Élèves — Fiches, classes, statuts d\'inscription')">
+                <div class="window-titlebar">
+                    <div class="window-dots">
+                        <span class="window-dot red"></span>
+                        <span class="window-dot yellow"></span>
+                        <span class="window-dot green"></span>
+                    </div>
+                    <div class="window-title">
+                        <span>Écran 02 : Répertoire Général des Élèves, Classes &amp; Inscriptions</span>
+                        <span class="window-badge" style="background: #FDF6F0; color: #9A4C1B; border: 1px solid #F6E2D0;">Fichier Central</span>
+                    </div>
+                    <div style="font-size: 8px; color: #64748B;">Recherche par matricule &bull; Gestion fratries</div>
+                </div>
+                <div class="screen-img-wrap" style="height: 75mm;">
+                    <img src="img/03_gestion_eleves_dossiers.png" alt="Répertoire général des élèves" style="object-position: top center;">
+                    <div class="zoom-overlay">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                        Cliquer pour agrandir le Répertoire Élèves
+                    </div>
+                    <div class="callout-badge" style="top: 10px; left: 14px;">
+                        <span>✓ Recherche instantanée par matricule &amp; nom</span>
+                    </div>
+                    <div class="callout-badge green" style="top: 10px; right: 14px;">
+                        <span>✓ Effectif Actif : 779 Élèves répertoriés</span>
+                    </div>
+                    <div class="callout-badge copper" style="bottom: 10px; left: 14px;">
+                        <span>✓ Filtrage par classe : TPS jusqu'à Terminale</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ÉCRAN 03 : Fiche individuelle élève & suivi paiements par mois -->
+            <div class="screen-window" style="margin-bottom: 8px;" onclick="openLightbox('img/12_dossier_eleve_suivi_paiements.png', 'Dossier Individuel Élève — Suivi des écolages mois par mois, FRAM, transport, cantine')">
+                <div class="window-titlebar">
+                    <div class="window-dots">
+                        <span class="window-dot red"></span>
+                        <span class="window-dot yellow"></span>
+                        <span class="window-dot green"></span>
+                    </div>
+                    <div class="window-title">
+                        <span>Écran 03 : Dossier Financier Individuel &amp; Calendrier des Écolages</span>
+                        <span class="window-badge" style="background: #ECFDF5; color: #047857;">Mois par Mois</span>
+                    </div>
+                    <div style="font-size: 8px; color: #047857; font-weight: 700;">Septembre à Juin &bull; Échéancier en temps réel</div>
+                </div>
+                <div class="screen-img-wrap" style="height: 75mm;">
+                    <img src="img/12_dossier_eleve_suivi_paiements.png" alt="Dossier individuel de suivi financier élève" style="object-position: top center;">
+                    <div class="zoom-overlay">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                        Cliquer pour agrandir la Fiche Individuelle
+                    </div>
+                    <div class="callout-badge green" style="top: 10px; left: 14px;">
+                        <span>✓ Statut clair : Mois Soldés vs Reliquats Restants</span>
+                    </div>
+                    <div class="callout-badge blue" style="top: 10px; right: 14px;">
+                        <span>✓ Ventilation : Écolage, Cantine, Bus &amp; Droits d'examen</span>
+                    </div>
+                    <div class="callout-badge copper" style="bottom: 10px; right: 14px;">
+                        <span>✓ Historique des reçus thermiques horodatés</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Atouts Fiches Élèves & Suivi Individuel -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px;">
+                <div class="benefit-card">
+                    <strong>1. Dossier Unique 360° par Élève</strong>
+                    <p>Fiche scolaire et financière unifiée : coordonnées des parents, classe, fratrie, historique des inscriptions et antécédents de paiement consultables en 1 seconde.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>2. Échéancier Mois par Mois &amp; Zéro Litige</strong>
+                    <p>Chaque versement est imputé nominativement sur le mois concerné (Sept à Juin). Fini les contestations de fin d'année : l'école et la famille partagent la même vérité chiffrée.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>3. Ventilation Multi-Rubriques Intègre</strong>
+                    <p>Gestion transparente et cloisonnée des écolages, droits d'inscription, cantine scolaire, transport par bus et cotisations annexes (FRAM, examens blancs, activités).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Agent Pro &bull; Dossier de Présentation Officiel</span>
+            <span>Page 02 / 05 &bull; Fiches Élèves &amp; Suivi Individuel</span>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 3 : JOURNAL FINANCIER & BILLETAGE PHYSIQUE -->
+    <!-- ========================================== -->
+    <div class="page" id="page-3">
+        <div class="page-content-area">
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="header-left">
+                    <span>SECTION 02 — FORTERESSE FINANCIÈRE &amp; BILLETAGE DE CAISSE</span>
+                    <div class="sub">Grand Livre des Recettes &bull; Billetage Physique 20 000 à 100 Ar &bull; Ticket Z 80 mm Scellé</div>
+                </div>
+                <div class="header-right">
+                    Module <strong>Caisse &amp; Comptabilité</strong><br>
+                    <span>Norme ESC/POS 80 mm &bull; Zéro Écart</span>
+                </div>
+            </div>
+
+            <!-- Section Title -->
+            <div class="sec-title-wrap">
+                <div class="sec-kicker">Intégrité Comptable &amp; Zéro Écart Caisse</div>
+                <h2 class="sec-title serif">Journal Financier Consolidé, Pointage &amp; Billetage Physique</h2>
+                <p class="sec-desc">
+                    Sécurisez chaque ariary perçu à l'établissement. Du pointage des coupures physiques à la clôture aveugle journalière, chaque opération est scellée et infalsifiable.
+                </p>
+            </div>
+
+            <!-- ÉCRAN 04 : Grand livre financier -->
+            <div class="screen-window" style="margin-bottom: 8px;" onclick="openLightbox('img/04_journal_financier_recettes.png', 'Grand Livre Financier — Vue consolidée des recettes, dépenses et clôtures')">
+                <div class="window-titlebar">
+                    <div class="window-dots">
+                        <span class="window-dot red"></span>
+                        <span class="window-dot yellow"></span>
+                        <span class="window-dot green"></span>
+                    </div>
+                    <div class="window-title">
+                        <span>Écran 04 : Journal Financier Consolidé &amp; Grand Livre des Recettes</span>
+                        <span class="window-badge" style="background: #DCFCE7; color: #166534;">Solde Live</span>
+                    </div>
+                    <div style="font-size: 8px; color: #166534; font-weight: 700;">Traçabilité totale &bull; Multi-modes de règlement</div>
+                </div>
+                <div class="screen-img-wrap" style="height: 75mm;">
+                    <img src="img/04_journal_financier_recettes.png" alt="Grand livre financier" style="object-position: top center;">
+                    <div class="zoom-overlay">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                        Cliquer pour agrandir le Journal Financier
+                    </div>
+                    <div class="callout-badge green" style="top: 10px; left: 14px;">
+                        <span>✓ Solde Total Trésorerie : 142 900 000 Ar en direct</span>
+                    </div>
+                    <div class="callout-badge blue" style="top: 10px; right: 14px;">
+                        <span>✓ Ventilation Espèces, Mvola, Airtel Money &amp; Chèques</span>
+                    </div>
+                    <div class="callout-badge copper" style="bottom: 10px; right: 14px;">
+                        <span>✓ Export instantané Excel &amp; PDF comptable</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ÉCRAN 05 : Pointage caisse & billetage -->
+            <div class="screen-window" style="margin-bottom: 8px;" onclick="openLightbox('img/05_pointage_caisse_billetage.png', 'Pointage & Caisse Opérateur — Récolte Cash, Mvola et comptage des billets')">
+                <div class="window-titlebar">
+                    <div class="window-dots">
+                        <span class="window-dot red"></span>
+                        <span class="window-dot yellow"></span>
+                        <span class="window-dot green"></span>
+                    </div>
+                    <div class="window-title">
+                        <span>Écran 05 : Clôture de Caisse, Billetage Physique &amp; Impression Ticket Z</span>
+                        <span class="window-badge" style="background: #E0E7FF; color: #3730A3;">Ticket Z 80 mm</span>
+                    </div>
+                    <div style="font-size: 8px; color: #3730A3; font-weight: 700;">Comptage 20 000 à 100 Ar &bull; Clôture aveugle</div>
+                </div>
+                <div class="screen-img-wrap" style="height: 75mm;">
+                    <img src="img/05_pointage_caisse_billetage.png" alt="Pointage caisse et billetage" style="object-position: top center;">
+                    <div class="zoom-overlay">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                        Cliquer pour agrandir le Pointage Caisse
+                    </div>
+                    <div class="callout-badge" style="top: 10px; left: 14px;">
+                        <span>✓ Billetage physique coupure par coupure (20 000 à 100 Ar)</span>
+                    </div>
+                    <div class="callout-badge green" style="top: 10px; right: 14px;">
+                        <span>✓ Détection automatique écart : Théorique vs Réel</span>
+                    </div>
+                    <div class="callout-badge copper" style="bottom: 10px; left: 14px; background: #9A4C1B;">
+                        <span>✓ Ticket Z thermique 80 mm scellé infalsifiable</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Piliers de Sécurisation Caisse -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px;">
+                <div class="benefit-card">
+                    <strong>1. Clôture Aveugle &amp; Billetage</strong>
+                    <p>Le caissier dénombre ses billets physiques sans voir le montant théorique attendu. Le système confronte automatiquement tiroir réel et calculé, imprimant le Ticket Z infalsifiable.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>2. Impression Reçus ESC/POS 80 mm</strong>
+                    <p>Reçus thermiques en 1 seconde avec armoiries de l'établissement, QR code d'authenticité et filigrane officiel <em>DUPLICATA N° X</em> anti-fraude.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>3. Bilan Automatique Email à 18h</strong>
+                    <p>Chaque soir à 18h, la Direction reçoit sur son smartphone le compte-rendu PDF complet de la journée avec synthèse des encaissements et soldes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Agent Pro &bull; Dossier de Présentation Officiel</span>
+            <span>Page 03 / 05 &bull; Journal Financier &amp; Billetage</span>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 4 : BOUCLIER IMPAYÉS, NOTES & LOGISTIQUE -->
+    <!-- ========================================== -->
+    <div class="page" id="page-4">
+        <div class="page-content-area">
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="header-left">
+                    <span>SECTION 03 — RECOUVREMENT ACTIF, PÉDAGOGIE &amp; LOGISTIQUE</span>
+                    <div class="sub">Traque Chirurgicale des Reliquats &bull; Saisie des Notes &bull; Flotte Transport &amp; Cantine</div>
+                </div>
+                <div class="header-right">
+                    Module <strong>Recouvrement &amp; Pédagogie</strong><br>
+                    <span>Bulletins Scolaires &bull; Bus &bull; Cantine</span>
+                </div>
+            </div>
+
+            <!-- Section Title -->
+            <div class="sec-title-wrap">
+                <div class="sec-kicker">Trésorerie Protégée &amp; Pédagogie Fluide</div>
+                <h2 class="sec-title serif">Le Moteur d'Alertes Impayés &amp; la Saisie des Notes</h2>
+                <p class="sec-desc">
+                    Fini les reliquats oubliés en fin d'année et la saisie fastidieuse des carnets de notes. Le calcul des moyennes, classements et bulletins scolaires est 100% automatisé.
+                </p>
+            </div>
+
+            <!-- SCREEN 1 : Alertes Impayés (Grand écran) -->
+            <div style="margin-bottom: 8px;">
+                <div class="screen-window" onclick="openLightbox('img/06_alertes_recouvrement_impayes.png', 'Moteur d\'Alertes Impayés — Traque chirurgicale des reliquats par classe et par élève')">
+                    <div class="window-titlebar">
+                        <div class="window-dots">
+                            <span class="window-dot red"></span>
+                            <span class="window-dot yellow"></span>
+                            <span class="window-dot green"></span>
+                        </div>
+                        <div class="window-title">
+                            <span>Écran 06 : Moteur d'Alertes Impayés &amp; Suivi Chirurgical des Retards</span>
+                            <span class="window-badge" style="background: #FEE2E2; color: #991B1B;">Bouclier Trésorerie</span>
+                        </div>
+                        <div style="font-size: 8px; color: #B91C1C; font-weight: 700;">⚠ 51 065 000 Ar à recouvrer (500 élèves)</div>
+                    </div>
+                    <div class="screen-img-wrap" style="height: 80mm;">
+                        <img src="img/06_alertes_recouvrement_impayes.png" alt="Alertes impayés Study Agent Pro">
+                        <div class="zoom-overlay">🔍 Agrandir l'écran Alertes Impayés</div>
+                        <div class="callout-badge" style="top: 12px; left: 20px; background: #DC2626;">
+                            <span>500 Élèves en Retard Détectés Automatiquement</span>
+                        </div>
+                        <div class="callout-badge" style="top: 12px; right: 20px;">
+                            <span>Détail par élève : Inscription, Écolage, Transport</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2-COLUMNS : NOUVELLE SAISIE DES NOTES & POINTAGE BUS/CANTINE -->
+            <div class="grid-2col" style="margin-bottom: 8px;">
+                <!-- ÉCRAN 07 : NOUVEAU - Saisie des notes & bulletins -->
+                <div class="screen-window" onclick="openLightbox('img/09_saisie_notes_bulletins.png', 'Saisie des Notes — Table par classe et matière, calcul automatique des moyennes et rangs')">
+                    <div class="window-titlebar">
+                        <div class="window-dots">
+                            <span class="window-dot red"></span>
+                            <span class="window-dot yellow"></span>
+                            <span class="window-dot green"></span>
+                        </div>
+                        <div class="window-title">
+                            <span>Écran 07 : Saisie des Notes &amp; Bulletins</span>
+                        </div>
+                        <span class="window-badge" style="background: #FDF6F0; color: #9A4C1B; border: 1px solid #F6E2D0;">TPS à Terminale</span>
+                    </div>
+                    <div class="screen-img-wrap" style="height: 72mm;">
+                        <img src="img/09_saisie_notes_bulletins.png" alt="Saisie des notes et calcul des moyennes">
+                        <div class="zoom-overlay">🔍 Agrandir Saisie des Notes</div>
+                        <div class="callout-badge" style="top: 8px; left: 10px;">
+                            <span>Calcul auto : Moyennes, Rang, Appréciations</span>
+                        </div>
+                        <div class="callout-badge green" style="bottom: 8px; right: 10px;">
+                            <span>Impression Bulletins Trimestriels en 1 clic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ÉCRAN 08 : Pointage Transport & Cantine -->
+                <div class="screen-window" onclick="openLightbox('img/10_pointage_bus_cantine.png', 'Pointage Journalier — Transport scolaire et Cantine par trajet et arrêt')">
+                    <div class="window-titlebar">
+                        <div class="window-dots">
+                            <span class="window-dot red"></span>
+                            <span class="window-dot yellow"></span>
+                            <span class="window-dot green"></span>
+                        </div>
+                        <div class="window-title">
+                            <span>Écran 08 : Pointage Bus &amp; Cantine</span>
+                        </div>
+                        <span class="window-badge" style="background: #DCFCE7; color: #166534;">115 Présents</span>
+                    </div>
+                    <div class="screen-img-wrap" style="height: 72mm;">
+                        <img src="img/10_pointage_bus_cantine.png" alt="Pointage transport et cantine">
+                        <div class="zoom-overlay">🔍 Agrandir Pointage Bus</div>
+                        <div class="callout-badge green" style="bottom: 8px; left: 10px;">
+                            <span>Contrôle par arrêt : Ambohidrazaka, Mandroseza...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Atouts Scolarité & Pédagogie -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px;">
+                <div class="benefit-card">
+                    <strong>Bulletins Scolaires Officiels</strong>
+                    <p>Fini les calculs manuels sujets aux erreurs : calcul automatique des moyennes pondérées par coefficient, rangs de classe et génération des bulletins PDF prêts à imprimer.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Certificats de Scolarité 1 Clic</strong>
+                    <p>Édition immédiate des certificats conformes aux normes ministérielles avec matricule officiel, classe et cachet pré-configuré.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Sécurité Trajets &amp; Réfectoire</strong>
+                    <p>Pointage nominatif à chaque montée de bus et au passage à la cantine. Zéro enfant égaré, sérénité totale pour les parents d'élèves.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Agent Pro &bull; Dossier de Présentation Officiel</span>
+            <span>Page 04 / 05 &bull; Recouvrement, Pédagogie &amp; Logistique</span>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 5 : RH, REPORTING, OFFRES & VALIDATION -->
+    <!-- ========================================== -->
+    <div class="page" id="page-5">
+        <div class="page-content-area">
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="header-left">
+                    <span>SECTION 04 — RESSOURCES HUMAINES, REPORTING &amp; ENGAGEMENT</span>
+                    <div class="sub">Paie Légale Malagasy &bull; Formules d'Adoption Mensuelle &bull; Bon pour Accord</div>
+                </div>
+                <div class="header-right">
+                    Offre <strong>Commerciale Clés en Main</strong><br>
+                    <span>Valable 60 jours &bull; Mise en service sous 48h</span>
+                </div>
+            </div>
+
+            <!-- Section Title -->
+            <div class="sec-title-wrap" style="margin-bottom: 6px;">
+                <div class="sec-kicker">Excellence Administrative &amp; RH</div>
+                <h2 class="sec-title serif" style="font-size: 14.5px;">Gestion RH, Paie Malagasy &amp; Rapports Comptables</h2>
+            </div>
+
+            <!-- TRIO D'ÉCRANS MINIATURES RH / ALERTES / RAPPORTS -->
+            <div class="grid-3col" style="gap: 7px; margin-bottom: 8px;">
+                <!-- SCREEN RH -->
+                <div class="screen-window" onclick="openLightbox('img/07_gestion_personnel_salaires.png', 'Gestion du Personnel — Salaires horaires, fixes et paie globale')">
+                    <div class="window-titlebar" style="padding: 3px 6px;">
+                        <span class="window-title" style="font-size: 8px;">Écran 09 : RH &amp; Salaires</span>
+                        <span class="window-badge" style="font-size: 7px;">Paie Globale</span>
+                    </div>
+                    <div class="screen-img-wrap" style="height: 36mm;">
+                        <img src="img/07_gestion_personnel_salaires.png" alt="Gestion du personnel">
+                        <div class="zoom-overlay" style="font-size: 8px;">🔍 Agrandir</div>
+                    </div>
+                </div>
+
+                <!-- SCREEN ALERTES RH / DÉPENSES -->
+                <div class="screen-window" onclick="openLightbox('img/08_alertes_impayes_rh.png', 'Traçabilité des Dépenses & Salaires — Suivi des acomptes et charges fixes')">
+                    <div class="window-titlebar" style="padding: 3px 6px;">
+                        <span class="window-title" style="font-size: 8px;">Écran 10 : Charges &amp; Dépenses</span>
+                        <span class="window-badge" style="font-size: 7px;">Avances</span>
+                    </div>
+                    <div class="screen-img-wrap" style="height: 36mm;">
+                        <img src="img/08_alertes_impayes_rh.png" alt="Traçabilité des dépenses">
+                        <div class="zoom-overlay" style="font-size: 8px;">🔍 Agrandir</div>
+                    </div>
+                </div>
+
+                <!-- SCREEN RAPPORTS -->
+                <div class="screen-window" onclick="openLightbox('img/11_rapports_comptables_exports.png', 'Centre de Rapports & Exports — Bilan financier, masse salariale, Excel/CSV')">
+                    <div class="window-titlebar" style="padding: 3px 6px;">
+                        <span class="window-title" style="font-size: 8px;">Écran 11 : Exports &amp; Bilan</span>
+                        <span class="window-badge" style="font-size: 7px;">Excel / PDF</span>
+                    </div>
+                    <div class="screen-img-wrap" style="height: 36mm;">
+                        <img src="img/11_rapports_comptables_exports.png" alt="Centre de rapports">
+                        <div class="zoom-overlay" style="font-size: 8px;">🔍 Agrandir</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRILLE TARIFAIRE DES FORMULES (SANS RESTRICTIONS D'EFFECTIFS) -->
+            <div style="margin-bottom: 7px;">
+                <div style="font-size: 8.5px; font-weight: 800; text-transform: uppercase; color: var(--rust); letter-spacing: 0.8px; margin-bottom: 3px;">
+                    ✦ Choisissez Votre Formule d'Adoption Mensuelle
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 7px;">
+                    <!-- FORMULE 1 -->
+                    <div class="pricing-mini-card">
+                        <div>
+                            <div class="pm-header">
+                                <span class="pm-title">Formule 1 : Opérationnelle</span>
+                                <div class="pm-price">119 000 Ar <span class="unit">/ mois</span></div>
+                            </div>
+                            <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25;">
+                                Caisse &amp; Secrétariat mono-poste &bull; 100% Hors-ligne &bull; Frais d'installation : 200 000 Ar
+                            </div>
+                            <ul class="pm-list">
+                                <li><span class="pm-check">✓</span> Gestion des élèves, inscriptions &amp; fratries</li>
+                                <li><span class="pm-check">✓</span> Journal de Caisse &amp; Moteur d'Alertes Impayés</li>
+                                <li><span class="pm-check">✓</span> Saisie des notes, calcul des moyennes &amp; bulletins PDF</li>
+                                <li><span class="pm-check">✓</span> Pointage journalier Bus &amp; Cantine scolaire</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- FORMULE 2 -->
+                    <div class="pricing-mini-card featured">
+                        <div>
+                            <div class="pm-header">
+                                <span class="pm-title" style="color: var(--rust-dark);">Formule 2 : Excellence VIP ★</span>
+                                <div class="pm-price">149 000 Ar <span class="unit">/ mois</span></div>
+                            </div>
+                            <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25;">
+                                ERP Intégral Multi-Postes &bull; Billetage &bull; Frais d'installation : 250 000 Ar
+                            </div>
+                            <ul class="pm-list">
+                                <li><span class="pm-check">✓</span> <strong>Tout le contenu Opérationnel inclus</strong></li>
+                                <li><span class="pm-check">✓</span> <strong>Licence Multi-Postes Réseau Local (2 à 3 postes simultanés)</strong></li>
+                                <li><span class="pm-check">✓</span> <strong>Billetage physique 20 000 à 100 Ar &amp; Ticket Z scellé</strong></li>
+                                <li><span class="pm-check">✓</span> <strong>Module Paie RH Malagasy (IRSA, CNaPS &amp; Fiches de paie)</strong></li>
+                                <li><span class="pm-check">✓</span> <strong>Auto-Guérison Cloud Supabase &amp; Bilan 18h par email</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENCADRÉ PERSPECTIVES D'AVENIR & INNOVATIONS ROADMAP -->
+            <div class="roadmap-box">
+                <div style="font-size: 8.5px; font-weight: 800; color: var(--rust-dark); text-transform: uppercase; letter-spacing: 0.5px;">
+                    ✦ Perspectives &amp; Extensions Futures (Roadmap Technologique)
+                </div>
+                <div class="roadmap-grid">
+                    <div class="roadmap-item">
+                        <strong>📱 Application Mobile Parents &amp; Direction (PWA)</strong>
+                        <p>Consultation sur smartphone en direct des notes, bulletins, retards et situation des écolages sans déplacement.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <strong>💳 Émargement Sans Contact &amp; Badge RFID</strong>
+                        <p>Badges élèves avec puce RFID pour pointage instantané au bus et à la cantine avec porte-monnaie dématérialisé.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENCADRÉ MATÉRIEL & MARQUE BLANCHE -->
+            <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 7px; margin-bottom: 6px;">
+                <!-- Pack Matériel -->
+                <div style="background: #FAFAFA; border: 1px solid var(--border); border-radius: 5px; padding: 6px 9px; display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+                    <div>
+                        <div style="font-size: 8.5px; font-weight: 700; color: var(--text-dark);">Pack Matériel : Imprimante Thermique 80 mm POS</div>
+                        <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25;">
+                            Imprimante neuve USB massicot automatique + 5 bobines 80 mm + Garantie 1 an.
+                        </div>
+                    </div>
+                    <div style="text-align: right; white-space: nowrap;">
+                        <div style="font-size: 10.5px; font-weight: 800; color: var(--rust-dark);">450 000 Ar</div>
+                        <div style="font-size: 7px; color: var(--text-light);">Forfait unique</div>
+                    </div>
+                </div>
+
+                <!-- Engagement Marque Blanche -->
+                <div style="background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%); border: 1px solid var(--border-warm); border-left: 3.5px solid var(--rust); border-radius: 5px; padding: 6px 9px;">
+                    <div style="font-size: 8.5px; font-weight: 800; color: var(--rust-dark); display: flex; align-items: center; gap: 4px;">
+                        <span>🏛️ Personnalisation Marque Blanche Offerte</span>
+                    </div>
+                    <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25; margin-top: 1px;">
+                        Intégration de votre logo officiel, de vos coordonnées et de vos armoiries sans aucun surcoût.
+                    </div>
+                </div>
+            </div>
+
+            <!-- BON POUR ACCORD & DEMANDE DE DÉMONSTRATION -->
+            <div class="bon-mini-box">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                    <strong style="font-size: 9px; color: var(--rust-dark); text-transform: uppercase; letter-spacing: 0.5px;">
+                        ✦ Bon pour Accord &amp; Réservation de Démonstration sur Site
+                    </strong>
+                    <span style="font-size: 7.5px; color: var(--text-light); text-transform: uppercase;">Mise en Service sous 48h</span>
+                </div>
+                
+                <div class="bon-mini-grid">
+                    <div class="sig-mini">
+                        <strong>Pour l'Établissement (Direction Générale / DAF) :</strong>
+                        <span>Nom du Responsable : ..............................................................</span>
+                        <span>Date &amp; Signature précédée de « Bon pour accord » :</span>
+                    </div>
+                    <div class="sig-mini">
+                        <strong>Pour Missi Innovation (Éditeur &amp; Intégrateur) :</strong>
+                        <span>Ingénierie Déploiement &amp; Formation Terrain</span>
+                        <span>Cachet &amp; Engagement d'Installation sous 48h ouvrées</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Agent Pro &bull; Dossier de Présentation Officiel</span>
+            <span>Page 05 / 05 &bull; Offres, Perspectives &amp; Validation</span>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVE LIGHTBOX & SHORTCUTS -->
+    <script>
+        function openLightbox(src, caption) {
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
+            img.src = src;
+            cap.innerText = caption || 'Aperçu capture d\'écran';
+            lb.classList.add('active');
+        }
+
+        function closeLightbox(e) {
+            if (e.target.id === 'lightbox' || e.target.id === 'lightbox-close') {
+                document.getElementById('lightbox').classList.remove('active');
+            }
+        }
+
+        // Close lightbox on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('lightbox').classList.remove('active');
+            }
+        });
+
+        // Auto print trigger if URL param present
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.location.search.includes('print=1') || window.location.hash === '#print') {
+                setTimeout(function() {
+                    window.print();
+                }, 600);
+            }
+        });
+    </script>
+</body>
+</html>

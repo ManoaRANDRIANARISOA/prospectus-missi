@@ -1,0 +1,8 @@
+# Dépendances et caches
+node_modules/
+.firebase/
+
+# Environnement et secrets
+.env
+.DS_Store
+Thumbs.db

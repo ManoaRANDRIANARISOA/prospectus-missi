@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposition Commerciale — Édition Atelier Papier d'Art &amp; Flow Tactile | Missi Innovation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rust: #A45A3D;
+            --rust-dark: #8C472D;
+            --rust-light: #FBF7F2;
+            --copper-gold: #C2672B;
+            --copper-border: #E8D6C5;
+            --gold-line: #D4A882;
+            --paper-bg: #FAF7F2;
+            --sheet-white: #FFFFFF;
+            --text-dark: #1E1B18;
+            --text-gray: #57524D;
+            --text-light: #8C8680;
+            --border-paper: #E6DDD3;
+            --border-warm: #EDE4DA;
+            --shadow-paper: 0 1px 3px rgba(44, 30, 20, 0.04), 0 8px 24px rgba(44, 30, 20, 0.05);
+            --shadow-stacked: 0 2px 4px rgba(44, 30, 20, 0.04), 0 8px 20px rgba(44, 30, 20, 0.05), 3px 3px 0 #EFEAE2;
+            --seal-shadow: 0 3px 8px rgba(164, 90, 61, 0.2), inset 0 1px 2px #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background: #EAE3D6;
+            background-image: radial-gradient(#DDD4C5 0.75px, transparent 0.75px);
+            background-size: 16px 16px;
+            line-height: 1.35;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        /* ACTIONS BAR (WEB ONLY) */
+        .no-print {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            background: rgba(28, 25, 23, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid var(--rust);
+            padding: 10px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .no-print .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .no-print .style-pill {
+            background: rgba(164, 90, 61, 0.25);
+            border: 1px solid var(--rust);
+            color: #FED7AA;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .no-print .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .no-print .btn-action {
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.15s ease;
+        }
+
+        .no-print .btn-link {
+            background: rgba(255,255,255,0.08);
+            color: #E7E5E4;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .no-print .btn-link:hover {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .no-print .btn-primary {
+            background: var(--rust);
+            color: white;
+            border: 1px solid var(--rust);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(164, 90, 61, 0.35);
+        }
+
+        .no-print .btn-primary:hover {
+            background: var(--rust-dark);
+        }
+
+        /* PAGE A4 (210mm x 297mm) */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 14mm auto;
+            background: var(--paper-bg);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.85) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(234, 218, 200, 0.3) 0%, transparent 50%);
+            padding: 12mm 15mm 13mm 15mm;
+            position: relative;
+            box-shadow: 
+                0 1px 3px rgba(44, 30, 20, 0.04),
+                0 12px 36px rgba(44, 30, 20, 0.08),
+                3px 3px 0 #E2D7C8,
+                6px 6px 0 #D7CBB9;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @media print {
+            body { background: none; }
+            .no-print { display: none !important; }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                min-height: 297mm;
+                max-height: 297mm;
+                height: 297mm;
+            }
+        }
+
+        /* SCHEMATIC CIRCUIT CONNECTORS (IMAGE 1 STYLE) */
+        .schematic-wire-h {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(212, 168, 130, 0.2) 0%, var(--gold-line) 50%, rgba(212, 168, 130, 0.2) 100%);
+            position: relative;
+            margin: 6px 0;
+        }
+
+        .schematic-seal-node {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #FFFFFF 0%, #F5ECE0 100%);
+            border: 1.5px solid var(--copper-gold);
+            box-shadow: var(--seal-shadow);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--copper-gold);
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+
+        /* HEADER TOP */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 7px;
+            margin-bottom: 8px;
+            border-bottom: 1.5px solid var(--copper-border);
+        }
+
+        .header-left {
+            font-size: 8px;
+            font-weight: 700;
+            color: var(--rust-dark);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .header-left span {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8px;
+            color: var(--text-light);
+            line-height: 1.25;
+        }
+
+        .header-right strong {
+            color: var(--text-dark);
+            font-size: 10px;
+        }
+
+        /* SECTION HEADER */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .section-num-seal {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #FFFFFF 0%, #F4EAE0 100%);
+            border: 1.8px solid var(--rust);
+            color: var(--rust-dark);
+            font-size: 11px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--seal-shadow);
+            flex-shrink: 0;
+        }
+
+        .section-header-text h2 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.15;
+        }
+
+        .section-header-text p {
+            font-size: 8.5px;
+            color: var(--text-gray);
+            margin-top: 1px;
+        }
+
+        /* PAPER CARDS (STACKED EFFECT) */
+        .paper-card {
+            background: var(--sheet-white);
+            border: 1px solid var(--border-paper);
+            border-radius: 7px;
+            padding: 8px 11px;
+            box-shadow: var(--shadow-stacked);
+            position: relative;
+        }
+
+        .paper-card.featured {
+            border: 1.5px solid var(--rust);
+            background: linear-gradient(180deg, #FFFFFF 0%, #FCFAF7 100%);
+            box-shadow: 0 4px 12px rgba(164, 90, 61, 0.12), 3px 3px 0 #E8D8CA;
+        }
+
+        /* PAGE 1 : HERO & PILIERS */
+        .hero-paper-box {
+            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%);
+            border: 1px solid var(--copper-border);
+            border-left: 4px solid var(--rust);
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-bottom: 9px;
+            box-shadow: var(--shadow-stacked);
+        }
+
+        .hero-paper-box h1 {
+            font-size: 18.5px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.15;
+            margin-bottom: 4px;
+        }
+
+        .hero-paper-box h2 {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--rust-dark);
+            margin-bottom: 6px;
+        }
+
+        .hero-paper-box p {
+            font-size: 8.8px;
+            color: var(--text-gray);
+            line-height: 1.4;
+        }
+
+        /* 3 PILLARS CARDS */
+        .pillars-paper-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 9px;
+        }
+
+        .pillar-card {
+            background: var(--sheet-white);
+            border: 1px solid var(--border-paper);
+            border-radius: 7px;
+            padding: 8px 10px;
+            box-shadow: var(--shadow-stacked);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .pillar-seal-icon {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #FFFFFF 0%, #F5ECE0 100%);
+            border: 1.2px solid var(--rust);
+            color: var(--rust);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 1px 3px rgba(44, 30, 20, 0.08);
+        }
+
+        .pillar-card strong {
+            display: block;
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .pillar-card span {
+            display: block;
+            font-size: 7.8px;
+            color: var(--text-gray);
+            line-height: 1.25;
+            margin-top: 2px;
+        }
+
+        /* PAGE 2 : PRICING SHEETS */
+        .pricing-sheets-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 11px;
+            margin-bottom: 9px;
+        }
+
+        .pricing-sheet {
+            background: var(--sheet-white);
+            border: 1.2px solid var(--border-paper);
+            border-radius: 8px;
+            padding: 11px 14px;
+            box-shadow: var(--shadow-stacked);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .pricing-sheet.featured {
+            border: 1.5px solid var(--rust);
+            box-shadow: 0 4px 16px rgba(164, 90, 61, 0.12), 3px 3px 0 #E2D2C2;
+        }
+
+        .sheet-badge-featured {
+            position: absolute;
+            top: -9px;
+            right: 14px;
+            background: linear-gradient(135deg, var(--rust) 0%, var(--rust-dark) 100%);
+            color: white;
+            font-size: 7.2px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 2.5px 8px;
+            border-radius: 999px;
+            box-shadow: 0 2px 5px rgba(164, 90, 61, 0.3);
+        }
+
+        .sheet-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .sheet-title h3 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .sheet-title .sub {
+            font-size: 8px;
+            color: var(--text-gray);
+            margin-top: 2px;
+        }
+
+        .sheet-price {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .sheet-price .strike {
+            font-size: 8px;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+
+        .sheet-price .amount {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--rust-dark);
+            line-height: 1;
+        }
+
+        .sheet-price .unit {
+            font-size: 8px;
+            color: var(--text-gray);
+        }
+
+        .sheet-features {
+            list-style: none;
+            margin: 8px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4.5px;
+        }
+
+        .sheet-features li {
+            font-size: 8px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            line-height: 1.25;
+        }
+
+        .sheet-features li svg {
+            color: var(--rust);
+            flex-shrink: 0;
+        }
+
+        /* PAGE 3 : CATALOGUE DES 10 MODULES */
+        .catalog-paper-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 7px;
+            margin-bottom: 8px;
+        }
+
+        .cat-paper-card {
+            background: var(--sheet-white);
+            border: 1px solid var(--border-paper);
+            border-radius: 6px;
+            padding: 6px 9px;
+            box-shadow: var(--shadow-stacked);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 48px;
+        }
+
+        .cat-paper-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            margin-bottom: 2.5px;
+        }
+
+        .cat-paper-title {
+            font-size: 9.6px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cat-paper-icon {
+            color: var(--rust);
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .cat-paper-tag {
+            font-size: 7.2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 1.5px 6px;
+            border-radius: 4px;
+            background: #F7F3EE;
+            color: #8C4318;
+            border: 1px solid #E6DCD1;
+            white-space: nowrap;
+        }
+
+        .cat-paper-tag.gold {
+            background: var(--rust);
+            color: white;
+            border-color: var(--rust);
+        }
+
+        .cat-paper-desc {
+            font-size: 8.3px;
+            color: var(--text-gray);
+            line-height: 1.35;
+            margin-bottom: 3.5px;
+        }
+
+        .cat-paper-points {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .cat-paper-points li {
+            font-size: 7.5px;
+            font-weight: 600;
+            color: #44403C;
+            background: #F5EFEB;
+            border: 1px solid #EAE3DA;
+            padding: 1px 5px;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .cat-paper-points li .bullet {
+            color: var(--rust);
+            font-weight: 800;
+        }
+
+        /* PAGE 4 : CAHIER DES CHARGES & ACCORD */
+        .specs-paper-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 1px solid var(--border-paper);
+            border-radius: 7px;
+            overflow: hidden;
+            background: var(--sheet-white);
+            margin-bottom: 8px;
+            box-shadow: var(--shadow-stacked);
+        }
+
+        .specs-paper-table th {
+            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%);
+            color: var(--rust-dark);
+            font-size: 8.8px;
+            font-weight: 700;
+            padding: 6px 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-paper);
+            letter-spacing: 0.3px;
+        }
+
+        .specs-paper-table td {
+            padding: 5.5px 10px;
+            font-size: 8px;
+            line-height: 1.3;
+            border-bottom: 1px solid #F2ECE5;
+        }
+
+        .specs-paper-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .specs-paper-table td.col-name {
+            font-weight: 700;
+            color: var(--text-dark);
+            width: 32%;
+            background: #FDFBF8;
+            border-right: 1px solid #F2ECE5;
+        }
+
+        .specs-paper-table td.col-desc {
+            color: var(--text-gray);
+        }
+
+        /* BON POUR ACCORD SCHEMATIC */
+        .bon-paper-box {
+            background: var(--sheet-white);
+            border: 1.5px dashed var(--rust);
+            border-radius: 8px;
+            padding: 9px 12px;
+            box-shadow: var(--shadow-stacked);
+        }
+
+        .bon-paper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .bon-paper-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .sig-paper-card {
+            background: #FCFBF9;
+            border: 1px solid var(--border-paper);
+            border-radius: 5px;
+            padding: 7px 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 54px;
+            font-size: 7.8px;
+            color: var(--text-gray);
+        }
+
+        .sig-paper-card strong {
+            font-size: 8.2px;
+            color: var(--text-dark);
+        }
+
+        /* PAGE FOOTER */
+        .page-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 6px;
+            margin-top: 6px;
+            border-top: 1px solid var(--copper-border);
+            font-size: 7.5px;
+            color: var(--text-light);
+        }
+
+        .page-footer strong {
+            color: var(--rust-dark);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRE D'ACTION WEB (NON IMPRIMÉE) -->
+    <div class="no-print">
+        <a href="index.html" class="brand">
+            <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="22" fill="#A45A3D"/>
+                <path d="M14 34V18L24 25L34 18V34" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Missi Innovation &bull; Study Agent Pro
+        </a>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <span class="style-pill">Option A : Atelier Papier d'Art &amp; Flow Tactile</span>
+            <div class="nav-actions">
+                <a href="proposition_commerciale_bento_glass.html" class="btn-action btn-link">Style B (Bento Glass &amp; Widgets) →</a>
+                <a href="index.html" class="btn-action btn-link">Catalogue Showroom</a>
+                <button onclick="window.print()" class="btn-action btn-primary">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                    Imprimer Dossier (4 Pages A4)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 1 : COUVERTURE, ARCHITECTURE & SCEAUX -->
+    <!-- ========================================== -->
+    <div class="page" id="page-1">
+        <div>
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="header-left">
+                    DOSSIER DE PRÉSENTATION TECHNIQUE &bull; <span>ERP SCOLAIRE CLÉS-EN-MAIN 2026-2027</span>
+                </div>
+                <div class="header-right">
+                    Émis en <strong>2026</strong><br>
+                    <span>Dossier Direction Générale &bull; Déploiement Sous 48h</span>
+                </div>
+            </div>
+
+            <!-- Hero Box Feuillets Étagés -->
+            <div class="hero-paper-box">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span class="schematic-seal-node">✓</span>
+                        <span style="font-size: 8.5px; font-weight: 700; color: var(--rust-dark); text-transform: uppercase; letter-spacing: 0.5px;">
+                            Solution Personnalisée en Marque Blanche &bull; 100% Hors-Ligne
+                        </span>
+                    </div>
+                    <span style="font-size: 8px; font-weight: 700; color: #059669; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 2px 8px; border-radius: 4px;">
+                        Zéro Dépendance Web
+                    </span>
+                </div>
+                <h1 class="serif">Système Intégré de Pilotage &amp; Forteresse Financière</h1>
+                <h2>La solution clés-en-main pour collèges, lycées et écoles privées d'excellence</h2>
+                <p>
+                    Face aux délestages JIRAMA récurrents et aux risques d'écarts de caisse, Missi Innovation implante au sein de votre établissement une infrastructure souveraine : fonctionnement local instantané sans aucune dépendance à Internet, sécurisation absolue des écolages, et synchronisation Cloud miroir automatisée à 18h.
+                </p>
+            </div>
+
+            <!-- Wireframe Schematic Connection -->
+            <div class="schematic-wire-h"></div>
+
+            <!-- 3 Piliers avec Sceaux Tactiles -->
+            <div class="pillars-paper-grid">
+                <div class="pillar-card">
+                    <div class="pillar-seal-icon">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <div>
+                        <strong>1. Caisse Inviolable</strong>
+                        <span>Ticket thermique 80 mm scellé, billetage physique de 20 000 à 100 Ar et zéro détournement d'écolage.</span>
+                    </div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-seal-icon">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <div>
+                        <strong>2. Sérénité Hors-Ligne</strong>
+                        <span>Moteur SQLite local ultra-rapide avec réconciliation Cloud Supabase anti-écrasement (LWW).</span>
+                    </div>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-seal-icon">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/><path d="M15 9h4v4"/></svg>
+                    </div>
+                    <div>
+                        <strong>3. Marque Blanche Pure</strong>
+                        <span>Le progiciel, reçus de caisse et bulletins de paie portent le nom officiel et les armoiries de votre école.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carte Architecture Hybride Déployée -->
+            <div class="paper-card" style="margin-bottom: 8px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span class="schematic-seal-node" style="width: 18px; height: 18px; font-size: 8px;">🏛️</span>
+                        <strong style="font-size: 9.5px; color: var(--rust-dark); text-transform: uppercase; letter-spacing: 0.5px;">
+                            Architecture Hybride Déployée sur Site
+                        </strong>
+                    </div>
+                    <span style="font-size: 7.5px; color: var(--text-light); text-transform: uppercase;">Prêt pour Déploiement Sous 48h</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 8px; color: var(--text-gray);">
+                    <div style="background: #FAF8F5; padding: 6px 8px; border-radius: 5px; border: 1px solid var(--border-paper);">
+                        <strong style="color: var(--text-dark); display: block; margin-bottom: 2px;">Poste Caisse &amp; Accueil :</strong>
+                        Connexion directe imprimante ticket 80 mm POS, encaissement en 4 secondes, reçu immédiat pour les parents.
+                    </div>
+                    <div style="background: #FAF8F5; padding: 6px 8px; border-radius: 5px; border: 1px solid var(--border-paper);">
+                        <strong style="color: var(--text-dark); display: block; margin-bottom: 2px;">Poste Direction &amp; DAF :</strong>
+                        Visibilité en direct sur les recettes, traque des reliquats d'écolages, bilan financier et calcul paie IRSA/CNaPS.
+                    </div>
+                    <div style="background: #FAF8F5; padding: 6px 8px; border-radius: 5px; border: 1px solid var(--border-paper);">
+                        <strong style="color: var(--text-dark); display: block; margin-bottom: 2px;">Cloud Supabase Sécurisé :</strong>
+                        Sauvegarde miroir quotidienne à 18h par email, restauration instantanée sur PC de secours en cas de sinistre.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Engagement & Accompagnement -->
+            <div style="background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%); border: 1px solid var(--border-warm); border-left: 3.5px solid var(--rust); border-radius: 6px; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; box-shadow: var(--shadow-stacked);">
+                <div>
+                    <div style="font-size: 9.5px; font-weight: 700; color: var(--rust-dark);">Engagement « 100% Clés-en-Main » Missi Innovation</div>
+                    <div style="font-size: 8px; color: var(--text-gray); line-height: 1.3;">
+                        Installation sur vos ordinateurs, formation du personnel sur site, et assistance téléphonique 6j/7 garantie sous 2h ouvrées.
+                    </div>
+                </div>
+                <div style="text-align: right; white-space: nowrap;">
+                    <div style="font-size: 9px; font-weight: 800; color: var(--rust-dark);">Installation sous 48h</div>
+                    <div style="font-size: 7px; color: var(--text-light);">Formation &bull; Support Inclus</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Page 1 -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Agent Pro &bull; Dossier de Présentation Officiel</span>
+            <span>Page 01 / 04 &bull; Vision Stratégique &amp; Architecture</span>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 2 : GRILLE FINANCIÈRE & BILLETAGE     -->
+    <!-- ========================================== -->
+    <div class="page" id="page-2">
+        <div>
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="header-left">
+                    SECTION FINANCIÈRE &bull; <span>FORMULES D'ABONNEMENT ET RENTABILITÉ</span>
+                </div>
+                <div class="header-right">
+                    Tarification Transparente &bull; <strong>Sans Frais Cachés</strong>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <div class="section-num-seal">02</div>
+                <div class="section-header-text">
+                    <h2 class="serif">Les Formules d'Abonnement &amp; Rentabilité Immédiate</h2>
+                    <p>Frais d'installation initiaux : 250 000 Ar (One-shot couvrant déploiement réseau, paramétrage imprimante &amp; formation sur site).</p>
+                </div>
+            </div>
+
+            <!-- Grille des 2 Formules -->
+            <div class="pricing-sheets-grid">
+                <!-- FORMULE 1 -->
+                <div class="pricing-sheet">
+                    <div>
+                        <div class="sheet-header-top">
+                            <div class="sheet-title">
+                                <span class="cat-paper-tag">Formule 1</span>
+                                <h3 class="serif" style="margin-top: 3px;">Opérationnelle &bull; Caisse</h3>
+                                <div class="sub">L'essentiel pour sécuriser les encaissements et éliminer les carnets manuels.</div>
+                            </div>
+                            <div class="sheet-price">
+                                <div class="strike">149 000 Ar</div>
+                                <div class="amount">119 000 Ar</div>
+                                <div class="unit">/ mois</div>
+                            </div>
+                        </div>
+
+                        <ul class="sheet-features">
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Licence Mono-poste Caisse / Secrétariat</li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Dossiers Élèves, fratries &amp; affectation des classes</li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Pointage d'Assiduité quotidien (Bus, Cantine)</li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Journal de Caisse &amp; Suivi des Écolages au jour le jour</strong></li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Alertes Impayés &amp; Reliquats en temps réel</strong></li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Certificats de scolarité PDF officiels en 1 clic</strong></li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Fonctionnement 100% Hors-Ligne (Zéro Coupure)</li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Export Excel complet des effectifs et des recettes</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: var(--paper-bg); border-radius: 5px; padding: 6px 8px; font-size: 7.5px; color: var(--text-gray); border: 1px solid var(--border-paper);">
+                        💡 <strong>Rentabilité :</strong> Dès le premier retard d'écolage recouvré grâce au logiciel, l'abonnement mensuel est intégralement remboursé.
+                    </div>
+                </div>
+
+                <!-- FORMULE 2 : VEDETTE -->
+                <div class="pricing-sheet featured">
+                    <span class="sheet-badge-featured">★ L'Offre la Plus Choisie</span>
+                    <div>
+                        <div class="sheet-header-top">
+                            <div class="sheet-title">
+                                <span class="cat-paper-tag gold">Formule 2</span>
+                                <h3 class="serif" style="margin-top: 3px; color: var(--rust-dark);">Excellence VIP &bull; Intégrale</h3>
+                                <div class="sub">Multi-postes en réseau local, billetage d'espèces scellé et module RH Paie complet.</div>
+                            </div>
+                            <div class="sheet-price">
+                                <div class="strike">199 000 Ar</div>
+                                <div class="amount">149 000 Ar</div>
+                                <div class="unit">/ mois</div>
+                            </div>
+                        </div>
+
+                        <ul class="sheet-features">
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Tout le contenu de la Formule Opérationnelle inclus</strong></li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Licence Multi-Postes Réseau Local (2 à 3 postes simultanés)</strong></li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Billetage d'Espèces de 20 000 à 100 Ar &amp; Ticket Z scellé</strong></li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Module Paie RH Malagasy (IRSA, CNaPS, Fiches de paie PDF)</strong></li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Auto-Guérison Cloud Supabase &amp; Bilan quotidien par email à 18h</strong></li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Contrôle multi-caisses indépendant et clôture sécurisée</li>
+                            <li><svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Support VIP Prioritaire 6j/7 &bull; Prêt PC secours sous 4h</strong></li>
+                        </ul>
+                    </div>
+
+                    <div style="background: var(--rust-light); border-radius: 5px; padding: 6px 8px; font-size: 7.5px; color: var(--rust-dark); border: 1px solid var(--copper-border);">
+                        ⭐ <strong>Recommandation DAF :</strong> Empêche toute divergence de caisse en fin de journée et dégage 3h de gestion RH chaque mois.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus Billetage Physique & Forteresse -->
+            <div class="paper-card" style="margin-bottom: 7px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                    <strong style="font-size: 9px; color: var(--rust-dark); text-transform: uppercase;">
+                        🔒 Focus Billetage Physique &bull; Pourquoi est-ce Inviolable ?
+                    </strong>
+                    <span style="font-size: 7.5px; font-weight: 700; color: #047857; background: #ECFDF5; padding: 2px 7px; border-radius: 3px; border: 1px solid #A7F3D0;">
+                        Protection Anti-Fraude
+                    </span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 8px; color: var(--text-gray);">
+                    <div style="background: #FAF8F5; padding: 6px 8px; border-radius: 5px; border: 1px solid var(--border-paper);">
+                        <strong style="color: var(--text-dark); display: block; margin-bottom: 2px;">Comptage Coupure par Coupure :</strong>
+                        À chaque clôture, la caissière saisit les coupures réelles (20 000, 10 000, 5 000, 2 000, 1 000, 500, 200, 100 Ar). Le système calcule immédiatement le delta par rapport aux encaissements enregistrés.
+                    </div>
+                    <div style="background: #FAF8F5; padding: 6px 8px; border-radius: 5px; border: 1px solid var(--border-paper);">
+                        <strong style="color: var(--text-dark); display: block; margin-bottom: 2px;">Ticket Z Scellé &amp; Inaltérable :</strong>
+                        Une fois la caisse validée, le Ticket Z est imprimé avec un numéro d'ordre incrémental non réinitialisable. Les données sont scellées et transmises au Cloud, interdisant toute modification rétroactive.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option Licence Définitive -->
+            <div style="background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%); border: 1px solid var(--copper-border); border-left: 3.5px solid var(--rust); border-radius: 6px; padding: 7px 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px; box-shadow: var(--shadow-stacked);">
+                <div>
+                    <strong style="font-size: 8.8px; color: var(--rust-dark);">Option Achat de Licence Définitive (Plein Titre de Propriété) :</strong>
+                    <span style="font-size: 7.8px; color: var(--text-gray); display: block;">Pour les établissements souhaitant acquérir le progiciel sans abonnement mensuel avec maintenance annuelle.</span>
+                </div>
+                <div style="text-align: right; white-space: nowrap;">
+                    <div style="font-size: 10px; font-weight: 800; color: var(--rust-dark);">1 850 000 Ar</div>
+                    <div style="font-size: 7px; color: var(--text-light);">Licence perpétuelle sur devis</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Page 2 -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Agent Pro &bull; Dossier de Présentation Officiel</span>
+            <span>Page 02 / 04 &bull; Formules d'Abonnement &amp; Billetage</span>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 3 : CATALOGUE DES 10 MODULES          -->
+    <!-- ========================================== -->
+    <div class="page" id="page-3">
+        <div>
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="header-left">
+                    CATALOGUE MODULAIRE &bull; <span>EXTENSIONS ET PERSPECTIVES D'AVENIR</span>
+                </div>
+                <div class="header-right">
+                    Architecture Évolutive &bull; <strong>10 Modules Activables</strong>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <div class="section-num-seal">03</div>
+                <div class="section-header-text">
+                    <h2 class="serif">Perspectives d'Avenir &amp; Catalogue Modulaire</h2>
+                    <p>Modules d'extension déployables à la carte selon la croissance de votre établissement, 100% compatibles.</p>
+                </div>
+            </div>
+
+            <!-- Bandeau Piliers -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px; background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%); border: 1px solid var(--border-paper); border-left: 3.5px solid var(--rust); border-radius: 6px; padding: 7px 10px; box-shadow: var(--shadow-stacked);">
+                <div style="display: flex; align-items: center; gap: 7px;">
+                    <div class="schematic-seal-node" style="width: 22px; height: 22px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <div>
+                        <strong style="font-size: 8.8px; color: var(--rust-dark); display: block;">100% Hors-Ligne</strong>
+                        <span style="font-size: 7.6px; color: var(--text-gray); display: block;">Immunité totale aux délestages</span>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 7px;">
+                    <div class="schematic-seal-node" style="width: 22px; height: 22px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <div>
+                        <strong style="font-size: 8.8px; color: var(--rust-dark); display: block;">Auto-Guérison LWW</strong>
+                        <span style="font-size: 7.6px; color: var(--text-gray); display: block;">Synchronisation Cloud sans écrasement</span>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 7px;">
+                    <div class="schematic-seal-node" style="width: 22px; height: 22px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    </div>
+                    <div>
+                        <strong style="font-size: 8.8px; color: var(--rust-dark); display: block;">Amortissement ROI</strong>
+                        <span style="font-size: 7.6px; color: var(--text-gray); display: block;">Fin des fuites de trésorerie</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grille 10 Modules Papier d'Art -->
+            <div class="catalog-paper-grid">
+                <!-- MODULE 1 -->
+                <div class="cat-paper-card">
+                    <div>
+                        <div class="cat-paper-header">
+                            <span class="cat-paper-title">
+                                <span class="cat-paper-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg></span>
+                                Portail Parents &amp; Suivi Mobile
+                            </span>
+                            <span class="cat-paper-tag gold">★ Très Demandé</span>
+                        </div>
+                        <p class="cat-paper-desc">Espace smartphone permettant aux familles de consulter notes, bulletins, retards et solde d'écolage en temps réel avec notifications SMS &amp; WhatsApp.</p>
+                    </div>
+                    <ul class="cat-paper-points">
+                        <li><span class="bullet">✓</span> Alertes WhatsApp &amp; SMS</li>
+                        <li><span class="bullet">✓</span> Bulletins en direct</li>
+                        <li><span class="bullet">✓</span> -80% files d'attente</li>
+                    </ul>
+                </div>
+
+                <!-- MODULE 2 -->
+                <div class="cat-paper-card">
+                    <div>
+                        <div class="cat-paper-header">
+                            <span class="cat-paper-title">
+                                <span class="cat-paper-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg></span>
+                                Inscriptions en Ligne
+                            </span>
+                            <span class="cat-paper-tag">Gain de Temps</span>
+                        </div>
+                        <p class="cat-paper-desc">Formulaires web pour la rentrée : téléversement direct des pièces justificatives par les parents, injection automatique dans le logiciel et validation direction en 1 clic.</p>
+                    </div>
+                    <ul class="cat-paper-points">
+                        <li><span class="bullet">✓</span> Zéro resaisie secrétariat</li>
+                        <li><span class="bullet">✓</span> Pièces dématérialisées</li>
+                        <li><span class="bullet">✓</span> Validation 1 clic</li>
+                    </ul>
+                </div>
+
+                <!-- MODULE 3 -->
+                <div class="cat-paper-card">
+                    <div>
+                        <div class="cat-paper-header">
+                            <span class="cat-paper-title">
+                                <span class="cat-paper-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                                Recrutement Web &amp; RH
+                            </span>
+                            <span class="cat-paper-tag">Efficacité RH</span>
+                        </div>
+                        <p class="cat-paper-desc">Page dédiée à l'image de l'école pour collecter et filtrer les candidatures enseignants &amp; personnel, centralisation des CV et pré-remplissage des fiches employés.</p>
+                    </div>
+                    <ul class="cat-paper-points">
+                        <li><span class="bullet">✓</span> CV &amp; diplômes centralisés</li>
+                        <li><span class="bullet">✓</span> Grille d'évaluation</li>
+                        <li><span class="bullet">✓</span> Fiche salarié auto</li>
+                    </ul>
+                </div>
+
+                <!-- MODULE 4 -->
+                <div class="cat-paper-card">
+                    <div>
+                        <div class="cat-paper-header">
+                            <span class="cat-paper-title">
+                                <span class="cat-paper-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></svg></span>
+                                Emploi du Temps Intelligent
+                            </span>
+                            <span class="cat-paper-tag">Anti-Conflit</span>
+                        </div>
+                        <p class="cat-paper-desc">Concepteur visuel interactif par glisser-déposer : détection instantanée des chevauchements de salles ou de professeurs et génération de plannings imprimables par classe.</p>
+                    </div>
+                    <ul class="cat-paper-points">
+                        <li><span class="bullet">✓</span> Zéro doublon prof/salle</li>
+                        <li><span class="bullet">✓</span> Export PDF classe</li>
+                        <li><span class="bullet">✓</span> Affichage panneau</li>
+                    </ul>
+                </div>
+
+                <!-- MODULE 5 -->
+                <div class="cat-paper-card">
+                    <div>
+                        <div class="cat-paper-header">
+                            <span class="cat-paper-title">
+                                <span class="cat-paper-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                                Pointage Biométrique Personnel
+                            </span>
+                            <span class="cat-paper-tag">Rigueur RH</span>
+                        </div>
+                        <p class="cat-paper-desc">Connexion avec pointeuses (empreinte digitale, faciale ou badge RFID) pour enregistrer l'assiduité réelle du personnel, calcul automatique des retards et pré-paie.</p>
+                    </div>
+                    <ul class="cat-paper-points">
+                        <li><span class="bullet">✓</span> Heures &amp; retards exacts</li>
+                        <li><span class="bullet">✓</span> Pré-remplissage paie</li>
+                        <li><span class="bullet">✓</span> Zéro litige horaire</li>
+                    </ul>
+                </div>
+
+                <!-- MODULE 6 -->
+                <div class="cat-paper-card">
+                    <div>
+                        <div class="cat-paper-header">
+                            <span class="cat-paper-title">
+                                <span class="cat-paper-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                                Bibliothèque Scolaire &amp; CDI
+                            </span>
+                            <span class="cat-paper-tag">Patrimoine</span>
+                        </div>
+                        <p class="cat-paper-desc">Inventaire exhaustif des manuels et ouvrages, gestion des prêts par douchette code-barres, alertes automatiques de restitution avant fin d'année et gestion des cautions.</p>
+                    </div>
+                    <ul class="cat-paper-points">
+                        <li><span class="bullet">✓</span> Prêts liés au matricule</li>
+                        <li><span class="bullet">✓</span> Alertes retards fin d'année</li>
+                        <li><span class="bullet">✓</span> Suivi cautions</li>
+                    </ul>
+                </div>
+
+                <!-- MODULE 7 -->
+                <div class="cat-paper-card">
+                    <div>
+                        <div class="cat-paper-header">
+                            <span class="cat-paper-title">
+                                <span class="cat-paper-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></span>
+                                Paiement Mobile Money Intégré
+                            </span>
+                            <span class="cat-paper-tag">Sans Espèces</span>
+                        </div>
+                        <p class="cat-paper-desc">Règlement de l'écolage par Mvola, Orange Money et Airtel Money 24h/24 sans déplacement des parents, réconciliation instantanée et reçu officiel transmis par SMS.</p>
+                    </div>
+                    <ul class="cat-paper-points">
+                        <li><span class="bullet">✓</span> Moins d'espèces en caisse</li>
+                        <li><span class="bullet">✓</span> Rapprochement seconde</li>
+                        <li><span class="bullet">✓</span> Reçu SMS immédiat</li>
+                    </ul>
+                </div>
+
+                <!-- MODULE 8 -->
+                <div class="cat-paper-card">
+                    <div>
+                        <div class="cat-paper-header">
+                            <span class="cat-paper-title">
+                                <span class="cat-paper-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8a7 7 0 0 1 14 0"/><path d="M8 11a4 4 0 0 1 8 0"/><line x1="12" x2="12" y1="14" y2="14.01"/></svg></span>
+                                Badge RFID Élève &amp; Cantine
+                            </span>
+                            <span class="cat-paper-tag">Fluidité</span>
+                        </div>
+                        <p class="cat-paper-desc">Badge sans contact pour chaque élève. Passage ultra-rapide à la borne du réfectoire, débit automatique des forfaits repas prépayés et contrôle des régimes/allergies.</p>
+                    </div>
+                    <ul class="cat-paper-points">
+                        <li><span class="bullet">✓</span> Forfaits prépayés débités</li>
+                        <li><span class="bullet">✓</span> Passage cantine 2 sec</li>
+                        <li><span class="bullet">✓</span> Suivi allergies</li>
+                    </ul>
+                </div>
+
+                <!-- MODULE 9 -->
+                <div class="cat-paper-card">
+                    <div>
+                        <div class="cat-paper-header">
+                            <span class="cat-paper-title">
+                                <span class="cat-paper-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 17h2l.64-2.54a6 6 0 0 0-1.82-5.91l-1.92-1.55H5.1l-1.92 1.55a6 6 0 0 0-1.82 5.91L2 17h2"/><path d="M14 17H9"/><circle cx="6.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg></span>
+                                Transport Scolaire &amp; GPS Bus
+                            </span>
+                            <span class="cat-paper-tag">Sécurité</span>
+                        </div>
+                        <p class="cat-paper-desc">Optimisation des circuits de ramassage, suivi des navettes par géolocalisation en direct, liste d'appel numérique par arrêt et facturation automatique par zone.</p>
+                    </div>
+                    <ul class="cat-paper-points">
+                        <li><span class="bullet">✓</span> Géolocalisation temps réel</li>
+                        <li><span class="bullet">✓</span> Appel numérique arrêt</li>
+                        <li><span class="bullet">✓</span> Facturation par axe</li>
+                    </ul>
+                </div>
+
+                <!-- MODULE 10 -->
+                <div class="cat-paper-card">
+                    <div>
+                        <div class="cat-paper-header">
+                            <span class="cat-paper-title">
+                                <span class="cat-paper-icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg></span>
+                                Activités Périscolaires &amp; Clubs
+                            </span>
+                            <span class="cat-paper-tag">Vie Scolaire</span>
+                        </div>
+                        <p class="cat-paper-desc">Gestion des inscriptions aux clubs (musique, théâtre, sports, échecs) et garderie du soir avec pointage d'assiduité, facturation automatique et contrôle des autorisations de sortie.</p>
+                    </div>
+                    <ul class="cat-paper-points">
+                        <li><span class="bullet">✓</span> Appel atelier par animateur</li>
+                        <li><span class="bullet">✓</span> Facturation forfait/heure</li>
+                        <li><span class="bullet">✓</span> Sorties sécurisées</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Strip -->
+            <div style="background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%); border: 1px solid var(--border-paper); border-left: 3.5px solid var(--rust); border-radius: 6px; padding: 7px 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; box-shadow: var(--shadow-stacked);">
+                <div style="font-size: 8.5px; color: var(--text-dark); line-height: 1.35;">
+                    <strong style="color: var(--rust-dark);">✦ Évolutivité Garantie sans Rupture Technique :</strong> Tous ces modules s'intègrent nativement à votre base de données locale et Cloud existante. Votre investissement initial est 100% protégé et pérenne.
+                </div>
+                <div style="background: var(--rust); color: white; font-size: 8px; font-weight: 700; padding: 5px 12px; border-radius: 5px; white-space: nowrap; box-shadow: 0 2px 6px rgba(164, 90, 61, 0.25);">
+                    Étude &amp; Devis Modulaire sur Demande
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Page 3 -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Agent Pro &bull; Dossier de Présentation Officiel</span>
+            <span>Page 03 / 04 &bull; Perspectives &amp; Catalogue Modulaire</span>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 4 : CAHIER DES CHARGES & ACCORD       -->
+    <!-- ========================================== -->
+    <div class="page" id="page-4">
+        <div>
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="header-left">
+                    ENGAGEMENT CONTRACTUEL &bull; <span>PÉRIMÈTRE TECHNIQUE ET ACCORD OFFICIEL</span>
+                </div>
+                <div class="header-right">
+                    Déploiement sous 48h &bull; <strong>Garantie Sérénité</strong>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <div class="section-num-seal">04</div>
+                <div class="section-header-text">
+                    <h2 class="serif">Cahier des Charges Exhaustif &amp; Bon pour Accord</h2>
+                    <p>Synthèse contractuelle des prestations livrées et réservation de mise en service sur votre site.</p>
+                </div>
+            </div>
+
+            <!-- Specs Table 1 : Académique -->
+            <table class="specs-paper-table">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="serif">1. Module Académique, Vie Scolaire &amp; Assiduité</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-name">Profil Élève &amp; Scolarité</td>
+                        <td class="col-desc">Identité complète, matricule automatique, photo, classe, coordonnées tuteurs, numéros d'urgence, école d'origine et gestion des fratries.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name">Inscriptions &amp; Échéanciers</td>
+                        <td class="col-desc">Droits annuels (Inscription, Droit d'examen) et échéancier automatique d'écolage mensuel calibré selon la classe.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name">Services Annexes &amp; Transport</td>
+                        <td class="col-desc">Abonnements Cantine et Transport Scolaire par zone/circuit, avec gestion des tarifs dérogatoires personnalisés.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name">Pointage Quotidien &amp; Assiduité</td>
+                        <td class="col-desc">Interface journalière de contrôle validant la présence physique des élèves (Bus, Cantine) pour une parfaite traçabilité.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name">Certificats &amp; Exports</td>
+                        <td class="col-desc">Édition en 1 clic des certificats de scolarité PDF officiels prêts pour signature et cachet. Export complet des effectifs en Excel/CSV.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Specs Table 2 : Finance & Caisse -->
+            <table class="specs-paper-table">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="serif">2. Forteresse Financière, Caisse &amp; Rapprochement Billetage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-name">Guichet &amp; Reçus Thermiques</td>
+                        <td class="col-desc">Encaissement éclair en 4 secondes avec impression instantanée sur ticket 80 mm ou A5 avec QR Code de sécurité.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name">Billetage Physique d'Espèces</td>
+                        <td class="col-desc">Contrôle strict des coupures de 20 000 à 100 Ar lors de la clôture journalière, interdisant tout écart de caisse inexpliqué.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name">Ticket Z &amp; Clôture Scellée</td>
+                        <td class="col-desc">Impression d'un récapitulatif fiscal scellé par caisse à 18h avec numérotation inviolable, horodatage et archivage Cloud.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name">Traque des Impayés &amp; Reliquats</td>
+                        <td class="col-desc">Tableau de bord filtrant instantanément les retards d'écolage par classe, historique des versements et préparation des relances SMS.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Accompagnement & Matériel Strip -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
+                <div style="background: var(--sheet-white); border: 1px solid var(--border-paper); border-radius: 7px; padding: 7px 10px; box-shadow: var(--shadow-stacked);">
+                    <div style="font-size: 8.5px; font-weight: 700; color: var(--rust-dark); display: flex; align-items: center; gap: 4px;">
+                        <span>🛠️ Accompagnement &amp; SLA Garanti</span>
+                    </div>
+                    <div style="font-size: 7.6px; color: var(--text-gray); line-height: 1.25; margin-top: 2px;">
+                        Mises à jour réglementaires et correctives incluses. Prêt immédiat d'un PC de secours sous 4h en cas de panne matérielle de votre établissement.
+                    </div>
+                </div>
+
+                <div style="background: var(--sheet-white); border: 1px solid var(--border-paper); border-radius: 7px; padding: 7px 10px; box-shadow: var(--shadow-stacked); display: flex; justify-content: space-between; align-items: center; gap: 8px;">
+                    <div>
+                        <div style="font-size: 8.5px; font-weight: 700; color: var(--text-dark);">Pack Matériel : Imprimante 80 mm POS</div>
+                        <div style="font-size: 7.6px; color: var(--text-gray); line-height: 1.25;">
+                            Imprimante neuve USB massicot auto + 5 bobines + Garantie 1 an.
+                        </div>
+                    </div>
+                    <div style="text-align: right; white-space: nowrap;">
+                        <div style="font-size: 10px; font-weight: 800; color: var(--rust-dark);">450 000 Ar</div>
+                        <div style="font-size: 7px; color: var(--text-light);">Forfait unique</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BON POUR ACCORD SCHEMATIC -->
+            <div class="bon-paper-box">
+                <div class="bon-paper-header">
+                    <strong style="font-size: 8.8px; color: var(--rust-dark); text-transform: uppercase; letter-spacing: 0.5px;">
+                        ✦ Bon pour Accord &amp; Réservation de Déploiement sur Site
+                    </strong>
+                    <span style="font-size: 7.5px; color: var(--text-light); text-transform: uppercase;">Mise en Service sous 48h Ouvrées</span>
+                </div>
+                
+                <div class="bon-paper-grid">
+                    <div class="sig-paper-card">
+                        <strong>Pour l'Établissement (Direction Générale / DAF) :</strong>
+                        <span>Nom &amp; Titre du Responsable : ..............................................................</span>
+                        <span>Date &amp; Signature précédée de « Bon pour accord » :</span>
+                    </div>
+                    <div class="sig-paper-card">
+                        <strong>Pour Missi Innovation (Éditeur &amp; Intégrateur) :</strong>
+                        <span>Ingénierie Déploiement &amp; Formation Terrain</span>
+                        <span>Cachet &amp; Engagement d'Installation sous 48h ouvrées</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Page 4 -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Agent Pro &bull; Dossier de Présentation Officiel</span>
+            <span>Page 04 / 04 &bull; Cahier des Charges &amp; Accord Officiel</span>
+        </div>
+    </div>
+
+</body>
+</html>
