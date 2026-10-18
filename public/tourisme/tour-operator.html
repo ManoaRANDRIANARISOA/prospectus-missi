@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposition Commerciale - TourAgent Pro (Tour Opérateurs & Agences de Voyage)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Charte TourAgent Pro & Missi Innovation */
+            --rust: #A45A3D;
+            --rust-light: #F8EFEA;
+            --rust-dark: #824229;
+            --text-dark: #2A2A2A;
+            --text-gray: #555555;
+            --text-light: #888888;
+            --border: #E5DCD5;
+            --border-warm: #E2D9CF;
+            --green: #15803D;
+            --green-light: #ECFDF5;
+            --safari: #1E3A2F;
+            --safari-light: #EBF3EE;
+            --amber: #B45309;
+            --amber-light: #FEF3C7;
+            --bg-app: #2A2826;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-app);
+            font-size: 11.5px;
+            line-height: 1.48;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            padding: 13mm 16mm 12mm 16mm;
+            margin: 15mm auto;
+            background: white;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .page-content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .page {
+                margin: 0 !important;
+                box-shadow: none !important;
+                padding: 12mm 15mm 10mm 15mm !important;
+                width: 210mm !important;
+                height: 297mm !important;
+                max-height: 297mm !important;
+                min-height: 297mm !important;
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+                break-after: page !important;
+                break-inside: avoid !important;
+                overflow: hidden !important;
+                box-sizing: border-box !important;
+            }
+
+            .top-nav,
+            .no-print {
+                display: none !important;
+                height: 0 !important;
+                visibility: hidden !important;
+            }
+        }
+
+        .serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ==========================================================================
+           HEADER TOP DE CHAQUE PAGE A4
+           ========================================================================== */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1.5px solid var(--rust);
+            padding-bottom: 7px;
+            margin-bottom: 10px;
+        }
+
+        .header-left {
+            text-transform: uppercase;
+            font-size: 9.5px;
+            letter-spacing: 1px;
+            font-weight: 800;
+            color: var(--rust-dark);
+            line-height: 1.25;
+        }
+
+        .header-left .sub {
+            color: var(--text-light);
+            font-size: 8.5px;
+            letter-spacing: 0.4px;
+            font-weight: 500;
+            margin-top: 2px;
+            text-transform: none;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5px;
+            color: var(--text-gray);
+            line-height: 1.35;
+        }
+
+        .header-right strong {
+            color: var(--text-dark);
+            font-size: 11px;
+        }
+
+        /* MAIN TITLES */
+        h1.main-title {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.15;
+            margin-bottom: 3px;
+        }
+
+        h2.main-subtitle {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--rust);
+            margin-bottom: 8px;
+        }
+
+        .intro-text {
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            font-size: 10.5px;
+            line-height: 1.45;
+        }
+
+        /* BADGES */
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 11px;
+        }
+
+        .badge {
+            padding: 3.5px 9px;
+            border-radius: 9999px;
+            font-size: 9.5px;
+            font-weight: 600;
+        }
+
+        .badge.outline-rust {
+            border: 1px solid var(--rust);
+            color: var(--rust-dark);
+            background: #FDFBF9;
+        }
+
+        .badge.outline-safari {
+            border: 1px solid var(--safari);
+            color: var(--safari);
+            background: var(--safari-light);
+        }
+
+        .badge.outline-amber {
+            border: 1px solid var(--amber);
+            color: var(--amber);
+            background: var(--amber-light);
+        }
+
+        .badge.outline-green {
+            border: 1px solid var(--green);
+            color: var(--green);
+            background: var(--green-light);
+        }
+
+        /* GRILLE DES 4 AVANTAGES STRATÉGIQUES */
+        .guarantee-section {
+            background: #FAF8F5;
+            border: 1px solid var(--border-warm);
+            border-radius: 7px;
+            padding: 8px 12px;
+            margin-bottom: 11px;
+        }
+
+        .g-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 7px;
+        }
+
+        .badge-gold {
+            background: linear-gradient(135deg, #C2672B 0%, #9A4C1B 100%);
+            color: white;
+            font-size: 8px;
+            font-weight: 800;
+            padding: 2.5px 7px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .g-header h3 {
+            font-size: 11px;
+            color: var(--rust-dark);
+            font-weight: 600;
+        }
+
+        .g-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7px;
+        }
+
+        .g-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 6px 8px;
+        }
+
+        .g-card-top {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 3px;
+        }
+
+        .g-icon {
+            font-size: 13px;
+        }
+
+        .g-title {
+            font-size: 9.5px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .g-desc {
+            font-size: 8.5px;
+            color: var(--text-gray);
+            line-height: 1.35;
+        }
+
+        /* SECTION TITLES */
+        .section-header {
+            margin-top: 6px;
+            margin-bottom: 8px;
+        }
+
+        .section-header .num {
+            color: var(--rust);
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 6px;
+        }
+
+        .section-header .title {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .section-header .subtitle {
+            font-size: 9.5px;
+            color: var(--text-light);
+            margin-top: 1px;
+            margin-left: 20px;
+        }
+
+        /* FEATURES GRID (PAGE 1) */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 14px;
+            margin-bottom: 8px;
+        }
+
+        .text-block {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 7px 10px;
+        }
+
+        .text-block h4 {
+            font-size: 10.5px;
+            font-weight: 700;
+            color: var(--rust-dark);
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .text-block p {
+            color: var(--text-gray);
+            font-size: 9px;
+            line-height: 1.38;
+        }
+
+        /* PRICING CARDS (PAGE 2) */
+        .pricing-card {
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 9px 12px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 8px;
+        }
+
+        .pricing-card.featured {
+            border: 1.5px solid var(--rust);
+            background: var(--rust-light);
+            box-shadow: 0 2px 10px rgba(164, 90, 61, 0.08);
+        }
+
+        .pricing-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+        }
+
+        .pricing-plan-badge {
+            font-size: 8.5px;
+            color: var(--rust-dark);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+        }
+
+        .pricing-title-area h3 {
+            font-size: 13.5px;
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-top: 1px;
+        }
+
+        .pricing-title-area .sub {
+            font-size: 9px;
+            color: var(--text-light);
+            margin-top: 1px;
+            line-height: 1.25;
+        }
+
+        .pricing-amount-area {
+            text-align: right;
+            margin-left: 12px;
+            flex-shrink: 0;
+        }
+
+        .old-price {
+            font-size: 9px;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-bottom: 1px;
+            white-space: nowrap;
+        }
+
+        .price-main {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--rust-dark);
+            line-height: 1.1;
+            white-space: nowrap;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .price-main .price-period {
+            font-size: 9px;
+            font-weight: 500;
+            color: var(--text-gray);
+        }
+
+        .price-badge-sub {
+            display: inline-block;
+            margin-top: 2px;
+            font-size: 7.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: #166534;
+            background: #F0FDF4;
+            border: 1px solid #BBF7D0;
+            padding: 1px 5px;
+            border-radius: 3px;
+            white-space: nowrap;
+        }
+
+        .pricing-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px 12px;
+            font-size: 8.8px;
+            color: var(--text-gray);
+        }
+
+        .pricing-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 5px;
+            line-height: 1.35;
+        }
+
+        .pricing-list li strong {
+            color: var(--text-dark);
+        }
+
+        .pricing-check {
+            color: var(--green);
+            font-weight: 800;
+            font-size: 9px;
+        }
+
+        /* SPECS TABLE (PAGE 3) */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 7px;
+        }
+
+        .specs-table th {
+            text-align: left;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--rust-dark);
+            border-bottom: 1.5px solid var(--rust);
+            padding: 3px 0 2px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .specs-table td {
+            padding: 3.5px 0;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .specs-table td.feature-name {
+            width: 30%;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 9.5px;
+        }
+
+        .specs-table td.feature-desc {
+            width: 70%;
+            color: var(--text-gray);
+            font-size: 9px;
+            line-height: 1.35;
+        }
+
+        /* BON POUR ACCORD */
+        .bon-mini-box {
+            border: 1.5px dashed var(--rust);
+            border-radius: 6px;
+            padding: 6px 9px;
+            background: var(--rust-light);
+            margin-top: 5px;
+        }
+
+        .bon-mini-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .sig-mini {
+            background: white;
+            border: 1px solid var(--border-warm);
+            border-radius: 5px;
+            padding: 6px 9px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 3px;
+            font-size: 7.5px;
+            color: var(--text-gray);
+            min-height: 48px;
+            box-sizing: border-box;
+        }
+
+        .sig-mini strong {
+            font-size: 8px;
+            color: var(--text-dark);
+        }
+
+        /* FOOTER DE PAGE A4 */
+        .page-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 4px;
+            margin-top: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 8px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==========================================================================
+           TOP NAV UNIFIÉ MISSI INNOVATION (64PX FIXE NORMÉ)
+           ========================================================================== */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #E8E5DD;
+            height: 64px;
+            min-height: 64px;
+            max-height: 64px;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        .nav-inner {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            height: 100%;
+            flex-wrap: nowrap;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #1C1917;
+            flex-shrink: 0;
+        }
+
+        .brand-logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: #1C1917;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
+            border: 1px solid #443E3A;
+            flex-shrink: 0;
+        }
+
+        .brand-title-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+
+        .brand-name-accent {
+            font-weight: 600;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #C2672B;
+        }
+
+        .brand-tagline {
+            font-size: 0.7rem;
+            color: #78716C;
+            font-weight: 500;
+        }
+
+        .nav-doc-badge {
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            background: #FDF6F0;
+            color: #9A4C1B;
+            border: 1px solid #F5D6C1;
+            border-radius: 9999px;
+            white-space: nowrap;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .nav-link-btn {
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #57534E;
+            background: white;
+            border: 1px solid #E8E5DD;
+            padding: 0 12px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link-btn:hover {
+            border-color: #C2672B;
+            color: #C2672B;
+            background: #FDF6F0;
+        }
+
+        .btn-print-copper {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #C2672B;
+            color: white;
+            border: 1px solid #C2672B;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0 14px;
+            height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .btn-print-copper:hover {
+            background: #9A4C1B;
+            box-shadow: 0 4px 12px rgba(194, 103, 43, 0.35);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================================================================
+         TOP NAV UNIFIÉ MISSI INNOVATION (64PX FIXE NORMÉ)
+         ========================================================================== -->
+    <header class="top-nav no-print">
+        <div class="nav-inner">
+            <a href="../index.html" class="brand-link" title="Missi Innovation — Retour au catalogue">
+                <div class="brand-logo-mark">
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
+                </div>
+                <div class="brand-title-wrap">
+                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
+                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
+                </div>
+            </a>
+
+            <div class="nav-doc-badge">
+                <span>TourAgent Pro</span> &bull; Tour Opérateurs &amp; Agences de Voyage Réceptives
+            </div>
+
+            <div class="nav-actions">
+                <a href="../index.html" class="nav-link-btn">← Catalogue Showroom</a>
+                <a href="../hotellerie/resipro.html" class="nav-link-btn">Édition Hôtellerie</a>
+                <button onclick="window.print()" class="btn-print-copper" title="Imprimer le dossier officiel en 3 pages A4">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                    <span>Imprimer A4 (3 Pages)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         PAGE 1 : COUVERTURE, VISION MÉTIER & PILIERS RÉCEPTIFS
+         ========================================================================== -->
+    <div class="page" id="page-1">
+        <div class="page-content-area">
+            <!-- Header Top -->
+            <div class="header-top">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 38px; height: 38px; border-radius: 9px; background: #1C1917; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(28, 25, 23, 0.15); border: 1px solid #443E3A; flex-shrink: 0;">
+                        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
+                    </div>
+                    <div class="header-left">
+                        PROPOSITION COMMERCIALE — TOUR OPÉRATEURS &amp; AGENCES RÉCEPTIVES
+                        <div class="sub">TourAgent Pro &bull; Pilotage de Circuits, Devises EUR/USD, Vouchers &amp; Flotte 4x4 Madagascar</div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    Émis en <strong>2026</strong><br>
+                    <span>Dossier Direction &bull; Valable 60 jours</span>
+                </div>
+            </div>
+
+            <!-- Titres Principaux -->
+            <h1 class="main-title serif">Plateforme TourAgent Pro</h1>
+            <h2 class="main-subtitle serif">Logiciel de cotation de circuits sur-mesure &amp; logistique réceptive à Madagascar</h2>
+
+            <p class="intro-text">
+                Ce document détaille notre progiciel spécialement architecturé pour les <strong>Tour Opérateurs Réceptifs (DMC) et Agences de Voyages à Madagascar</strong>. Conçu pour remplacer les feuilles de calcul Excel vulnérables, il élimine les pertes de marge sur le carburant et les nuitées, sécurise vos devis multidevises (EUR / USD / Ariary) et automatise l'ensemble de votre chaîne logistique (vouchers, hôtels partenaires, chauffeurs-guides et factures fiscales).
+            </p>
+
+            <!-- Badges Métiers -->
+            <div class="badges-container">
+                <span class="badge outline-rust">Cotation Express Circuits &amp; Itinéraires</span>
+                <span class="badge outline-safari">Double Devise EUR / USD / Ariary</span>
+                <span class="badge outline-amber">Vouchers 1-Clic Lodges &amp; Hôtels</span>
+                <span class="badge outline-green">Flotte 4x4, Chauffeurs &amp; Carburant</span>
+            </div>
+
+            <!-- Les 4 Avantages TourAgent -->
+            <div class="guarantee-section">
+                <div class="g-header">
+                    <span class="badge-gold">Atouts Stratégiques TourAgent</span>
+                    <h3 class="serif">Sécurité financière absolue et productivité décuplée pour vos conseillers voyages</h3>
+                </div>
+                <div class="g-cards">
+                    <div class="g-item">
+                        <div class="g-card-top">
+                            <span class="g-icon">⏱️</span>
+                            <div class="g-title">Cotation en 3 Minutes</div>
+                        </div>
+                        <div class="g-desc">
+                            Calcul automatique du coût de revient par passager selon la taille du groupe, parcs MNP, guidage et km 4x4.
+                        </div>
+                    </div>
+                    <div class="g-item">
+                        <div class="g-card-top">
+                            <span class="g-icon">💶</span>
+                            <div class="g-title">Marge Nette Verrouillée</div>
+                        </div>
+                        <div class="g-desc">
+                            Devis en devises (EUR/USD) protégés de l'inflation de l'Ariary avec taux de change MID du jour paramétrable.
+                        </div>
+                    </div>
+                    <div class="g-item">
+                        <div class="g-card-top">
+                            <span class="g-icon">📄</span>
+                            <div class="g-title">Zéro Erreur de Voucher</div>
+                        </div>
+                        <div class="g-desc">
+                            Bons d'échange officiels générés en 1 clic avec logo et conditions pour chaque lodge, pirogue et hôtel d'étape.
+                        </div>
+                    </div>
+                    <div class="g-item">
+                        <div class="g-card-top">
+                            <span class="g-icon">🇲🇬</span>
+                            <div class="g-title">100% Hors-Ligne Terrain</div>
+                        </div>
+                        <div class="g-desc">
+                            Fonctionne sans connexion en brousse ou sur les pistes, avec synchronisation Cloud miroir dès le retour au réseau.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 01 : LES 4 PILIERS OPÉRATIONNELS -->
+            <div class="section-header">
+                <span class="num">01</span><span class="title serif">Les piliers opérationnels du réceptif</span>
+                <div class="subtitle">Maîtrise complète de l'itinéraire, des coûts d'étapes et de la rentabilité par dossier voyage</div>
+            </div>
+
+            <div class="features-grid">
+                <div class="text-block">
+                    <h4>🗺️ Moteur de Cotation Dynamique &amp; Itinéraires Multi-Étapes</h4>
+                    <p>Assemblez vos circuits jour par jour (RN7, Tsingy de Bemaraha, Descente Tsiribihina, Diego &amp; Parcs Nord, Sainte-Marie). Le logiciel calcule instantanément les nuitées d'hôtels selon la saisonnalité, le nombre de véhicules nécessaires et les suppléments single.</p>
+                </div>
+                <div class="text-block">
+                    <h4>🏛️ Centralisation Hôtels Partenaires &amp; Carnet de Vouchers</h4>
+                    <p>Base de données unifiée de vos lodges et réceptifs partenaires avec tarifs négociés B2B. Émission instantanée des bons d'échange à code unique, confirmation par email et traçabilité des acomptes versés aux prestataires locaux.</p>
+                </div>
+                <div class="text-block">
+                    <h4>🚙 Parc Automobile 4x4, Chauffeurs &amp; Frais de Route</h4>
+                    <p>Planning dynamique d'affectation des 4x4, minibus et chauffeurs-guides. Calcul rigoureux du budget carburant kilométrique, des indemnités journalières chauffeurs (per diem) et suivi des révisions mécaniques avant départ en piste.</p>
+                </div>
+                <div class="text-block">
+                    <h4>⚖️ Facturation Multidevises, Conformité NIF/STAT &amp; Acomptes</h4>
+                    <p>Émission de devis proforma en EUR / USD pour clients étrangers et agences B2B internationales. Suivi des échéances d'acompte (30% à la réservation, solde 30j avant départ) et factures fiscales finales certifiées avec NIF, STAT et TVA.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Page 1 -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; TourAgent Pro &bull; Dossier Officiel Tour Opérateur</span>
+            <span>Page 01 / 03 &bull; Vision Métier &amp; Piliers Réceptifs</span>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         PAGE 2 : ABONNEMENTS, MATÉRIEL & ENGAGEMENT
+         ========================================================================== -->
+    <div class="page" id="page-2">
+        <div class="page-content-area">
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="header-left">
+                    SECTION 02 — FORMULES D'ADOPTION &amp; RENTABILITÉ IMMÉDIATE
+                    <div class="sub">Abonnements Modulaires Tour Opérateurs &bull; Pack Matériel &bull; Bon pour Accord</div>
+                </div>
+                <div class="header-right">
+                    Offre <strong>Commerciale Clés en Main</strong><br>
+                    <span>Mise en service sous 48h &bull; Formation sur site</span>
+                </div>
+            </div>
+
+            <!-- Section Title -->
+            <div class="section-header" style="margin-top: 2px; margin-bottom: 6px;">
+                <span class="num">02</span><span class="title serif">Abonnements Progiciel &amp; Modèle Économique</span>
+                <div class="subtitle">Deux formules ciblées pour s'adapter exactement à l'échelle de votre agence.</div>
+            </div>
+
+            <p class="intro-text" style="margin-bottom: 7px; font-size: 9.5px;">
+                Les <strong>frais de déploiement et d'intégration initiale sont fixés à 250 000 Ar</strong>, incluant le paramétrage complet de vos circuits types, l'enregistrement de votre base d'hôtels partenaires et <strong>la formation approfondie de vos conseillers voyages à Antananarivo ou en province</strong>.
+            </p>
+
+            <!-- FORMULE 1 : AGENCE RÉCEPTIVE ESSENTIELLE -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <div class="pricing-title-area">
+                        <span class="pricing-plan-badge">Formule 1 : Agence Réceptive Essentielle</span>
+                        <h3 class="serif">Cotation Circuits, Vouchers &amp; Devis Multidevises</h3>
+                        <div class="sub">Idéal pour agences indépendantes et émergentes gérant jusqu'à 25 circuits actifs par mois.</div>
+                    </div>
+                    <div class="pricing-amount-area">
+                        <div class="old-price">149 000 Ar/mois</div>
+                        <div class="price-main">119 000 Ar <span class="price-period">/ mois</span></div>
+                        <span class="price-badge-sub">Tarif Lancement 2026</span>
+                    </div>
+                </div>
+                <ul class="pricing-list">
+                    <li><span class="pricing-check">✓</span> <strong>Moteur de cotation automatique</strong> jour par jour avec marge nette</li>
+                    <li><span class="pricing-check">✓</span> <strong>Gestion double devise (EUR / USD / Ariary)</strong> avec taux MID fixe</li>
+                    <li><span class="pricing-check">✓</span> <strong>Génération 1-clic des Vouchers PDF officiels</strong> pour les lodges</li>
+                    <li><span class="pricing-check">✓</span> <strong>Fichier clients &amp; historique complet</strong> des séjours et préférences</li>
+                    <li><span class="pricing-check">✓</span> <strong>Devis Proforma &amp; Factures certifiées</strong> conformes NIF / STAT</li>
+                    <li><span class="pricing-check">✓</span> <strong>Sauvegarde locale quotidienne automatique</strong> et exports Excel</li>
+                </ul>
+            </div>
+
+            <!-- FORMULE 2 : TOUR OPÉRATEUR INTÉGRAL & FLOTTE 4X4 -->
+            <div class="pricing-card featured">
+                <div class="pricing-header">
+                    <div class="pricing-title-area">
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <span class="pricing-plan-badge" style="color: var(--rust-dark);">Formule 2 : Tour Opérateur Intégral ★</span>
+                            <span style="font-size: 7.5px; font-weight: 800; background: var(--rust); color: white; padding: 1px 6px; border-radius: 999px; text-transform: uppercase;">Recommandé DMC</span>
+                        </div>
+                        <h3 class="serif" style="color: var(--rust-dark);">ERP Complet Multi-Postes, Flotte 4x4 &amp; Commissions B2B</h3>
+                        <div class="sub">Pour Tour Opérateurs confirmés, flottes de véhicules touristiques et agences à fort volume.</div>
+                    </div>
+                    <div class="pricing-amount-area">
+                        <div class="old-price">229 000 Ar/mois</div>
+                        <div class="price-main">179 000 Ar <span class="price-period">/ mois</span></div>
+                        <span class="price-badge-sub">Solution Complète Clés en Main</span>
+                    </div>
+                </div>
+                <ul class="pricing-list">
+                    <li><span class="pricing-check">✓</span> <strong>Tout le contenu Réceptif Essentiel inclus sans limitation</strong></li>
+                    <li><span class="pricing-check">✓</span> <strong>Dossiers circuits et utilisateurs illimités</strong> en réseau local (LAN)</li>
+                    <li><span class="pricing-check">✓</span> <strong>Gestion de Flotte 4x4 complète</strong> : rotation, km, carburant &amp; per diem</li>
+                    <li><span class="pricing-check">✓</span> <strong>Commissions agences émettrices B2B</strong> étrangères et sous-traitants</li>
+                    <li><span class="pricing-check">✓</span> <strong>Bilan de rentabilité réel par circuit</strong> (Marge brute vs Dépenses terrain)</li>
+                    <li><span class="pricing-check">✓</span> <strong>Serveur Miroir Cloud Supabase sécurisé</strong> avec accès direction 24/7</li>
+                </ul>
+            </div>
+
+            <!-- ENCADRÉ MATÉRIEL & MARQUE BLANCHE (EFFET POSTER POP-OUT SANS FOND BLANC) -->
+            <div style="display: grid; grid-template-columns: 1.18fr 0.82fr; gap: 8px; margin-bottom: 6px; align-items: stretch;">
+                <!-- Pack Matériel : Effet Studio Pop-Out sans aucun fond blanc -->
+                <div style="background: linear-gradient(135deg, #FAF8F5 0%, #FFFFFF 100%); border: 1.5px solid var(--rust); border-radius: 7px; padding: 6px 10px 6px 6px; display: flex; justify-content: space-between; align-items: center; gap: 10px; position: relative; overflow: visible; box-shadow: 0 2px 8px rgba(194, 103, 43, 0.05);">
+                    <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0;">
+                        <!-- Imprimante thermique & bobines 3D sans fond (proportions harmonisées avec le texte) -->
+                        <div style="position: relative; flex-shrink: 0; width: 86px; height: 58px; display: flex; align-items: center; justify-content: center;">
+                            <img src="../assets/img/pack_imprimante_cutout.png" alt="Imprimante 80mm & Bobines" style="position: absolute; width: 92px; height: auto; max-height: 64px; object-fit: contain; filter: drop-shadow(0 6px 12px rgba(28, 25, 23, 0.22)); transform: translateY(-2px); pointer-events: none;">
+                        </div>
+                        <div style="min-width: 0;">
+                            <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 1.5px;">
+                                <div style="font-size: 8.5px; font-weight: 800; color: var(--text-dark); letter-spacing: -0.01em;">Pack Matériel : Imprimante 80 mm POS</div>
+                                <span style="font-size: 6.5px; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 4px; border-radius: 3px; text-transform: uppercase; white-space: nowrap;">Service Confort Clés en Main</span>
+                            </div>
+                            <div style="font-size: 7.5px; color: var(--text-gray); line-height: 1.25;">
+                                Imprimante thermique neuve USB massicot auto &bull; 5 bobines 80 mm fournies &bull; Zéro coût d'encre.<br>
+                                <span style="color: var(--rust-dark); font-weight: 600;">✦ Mise à disposition d'équipement physique à prix coûtant : zéro marge cachée, confort absolu.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: right; white-space: nowrap; flex-shrink: 0; padding-left: 8px; border-left: 1px dashed var(--border-warm);">
+                        <div style="font-size: 11px; font-weight: 800; color: var(--rust-dark); font-family: 'Outfit', sans-serif;">450 000 Ar</div>
+                        <div style="font-size: 6.8px; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.3px;">Forfait unique matériel</div>
+                    </div>
+                </div>
+
+                <!-- Engagement Marque Blanche -->
+                <div style="background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%); border: 1px solid var(--border-warm); border-left: 3.5px solid var(--rust); border-radius: 6px; padding: 6px 10px; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="font-size: 8.5px; font-weight: 800; color: var(--rust-dark); display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+                        <span>🏛️ Personnalisation Marque Blanche Offerte</span>
+                    </div>
+                    <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25;">
+                        Intégration de votre logo officiel, en-tête d'agence et mentions fiscales sur tous vos devis, vouchers et reçus sans aucun surcoût.
+                    </div>
+                </div>
+            </div>
+
+            <!-- BON POUR ACCORD & VALIDATION -->
+            <div class="bon-mini-box">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                    <strong style="font-size: 9px; color: var(--rust-dark); text-transform: uppercase; letter-spacing: 0.5px;">
+                        ✦ Bon pour Accord &amp; Réservation de Déploiement en Agence
+                    </strong>
+                    <span style="font-size: 7.5px; color: var(--text-light); text-transform: uppercase;">Mise en Service sous 48h Ouvrées</span>
+                </div>
+                
+                <div class="bon-mini-grid">
+                    <div class="sig-mini">
+                        <strong>Pour l'Agence / Tour Opérateur (Direction Générale) :</strong>
+                        <span>Nom du Responsable : ..............................................................</span>
+                        <span>Date &amp; Signature précédée de « Bon pour accord » :</span>
+                    </div>
+                    <div class="sig-mini">
+                        <strong>Pour Missi Innovation (Éditeur &amp; Déployeur) :</strong>
+                        <span>Ingénierie Déploiement Réceptif &amp; Formation Terrain</span>
+                        <span>Cachet &amp; Engagement d'Installation sous 48h ouvrées</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Page 2 -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; TourAgent Pro &bull; Dossier Officiel Tour Opérateur</span>
+            <span>Page 02 / 03 &bull; Offres d'Adoption &amp; Validation</span>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         PAGE 3 : SPÉCIFICATIONS FONCTIONNELLES EXHAUSTIVES
+         ========================================================================== -->
+    <div class="page" id="page-3">
+        <div class="page-content-area">
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="header-left">
+                    SECTION 03 — SPÉCIFICATIONS TECHNIQUES &amp; PÉRIMÈTRE DÉTAILLÉ
+                    <div class="sub">Architecture Logicielle &bull; Modules Réceptifs &bull; Engagements de Service</div>
+                </div>
+                <div class="header-right">
+                    Conformité <strong>Madagascar &amp; International</strong><br>
+                    <span>Support Technique 6j/7 &bull; SLA Garanti</span>
+                </div>
+            </div>
+
+            <!-- Section Title -->
+            <div class="section-header" style="margin-top: 2px; margin-bottom: 6px;">
+                <span class="num">03</span><span class="title serif">Périmètre Fonctionnel Exhaustif</span>
+                <div class="subtitle">Détail technique des fonctionnalités couvertes par la plateforme TourAgent Pro.</div>
+            </div>
+
+            <!-- TABLE 1 : INGÉNIERIE CIRCUITS & COTATION -->
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="serif">1. Ingénierie des Circuits, Cotations &amp; Marges Commerciales</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Générateur d'Itinéraires Dynamiques</td>
+                        <td class="feature-desc">Création de circuits étape par étape avec calcul automatique du kilométrage, temps de trajet estimés selon l'état des routes (goudron, piste secondaire) et fiches d'étapes illustrées pour les clients.</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Moteur de Prix de Revient Automatique</td>
+                        <td class="feature-desc">Ventilation immédiate des coûts fixes (location 4x4, carburant, chauffeur, guidage local) et coûts variables par passager (nuitées lodges, parcs MNP, repas, transferts bateau).</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Pilotage Multidevises &amp; Marge Sécurisée</td>
+                        <td class="feature-desc">Émission de devis en <strong>Euro (€), Dollar ($) et Ariary (Ar)</strong>. Définition du pourcentage de marge brute souhaité avec alerte automatique si une prestation dépasse le seuil critique.</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Fichier Clients &amp; Partenaires B2B Internationaux</td>
+                        <td class="feature-desc">Gestion des agences émettrices européennes (TUI, agences locales France/Suisse/Italie) avec grilles de remises confidentielles et suivi des rétro-commissions.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- TABLE 2 : LOGISTIQUE TERRAIN & FLOTTE 4X4 -->
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="serif">2. Logistique Terrain, Flotte 4x4 &amp; Réseau de Prestataires</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Génération de Vouchers Officiels</td>
+                        <td class="feature-desc">Création en 1 clic de bons d'échange PDF sécurisés avec QR-code et références dossier pour chaque lodge, hôtel, transporteur fluvial (chaland, pirogue) et prestataire d'excursion.</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Planning Flotte 4x4 &amp; Minibus</td>
+                        <td class="feature-desc">Calendrier visuel d'affectation des véhicules de l'agence ou des loueurs sous-traitants. Détection des chevauchements de dates et suivi des entretiens (vidanges, pneumatiques).</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Feuille de Route &amp; Per Diem Chauffeurs</td>
+                        <td class="feature-desc">Génération du carnet de mission imprimable pour le chauffeur-guide : itinéraire détaillé, vouchers à remettre, budget carburant alloué et indemnités de séjour journalières.</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Gestion des Guides de Parcs &amp; Prestataires</td>
+                        <td class="feature-desc">Carnet d'adresses géolocalisé des guides certifiés Madagascar National Parks (MNP), piroguiers et cuisiniers de brousse avec grille tarifaire officielle.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- TABLE 3 : FINANCES, FISCALITÉ & FACTURATION -->
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="serif">3. Finances, Fiscalité Malagasy &amp; Rapprochement Acomptes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Facturation Conforme NIF &amp; STAT Madagascar</td>
+                        <td class="feature-desc">Édition de factures officielles en bonne et due forme avec mentions fiscales obligatoires (NIF, STAT, RCS), gestion de la TVA touristique et impression A4 prête pour tampon.</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Suivi des Acomptes &amp; Règlements Internationaux</td>
+                        <td class="feature-desc">Traçabilité des virements bancaires internationaux (SWIFT), paiements par carte de crédit et Mobile Money (MVola) versés aux prestataires locaux avec rapprochement bancaire.</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Compte de Résultat Analytique par Dossier</td>
+                        <td class="feature-desc">Clôture financière à la fin de chaque circuit : comparaison instantanée entre le devis vendu au client et les dépenses réelles enregistrées sur le terrain pour connaître le bénéfice net exact.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Cadre d'engagements légaux -->
+            <div style="margin-top: 6px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 5px; background: #FAF8F5; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-gray); flex-wrap: wrap; gap: 6px;">
+                <div><strong>Déploiement Réceptif :</strong> Intégration de vos circuits existants sous 48h ouvrées</div>
+                <div><strong>Fiabilité Hors-Ligne :</strong> Fonctionne à 100% sur PC/tablette sans connexion en brousse</div>
+                <div><strong>Support Prioritaire :</strong> Assistance technique dédiée 6j/7 à Madagascar</div>
+            </div>
+        </div>
+
+        <!-- Footer Page 3 -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; TourAgent Pro &bull; Dossier Officiel Tour Opérateur</span>
+            <span>Page 03 / 03 &bull; Spécifications Fonctionnelles &amp; Engagements</span>
+        </div>
+    </div>
+
+    <!-- PIED DE PAGE WEB UNIFIÉ (MASQUÉ À L'IMPRESSION) -->
+    <footer class="no-print" style="margin: 35px auto 20px auto; max-width: 900px; text-align: center; color: var(--text-gray); font-size: 11px; padding: 20px 10px; border-top: 1px solid rgba(0,0,0,0.08);">
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
+            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
+            <span>MISSI INNOVATION &bull; Solutions Logicielles Métiers &bull; Madagascar</span>
+        </div>
+        <div>Éditeur de progiciels métiers de haute précision &bull; Document officiel calibré pour affichage web et impression A4</div>
+    </footer>
+
+</body>
+
+</html>

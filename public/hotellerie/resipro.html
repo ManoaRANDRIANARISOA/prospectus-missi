@@ -698,20 +698,29 @@
             top: 0;
             z-index: 9999;
             backdrop-filter: blur(16px);
-            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.96);
             border-bottom: 1px solid #E8E5DD;
-            padding: 0.75rem 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            height: 64px;
+            min-height: 64px;
+            max-height: 64px;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
             font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
         }
         .nav-inner {
+            width: 100%;
             max-width: 1240px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
+            gap: 1.5rem;
+            height: 100%;
+            flex-wrap: nowrap;
         }
         .brand-link {
             display: flex;
@@ -818,7 +827,7 @@
         <!-- TOP NAV UNIFIÉ MISSI INNOVATION -->
     <header class="top-nav no-print">
         <div class="nav-inner">
-            <a href="../index.html" class="brand-link">
+            <a href="../index.html" class="brand-link" title="Missi Innovation — Retour au catalogue">
                 <div class="brand-logo-mark">
                     <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
                 </div>
@@ -827,14 +836,14 @@
                     <div class="brand-tagline">Portail Officiel des Progiciels</div>
                 </div>
             </a>
-            <div class="nav-badges">
-                <div class="nav-doc-badge">
-                    <span>ResiPro Suite</span> &bull; Hôtellerie, Restauration & Caisse
-                </div>
-                <a href="../index.html" class="nav-link-btn">← Catalogue Showroom</a>
-                <button onclick="window.print()" class="btn-print-copper">
+            <div class="nav-doc-badge" style="font-size: 0.8rem; font-weight: 700; padding: 5px 12px; background: #FDF6F0; color: #9A4C1B; border: 1px solid #F5D6C1; border-radius: 9999px;">
+                <span>ResiPro Suite</span> &bull; Hôtellerie, Restauration &amp; Caisse
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0;">
+                <a href="../index.html" class="nav-link-btn" style="height: 32px; display: inline-flex; align-items: center; padding: 0 12px; text-decoration: none;">← Catalogue Showroom</a>
+                <button onclick="window.print()" class="btn-print-copper" style="height: 32px; padding: 0 14px; display: inline-flex; align-items: center;">
                     <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                    Imprimer (A4)
+                    <span>Imprimer (A4)</span>
                 </button>
             </div>
         </div>
@@ -856,12 +865,6 @@
             <div class="header-right">
                 Émis en <strong>2026</strong><br>
                 <span>Dossier Direction &bull; Valable 60 jours</span>
-            </div>
-        </div>
-            <div class="header-right">
-                Émis en<br>
-                <strong>2026</strong><br>
-                Estimatif — Tarif ajustable
             </div>
         </div>
 
