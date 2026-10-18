@@ -64,20 +64,29 @@
             top: 0;
             z-index: 9999;
             backdrop-filter: blur(16px);
-            background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.96);
             border-bottom: 1px solid #E8E5DD;
-            padding: 0.75rem 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            height: 64px;
+            min-height: 64px;
+            max-height: 64px;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
         }
 
         .nav-inner {
+            width: 100%;
             max-width: 1240px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
+            gap: 1.5rem;
+            height: 100%;
+            flex-wrap: nowrap;
         }
 
         .brand-link {
@@ -86,6 +95,7 @@
             gap: 0.75rem;
             text-decoration: none;
             color: #1C1917;
+            flex-shrink: 0;
         }
 
         .brand-logo-mark {
@@ -131,21 +141,52 @@
             font-weight: 500;
         }
 
-        .nav-badges {
+        /* SEGMENTED SWITCHER PILULE ÉLÉGANTE (NORMES DESIGN SAAS / LINEAR) */
+        .formula-switcher-nav {
+            display: inline-flex;
+            align-items: center;
+            background: #F1ECE6;
+            border-radius: 8px;
+            padding: 3px;
+            border: 1px solid #E2D9CF;
+            height: 36px;
+            box-sizing: border-box;
+            gap: 2px;
+            flex-shrink: 0;
+        }
+
+        .switch-btn {
+            height: 28px;
+            line-height: 28px;
+            padding: 0 14px;
+            font-size: 11.5px;
+            font-weight: 600;
+            border-radius: 6px;
+            border: none;
+            background: transparent;
+            color: #6B655F;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            white-space: nowrap;
+            font-family: inherit;
+        }
+
+        .switch-btn:hover {
+            color: #1C1917;
+        }
+
+        .switch-btn.active {
+            background: #FFFFFF;
+            color: #9A4C1B;
+            font-weight: 700;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(194, 103, 43, 0.08);
+        }
+
+        .nav-actions {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-doc-badge {
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 4px 10px;
-            background: #FDF6F0;
-            color: #9A4C1B;
-            border: 1px solid #F5D6C1;
-            border-radius: 9999px;
+            flex-shrink: 0;
         }
 
         .nav-link-btn {
@@ -155,9 +196,13 @@
             color: #57534E;
             background: white;
             border: 1px solid #E8E5DD;
-            padding: 5px 12px;
+            padding: 0 12px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
             border-radius: 6px;
             transition: all 0.15s ease;
+            white-space: nowrap;
         }
 
         .nav-link-btn:hover {
@@ -175,11 +220,13 @@
             border: 1px solid #C2672B;
             font-size: 0.8rem;
             font-weight: 600;
-            padding: 6px 14px;
+            padding: 0 14px;
+            height: 32px;
             border-radius: 6px;
             cursor: pointer;
             box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
             transition: all 0.15s ease;
+            white-space: nowrap;
         }
 
         .btn-print-copper:hover {
@@ -848,20 +895,20 @@
                     <div class="brand-tagline">Portail Officiel des Progiciels</div>
                 </div>
             </a>
-            <div class="nav-badges">
-                <div class="formula-switcher-nav no-print" title="Adapter le prospectus et les tarifs à la taille de votre école">
-                    <button id="nav-btn-petite" class="switch-btn" onclick="switchFormula('petite')">Petite Structure</button>
-                    <button id="nav-btn-moyenne" class="switch-btn active" onclick="switchFormula('moyenne')">Moyenne Structure</button>
-                    <button id="nav-btn-grande" class="switch-btn" onclick="switchFormula('grande')">Grande Structure</button>
-                </div>
-                <div class="nav-doc-badge" id="nav-badge-structure">
-                    <span>Study Agent Pro</span> &bull; Édition Moyenne Structure
-                </div>
+            <!-- SÉLECTEUR DE STRUCTURE EN NAVIGATION (FIXE & NORMÉ) -->
+            <div class="formula-switcher-nav" title="Changer l'échelle d'établissement pour adapter les tarifs">
+                <button id="nav-btn-petite" class="switch-btn" onclick="switchFormula('petite')">Petite Structure</button>
+                <button id="nav-btn-moyenne" class="switch-btn active" onclick="switchFormula('moyenne')">Moyenne Structure</button>
+                <button id="nav-btn-grande" class="switch-btn" onclick="switchFormula('grande')">Grande Structure</button>
+            </div>
+
+            <!-- ACTIONS PROFESSIONNELLES (HAUTEUR FIXE 32PX, ZERO JUMP) -->
+            <div class="nav-actions">
                 <a href="../index.html" class="nav-link-btn">← Catalogue Showroom</a>
-                <a href="../education/proposition-papier-art.html" class="nav-link-btn">Proposition Tarifaire</a>
-                <button onclick="window.print()" class="btn-print-copper">
+                <a href="../education/proposition-papier-art.html" class="nav-link-btn">Proposition A4</a>
+                <button onclick="window.print()" class="btn-print-copper" title="Imprimer le prospectus officiel en 5 pages A4">
                     <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                    Imprimer Format A4 (5 Pages)
+                    <span>Imprimer A4</span>
                 </button>
             </div>
         </div>
@@ -1426,10 +1473,8 @@
                     <div style="font-size: 8.5px; font-weight: 800; text-transform: uppercase; color: var(--rust); letter-spacing: 0.8px;">
                         ✦ Formules d'Adoption Mensuelle &bull; <span id="section-structure-label" style="color: var(--text-dark);">Moyenne Structure</span>
                     </div>
-                    <div class="no-print" style="display: flex; gap: 4px;">
-                        <button class="page-switch-btn" id="page-btn-petite" onclick="switchFormula('petite')">Petite Structure</button>
-                        <button class="page-switch-btn active" id="page-btn-moyenne" onclick="switchFormula('moyenne')">Moyenne Structure</button>
-                        <button class="page-switch-btn" id="page-btn-grande" onclick="switchFormula('grande')">Grande Structure</button>
+                    <div style="font-size: 7.8px; color: var(--text-light); font-weight: 600;">
+                        Tarification Officielle Clés en Main &bull; Engagement 12 mois
                     </div>
                 </div>
 
@@ -1498,38 +1543,39 @@
                 </div>
             </div>
 
-            <!-- ENCADRÉ MATÉRIEL & MARQUE BLANCHE -->
-            <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 7px; margin-bottom: 6px;">
-                <!-- Pack Matériel -->
-                <div style="background: #FAFAFA; border: 1.5px solid var(--rust); border-radius: 6px; padding: 6px 9px; display: flex; justify-content: space-between; align-items: center; gap: 8px;">
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <div class="hardware-popout-wrap" style="position: relative; flex-shrink: 0; padding: 0 4px;">
-                    <img src="../assets/img/pack_imprimante_3d.jpg" alt="Pack Matériel POS-80" style="width: 82px; height: auto; display: block; mix-blend-mode: multiply; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.18)); transform: scale(1.1) translateY(-2px); transition: transform 0.2s ease;">
-                </div>
-                        <div>
-                            <div style="display: flex; align-items: center; gap: 5px;">
-                                <div style="font-size: 8.5px; font-weight: 800; color: var(--text-dark);">Pack Matériel : Imprimante 80 mm POS</div>
-                                <span style="font-size: 6.5px; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 4px; border-radius: 3px; text-transform: uppercase;">Service Confort Clés en Main</span>
+            <!-- ENCADRÉ MATÉRIEL & MARQUE BLANCHE (EFFET POSTER POP-OUT HARMONISÉ) -->
+            <div style="display: grid; grid-template-columns: 1.18fr 0.82fr; gap: 8px; margin-bottom: 6px; align-items: stretch;">
+                <!-- Pack Matériel : Effet Studio Pop-Out sans aucun fond blanc -->
+                <div style="background: linear-gradient(135deg, #FAF8F5 0%, #FFFFFF 100%); border: 1.5px solid var(--rust); border-radius: 7px; padding: 6px 10px 6px 6px; display: flex; justify-content: space-between; align-items: center; gap: 10px; position: relative; overflow: visible; box-shadow: 0 2px 8px rgba(194, 103, 43, 0.05);">
+                    <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0;">
+                        <!-- Imprimante thermique & bobines 3D sans fond (proportions harmonisées avec le texte) -->
+                        <div style="position: relative; flex-shrink: 0; width: 86px; height: 58px; display: flex; align-items: center; justify-content: center;">
+                            <img src="../assets/img/pack_imprimante_cutout.png" alt="Imprimante 80mm & Bobines" style="position: absolute; width: 92px; height: auto; max-height: 64px; object-fit: contain; filter: drop-shadow(0 6px 12px rgba(28, 25, 23, 0.22)); transform: translateY(-2px); pointer-events: none;">
+                        </div>
+                        <div style="min-width: 0;">
+                            <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 1.5px;">
+                                <div style="font-size: 8.5px; font-weight: 800; color: var(--text-dark); letter-spacing: -0.01em;">Pack Matériel : Imprimante 80 mm POS</div>
+                                <span style="font-size: 6.5px; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 4px; border-radius: 3px; text-transform: uppercase; white-space: nowrap;">Service Confort Clés en Main</span>
                             </div>
-                            <div style="font-size: 7.5px; color: var(--text-gray); line-height: 1.25; margin-top: 1px;">
-                                Imprimante neuve USB massicot auto + 5 bobines + Garantie 1 an &bull; Zéro coût d'encre.<br>
+                            <div style="font-size: 7.5px; color: var(--text-gray); line-height: 1.25;">
+                                Imprimante thermique neuve USB massicot auto &bull; 5 bobines 80 mm fournies &bull; Zéro coût d'encre.<br>
                                 <span style="color: var(--rust-dark); font-weight: 600;">✦ Mise à disposition d'équipement physique à prix coûtant : zéro marge cachée, confort absolu.</span>
                             </div>
                         </div>
                     </div>
-                    <div style="text-align: right; white-space: nowrap; flex-shrink: 0; padding-left: 6px; border-left: 1px dashed var(--border);">
-                        <div style="font-size: 10.5px; font-weight: 800; color: var(--rust-dark);">450 000 Ar</div>
-                        <div style="font-size: 7px; color: var(--text-light); text-transform: uppercase; font-weight: 600;">Forfait unique</div>
+                    <div style="text-align: right; white-space: nowrap; flex-shrink: 0; padding-left: 8px; border-left: 1px dashed var(--border-warm);">
+                        <div style="font-size: 11px; font-weight: 800; color: var(--rust-dark); font-family: 'Outfit', sans-serif;">450 000 Ar</div>
+                        <div style="font-size: 6.8px; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.3px;">Forfait unique</div>
                     </div>
                 </div>
 
                 <!-- Engagement Marque Blanche -->
-                <div style="background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%); border: 1px solid var(--border-warm); border-left: 3.5px solid var(--rust); border-radius: 5px; padding: 6px 9px;">
-                    <div style="font-size: 8.5px; font-weight: 800; color: var(--rust-dark); display: flex; align-items: center; gap: 4px;">
+                <div style="background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%); border: 1px solid var(--border-warm); border-left: 3.5px solid var(--rust); border-radius: 6px; padding: 6px 10px; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="font-size: 8.5px; font-weight: 800; color: var(--rust-dark); display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
                         <span>🏛️ Personnalisation Marque Blanche Offerte</span>
                     </div>
-                    <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25; margin-top: 1px;">
-                        Intégration de votre logo officiel, de vos coordonnées et de vos armoiries sans aucun surcoût.
+                    <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25;">
+                        Intégration de votre logo officiel, de vos coordonnées et de vos armoiries sans aucun surcoût sur tous vos documents.
                     </div>
                 </div>
             </div>
@@ -1678,14 +1724,8 @@
             // Update Nav Buttons
             ['petite', 'moyenne', 'grande'].forEach(k => {
                 const navBtn = document.getElementById('nav-btn-' + k);
-                const pageBtn = document.getElementById('page-btn-' + k);
                 if (navBtn) navBtn.classList.toggle('active', k === key);
-                if (pageBtn) pageBtn.classList.toggle('active', k === key);
             });
-
-            // Update Header Badge
-            const badge = document.getElementById('nav-badge-structure');
-            if (badge) badge.innerHTML = preset.badge;
 
             // Update Page Section Label & Link
             const secLabel = document.getElementById('section-structure-label');
@@ -1694,7 +1734,7 @@
             const linkEl = document.getElementById('dyn-proposal-link');
             if (linkEl) {
                 linkEl.href = preset.link;
-                linkEl.innerHTML = '<span>Consulter la proposition A4 complète pour ' + preset.sectionLabel + ' →</span>';
+                linkEl.innerHTML = '<span>Consulter la proposition A4 officielle complète pour ' + preset.sectionLabel + ' →</span>';
             }
 
             // Update Formule 1
