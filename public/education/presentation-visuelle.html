@@ -272,6 +272,37 @@
             letter-spacing: 0.5px;
         }
 
+        /* FOOTER WEB UNIFIÉ HAUTE VISIBILITÉ (WEB ONLY) */
+        .web-footer-unified {
+            margin: 40px auto 25px auto;
+            max-width: 960px;
+            text-align: center;
+            padding: 24px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            color: #D6D3D1;
+            font-size: 11px;
+            background: #1C1917;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .web-footer-brand-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .web-footer-subtext {
+            color: #A8A29E;
+            font-size: 10.5px;
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
         /* HEADER DES PAGES */
         .header-top {
             display: flex;
@@ -1780,13 +1811,15 @@
             }
         });
     </script>
-    <!-- PIED DE PAGE WEB UNIFIÉ (MASQUÉ À L'IMPRESSION) -->
-    <footer class="no-print" style="margin: 35px auto 20px auto; max-width: 900px; text-align: center; color: var(--text-gray); font-size: 11px; padding: 20px 10px; border-top: 1px solid rgba(0,0,0,0.08);">
-        <div style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
-            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
-            <span>MISSI INNOVATION &bull; Solutions Logicielles &bull; Madagascar</span>
+    <!-- PIED DE PAGE WEB UNIFIÉ HAUTE VISIBILITÉ (MASQUÉ À L'IMPRESSION) -->
+    <footer class="web-footer-unified no-print">
+        <div class="web-footer-brand-row">
+            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
+            <span>MISSI INNOVATION &bull; Solutions Logicielles Métiers &bull; Madagascar</span>
         </div>
-        <div>Éditeur de progiciels métiers de haute précision &bull; Document officiel calibré pour affichage web et impression A4</div>
+        <p class="web-footer-subtext">
+            Éditeur de progiciels métiers de haute précision pour l'Éducation, l'Hôtellerie et les Entreprises. Document officiel calibré pour affichage web et impression A4.
+        </p>
     </footer>
 
 </body>

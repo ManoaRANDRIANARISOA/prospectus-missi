@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Home PWA — Dossier Officiel & Prospectus Pédagogique | Missi Innovation</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/img/missi_logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-copper: #C2672B;
+            --brand-copper-dark: #9A4C1B;
+            --brand-copper-light: #FDF6F0;
+            --brand-copper-border: #F5D6C1;
+            
+            --brand-teal: #0D9488;
+            --brand-teal-dark: #0F766E;
+            --brand-teal-light: #F0FDFA;
+            --brand-teal-border: #CCFBF1;
+            
+            --text-dark: #1C1917;
+            --text-gray: #57534E;
+            --text-soft: #78716C;
+            --text-light: #A8A29E;
+            
+            --bg-page: #FAF9F5;
+            --border-color: #E8E5DD;
+            --border-subtle: #F2EFE8;
+            
+            --bg-workspace: #2A2826;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-workspace);
+            font-size: 11.5px;
+            line-height: 1.48;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .outfit {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            padding: 13mm 16mm 12mm 16mm;
+            margin: 15mm auto;
+            background: white;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                min-height: 297mm;
+                max-height: 297mm;
+                height: 297mm;
+            }
+        }
+
+        /* BARRE DE NAVIGATION UNIFIÉE MISSI INNOVATION (64PX) */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 99999;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #E8E5DD;
+            height: 64px;
+            min-height: 64px;
+            max-height: 64px;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        .nav-inner {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            height: 100%;
+            flex-wrap: nowrap;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #1C1917;
+            flex-shrink: 0;
+        }
+
+        .brand-logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: #1C1917;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
+            border: 1px solid #443E3A;
+            flex-shrink: 0;
+        }
+
+        .brand-title-wrap {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: #1C1917;
+        }
+
+        .brand-name-accent {
+            color: var(--brand-copper);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .brand-tagline {
+            font-size: 0.7rem;
+            color: #78716C;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .nav-badges {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .nav-doc-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--brand-teal-dark);
+            background: var(--brand-teal-light);
+            border: 1px solid var(--brand-teal-border);
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .nav-doc-badge span {
+            font-weight: 800;
+            color: var(--brand-teal-dark);
+        }
+
+        .nav-link-btn {
+            color: #57534E;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #E8E5DD;
+            background: white;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link-btn:hover {
+            border-color: var(--brand-copper);
+            color: var(--brand-copper);
+            background: #FDF6F0;
+        }
+
+        .btn-print-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--brand-copper);
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.4rem 0.95rem;
+            border-radius: 6px;
+            border: 1px solid var(--brand-copper-dark);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-print-action:hover {
+            background: var(--brand-copper-dark);
+        }
+
+        /* HEADER PAGE D'ART A4 */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--brand-teal-dark);
+            padding-bottom: 7px;
+            margin-bottom: 12px;
+        }
+
+        .header-logo-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-logo-box {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #1C1917;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(28, 25, 23, 0.15);
+            border: 1px solid #443E3A;
+            flex-shrink: 0;
+        }
+
+        .header-title-text {
+            font-size: 8px;
+            font-weight: 700;
+            color: var(--brand-teal-dark);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .header-title-text span {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .header-meta {
+            text-align: right;
+            font-size: 8px;
+            color: var(--text-soft);
+            line-height: 1.25;
+        }
+
+        .header-meta strong {
+            color: var(--text-dark);
+            font-size: 10px;
+        }
+
+        /* HERO BOX A4 */
+        .hero-banner {
+            background: linear-gradient(135deg, #FAF8F5 0%, #F0FDFA 100%);
+            border: 1px solid var(--brand-teal-border);
+            border-left: 4.5px solid var(--brand-teal);
+            border-radius: 8px;
+            padding: 11px 15px;
+            margin-bottom: 11px;
+            box-shadow: 0 2px 6px rgba(13, 148, 136, 0.06);
+        }
+
+        .hero-kicker {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .hero-badge-tag {
+            font-size: 8.5px;
+            font-weight: 800;
+            color: var(--brand-teal-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .hero-pill-right {
+            font-size: 7.5px;
+            font-weight: 700;
+            color: #065F46;
+            background: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            padding: 2px 8px;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+
+        .hero-banner h1 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 4px;
+        }
+
+        .hero-banner h2 {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--brand-copper-dark);
+            margin-bottom: 6px;
+        }
+
+        .hero-banner p {
+            font-size: 9px;
+            color: var(--text-gray);
+            line-height: 1.45;
+        }
+
+        /* 3 PILIERS HOMESCHOOLING */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 9px;
+            margin-bottom: 11px;
+        }
+
+        .pillar-box {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 7px;
+            padding: 9px 11px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .pillar-icon-row {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .pillar-badge-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--brand-teal-light);
+            border: 1.2px solid var(--brand-teal);
+            color: var(--brand-teal-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .pillar-box strong {
+            font-size: 9.5px;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .pillar-box p {
+            font-size: 8px;
+            color: var(--text-gray);
+            line-height: 1.35;
+        }
+
+        /* SECTIONS DE CONTENU */
+        .content-section {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 7px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+        }
+
+        .section-headline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 7px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-headline h3 {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--brand-teal-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-bullets {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 12px;
+            list-style: none;
+        }
+
+        .feature-bullets li {
+            font-size: 8.2px;
+            color: var(--text-dark);
+            line-height: 1.3;
+            display: flex;
+            align-items: flex-start;
+            gap: 5px;
+        }
+
+        .bullet-icon {
+            color: var(--brand-teal);
+            font-weight: 800;
+            font-size: 9px;
+            flex-shrink: 0;
+        }
+
+        /* PRICING CARDS (PAGE 2) */
+        .pricing-card-row {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 7px;
+            padding: 9px 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+
+        .pricing-card.featured {
+            border: 1.5px solid var(--brand-copper);
+            background: linear-gradient(180deg, #FFFFFF 0%, #FFFDFB 100%);
+            box-shadow: 0 3px 10px rgba(194, 103, 43, 0.08);
+        }
+
+        .pricing-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 7px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .pricing-badge {
+            font-size: 7px;
+            font-weight: 800;
+            color: var(--brand-teal-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 1px;
+        }
+
+        .pricing-header h3 {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .pricing-sub {
+            font-size: 7.8px;
+            color: var(--text-soft);
+        }
+
+        .pricing-val-wrap {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .pricing-old-rate {
+            font-size: 8px;
+            color: var(--text-light);
+            text-decoration: line-through;
+        }
+
+        .pricing-amount {
+            font-size: 13px;
+            font-weight: 900;
+            color: var(--brand-copper-dark);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .pricing-period {
+            font-size: 7.5px;
+            font-weight: 600;
+            color: var(--text-soft);
+        }
+
+        /* CADRE BON POUR ACCORD */
+        .bon-container {
+            border: 1px dashed var(--brand-teal-dark);
+            background: #F9FBFA;
+            border-radius: 7px;
+            padding: 8px 12px;
+            margin-top: 6px;
+        }
+
+        .bon-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .bon-header strong {
+            font-size: 8.8px;
+            color: var(--brand-teal-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .bon-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .sig-block {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 6px 8px;
+            height: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sig-block strong {
+            font-size: 7.5px;
+            color: var(--text-dark);
+        }
+
+        .sig-block span {
+            font-size: 6.8px;
+            color: var(--text-soft);
+        }
+
+        /* TABLEAU SPÉCIFICATIONS (PAGE 3) */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8px;
+            margin-bottom: 8px;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .spec-table th {
+            background: #F0FDFA;
+            color: var(--brand-teal-dark);
+            font-weight: 800;
+            padding: 6px 9px;
+            text-align: left;
+            border-bottom: 1.5px solid var(--brand-teal-border);
+            font-size: 8.5px;
+            text-transform: uppercase;
+        }
+
+        .spec-table td {
+            padding: 5.5px 9px;
+            border-bottom: 1px solid var(--border-subtle);
+            line-height: 1.35;
+        }
+
+        .spec-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .spec-table td.col-feature {
+            font-weight: 700;
+            color: var(--text-dark);
+            width: 32%;
+            background: #FCFCFB;
+            border-right: 1px solid var(--border-subtle);
+        }
+
+        .spec-table td.col-desc {
+            color: var(--text-gray);
+        }
+
+        /* FOOTER A4 */
+        .page-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 7.5px;
+            color: var(--text-soft);
+        }
+
+        .page-footer strong {
+            color: var(--brand-teal-dark);
+        }
+
+        /* FOOTER WEB UNIFIÉ HAUT-CONTRASTE (WEB ONLY) */
+        .web-footer-unified {
+            margin: 40px auto 25px auto;
+            max-width: 960px;
+            text-align: center;
+            padding: 24px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            color: #D6D3D1;
+            font-size: 11px;
+            background: #1C1917;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .web-footer-brand-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .web-footer-subtext {
+            color: #A8A29E;
+            font-size: 10.5px;
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAVIGATION UNIFIÉE MISSI INNOVATION (64PX) -->
+    <header class="top-nav no-print">
+        <div class="nav-inner">
+            <a href="../index.html" class="brand-link">
+                <div class="brand-logo-mark">
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
+                </div>
+                <div class="brand-title-wrap">
+                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
+                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
+                </div>
+            </a>
+            <div class="nav-badges">
+                <div class="nav-doc-badge">
+                    <span>Study Home PWA</span> &bull; Dossier Officiel Homeschooling &amp; Familles
+                </div>
+                <a href="../education/presentation-visuelle.html" class="nav-link-btn">Catalogue Study Agent</a>
+                <a href="../index.html" class="nav-link-btn">Accueil Showroom</a>
+                <button onclick="window.print()" class="btn-print-action">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                    Imprimer Dossier PWA (3 Pages)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================== -->
+    <!-- PAGE 1 : ARCHITECTURE PWA, VISION HOMESCHOOLING & 3 PILIERS    -->
+    <!-- ============================================================== -->
+    <div class="page" id="page-1">
+        <div>
+            <!-- Header Top Page 1 -->
+            <div class="page-header">
+                <div class="header-logo-group">
+                    <div class="header-logo-box">
+                        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 8px; display: block;">
+                    </div>
+                    <div>
+                        <div class="header-title-text">DOSSIER PÉDAGOGIQUE OFFICIEL &bull; <span>APPLICATION HOMESCHOOLING 2026-2027</span></div>
+                        <div style="font-size: 8px; color: var(--text-soft); font-weight: 500; margin-top: 1px;">Missi Innovation &bull; Écosystème Éducatif Souverain &bull; Familles &amp; Tuteurs Privés</div>
+                    </div>
+                </div>
+                <div class="header-meta">
+                    Émis en <strong>2026</strong><br>
+                    <span>Instruction en Famille &bull; PWA Multi-Plateforme</span>
+                </div>
+            </div>
+
+            <!-- Hero Banner -->
+            <div class="hero-banner">
+                <div class="hero-kicker">
+                    <div class="hero-badge-tag">
+                        <span>✦ PWA Universelle &bull; Fonctionnement 100% Hors-Ligne</span>
+                    </div>
+                    <span class="hero-pill-right">Zéro Dépendance Internet</span>
+                </div>
+                <h1 class="serif">Study Home PWA : L'Espace d'Apprentissage Souverain des Familles</h1>
+                <h2>Suivi rigoureux des leçons, gestion des devoirs par palier et dossier d'inspection académique</h2>
+                <p>
+                    Face aux délestages récurrents, à l'instabilité de la connexion et à la pollution publicitaire des applications classiques, Missi Innovation met à disposition des parents et tuteurs une application web progressive (PWA) de très haute précision. Installable en 1 clic sur PC Windows, Mac, tablette ou smartphone, <strong>Study Home PWA fonctionne en autonomie complète sans nécessiter de connexion Internet permanente</strong>.
+                </p>
+            </div>
+
+            <!-- 3 Piliers Fondateurs -->
+            <div class="pillars-grid">
+                <div class="pillar-box">
+                    <div class="pillar-icon-row">
+                        <div class="pillar-badge-circle">1</div>
+                        <strong>Suivi des Leçons &amp; Devoirs</strong>
+                    </div>
+                    <p>Découpage par matières et chapitres selon votre programme (CNED, officiel ou libre). Suivi du statut des leçons : à découvrir, en cours, révisé, acquis.</p>
+                </div>
+                <div class="pillar-box">
+                    <div class="pillar-icon-row">
+                        <div class="pillar-badge-circle">2</div>
+                        <strong>Technologie PWA 100% Offline</strong>
+                    </div>
+                    <p>Accessible via navigateur web ou comme un vrai logiciel PC/Android. Les données restent stockées localement sur votre appareil sans risque de coupure.</p>
+                </div>
+                <div class="pillar-box">
+                    <div class="pillar-icon-row">
+                        <div class="pillar-badge-circle">3</div>
+                        <strong>Dossier d'Inspection en 1 Clic</strong>
+                    </div>
+                    <p>Exportez en un instant un bilan imprimable conforme A4 (activités réalisées, assiduité, progression par matière) à présenter lors du contrôle annuel.</p>
+                </div>
+            </div>
+
+            <!-- Focus : Répondre aux Attentes Clés des Parents en Homeschooling -->
+            <div class="content-section">
+                <div class="section-headline">
+                    <h3>Ce que les Parents &amp; Éducateurs Trouvent dans Study Home PWA</h3>
+                    <span style="font-size: 7.5px; font-weight: 700; color: var(--brand-copper-dark);">CONÇU SPÉCIFIQUEMENT POUR LE HOMESCHOOLING</span>
+                </div>
+                <ul class="feature-bullets">
+                    <li>
+                        <span class="bullet-icon">✓</span>
+                        <div><strong>Gestion Multi-Enfants :</strong> Espaces distincts et personnalisés pour chaque enfant de la fratrie avec niveau, rythme et objectifs adaptés.</div>
+                    </li>
+                    <li>
+                        <span class="bullet-icon">✓</span>
+                        <div><strong>Cahier de Texte &amp; Emploi du Temps Flexible :</strong> Planification hebdomadaire modifiable en temps réel selon la disponibilité de la famille.</div>
+                    </li>
+                    <li>
+                        <span class="bullet-icon">✓</span>
+                        <div><strong>Banque de Devoirs &amp; Exercices :</strong> Enregistrez les énoncés, fiches mémo et corrections sans dispersion sur plusieurs classeurs papier.</div>
+                    </li>
+                    <li>
+                        <span class="bullet-icon">✓</span>
+                        <div><strong>Carnet de Réussite &amp; Badges Motivants :</strong> Visualisation valorisante des acquis pour stimuler la curiosité et l'autonomie de l'enfant.</div>
+                    </li>
+                    <li>
+                        <span class="bullet-icon">✓</span>
+                        <div><strong>Zéro Publicité &amp; Données Cloisonnées :</strong> Environnement d'étude totalement épuré, sans distraction algorithmique ni revente de données.</div>
+                    </li>
+                    <li>
+                        <span class="bullet-icon">✓</span>
+                        <div><strong>Sauvegarde Automatique &amp; Export PDF :</strong> Toutes les données restent sauvegardées sur votre machine avec export local sécurisé à tout moment.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Bandeau Avantage PWA -->
+            <div style="background: linear-gradient(90deg, #F0FDFA 0%, #FFFFFF 100%); border: 1px solid var(--brand-teal-border); border-radius: 6px; padding: 7px 11px; display: flex; justify-content: space-between; align-items: center; margin-top: 2px;">
+                <div style="font-size: 8.5px; font-weight: 700; color: var(--brand-teal-dark);">
+                    📱 Disponible sur tous vos supports : Ordinateur portable de salon, tablette d'apprentissage, smartphone parental
+                </div>
+                <span style="font-size: 7.5px; font-weight: 800; background: var(--brand-teal); color: white; padding: 2px 7px; border-radius: 4px;">INSTALLATION PWA INSTANTANÉE</span>
+            </div>
+        </div>
+
+        <!-- Footer Page 1 -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Home PWA &bull; Dossier Pédagogique Homeschooling</span>
+            <span>Page 01 / 03 &bull; Présentation &amp; Piliers Éducatifs</span>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- PAGE 2 : GRILLE TARIFAIRE FAMILIALE, CONTRAT & BON POUR ACCORD -->
+    <!-- ============================================================== -->
+    <div class="page" id="page-2">
+        <div>
+            <!-- Header Top Page 2 -->
+            <div class="page-header">
+                <div class="header-logo-group">
+                    <div class="header-logo-box">
+                        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 8px; display: block;">
+                    </div>
+                    <div>
+                        <div class="header-title-text">MODALITÉS D'ACCÈS &amp; INVESTISSEMENT &bull; <span>FORMULES FAMILLE 2026</span></div>
+                        <div style="font-size: 8px; color: var(--text-soft); font-weight: 500; margin-top: 1px;">Missi Innovation &bull; Tarification Accessible pour Parents &amp; Tuteurs</div>
+                    </div>
+                </div>
+                <div class="header-meta">
+                    Édition <strong>2026-2027</strong><br>
+                    <span>Mise en Service Immédiate &bull; Formation Incluse</span>
+                </div>
+            </div>
+
+            <p style="margin-bottom: 8px; font-size: 9px; color: var(--text-gray);">
+                Parce que l'instruction en famille est un engagement parental d'excellence, nous proposons une <strong>tarification douce, transparente et sans engagement abusif</strong>, incluant le paramétrage initial, l'accompagnement à l'installation sur vos appareils et le support technique local.
+            </p>
+
+            <!-- 2 FORMULES TARIFAIRES -->
+            <div class="pricing-card-row">
+                <!-- FORMULE 1 : FAMILLE ESSENTIELLE -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div>
+                            <span class="pricing-badge">Formule 1 : Famille Essentielle (1 à 2 Enfants)</span>
+                            <h3>Suivi Pédagogique Quotidien &amp; Planning Devoirs</h3>
+                            <div class="pricing-sub">Idéal pour les parents débutant le homeschooling avec 1 ou 2 enfants.</div>
+                        </div>
+                        <div class="pricing-val-wrap">
+                            <div class="pricing-old-rate">55 000 Ar/mois</div>
+                            <div class="pricing-amount">39 000 Ar <span class="pricing-period">/ mois</span></div>
+                            <span style="font-size: 6.8px; color: var(--brand-teal-dark); font-weight: 700; background: var(--brand-teal-light); padding: 1px 5px; border-radius: 3px;">Ou 290 000 Ar / an (Économie de 38%)</span>
+                        </div>
+                    </div>
+                    <ul class="feature-bullets">
+                        <li><span class="bullet-icon">✓</span> <strong>Jusqu'à 2 profils enfants complets</strong> avec niveaux d'étude indépendants</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Cahier de devoirs interactif</strong> avec statuts (à faire / validé)</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Suivi des leçons par discipline</strong> (Français, Maths, Histoire, etc.)</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Mode 100% Hors-Ligne natif</strong> sur PC ou tablette familiale</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Génération du carnet de suivi semestriel</strong> en format PDF officiel</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Assistance technique par message</strong> sous 24h ouvrées</li>
+                    </ul>
+                </div>
+
+                <!-- FORMULE 2 : FAMILLE NOMBREUSE & TUTEURS D'ÉLITE -->
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 6px;">
+                                <span class="pricing-badge" style="color: var(--brand-copper-dark);">Formule 2 : Famille Nombreuse &amp; Tuteurs ★</span>
+                                <span style="font-size: 7px; font-weight: 800; background: var(--brand-copper); color: white; padding: 1px 6px; border-radius: 999px; text-transform: uppercase;">Recommandé</span>
+                            </div>
+                            <h3 style="color: var(--brand-copper-dark);">Multi-Profils Illimités, Dossier Inspection &amp; Cloud Sync</h3>
+                            <div class="pricing-sub">Pour fratries de 3 enfants et plus, tuteurs privés et éducateurs indépendants à domicile.</div>
+                        </div>
+                        <div class="pricing-val-wrap">
+                            <div class="pricing-old-rate">89 000 Ar/mois</div>
+                            <div class="pricing-amount">59 000 Ar <span class="pricing-period">/ mois</span></div>
+                            <span style="font-size: 6.8px; color: var(--brand-copper-dark); font-weight: 700; background: var(--brand-copper-light); padding: 1px 5px; border-radius: 3px;">Ou 450 000 Ar / an (Option Licence Définitive Disponible)</span>
+                        </div>
+                    </div>
+                    <ul class="feature-bullets">
+                        <li><span class="bullet-icon">✓</span> <strong>Tout le contenu Famille Essentielle inclus sans limitation</strong></li>
+                        <li><span class="bullet-icon">✓</span> <strong>Jusqu'à 6 profils enfants / élèves</strong> avec programmes personnalisés</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Module Dossier d'Inspection Académique</strong> complet et normalisé A4</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Banque de ressources &amp; fiches d'exercices</strong> intégrée et enrichissable</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Sauvegarde miroir Cloud chiffrée</strong> optionnelle pour synchroniser 2 PC</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Assistance prioritaire 6j/7</strong> avec session d'installation à distance offerte</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PACK CONGESTION & MATÉRIEL SÉCURISÉ -->
+            <div style="background: linear-gradient(135deg, #FAF8F5 0%, #FFFFFF 100%); border: 1.5px solid var(--border-color); border-radius: 7px; padding: 7px 11px; display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 7px;">
+                <div style="flex: 1;">
+                    <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
+                        <span style="font-size: 9px; font-weight: 800; color: var(--text-dark);">✦ Option Clés en Main : Tablette Scolaire Sécurisée Pré-Configurée</span>
+                        <span style="font-size: 6.8px; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 5px; border-radius: 3px; text-transform: uppercase;">Service Confort Famille</span>
+                    </div>
+                    <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.3;">
+                        Mise à disposition d'une tablette 10 pouces durcie avec coque antichoc, configurée sous contrôle parental strict (zéro accès YouTube/réseaux sociaux, Study Home PWA pré-installée, mode hors-ligne prêt).
+                    </div>
+                </div>
+                <div style="text-align: right; white-space: nowrap; padding-left: 10px; border-left: 1px dashed var(--border-color);">
+                    <div style="font-size: 11px; font-weight: 800; color: var(--brand-copper-dark); font-family: 'Outfit', sans-serif;">Prix Coûtant Réel</div>
+                    <div style="font-size: 6.8px; color: var(--text-soft); text-transform: uppercase; font-weight: 600;">Sans marge logicielle</div>
+                </div>
+            </div>
+
+            <!-- BON POUR ACCORD & SOUSCRIPTION -->
+            <div class="bon-container">
+                <div class="bon-header">
+                    <strong>✦ Bon pour Accord &amp; Activation du Compte Familial Study Home</strong>
+                    <span style="font-size: 7.5px; color: var(--text-soft); text-transform: uppercase;">Mise à disposition sous 24h ouvrées</span>
+                </div>
+                <div class="bon-grid">
+                    <div class="sig-block">
+                        <strong>Pour la Famille / Le Parent Responsable :</strong>
+                        <span>Nom &amp; Prénom : .............................................................. Tél : ........................</span>
+                        <span>Date &amp; Signature précédée de « Bon pour accord » :</span>
+                    </div>
+                    <div class="sig-block">
+                        <strong>Pour Missi Innovation (Éditeur Pédagogique) :</strong>
+                        <span>Support Pédagogique &amp; Activation des Clés PWA</span>
+                        <span>Cachet &amp; Engagement d'Assistance sous 24h ouvrées</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Page 2 -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Home PWA &bull; Dossier Pédagogique Homeschooling</span>
+            <span>Page 02 / 03 &bull; Grille Tarifaire &amp; Réservation Famille</span>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- PAGE 3 : SPÉCIFICATIONS TECHNIQUES PWA & CHARTE ÉTHIQUE        -->
+    <!-- ============================================================== -->
+    <div class="page" id="page-3">
+        <div>
+            <!-- Header Top Page 3 -->
+            <div class="page-header">
+                <div class="header-logo-group">
+                    <div class="header-logo-box">
+                        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 8px; display: block;">
+                    </div>
+                    <div>
+                        <div class="header-title-text">SPÉCIFICATIONS TECHNIQUES &bull; <span>ARCHITECTURE PWA SOUVERAINE</span></div>
+                        <div style="font-size: 8px; color: var(--text-soft); font-weight: 500; margin-top: 1px;">Missi Innovation &bull; Ingénierie Logicielle Éthique &bull; Protection des Données Mineures</div>
+                    </div>
+                </div>
+                <div class="header-meta">
+                    Cahier des Charges <strong>2026-2027</strong><br>
+                    <span>Garantie de Pérennité &bull; Export Universel</span>
+                </div>
+            </div>
+
+            <!-- TABLEAU COMPARATIF ET TECHNIQUE -->
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th colspan="2">1. Socle Technologique PWA &amp; Accessibilité Universelle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-feature">Mode PWA (Progressive Web App)</td>
+                        <td class="col-desc">S'installe en icône de bureau autonome sur Windows, macOS, Linux, Android et iPadOS. Zéro besoin de télécharger un fichier d'installation de 500 Mo.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-feature">Fonctionnement 100% Hors-Ligne</td>
+                        <td class="col-desc">Moteur local avec stockage IndexedDB haute performance. Toutes les leçons, devoirs et notes sont accessibles et modifiables sans aucune connexion Internet active.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-feature">Synchronisation &amp; Sauvegarde</td>
+                        <td class="col-desc">Sauvegarde locale instantanée à chaque saisie. Export manuel complet en format JSON/Excel ou synchronisation Cloud miroir sécurisée lors du retour du réseau.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-feature">Compatibilité Matérielle</td>
+                        <td class="col-desc">Optimisé pour fonctionner avec fluidité sur les ordinateurs familiaux modestes (dès 2 Go de RAM) et tablettes tactiles d'entrée de gamme.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th colspan="2">2. Fonctionnalités Pédagogiques &amp; Inspection Académique</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-feature">Suivi par Cycles &amp; Matières</td>
+                        <td class="col-desc">Arborescence modulable : Maternelle, Primaire (CP-CM2), Collège (6e-3e), Lycée (Seconde-Terminale) ou cursus libre. Possibilité de renommer ou d'ajouter des matières sur mesure.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-feature">Génération du Dossier d'Inspection</td>
+                        <td class="col-desc">Édition en 1 clic d'un livret scolaire PDF A4 complet, prêt à imprimer ou envoyer par email pour les bilans annuels de l'inspection académique ou le suivi CNED.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-feature">Planificateur Hebdomadaire Intuitif</td>
+                        <td class="col-desc">Vue par semaine ou par journée pour organiser les plages de travail, les sorties éducatives, les ateliers manuels et le temps de lecture sans stress.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-feature">Carnet de Progression &amp; Badges</td>
+                        <td class="col-desc">Indicateurs visuels clairs permettant à l'enfant de constater ses progrès de manière autonome, valorisant l'effort plutôt que la simple sanction chiffrée.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th colspan="2">3. Charte Éthique &amp; Protection Absolue de l'Enfance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-feature">Zéro Traçage &amp; Zéro Publicité</td>
+                        <td class="col-desc">Aucun bandeau publicitaire, aucun cookie commercial, aucun tracker marketing. L'attention de votre enfant reste 100% focalisée sur ses leçons.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-feature">Souveraineté des Données Familiales</td>
+                        <td class="col-desc">Les informations relatives à vos enfants et à vos méthodes pédagogiques restent strictement privées. Aucune donnée n'est cédée à des tiers.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-feature">Pérennité &amp; Indépendance</td>
+                        <td class="col-desc">Vous conservez à vie vos données et vos exports PDF, même si vous décidez d'interrompre votre abonnement. Vos fiches et devoirs vous appartiennent.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Cadre d'Engagements Missi Innovation -->
+            <div style="margin-top: 6px; padding: 7px 11px; border: 1px solid var(--border-color); border-radius: 6px; background: #FAF9F5; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-gray); flex-wrap: wrap; gap: 6px;">
+                <div><strong>Activation Immédiate :</strong> Accès à l'application dès validation du dossier</div>
+                <div><strong>Accompagnement Dédié :</strong> Prise en main personnalisée pour les parents</div>
+                <div><strong>Règlement Souple :</strong> Virement bancaire ou Mobile Money (MVola)</div>
+            </div>
+        </div>
+
+        <!-- Footer Page 3 -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; Study Home PWA &bull; Dossier Pédagogique Homeschooling</span>
+            <span>Page 03 / 03 &bull; Spécifications PWA &amp; Charte Éthique</span>
+        </div>
+    </div>
+
+    <!-- PIED DE PAGE WEB UNIFIÉ HAUT-CONTRASTE (MASQUÉ À L'IMPRESSION) -->
+    <footer class="web-footer-unified no-print">
+        <div class="web-footer-brand-row">
+            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
+            <span>MISSI INNOVATION &bull; Solutions Logicielles Éducatives &bull; Madagascar</span>
+        </div>
+        <p class="web-footer-subtext">
+            Éditeur de progiciels métiers et d'applications éducatives de haute précision. Conçu pour concilier performance pédagogique, souveraineté hors-ligne et respect absolu de la vie privée des familles. Calibré pour affichage web et impression officielle format A4.
+        </p>
+    </footer>
+
+</body>
+</html>

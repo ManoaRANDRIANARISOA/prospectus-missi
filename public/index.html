@@ -846,10 +846,6 @@
       </a>
 
       <div class="nav-badges">
-        <div class="status-pill">
-          <span class="status-dot"></span>
-          <span>Système Opérationnel &bull; v2.4</span>
-        </div>
         <button onclick="window.print()" class="btn btn-outline" style="font-size: 0.78rem; padding: 0.4rem 0.85rem;">
           <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
           Imprimer le Catalogue
@@ -1059,31 +1055,22 @@
               <li><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Paie légale Malagasy (IRSA, CNaPS &amp; Fiches PDF)</li>
             </ul>
           </div>
-          <!-- SÉLECTEUR DE STYLE COMPARATIF A/B -->
-          <div style="background: var(--brand-copper-light); border: 1px solid var(--brand-copper-border); border-radius: 8px; padding: 7px 10px; margin-top: 10px; margin-bottom: 8px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
-              <span style="font-size: 0.68rem; font-weight: 700; color: var(--brand-copper-dark); text-transform: uppercase; letter-spacing: 0.05em;">
-                ✨ 2 Éditions Visuelles Disponibles (A/B)
+          <!-- CHOIX DU STYLE DE PRÉSENTATION (A/B) -->
+          <div style="background: var(--brand-copper-light); border: 1px solid var(--brand-copper-border); border-radius: 8px; padding: 10px; margin-top: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 0.7rem; font-weight: 700; color: var(--brand-copper-dark); text-transform: uppercase; letter-spacing: 0.05em;">
+                ✨ Présentation A/B au Choix (4 Pages)
               </span>
-              <span style="font-size: 0.65rem; background: var(--brand-copper); color: white; padding: 1.5px 6px; border-radius: 999px; font-weight: 700;">Nouveau</span>
+              <span style="font-size: 0.65rem; background: var(--brand-copper); color: white; padding: 1.5px 6px; border-radius: 999px; font-weight: 700;">Édition 2026</span>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
-              <a href="education/proposition-papier-art.html" style="background: white; border: 1px solid var(--brand-copper); color: var(--brand-copper-dark); font-size: 0.72rem; font-weight: 700; padding: 5px 6px; border-radius: 6px; text-decoration: none; text-align: center; display: flex; align-items: center; justify-content: center; gap: 4px; transition: all 0.15s ease;">
-                📜 Style 1 : Papier d'Art
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <a href="education/proposition-papier-art.html" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.5rem 0.6rem; text-align: center; justify-content: center; display: flex; align-items: center; gap: 4px;" title="Ouvrir Version 1 (Papier d'Art & Flow)">
+                📜 Style 1 · Papier d'Art
               </a>
-              <a href="education/proposition-bento-glass.html" style="background: var(--brand-copper); border: 1px solid var(--brand-copper); color: white; font-size: 0.72rem; font-weight: 700; padding: 5px 6px; border-radius: 6px; text-decoration: none; text-align: center; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25); transition: all 0.15s ease;">
-                💎 Style 2 : Bento Glass
+              <a href="education/proposition-bento-glass.html" class="btn btn-copper" style="font-size: 0.78rem; padding: 0.5rem 0.6rem; text-align: center; justify-content: center; display: flex; align-items: center; gap: 4px;" title="Ouvrir Version 2 (Bento Glass & Widgets)">
+                💎 Style 2 · Bento Glass →
               </a>
             </div>
-          </div>
-
-          <div class="card-actions" style="gap: 6px;">
-            <a href="education/proposition-papier-art.html" class="btn btn-secondary" style="flex: 1; font-size: 0.78rem;" title="Ouvrir Version 1 (Papier d'Art & Flow)">
-              Ouvrir Style 1
-            </a>
-            <a href="education/proposition-bento-glass.html" class="btn btn-copper" style="flex: 1; font-size: 0.78rem;" title="Ouvrir Version 2 (Bento Glass & Widgets)">
-              Ouvrir Style 2 →
-            </a>
           </div>
         </div>
 
@@ -1148,6 +1135,33 @@
           <div style="text-align: right; white-space: nowrap; flex-shrink: 0; padding-left: 1.25rem; border-left: 1px dashed #E6DDD3;">
             <div style="font-size: 1.35rem; font-weight: 800; color: #8C472D;">450 000 Ar</div>
             <div style="font-size: 0.75rem; color: #8C8680; text-transform: uppercase; font-weight: 600;">Forfait unique matériel</div>
+          </div>
+        </div>
+
+        <!-- ENCART NOUVEAUTÉ : HOMESCHOOLING & ÉDUCATION PARENTALE (STUDY HOME PWA) -->
+        <div style="grid-column: 1 / -1; background: linear-gradient(135deg, #FAFDFB 0%, #F0FDFA 100%); border: 1.5px solid #CCFBF1; border-left: 5px solid #0D9488; border-radius: var(--radius-lg); padding: 1.5rem 1.75rem; box-shadow: 0 4px 16px rgba(13, 148, 136, 0.06); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.75rem;">
+          <div style="flex: 1; min-width: 300px;">
+            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;">
+              <span style="font-size: 0.72rem; font-weight: 800; color: #0F766E; background: #CCFBF1; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em;">Nouvelle Application PWA</span>
+              <h4 style="font-size: 1.15rem; font-weight: 800; color: #1C1917; margin: 0;">Study Home PWA &bull; Pour Parents &amp; Homeschooling</h4>
+              <span style="font-size: 0.7rem; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 7px; border-radius: 999px;">100% Hors-Ligne &bull; Multi-OS</span>
+            </div>
+            <p style="font-size: 0.88rem; color: #57534E; margin: 0 0 8px 0; line-height: 1.5;">
+              L'application web progressive souveraine conçue pour l'instruction en famille et les tuteurs privés : suivi quotidien des leçons et des devoirs, découpage par cycle, carnet de réussite et génération en 1 clic du dossier d'inspection académique.
+            </p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 0.8rem; color: #0F766E; font-weight: 600;">
+              <span>✓ Accessible Web, PC Windows/Mac &amp; Mobile</span>
+              <span>✓ Zéro publicité ni distraction</span>
+              <span>✓ Dès 39 000 Ar / mois</span>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; min-width: 200px;">
+            <a href="education/homeschooling-pwa.html" class="btn btn-primary" style="background: #0D9488; border-color: #0F766E; text-align: center; justify-content: center; font-size: 0.85rem; padding: 0.6rem 1.1rem; box-shadow: 0 3px 10px rgba(13, 148, 136, 0.25);">
+              Ouvrir le Dossier PWA (3 Pages) →
+            </a>
+            <a href="education/homeschooling-pwa.html" onclick="window.open('education/homeschooling-pwa.html'); return false;" class="btn btn-outline" style="text-align: center; justify-content: center; font-size: 0.75rem; padding: 0.35rem 0.8rem;">
+              Imprimer Format A4
+            </a>
           </div>
         </div>
 

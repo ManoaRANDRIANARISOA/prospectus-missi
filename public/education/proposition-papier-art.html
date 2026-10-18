@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proposition Commerciale — Édition Atelier Papier d'Art &amp; Flow Tactile | Missi Innovation</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/img/missi_logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --rust: #A45A3D;
@@ -47,83 +48,185 @@
             font-family: 'Playfair Display', Georgia, serif;
         }
 
-        /* ACTIONS BAR (WEB ONLY) */
-        .no-print {
+        .outfit {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* TOP NAVIGATION UNIFIÉE MISSI INNOVATION (64PX STANDARD) */
+        .top-nav {
             position: sticky;
             top: 0;
-            z-index: 9999;
-            background: rgba(28, 25, 23, 0.95);
-            backdrop-filter: blur(12px);
-            border-bottom: 2px solid var(--rust);
-            padding: 10px 24px;
+            z-index: 99999;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #E8E5DD;
+            height: 64px;
+            min-height: 64px;
+            max-height: 64px;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        .nav-inner {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            gap: 1.5rem;
+            height: 100%;
+            flex-wrap: nowrap;
         }
 
-        .no-print .brand {
+        .brand-link {
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: white;
+            gap: 0.75rem;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
+            color: #1C1917;
+            flex-shrink: 0;
         }
 
-        .no-print .style-pill {
-            background: rgba(164, 90, 61, 0.25);
-            border: 1px solid var(--rust);
-            color: #FED7AA;
-            padding: 4px 10px;
-            border-radius: 999px;
-            font-size: 0.72rem;
-            font-weight: 700;
+        .brand-logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: #1C1917;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
+            border: 1px solid #443E3A;
+            flex-shrink: 0;
+        }
+
+        .brand-title-wrap {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: #1C1917;
+        }
+
+        .brand-name-accent {
+            color: var(--copper-gold);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
-        .no-print .nav-actions {
+        .brand-tagline {
+            font-size: 0.7rem;
+            color: #78716C;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .nav-badges {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.75rem;
+            flex-shrink: 0;
         }
 
-        .no-print .btn-action {
-            text-decoration: none;
-            padding: 5px 12px;
-            border-radius: 6px;
+        .nav-doc-badge {
             font-size: 0.78rem;
             font-weight: 600;
+            color: var(--rust-dark);
+            background: var(--rust-light);
+            border: 1px solid var(--copper-border);
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .nav-doc-badge span {
+            font-weight: 800;
+            color: var(--rust-dark);
+        }
+
+        .nav-link-btn {
+            color: #57534E;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #E8E5DD;
+            background: white;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link-btn:hover {
+            border-color: var(--copper-gold);
+            color: var(--copper-gold);
+            background: #FDF6F0;
+        }
+
+        .btn-print-copper {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            transition: all 0.15s ease;
-        }
-
-        .no-print .btn-link {
-            background: rgba(255,255,255,0.08);
-            color: #E7E5E4;
-            border: 1px solid rgba(255,255,255,0.12);
-        }
-
-        .no-print .btn-link:hover {
-            background: rgba(255,255,255,0.15);
+            gap: 0.4rem;
+            background: var(--copper-gold);
             color: white;
-        }
-
-        .no-print .btn-primary {
-            background: var(--rust);
-            color: white;
-            border: 1px solid var(--rust);
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.4rem 0.95rem;
+            border-radius: 6px;
+            border: 1px solid var(--rust-dark);
             cursor: pointer;
-            box-shadow: 0 2px 6px rgba(164, 90, 61, 0.35);
+            box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
+            transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
-        .no-print .btn-primary:hover {
+        .btn-print-copper:hover {
             background: var(--rust-dark);
+        }
+
+        /* FOOTER WEB UNIFIÉ HAUTE VISIBILITÉ (WEB ONLY) */
+        .web-footer-unified {
+            margin: 40px auto 25px auto;
+            max-width: 960px;
+            text-align: center;
+            padding: 24px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            color: #D6D3D1;
+            font-size: 11px;
+            background: #1C1917;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .web-footer-brand-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .web-footer-subtext {
+            color: #A8A29E;
+            font-size: 10.5px;
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         /* PAGE A4 (210mm x 297mm) */
@@ -1292,30 +1395,57 @@
                 </tbody>
             </table>
 
+            <!-- Specs Table 3 : RH, Pointage & Paie Légale Malagasy -->
+            <table class="specs-paper-table">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="serif">3. Gestion RH, Pointage Enseignants &amp; Paie Légale Malagasy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-name">Dossiers RH &amp; Vacations</td>
+                        <td class="col-desc">Fiches employés (permanents et vacataires), taux horaire par classe, suivi des matières enseignées et gestion des contrats de travail.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name">Pointage des Heures &amp; Retards</td>
+                        <td class="col-desc">Relevé quotidien ou mensuel des heures effectives dispensées, calcul automatique des majorations et gestion rigoureuse des absences.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name">Paie Légale IRSA, CNaPS &amp; OSTIE</td>
+                        <td class="col-desc">Barème fiscal Malagasy intégré (tranches IRSA, retenues CNaPS 1% salariale / 13% patronale, OSTIE/AMIT) avec édition des bulletins de paie PDF conformes.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name">Suivi des Avances &amp; Prêts</td>
+                        <td class="col-desc">Enregistrement des acomptes sur salaire et déduction automatisée sur la fiche de paie du mois sans risque d'omission.</td>
+                    </tr>
+                </tbody>
+            </table>
+
             <!-- Accompagnement & Matériel Strip -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
                 <div style="background: var(--sheet-white); border: 1px solid var(--border-paper); border-radius: 7px; padding: 7px 10px; box-shadow: var(--shadow-stacked);">
                     <div style="font-size: 8.5px; font-weight: 700; color: var(--rust-dark); display: flex; align-items: center; gap: 4px;">
-                        <span>🛠️ Accompagnement &amp; SLA Garanti</span>
+                        <span>🛠️ Accompagnement, SLA &amp; Reprise de Données</span>
                     </div>
                     <div style="font-size: 7.6px; color: var(--text-gray); line-height: 1.25; margin-top: 2px;">
-                        Mises à jour réglementaires et correctives incluses. Prêt immédiat d'un PC de secours sous 4h en cas de panne matérielle de votre établissement.
+                        Mises à jour réglementaires et correctives incluses. Import gratuit de vos listes d'élèves Excel existantes et prêt immédiat d'un PC de secours sous 4h en cas d'avarie matérielle.
                     </div>
                 </div>
 
                 <div style="background: var(--sheet-white); border: 1.5px solid var(--copper-gold); border-radius: 8px; padding: 7px 11px; box-shadow: var(--shadow-stacked); display: flex; justify-content: space-between; align-items: center; gap: 10px;">
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <div class="hardware-popout-wrap" style="position: relative; flex-shrink: 0; padding: 0 4px;">
-                    <img src="../assets/img/pack_imprimante_cutout.png" alt="Pack Matériel POS-80" style="width: 82px; height: auto; display: block; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.18)); transform: scale(1.1) translateY(-2px); transition: transform 0.2s ease;">
-                </div>
+                            <img src="../assets/img/pack_imprimante_cutout.png" alt="Pack Matériel POS-80" style="width: 82px; height: auto; display: block; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.18)); transform: scale(1.1) translateY(-2px); transition: transform 0.2s ease;">
+                        </div>
                         <div>
                             <div style="display: flex; align-items: center; gap: 6px;">
                                 <div style="font-size: 8.8px; font-weight: 800; color: var(--text-dark);">Pack Matériel : Imprimante 80 mm POS</div>
                                 <span style="font-size: 6.8px; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 5px; border-radius: 3px; text-transform: uppercase;">Service Confort Clés en Main</span>
                             </div>
                             <div style="font-size: 7.6px; color: var(--text-gray); line-height: 1.25; margin-top: 1px;">
-                                Imprimante neuve USB massicot auto + 5 bobines  Zéro coût d'encre.<br>
-                                <span style="color: var(--rust-dark); font-weight: 600;">✦ Mise à disposition d'équipement physique à prix coûtant : matériel sélectionné et pré-configuré sans marge logicielle dissimulée.</span>
+                                Imprimante neuve USB massicot auto + 5 bobines &bull; Zéro coût d'encre.<br>
+                                <span style="color: var(--rust-dark); font-weight: 600;">✦ Mise à disposition à prix coûtant sans marge logicielle dissimulée.</span>
                             </div>
                         </div>
                     </div>
@@ -1357,13 +1487,15 @@
         </div>
     </div>
 
-    <!-- PIED DE PAGE WEB UNIFIÉ (MASQUÉ À L'IMPRESSION) -->
-    <footer class="no-print" style="margin: 40px auto 25px auto; max-width: 900px; text-align: center; color: var(--text-gray); font-size: 11px; padding: 20px 10px; border-top: 1px solid rgba(0,0,0,0.08);">
-        <div style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
-            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
-            <span>MISSI INNOVATION &bull; Solutions Logicielles &bull; Madagascar</span>
+    <!-- PIED DE PAGE WEB UNIFIÉ HAUTE VISIBILITÉ (MASQUÉ À L'IMPRESSION) -->
+    <footer class="web-footer-unified no-print">
+        <div class="web-footer-brand-row">
+            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
+            <span>MISSI INNOVATION &bull; Solutions Logicielles Métiers &bull; Madagascar</span>
         </div>
-        <div>Éditeur de progiciels métiers de haute précision &bull; Document officiel calibré pour affichage web et impression A4</div>
+        <p class="web-footer-subtext">
+            Éditeur de progiciels métiers et de plateformes souveraines de haute précision pour l'Éducation, l'Hôtellerie et les Entreprises. Document officiel calibré pour affichage web et impression A4.
+        </p>
     </footer>
 
 </body>

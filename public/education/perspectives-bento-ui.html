@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perspectives d'Avenir &amp; Améliorations — Bento UI Board | Missi Innovation</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/img/missi_logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-bento-canvas: #EAE6DE;
@@ -55,59 +56,185 @@
             font-family: 'Playfair Display', Georgia, serif;
         }
 
-        /* TOP NAVIGATION */
-        .top-nav-bento {
+        .outfit {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* TOP NAVIGATION UNIFIÉE MISSI INNOVATION (64PX STANDARD) */
+        .top-nav {
             position: sticky;
             top: 0;
             z-index: 99999;
-            background: rgba(25, 22, 19, 0.95);
             backdrop-filter: blur(16px);
-            border-bottom: 2px solid var(--copper-primary);
-            padding: 12px 28px;
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #E8E5DD;
+            height: 64px;
+            min-height: 64px;
+            max-height: 64px;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        .nav-inner {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+            gap: 1.5rem;
+            height: 100%;
+            flex-wrap: nowrap;
         }
 
-        .top-nav-bento .brand {
+        .brand-link {
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: white;
+            gap: 0.75rem;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
+            color: #1C1917;
+            flex-shrink: 0;
         }
 
-        .top-nav-bento .badge-style {
-            background: rgba(194, 103, 43, 0.25);
-            border: 1px solid var(--copper-primary);
-            color: #FED7AA;
-            padding: 4px 12px;
-            border-radius: 999px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
+        .brand-logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: #1C1917;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
+            border: 1px solid #443E3A;
+            flex-shrink: 0;
+        }
+
+        .brand-title-wrap {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            color: #1C1917;
+        }
+
+        .brand-name-accent {
+            color: var(--copper-primary);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
         }
 
-        .top-nav-bento .actions-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .brand-tagline {
+            font-size: 0.7rem;
+            color: #78716C;
+            font-weight: 500;
+            line-height: 1.2;
         }
 
-        .btn-bento-nav {
-            text-decoration: none;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.8rem;
+        .nav-badges {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .nav-doc-badge {
+            font-size: 0.78rem;
             font-weight: 600;
+            color: var(--copper-dark);
+            background: var(--copper-subtle);
+            border: 1px solid var(--copper-border);
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .nav-doc-badge span {
+            font-weight: 800;
+            color: var(--copper-dark);
+        }
+
+        .nav-link-btn {
+            color: #57534E;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid #E8E5DD;
+            background: white;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link-btn:hover {
+            border-color: var(--copper-primary);
+            color: var(--copper-primary);
+            background: #FDF6F0;
+        }
+
+        .btn-print-copper {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            transition: all 0.15s ease;
+            gap: 0.4rem;
+            background: var(--copper-primary);
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 0.4rem 0.95rem;
+            border-radius: 6px;
+            border: 1px solid var(--copper-dark);
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-print-copper:hover {
+            background: var(--copper-dark);
+        }
+
+        /* FOOTER WEB UNIFIÉ HAUTE VISIBILITÉ (WEB ONLY) */
+        .web-footer-unified {
+            margin: 40px auto 25px auto;
+            max-width: 960px;
+            text-align: center;
+            padding: 24px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            color: #D6D3D1;
+            font-size: 11px;
+            background: #1C1917;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .web-footer-brand-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .web-footer-subtext {
+            color: #A8A29E;
+            font-size: 10.5px;
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .btn-bento-glass {
@@ -697,7 +824,6 @@
                 ÉDITION DÉMONSTRATION 2026-2027
             </div>
         </div>
-        </div>
 
         <div class="grid-bento-master">
 
@@ -1027,13 +1153,15 @@
         </div>
     </main>
 
-    <!-- PIED DE PAGE WEB UNIFIÉ (MASQUÉ À L'IMPRESSION) -->
-    <footer class="no-print" style="margin: 35px auto 20px auto; max-width: 900px; text-align: center; color: var(--text-gray); font-size: 11px; padding: 20px 10px; border-top: 1px solid rgba(0,0,0,0.08);">
-        <div style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
-            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
-            <span>MISSI INNOVATION &bull; Solutions Logicielles &bull; Madagascar</span>
+    <!-- PIED DE PAGE WEB UNIFIÉ HAUTE VISIBILITÉ (MASQUÉ À L'IMPRESSION) -->
+    <footer class="web-footer-unified no-print">
+        <div class="web-footer-brand-row">
+            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
+            <span>MISSI INNOVATION &bull; Solutions Logicielles Métiers &bull; Madagascar</span>
         </div>
-        <div>Éditeur de progiciels métiers de haute précision &bull; Document officiel calibré pour affichage web et impression A4</div>
+        <p class="web-footer-subtext">
+            Éditeur de progiciels métiers et d'interfaces haute-fidélité pour l'Éducation, l'Hôtellerie et les Entreprises. Document officiel calibré pour affichage web et impression A4.
+        </p>
     </footer>
 
 </body>
