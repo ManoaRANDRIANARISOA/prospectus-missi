@@ -1,18 +1,28 @@
 {
   "hosting": {
-    "public": ".",
+    "public": "public",
     "ignore": [
       "firebase.json",
-      "**/.*",
-      "**/node_modules/**",
-      "package.json",
-      "package-lock.json",
-      "README.md",
-      "deploy-supabase.mjs",
-      ".env",
-      ".env.example"
+      "**/.*"
     ],
     "cleanUrls": true,
+    "redirects": [
+      { "source": "/prospectus_presentation_visuelle.html", "destination": "/education/presentation-visuelle", "type": 301 },
+      { "source": "/proposition_commerciale_petite_structure.html", "destination": "/education/offre-petite-structure", "type": 301 },
+      { "source": "/proposition_commerciale_moyenne_structure.html", "destination": "/education/offre-moyenne-structure", "type": 301 },
+      { "source": "/proposition_commerciale_grande_structure.html", "destination": "/education/offre-grande-structure", "type": 301 },
+      { "source": "/proposition_commerciale.html", "destination": "/education/proposition-papier-art", "type": 301 },
+      { "source": "/proposition_commerciale_bento_glass.html", "destination": "/education/proposition-bento-glass", "type": 301 },
+      { "source": "/perspectives_ameliorations_atelier_3d.html", "destination": "/education/perspectives-atelier-3d", "type": 301 },
+      { "source": "/perspectives_ameliorations_bento_ui.html", "destination": "/education/perspectives-bento-ui", "type": 301 },
+      { "source": "/proposition_commerciale_societe.html", "destination": "/entreprises/erp-societe", "type": 301 },
+      { "source": "/resipro_proposition_commerciale.html", "destination": "/hotellerie/resipro", "type": 301 },
+      { "source": "/onepage_site_vitrine_commerciale.html", "destination": "/web/site-vitrine", "type": 301 },
+      { "source": "/guide_utilisateur_et_avantages_pro.html", "destination": "/docs/guide-utilisateur", "type": 301 },
+      { "source": "/guide_sauvegardes_et_topologie_multipostes.html", "destination": "/docs/guide-sauvegardes-multipostes", "type": 301 },
+      { "source": "/multi-tenant-guide.html", "destination": "/docs/guide-architecture-multi-tenant", "type": 301 },
+      { "source": "/img/:path*", "destination": "/assets/img/:path*", "type": 301 }
+    ],
     "headers": [
       {
         "source": "**/*.@(jpg|jpeg|gif|png|webp|svg)",

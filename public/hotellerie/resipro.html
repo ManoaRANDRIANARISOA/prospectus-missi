@@ -818,19 +818,9 @@
         <!-- TOP NAV UNIFIÉ MISSI INNOVATION -->
     <header class="top-nav no-print">
         <div class="nav-inner">
-            <a href="index.html" class="brand-link">
+            <a href="../index.html" class="brand-link">
                 <div class="brand-logo-mark">
-                    <svg width="22" height="22" viewBox="0 0 48 48" fill="none">
-                        <defs>
-                            <linearGradient id="navGlowResi" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#F59E0B"/>
-                                <stop offset="100%" stop-color="#C2672B"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M12 34V17.5C12 16.1 13.6 15.3 14.7 16.2L24 23.5L33.3 16.2C34.4 15.3 36 16.1 36 17.5V34" stroke="#FAF8F5" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="24" cy="12.5" r="2.5" fill="url(#navGlowResi)"/>
-                        <path d="M24 25.5V34" stroke="url(#navGlowResi)" stroke-width="3.5" stroke-linecap="round"/>
-                    </svg>
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
                 </div>
                 <div class="brand-title-wrap">
                     <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
@@ -841,7 +831,7 @@
                 <div class="nav-doc-badge">
                     <span>ResiPro Suite</span> &bull; Hôtellerie, Restauration & Caisse
                 </div>
-                <a href="index.html" class="nav-link-btn">← Catalogue Showroom</a>
+                <a href="../index.html" class="nav-link-btn">← Catalogue Showroom</a>
                 <button onclick="window.print()" class="btn-print-copper">
                     <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
                     Imprimer (A4)
@@ -854,10 +844,20 @@
     <!-- PAGE 1 -->
     <div class="page">
         <div class="header-top">
-            <div class="header-left">
-                PROPOSITION COMMERCIALE — ÉTABLISSEMENTS HÔTELIERS
-                <div class="sub">ResiPro - Solution Interne Intégrée Madagascar</div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 38px; height: 38px; border-radius: 9px; background: #1C1917; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(28, 25, 23, 0.15); border: 1px solid #443E3A; flex-shrink: 0;">
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
+                </div>
+                <div class="header-left">
+                    PROPOSITION COMMERCIALE — ÉTABLISSEMENTS HÔTELIERS
+                    <div class="sub">ResiPro &bull; Solution Interne Intégrée Madagascar &bull; Hébergement & Restauration</div>
+                </div>
             </div>
+            <div class="header-right">
+                Émis en <strong>2026</strong><br>
+                <span>Dossier Direction &bull; Valable 60 jours</span>
+            </div>
+        </div>
             <div class="header-right">
                 Émis en<br>
                 <strong>2026</strong><br>
@@ -1200,6 +1200,15 @@
             <span>ResiPro — Proposition Commerciale 2026</span>
         </div>
     </div>
+
+    <!-- PIED DE PAGE WEB UNIFIÉ (MASQUÉ À L'IMPRESSION) -->
+    <footer class="no-print" style="margin: 35px auto 20px auto; max-width: 900px; text-align: center; color: var(--text-gray); font-size: 11px; padding: 20px 10px; border-top: 1px solid rgba(0,0,0,0.08);">
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
+            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
+            <span>MISSI INNOVATION &bull; Solutions Logicielles &bull; Madagascar</span>
+        </div>
+        <div>Éditeur de progiciels métiers de haute précision &bull; Document officiel calibré pour affichage web et impression A4</div>
+    </footer>
 
 </body>
 

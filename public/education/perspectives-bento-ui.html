@@ -653,21 +653,25 @@
 <body>
 
     <!-- TOP NAVIGATION -->
-    <header class="top-nav-bento">
-        <a href="index.html" class="brand">
-            <svg width="22" height="22" viewBox="0 0 48 48" fill="none">
-                <circle cx="24" cy="24" r="22" fill="#C2672B"/>
-                <path d="M14 34V18L24 25L34 18V34" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Missi Innovation &bull; Study Agent Pro
-        </a>
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <span class="badge-style">Style 2 : Bento UI Board &amp; Widgets</span>
-            <div class="actions-group">
-                <a href="perspectives_ameliorations_atelier_3d.html" class="btn-bento-nav btn-bento-glass">← Style 1 (Atelier 3D)</a>
-                <a href="proposition_commerciale_bento_glass.html" class="btn-bento-nav btn-bento-glass">Proposition Bento 4 Pages</a>
-                <a href="index.html" class="btn-bento-nav btn-bento-glass">Showroom</a>
-                <button onclick="window.print()" class="btn-bento-nav btn-bento-copper">
+    <header class="top-nav no-print">
+        <div class="nav-inner">
+            <a href="../index.html" class="brand-link">
+                <div class="brand-logo-mark">
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
+                </div>
+                <div class="brand-title-wrap">
+                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
+                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
+                </div>
+            </a>
+            <div class="nav-badges">
+                <div class="nav-doc-badge">
+                    <span>Study Agent</span> &bull; Style 2 : Bento UI Board & Widgets
+                </div>
+                <a href="../education/perspectives-atelier-3d.html" class="nav-link-btn">← Style 1 (Atelier 3D)</a>
+                <a href="../education/proposition-bento-glass.html" class="nav-link-btn">Proposition Bento 4 Pages</a>
+                <a href="../index.html" class="nav-link-btn">Showroom</a>
+                <button onclick="window.print()" class="btn-print-copper">
                     <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
                     Imprimer Board Bento
                 </button>
@@ -680,16 +684,21 @@
 
         <!-- TITLE ROW -->
         <div class="bento-header-banner">
-            <div>
-                <h1 class="serif">Bento Board &bull; Perspectives d'Avenir &amp; Améliorations ERP</h1>
-                <p>Écosystème de modules connectés haute-fidélité pour collèges, lycées et écoles privées d'excellence.</p>
+            <div style="display: flex; align-items: center; gap: 14px;">
+                <div id="bento-brand-mark" style="width: 44px; height: 44px; border-radius: 11px; background: #1C1917; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(28, 25, 23, 0.2); border: 1px solid #443E3A; flex-shrink: 0;">
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="44" height="44" style="border-radius: 11px; display: block;">
+                </div>
+                <div>
+                    <h1 class="serif" style="margin: 0; font-size: 22px;">Bento Board &bull; Perspectives d'Avenir ERP</h1>
+                    <p style="margin-top: 3px; font-size: 9.5px; color: var(--ink-muted);">Écosystème de modules connectés haute-fidélité pour collèges, lycées et écoles privées d'excellence.</p>
+                </div>
             </div>
-            <div style="font-size: 8px; font-weight: 700; color: var(--copper-dark); background: var(--copper-subtle); border: 1px solid var(--copper-border); padding: 4px 10px; border-radius: 999px;">
+<div style="font-size: 8px; font-weight: 700; color: var(--copper-dark); background: var(--copper-subtle); border: 1px solid var(--copper-border); padding: 4px 10px; border-radius: 999px;">
                 ÉDITION DÉMONSTRATION 2026-2027
             </div>
         </div>
+        </div>
 
-        <!-- 5-COLUMN MASTER GRID -->
         <div class="grid-bento-master">
 
             <!-- ============================================== -->
@@ -1017,6 +1026,15 @@
             <strong>Missi Innovation</strong> &bull; Progiciel Study Agent Pro &bull; Architecture Modulaire &bull; Déploiement garanti sous 48h ouvrées.
         </div>
     </main>
+
+    <!-- PIED DE PAGE WEB UNIFIÉ (MASQUÉ À L'IMPRESSION) -->
+    <footer class="no-print" style="margin: 35px auto 20px auto; max-width: 900px; text-align: center; color: var(--text-gray); font-size: 11px; padding: 20px 10px; border-top: 1px solid rgba(0,0,0,0.08);">
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
+            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
+            <span>MISSI INNOVATION &bull; Solutions Logicielles &bull; Madagascar</span>
+        </div>
+        <div>Éditeur de progiciels métiers de haute précision &bull; Document officiel calibré pour affichage web et impression A4</div>
+    </footer>
 
 </body>
 </html>

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposition Commerciale — ERP Société & Entreprise | Missi Innovation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rust: #A45A3D;
+            --rust-dark: #8C472D;
+            --rust-light: #F8EFEA;
+            --text-dark: #2C2C2C;
+            --text-gray: #666666;
+            --text-light: #8E8E8E;
+            --border: #E5DCD5;
+            --border-light: #F0EAE4;
+            --green: #2E7D32;
+            --green-light: #E8F5E9;
+            --green-border: #A5D6A7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: #262626;
+            font-size: 13px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* PAGE SHEETS (SCREEN VIEW) */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            padding: 16mm 18mm 15mm 18mm;
+            margin: 15mm auto;
+            background: #FFFFFF;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                padding: 10mm 15mm;
+                width: 210mm;
+                height: 296mm;
+                min-height: 296mm;
+                page-break-after: always;
+                page-break-inside: avoid;
+                overflow: hidden;
+            }
+
+            .page-footer {
+                bottom: 6mm !important;
+                left: 15mm !important;
+                right: 15mm !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* HEADER */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1.5px solid var(--border);
+            padding-bottom: 12px;
+            margin-bottom: 22px;
+        }
+
+        .header-left {
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 1.2px;
+            font-weight: 700;
+            color: var(--rust);
+        }
+
+        .header-left .sub {
+            color: var(--text-gray);
+            font-size: 8.8px;
+            letter-spacing: 0.3px;
+            font-weight: 400;
+            margin-top: 2px;
+            text-transform: none;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 10px;
+            color: var(--text-gray);
+            line-height: 1.35;
+        }
+
+        .header-right strong {
+            color: var(--text-dark);
+            font-size: 12px;
+        }
+
+        /* MAIN TITLES */
+        h1.main-title {
+            font-size: 34px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.15;
+            margin-bottom: 6px;
+        }
+
+        h2.main-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--rust);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .intro-text {
+            color: var(--text-gray);
+            margin-bottom: 16px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* BADGES */
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            padding: 4px 11px;
+            border-radius: 30px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .badge.outline-rust {
+            border: 1px solid var(--rust);
+            color: var(--rust);
+            background: white;
+        }
+
+        .badge.outline-green {
+            border: 1px solid var(--green);
+            color: var(--green);
+            background: var(--green-light);
+        }
+
+        /* SECTION HEADERS */
+        .section-header {
+            margin-top: 14px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 6px;
+        }
+
+        .section-header .num {
+            font-size: 10.5px;
+            color: var(--rust);
+            font-weight: 700;
+            margin-right: 8px;
+            letter-spacing: 1px;
+        }
+
+        .section-header .title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .section-header .subtitle {
+            font-size: 10px;
+            color: var(--text-gray);
+            margin-top: 2px;
+        }
+
+        /* FEATURES GRID */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 18px;
+            margin-bottom: 14px;
+        }
+
+        .text-block h4 {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .text-block p {
+            color: var(--text-gray);
+            font-size: 10.8px;
+            line-height: 1.45;
+        }
+
+        /* GUARANTEE BAR */
+        .guarantee-section {
+            background: var(--rust-light);
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border-left: 3.5px solid var(--rust);
+        }
+
+        .guarantee-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--rust);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .guarantee-grid {
+            display: flex;
+            gap: 12px;
+        }
+
+        .g-item {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: white;
+            padding: 10px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .g-icon {
+            font-size: 16px;
+            background: var(--rust-light);
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .g-content strong {
+            display: block;
+            font-size: 10.5px;
+            color: var(--rust);
+            margin-bottom: 2px;
+        }
+
+        .g-content span {
+            display: block;
+            font-size: 9px;
+            color: var(--text-gray);
+            line-height: 1.35;
+        }
+
+        /* PAGE 2 : 2-FORMULAS PRICING GRID */
+        .pricing-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card-compact {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .pricing-card-compact.featured {
+            border: 2px solid var(--rust);
+            box-shadow: 0 8px 24px rgba(164, 90, 61, 0.12);
+        }
+
+        .p-card-top {
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+
+        .p-badge-tag {
+            font-size: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--rust);
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .p-badge-tag.gold {
+            background: var(--rust-light);
+            padding: 2px 7px;
+            border-radius: 4px;
+            border: 1px solid rgba(164, 90, 61, 0.25);
+        }
+
+        .p-card-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 3px;
+        }
+
+        .p-card-desc {
+            font-size: 8.5px;
+            color: var(--text-gray);
+            line-height: 1.3;
+            min-height: 33px;
+        }
+
+        .p-price-wrap {
+            margin-top: 6px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        .p-setup-badge {
+            font-size: 8px;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .p-setup-badge strong {
+            color: var(--rust-dark);
+        }
+
+        .p-amount {
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--text-dark);
+            white-space: nowrap;
+        }
+
+        .p-amount.featured {
+            color: var(--rust);
+        }
+
+        .p-amount span.mo {
+            font-size: 9.5px;
+            font-weight: 500;
+            color: var(--text-gray);
+        }
+
+        .pricing-list-compact {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4.5px;
+            margin: 6px 0 0 0;
+            padding: 0;
+        }
+
+        .pricing-list-compact li {
+            position: relative;
+            padding-left: 14px;
+            color: var(--text-gray);
+            font-size: 8.7px;
+            line-height: 1.25;
+        }
+
+        .pricing-list-compact li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--rust);
+            font-weight: 800;
+            font-size: 9.5px;
+        }
+
+        .pricing-list-compact li strong {
+            color: var(--text-dark);
+        }
+
+        /* HARDWARE BOX */
+        .hardware-box {
+            background: #FFFFFF;
+            border: 1.5px solid var(--rust);
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hardware-box .h-left {
+            flex: 1;
+        }
+
+        .hardware-box .h-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hardware-box p {
+            font-size: 8.8px;
+            color: var(--text-gray);
+            line-height: 1.3;
+            margin-top: 2px;
+        }
+
+        .hardware-box .h-price {
+            text-align: right;
+            font-weight: 700;
+            color: var(--rust);
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .hardware-box .h-price span {
+            font-size: 8px;
+            color: var(--text-light);
+            display: block;
+            font-weight: 500;
+        }
+
+        /* ASSET PERPETUAL BOX */
+        .asset-box-p2 {
+            background: var(--rust-light);
+            border: 1px solid rgba(164, 90, 61, 0.25);
+            border-radius: 6px;
+            padding: 7px 12px;
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .asset-box-p2 h4 {
+            font-size: 9.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--rust);
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .asset-box-p2 p {
+            font-size: 8.2px;
+            color: var(--text-dark);
+            line-height: 1.25;
+            margin: 0;
+        }
+
+        /* SECTION PERSPECTIVES PAGE 3 */
+        .erp-perspectives-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .erp-p-card {
+            background: #FCFBF9;
+            border: 1px solid #EADBCE;
+            border-radius: 6px;
+            padding: 8px 10px;
+            border-top: 2.5px solid var(--rust);
+        }
+
+        .erp-p-card strong {
+            display: block;
+            font-size: 9px;
+            color: var(--rust-dark);
+            margin-bottom: 3px;
+            font-weight: 700;
+        }
+
+        .erp-p-card span {
+            display: block;
+            font-size: 7.8px;
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+
+        /* COMPARATIVE TABLE PAGE 3 */
+        .specs-table-compact {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            font-size: 8.5px;
+        }
+
+        .specs-table-compact th {
+            background: #FAF8F5;
+            color: var(--rust-dark);
+            padding: 5px 8px;
+            text-align: left;
+            border-bottom: 1.5px solid var(--border);
+            font-weight: 700;
+            font-size: 8.8px;
+        }
+
+        .specs-table-compact td {
+            padding: 4px 8px;
+            border-bottom: 1px solid #F0EAE4;
+            color: var(--text-dark);
+            line-height: 1.25;
+        }
+
+        .specs-table-compact tr:nth-child(even) td {
+            background: #FCFBF9;
+        }
+
+        .specs-table-compact td.center {
+            text-align: center;
+        }
+
+        .check-yes {
+            color: #059669;
+            font-weight: 800;
+            font-size: 10px;
+        }
+
+        .check-opt {
+            color: var(--rust);
+            font-weight: 700;
+            font-size: 8px;
+        }
+
+        /* FOOTER */
+        .page-footer {
+            position: absolute;
+            bottom: 8mm;
+            left: 18mm;
+            right: 18mm;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-light);
+            padding-top: 6px;
+            font-size: 9px;
+            color: var(--text-light);
+        }
+
+        /* TOP NAV UNIFIÉ MISSI INNOVATION */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #E8E5DD;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        .nav-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #1C1917;
+        }
+
+        .brand-logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: #1C1917;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
+            border: 1px solid #443E3A;
+            flex-shrink: 0;
+        }
+
+        .brand-title-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+
+        .brand-name-accent {
+            font-weight: 600;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #C2672B;
+        }
+
+        .brand-tagline {
+            font-size: 0.7rem;
+            color: #78716C;
+            font-weight: 500;
+        }
+
+        .nav-badges {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-doc-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            background: #FDF6F0;
+            color: #9A4C1B;
+            border: 1px solid #F5D6C1;
+            border-radius: 9999px;
+        }
+
+        .nav-link-btn {
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #57534E;
+            background: white;
+            border: 1px solid #E8E5DD;
+            padding: 5px 12px;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+        }
+
+        .nav-link-btn:hover {
+            border-color: #C2672B;
+            color: #C2672B;
+            background: #FDF6F0;
+        }
+
+        .btn-print-copper {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #C2672B;
+            color: white;
+            border: 1px solid #C2672B;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
+            transition: all 0.15s ease;
+        }
+
+        .btn-print-copper:hover {
+            background: #9A4C1B;
+            box-shadow: 0 4px 12px rgba(194, 103, 43, 0.35);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP NAV UNIFIÉ MISSI INNOVATION (COHÉRENT AVEC LE SHOWROOM) -->
+    <header class="top-nav no-print">
+        <div class="nav-inner">
+            <a href="../index.html" class="brand-link">
+                <div class="brand-logo-mark">
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
+                </div>
+                <div class="brand-title-wrap">
+                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
+                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
+                </div>
+            </a>
+            <div class="nav-badges">
+                <div class="nav-doc-badge">
+                    <span>ERP Entreprise</span> &bull; 2 Formules Commerciales, Stocks & RH (A4)
+                </div>
+                <a href="../index.html" class="nav-link-btn">← Catalogue Showroom</a>
+                <button onclick="window.print()" class="btn-print-copper">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                    Imprimer (A4)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- PAGE 1 : PRÉSENTATION DE VALEUR & PILIERS -->
+    <!-- ========================================== -->
+    <div class="page">
+        <!-- HEADER TOP UNIFIÉ AVEC LOGO LETTERHEAD -->
+        <div class="header-top">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 38px; height: 38px; border-radius: 9px; background: #1C1917; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(28, 25, 23, 0.15); border: 1px solid #443E3A; flex-shrink: 0;">
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
+                </div>
+                <div class="header-left">
+                    PROPOSITION COMMERCIALE — GESTION D'ENTREPRISE & ERP
+                    <div class="sub">Missi Innovation &bull; Solution Digitale Globale &bull; Caisse, Facturation, Stocks & RH</div>
+                </div>
+            </div>
+            <div class="header-right">
+                Émis en <strong>2026</strong><br>
+                <span>Dossier Direction &bull; Valable 60 jours</span>
+            </div>
+        </div>
+
+        <h1 class="main-title serif">Solution de Gestion d'Entreprise</h1>
+        <h2 class="main-subtitle serif">Système intégré : Vente, Caisse, Stocks, Facturation, RH & Paie</h2>
+
+        <p class="intro-text">
+            Ce document détaille notre progiciel de gestion d'entreprise (ERP), spécialement calibré pour les <strong>commerces, distributeurs, prestataires et PME exigeantes à Madagascar</strong>. Conçu pour éliminer définitivement les fuites de trésorerie et la lourdeur des classeurs papier, il s'articule autour de 3 impératifs vitaux : <strong>sécuriser chaque Ariary encaissé</strong>, <strong>optimiser les stocks en temps réel sans rupture</strong>, et <strong>garantir un fonctionnement 100% hors-ligne insensible aux coupures JIRAMA</strong>.
+        </p>
+
+        <div class="badges-container">
+            <span class="badge outline-rust">Sécurité Caisse & Billetage Inviolable</span>
+            <span class="badge outline-rust">Facturation & Devis Normalisés</span>
+            <span class="badge outline-rust">Stocks & Inventaire Temps Réel</span>
+            <span class="badge outline-rust">Paie & Salaires RH CNaPS/IRSA</span>
+            <span class="badge outline-green">100% Hors-Ligne (Tolérance JIRAMA) &bull; Backup Cloud</span>
+        </div>
+
+        <!-- REASSURANCE BAR -->
+        <div class="guarantee-section">
+            <div class="guarantee-title">Pourquoi les dirigeants choisissent Missi Innovation</div>
+            <div class="guarantee-grid">
+                <div class="g-item">
+                    <div class="g-icon">⚙️</div>
+                    <div class="g-content">
+                        <strong>Déploiement Clés-en-Main</strong>
+                        <span>Installation sur vos ordinateurs, paramétrage initial et formation complète de vos équipes sous 48h.</span>
+                    </div>
+                </div>
+                <div class="g-item">
+                    <div class="g-icon">⚡</div>
+                    <div class="g-content">
+                        <strong>Autonomie Hors-Ligne</strong>
+                        <span>Vos caisses et facturations tournent instantanément sans connexion. Synchronisation Cloud miroir automatique.</span>
+                    </div>
+                </div>
+                <div class="g-item">
+                    <div class="g-icon">🛡️</div>
+                    <div class="g-content">
+                        <strong>Accompagnement Local</strong>
+                        <span>Mises à jour fiscales, maintenance et hotline réactive : un partenaire technologique à vos côtés 6j/7.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 01 -->
+        <div class="section-header">
+            <span class="num">01</span><span class="title serif">Les 4 piliers de notre architecture</span>
+            <div class="subtitle">Sécurisation financière, productivité des équipes et pérennité opérationnelle</div>
+        </div>
+
+        <div class="features-grid">
+            <div class="text-block">
+                <h4>1. Caisse Inviolable & Billetage Physique</h4>
+                <p>Traçabilité intégrale de chaque Ariary encaissé ou décaissé. Clôture de caisse quotidienne avec comptage des billets de 20 000 à 100 Ar, calcul automatique des écarts et ticket Z certifié.</p>
+            </div>
+            <div class="text-block">
+                <h4>2. Stocks & Approvisionnements Sans Faille</h4>
+                <p>Suivi rigoureux des articles, matières premières et marchandises. Gestion des seuils d'alerte de rupture, calcul automatique de la valorisation de stock et traçabilité entrées/sorties.</p>
+            </div>
+            <div class="text-block">
+                <h4>3. Productivité RH & Salaires Conformes</h4>
+                <p>Dossiers numériques des employés, liaison directe avec pointeuse biométrique et automatisation des fiches de paie PDF avec déductions légales (Absences, CNaPS, IRSA, OSTIE/AMIT).</p>
+            </div>
+            <div class="text-block">
+                <h4>4. Zéro Dépendance Internet & Auto-Guérison</h4>
+                <p>Moteur local ultra-rapide SQLite : aucune lenteur réseau, réactivité en 0,2 seconde. Dès qu'Internet est disponible, vos données se sauvegardent sur Cloud Supabase chiffré.</p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; ERP Entreprise &bull; Format 3 Pages A4</span><span>Page 01 / 03</span>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 2 : TARIFICATION COMMERCIALE & 2 OFFRES -->
+    <!-- ========================================== -->
+    <div class="page">
+        <!-- SECTION 02 -->
+        <div class="section-header" style="margin-top: 0;">
+            <span class="num">02</span><span class="title serif">Nos Deux Formules d'Accompagnement Entreprise</span>
+            <div class="subtitle">Des tarifs transparents, évolutifs et pensés pour accompagner la croissance de votre structure</div>
+        </div>
+
+        <p class="intro-text" style="margin-bottom: 12px; font-size: 11.2px;">
+            Chaque formule comprend l'accès complet au progiciel, l'assistance technique et les mises à jour régulières. Les <strong>frais d'installation initiaux</strong> (forfait unique One-shot) couvrent le déploiement sur site, le paramétrage de vos données de base (articles, prix, logo) ainsi que la formation de vos équipes.
+        </p>
+
+        <!-- 2-FORMULAS PRICING GRID -->
+        <div class="pricing-grid-2col">
+            <!-- FORMULE 1 : ÉMERGENCE PME -->
+            <div class="pricing-card-compact">
+                <div class="p-card-top">
+                    <span class="p-badge-tag">Formule 1 &bull; PME & Commerce</span>
+                    <h3 class="p-card-title serif">Émergence — Commerce & Gestion</h3>
+                    <div class="p-card-desc">Idéale pour boutiques, grossistes, ateliers et commerces souhaitant fiabiliser leur caisse, leurs devis et leur stock sans surcoût.</div>
+                    
+                    <div class="p-price-wrap">
+                        <div class="p-setup-badge">Frais déploiement : <strong>250 000 Ar</strong></div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 9.5px; color: var(--text-light); text-decoration: line-through;">149 000 Ar/mois</div>
+                            <div class="p-amount">99 000 Ar <span class="mo">/ mois</span></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end; margin-top: 3px;">
+                        <span style="font-size: 7.8px; font-weight: 700; color: #059669; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1.5px 6px; border-radius: 3px; text-transform: uppercase;">Tarif Promo Lancement</span>
+                    </div>
+                </div>
+
+                <ul class="pricing-list-compact">
+                    <li><strong>Licence Mono-Poste</strong> Direction / Caisse / Vente</li>
+                    <li><strong>Facturation & Devis :</strong> Proforma, Devis, Bons de commande, Factures officielles A4 / A5</li>
+                    <li><strong>Journal de Caisse :</strong> Encaissements espèces, chèque, Mobile Money, suivi des dépenses</li>
+                    <li><strong>Gestion des Stocks :</strong> Fiches articles, alertes rupture de stock, entrées/sorties</li>
+                    <li><strong>Fichier Clients & Règlements :</strong> Encours clients, acomptes, suivi des impayés</li>
+                    <li><strong>Impression Directe :</strong> Reçus de vente et reçus thermiques</li>
+                    <li><strong>100% Hors-Ligne :</strong> Moteur local rapide, tolérance JIRAMA</li>
+                    <li><strong>Sauvegarde Locale Quotidienne</strong> anti-perte de données</li>
+                    <li><strong>Assistance & Support Standard</strong> par téléphone & WhatsApp</li>
+                </ul>
+            </div>
+
+            <!-- FORMULE 2 : EXCELLENCE INTÉGRALE -->
+            <div class="pricing-card-compact featured">
+                <div class="p-card-top">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span class="p-badge-tag gold">★ Recommandé &bull; Pack Entreprise</span>
+                        <span style="font-size: 8px; font-weight: 700; color: #DC2626; background: #FEE2E2; padding: 1px 5px; border-radius: 3px;">-33% Promo</span>
+                    </div>
+                    <h3 class="p-card-title serif" style="color: var(--rust);">Excellence — ERP Intégral & RH</h3>
+                    <div class="p-card-desc">Le système complet pour sociétés structurées : Multi-postes en réseau local, gestion RH & paie légale CNaPS/IRSA et miroir Cloud.</div>
+                    
+                    <div class="p-price-wrap">
+                        <div class="p-setup-badge">Frais déploiement & réseau : <strong>350 000 Ar</strong></div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 9.5px; color: var(--text-light); text-decoration: line-through;">299 000 Ar/mois</div>
+                            <div class="p-amount featured">199 000 Ar <span class="mo">/ mois</span></div>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end; margin-top: 3px;">
+                        <span style="font-size: 7.8px; font-weight: 700; color: #047857; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1.5px 6px; border-radius: 3px; text-transform: uppercase;">Tarif 1er Trimestre Promo</span>
+                    </div>
+                </div>
+
+                <ul class="pricing-list-compact">
+                    <li><strong>Tout le contenu Émergence inclus</strong> sans restriction</li>
+                    <li><strong>Licence Multi-Postes Réseau Local :</strong> Direction, Caisse, Magasinier et Comptabilité simultanés</li>
+                    <li><strong>Clôture & Billetage Physique :</strong> Décompte billets de 20 000 à 100 Ar, calcul automatique des écarts caisse</li>
+                    <li><strong>Module RH Complet :</strong> Dossiers personnel, contrats, congés & absences</li>
+                    <li><strong>Paie Automatisée & Fiches de Paie PDF :</strong> Calcul légal CNaPS, IRSA, OSTIE/AMIT conforme Madagascar</li>
+                    <li><strong>Pointage Biométrique :</strong> Liaison pointeuse digitale (heures travaillées & retards)</li>
+                    <li><strong>Gestion Financière Avancée :</strong> Multi-caisses, trésorerie et rapprochement</li>
+                    <li><strong>Tableaux de Bord BI :</strong> Marges par produit, rentabilité & CA temps réel</li>
+                    <li><strong>Synchronisation Miroir Cloud Supabase :</strong> Double sécurité distant</li>
+                    <li><strong>Support Réactif Prioritaire Dédié 6j/7</strong> avec intervention rapide</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ENCART PACK MATÉRIEL : IMPRIMANTE 80 MM POS (SERVICE CONFORT CLÉS EN MAIN) -->
+        <div class="hardware-box">
+            <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
+                <div style="position: relative; flex-shrink: 0;">
+                    <img src="../assets/img/pack_imprimante_3d.jpg" alt="Pack Matériel POS-80 3D" style="width: 76px; height: 64px; object-fit: cover; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.18); border: 1px solid var(--border); display: block;">
+                    <span style="position: absolute; bottom: -3px; right: -3px; background: var(--rust); color: white; font-size: 6.5px; font-weight: 800; padding: 1px 4px; border-radius: 3px;">3D Pack</span>
+                </div>
+                <div class="h-left">
+                    <div class="h-title">
+                        <svg style="width: 15px; height: 15px; color: var(--rust);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                        Pack Matériel Clés en Main : Imprimante 80 mm POS
+                        <span style="font-size: 8px; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 6px; border-radius: 3px; text-transform: uppercase; margin-left: 6px;">Service Confort Clés en Main</span>
+                    </div>
+                    <p>Imprimante thermique professionnelle 80 mm neuve, massicot automatique grande vitesse (150 mm/s), zéro coût d'encre + 5 bobines thermiques offertes + câblage USB blindé + configuration complète des ports Windows et calibrage tickets avec votre logo.<br>
+                    <span style="color: var(--rust); font-weight: 600;">✦ Service confort à prix coûtant : matériel sélectionné et paramétré pour votre sérénité opérationnelle immédiate. Garantie 1 an.</span></p>
+                </div>
+            </div>
+            <div class="h-price">
+                450&nbsp;000&nbsp;Ar
+                <span>forfait matériel unique</span>
+            </div>
+        </div>
+
+        <!-- ENCART OPTION ACQUISITION DÉFINITIVE -->
+        <div class="asset-box-p2">
+            <div>
+                <h4>🏛️ Option Acquisition Définitive & Propriété Patrimoniale</h4>
+                <p><strong>Licence Perpétuelle sur site ou Cession Code Source :</strong> Pour les entreprises désireuses de capitaliser sur un actif logiciel propre sans abonnement mensuel, une étude patrimoniale et un chiffrage personnalisé sont présentés sur simple demande.</p>
+            </div>
+            <span style="font-size: 8px; font-weight: 700; color: var(--rust); background: white; border: 1px solid rgba(164, 90, 61, 0.3); padding: 4px 8px; border-radius: 4px; white-space: nowrap;">Sur Devis Personnalisé</span>
+        </div>
+
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; ERP Entreprise &bull; Format 3 Pages A4</span><span>Page 02 / 03</span>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 3 : PERSPECTIVES, SPECS & BON POUR ACCORD -->
+    <!-- ========================================== -->
+    <div class="page">
+        <!-- SECTION 03 : PERSPECTIVES D'AVENIR -->
+        <div class="section-header" style="margin-top: 0;">
+            <span class="num">03</span><span class="title serif">Perspectives d'Avenir &amp; Évolutions Futures</span>
+            <div class="subtitle">Architecture évolutive pensée pour accompagner le développement continu de vos activités</div>
+        </div>
+
+        <div class="erp-perspectives-grid">
+            <div class="erp-p-card">
+                <strong>🌐 Portail E-Commerce & B2B</strong>
+                <span>Catalogue digital synchronisé : vos clients professionnels consultent stocks et passent commande 24h/24.</span>
+            </div>
+            <div class="erp-p-card">
+                <strong>💬 WhatsApp & SMS Pro</strong>
+                <span>Envoi instantané de devis/factures PDF par WhatsApp et relances automatiques programmées des factures impayées.</span>
+            </div>
+            <div class="erp-p-card">
+                <strong>💳 Fidélité & Badges QR Code</strong>
+                <span>Cartes clients avec QR Code pour remises automatiques et badges personnalisés sécurisés pour le pointage personnel.</span>
+            </div>
+            <div class="erp-p-card">
+                <strong>☁️ Multi-Sites Supabase</strong>
+                <span>Consolidation en temps réel de plusieurs points de vente ou dépôts distants sur une base centrale unique.</span>
+            </div>
+        </div>
+
+        <!-- SECTION 04 : MATRICE COMPARATIVE DES 2 FORMULES -->
+        <div class="section-header">
+            <span class="num">04</span><span class="title serif">Cahier des charges & Matrice comparative</span>
+            <div class="subtitle">Synthèse des fonctionnalités incluses selon la formule retenue</div>
+        </div>
+
+        <table class="specs-table-compact">
+            <thead>
+                <tr>
+                    <th style="width: 54%;">Fonctionnalités & Modules Logiciels</th>
+                    <th style="width: 23%; text-align: center;">Formule 1 : Émergence</th>
+                    <th style="width: 23%; text-align: center;">Formule 2 : Excellence</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Facturation, Devis & Bons de commande normalisés</strong> (A4 / A5)</td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Journal de Caisse & Encaissements</strong> (Espèces, Chèque, Mobile Money)</td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Clôture de Caisse avec Billetage physique</strong> (20 000 à 100 Ar) & Ticket Z</td>
+                    <td class="center"><span style="color: #9CA3AF;">En option</span></td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Gestion des Stocks & Fiches Articles</strong> avec alertes de rupture</td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Fichier Clients & Suivi des Règlements / Impayés</strong></td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Licence Multi-Postes Réseau Local</strong> (Direction, Caisse, Stock, Compta)</td>
+                    <td class="center" style="color: #9CA3AF;">1 Poste (Mono)</td>
+                    <td class="center"><span class="check-yes">✓ 2 à 4 Postes Réseau</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Module RH & Gestion des Dossiers Employés / Contrats</strong></td>
+                    <td class="center" style="color: #9CA3AF;">Non inclus</td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Paie Automatisée CNaPS / IRSA & Fiches de paie PDF conformes</strong></td>
+                    <td class="center" style="color: #9CA3AF;">Non inclus</td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Pointage Biométrique & Suivi automatique des heures / retards</strong></td>
+                    <td class="center" style="color: #9CA3AF;">Non inclus</td>
+                    <td class="center"><span class="check-yes">✓ Inclus</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Tableaux de Bord Décisionnels BI</strong> (Marges brutes, rentabilité par produit)</td>
+                    <td class="center" style="color: #9CA3AF;">Basique</td>
+                    <td class="center"><span class="check-yes">✓ Avancé BI</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Sauvegarde Miroir Cloud Supabase & Anti-crash matériel</strong></td>
+                    <td class="center" style="color: #9CA3AF;">Locale seule</td>
+                    <td class="center"><span class="check-yes">✓ Miroir Cloud Auto</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- BON POUR ACCORD & ENGAGEMENT CONTRACTUEL -->
+        <div style="border: 1.5px solid var(--rust); border-radius: 6px; padding: 10px 14px; background: var(--rust-light);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; border-bottom: 1px solid rgba(164, 90, 61, 0.25); padding-bottom: 4px;">
+                <h4 class="serif" style="font-size: 12.5px; color: var(--rust); font-weight: 700; margin: 0;">
+                    Bon pour Accord & Validation Officielle de Déploiement Entreprise
+                </h4>
+                <span style="font-size: 8.5px; color: var(--text-gray); text-transform: uppercase; letter-spacing: 0.5px;">Document Contractuel Engageant</span>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 10.5px; color: var(--text-dark); flex-wrap: wrap; gap: 8px;">
+                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                    <label style="cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                        <input type="checkbox" style="accent-color: var(--rust); width: 14px; height: 14px;">
+                        <span><strong>Formule 1 : Émergence PME</strong> (99 000 Ar/m + 250k inst.)</span>
+                    </label>
+                    <label style="cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                        <input type="checkbox" checked style="accent-color: var(--rust); width: 14px; height: 14px;">
+                        <span><strong>Formule 2 : Excellence ERP & RH</strong> (199 000 Ar/m + 350k inst.)</span>
+                    </label>
+                </div>
+                <label style="cursor: pointer; display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--rust); font-weight: 600;">
+                    <input type="checkbox" checked style="accent-color: var(--rust); width: 13px; height: 13px;">
+                    <span>Option Pack Matériel Imprimante 80 mm POS (+450 000 Ar)</span>
+                </label>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px;">
+                <div style="background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; min-height: 48px; font-size: 9.5px;">
+                    <strong style="color: var(--text-dark); display: block; margin-bottom: 2px;">Pour la Société (Direction Générale) :</strong>
+                    <span style="color: var(--text-light); font-size: 8.5px;">Date, Nom du signataire & Mention manuscrite « Bon pour accord » :</span>
+                </div>
+                <div style="background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; min-height: 48px; font-size: 9.5px;">
+                    <strong style="color: var(--text-dark); display: block; margin-bottom: 2px;">Pour l'Éditeur & Intégrateur (Missi Innovation) :</strong>
+                    <span style="color: var(--text-light); font-size: 8.5px;">Date, Signature & Engagement de mise en service sous 48h :</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; ERP Entreprise &bull; Format 3 Pages A4</span><span>Page 03 / 03</span>
+        </div>
+    </div>
+
+    <!-- PIED DE PAGE WEB UNIFIÉ (MASQUÉ À L'IMPRESSION) -->
+    <footer class="no-print" style="margin: 35px auto 20px auto; max-width: 900px; text-align: center; color: var(--text-gray); font-size: 11px; padding: 20px 10px; border-top: 1px solid rgba(0,0,0,0.08);">
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
+            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
+            <span>MISSI INNOVATION &bull; Solutions Logicielles &bull; Madagascar</span>
+        </div>
+        <div>Éditeur de progiciels métiers de haute précision &bull; Document officiel calibré pour affichage web et impression A4</div>
+    </footer>
+
+</body>
+</html>

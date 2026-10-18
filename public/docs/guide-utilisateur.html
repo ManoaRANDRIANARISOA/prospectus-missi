@@ -519,21 +519,21 @@
   <!-- BARRE DE NAVIGATION UNIFIÉE INTER-DOCUMENTS -->
   <nav class="hub-nav no-print" style="background: #2D241E; padding: 12px 24px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
     <div style="display: flex; align-items: center; gap: 12px;">
-      <a href="index.html" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: #FFF; font-weight: 800; font-size: 15px;">
-        <span style="background: #AD8B73; color: #FFF; width: 28px; height: 28px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px;">SA</span>
+      <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #FFF; font-weight: 800; font-size: 15px;">
+        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="28" height="28" style="border-radius: 6px; flex-shrink: 0; vertical-align: middle;">
         Study Agent <span style="font-size: 11px; background: rgba(255,255,255,0.15); padding: 2px 6px; border-radius: 4px; font-weight: 500;">v2.2.4</span>
       </a>
       <span style="color: #6E5D53;">|</span>
       <span style="color: #EFE9E3; font-size: 13px; font-weight: 600;">Manuel Complet & Guide d'Exploitation</span>
     </div>
     <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-      <a href="index.html" style="color: #EFE9E3; text-decoration: none; font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.06); transition: all 0.2s;">
+      <a href="../index.html" style="color: #EFE9E3; text-decoration: none; font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.06); transition: all 0.2s;">
         Portail Général
       </a>
-      <a href="proposition_commerciale.html" style="color: #FFF; text-decoration: none; font-size: 12.5px; font-weight: 700; padding: 6px 12px; border-radius: 6px; background: #AD8B73; transition: all 0.2s;">
+      <a href="../education/proposition-papier-art.html" style="color: #FFF; text-decoration: none; font-size: 12.5px; font-weight: 700; padding: 6px 12px; border-radius: 6px; background: #AD8B73; transition: all 0.2s;">
         Proposition Commerciale (300k / 600k Ar)
       </a>
-      <a href="multi-tenant-guide.html" style="color: #EFE9E3; text-decoration: none; font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.06); transition: all 0.2s;">
+      <a href="../docs/guide-architecture-multi-tenant.html" style="color: #EFE9E3; text-decoration: none; font-size: 12.5px; font-weight: 600; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.06); transition: all 0.2s;">
         Architecture Multi-Tenant
       </a>
       <button onclick="window.print()" style="background: transparent; border: 1px solid #AD8B73; color: #EFE9E3; cursor: pointer; padding: 6px 12px; border-radius: 6px; font-weight: 600; font-size: 12px; display: inline-flex; align-items: center; gap: 6px;">
@@ -759,6 +759,16 @@
         Pour que l'imprimante thermique 80 mm imprime à la vitesse maximale avec le massicot (coupe automatique) et sans
         caractères chinois sur les accents français, deux méthodes simples sont à votre disposition :
       </p>
+
+      <div style="display: flex; gap: 18px; align-items: center; margin-bottom: 20px; background: #FAF8F5; border: 1.5px solid #E8D6C5; border-radius: 10px; padding: 14px 18px; box-shadow: 0 4px 12px rgba(44,30,20,0.06);">
+        <img src="../assets/img/pack_imprimante_3d.jpg" alt="Imprimante POS-80 3D" style="width: 130px; height: 105px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 1px solid #E6DDD3; flex-shrink: 0;">
+        <div>
+          <div style="font-weight: 800; font-size: 14.5px; color: var(--text-dark); margin-bottom: 4px;">Équipement Clés en Main : Imprimante Thermique 80 mm POS &bull; Massicot Automatique</div>
+          <p style="font-size: 12.5px; color: var(--text-muted); margin: 0; line-height: 1.5;">
+            Le pack matériel officiel (proposé en option confort pour les établissements) comprend l'imprimante 80 mm neuve avec massicot automatique, câble USB blindé, 5 bobines thermiques offertes et garantie remplacement 1 an.
+          </p>
+        </div>
+      </div>
 
       <div class="alert alert-info">
         <strong><svg style="width: 15px; height: 15px; display: inline-block; vertical-align: -2px; color: var(--primary);" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg> Nouveauté v1.1.1 (Option intégrée) :</strong> L'administrateur peut désormais initialiser ou réparer
@@ -2530,10 +2540,14 @@ Write-Host "Imprimante POS-80 configuree avec succes pour le LMS !"</pre>
     </section>
 
     <!-- FOOTER -->
-    <footer
-      style="text-align: center; color: var(--text-muted); font-size: 13px; margin-top: 40px; border-top: 1px solid var(--border); padding-top: 20px;">
-      <strong>Study Agent Pro v2.3.7</strong> — Solution Professionnelle Intégrée de Gestion Scolaire Multi-Établissements & Local-First.
-      Antananarivo, Madagascar.
+    <footer style="text-align: center; color: var(--text-muted); font-size: 13px; margin-top: 40px; border-top: 1px solid var(--border); padding: 24px 10px 10px 10px;">
+      <div style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: #2D241E; margin-bottom: 6px;">
+        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
+        <span>MISSI INNOVATION &bull; Progiciels Métiers &amp; Ingénierie Numérique</span>
+      </div>
+      <div>
+        <strong>Study Agent Pro v2.3.7</strong> — Solution Professionnelle Intégrée de Gestion Scolaire Multi-Établissements &amp; Local-First. Antananarivo, Madagascar.
+      </div>
     </footer>
 
   </div>

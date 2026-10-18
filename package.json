@@ -2,13 +2,13 @@
   "name": "prospectus-missi",
   "version": "1.0.0",
   "description": "Portail officiel des prospectus, vitrines commerciales et propositions Missi Innovation",
-  "main": "index.html",
+  "main": "public/index.html",
   "scripts": {
-    "start": "npx serve . -p 5000",
-    "dev": "npx serve . -p 5000",
+    "start": "npx serve public -p 5000",
+    "dev": "npx serve public -p 5000",
     "deploy": "firebase deploy --only hosting",
     "deploy:firebase": "firebase deploy --only hosting",
-    "deploy:supabase": "node deploy-supabase.mjs"
+    "deploy:supabase": "node scripts/deploy-supabase.mjs"
   },
   "keywords": [
     "prospectus",

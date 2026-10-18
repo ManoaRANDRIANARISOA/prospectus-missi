@@ -276,6 +276,20 @@
 </head>
 <body>
 
+  <!-- BARRE DE NAVIGATION UNIFIÉE (NON IMPRIMÉE) -->
+  <nav class="no-print" style="background: #1e1b4b; padding: 12px 24px; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+    <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #FFF; font-weight: 800; font-size: 14px;">
+      <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="28" height="28" style="border-radius: 6px; flex-shrink: 0;">
+      <span>Study Agent Pro</span>
+      <span style="font-size: 11px; background: rgba(255,255,255,0.15); padding: 2px 8px; border-radius: 4px; font-weight: 500;">Guide Sauvegardes</span>
+    </a>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <a href="../index.html" style="color: #FFF; text-decoration: none; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.1);">Portail Hub</a>
+      <a href="guide-utilisateur.html" style="color: #FFF; text-decoration: none; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 6px; background: rgba(255,255,255,0.1);">Manuel Complet</a>
+      <button onclick="window.print()" style="background: #d97706; border: none; color: #FFF; cursor: pointer; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 12px;">Imprimer</button>
+    </div>
+  </nav>
+
   <header>
     <div class="container">
       <div class="badge">Guide Opérationnel & Architectural</div>
@@ -457,9 +471,13 @@ await db.backup(path.join(cleUsbPath, `backup_ecole_${Date.now()}.db`))</code></
 
   </main>
 
-  <footer>
-    <div class="container">
-      Study Agent ERP Scolaire — Document de Spécification Opérationnelle & Sécurité Données — Octobre 2026
+  <footer style="background: #1e1b4b; color: #cbd5e1; padding: 2rem 1.5rem; text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.1);">
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+      <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: #FFF;">
+        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
+        <span>MISSI INNOVATION &bull; Study Agent ERP Scolaire</span>
+      </div>
+      <div>Document de Spécification Opérationnelle &amp; Sécurité Données &bull; Octobre 2026</div>
     </div>
   </footer>
 

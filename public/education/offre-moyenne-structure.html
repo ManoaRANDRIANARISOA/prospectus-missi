@@ -1210,19 +1210,9 @@
         <!-- TOP NAV UNIFIÉ MISSI INNOVATION (COHÉRENT AVEC L'ACCUEIL) -->
     <header class="top-nav no-print">
         <div class="nav-inner">
-            <a href="index.html" class="brand-link">
+            <a href="../index.html" class="brand-link">
                 <div class="brand-logo-mark">
-                    <svg width="22" height="22" viewBox="0 0 48 48" fill="none">
-                        <defs>
-                            <linearGradient id="navGlowSch" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#F59E0B"/>
-                                <stop offset="100%" stop-color="#C2672B"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M12 34V17.5C12 16.1 13.6 15.3 14.7 16.2L24 23.5L33.3 16.2C34.4 15.3 36 16.1 36 17.5V34" stroke="#FAF8F5" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="24" cy="12.5" r="2.5" fill="url(#navGlowSch)"/>
-                        <path d="M24 25.5V34" stroke="url(#navGlowSch)" stroke-width="3.5" stroke-linecap="round"/>
-                    </svg>
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
                 </div>
                 <div class="brand-title-wrap">
                     <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
@@ -1233,7 +1223,7 @@
                 <div class="nav-doc-badge">
                     <span>Study Agent</span> &bull; Édition Performance & Maîtrise (A4)
                 </div>
-                <a href="index.html" class="nav-link-btn">← Catalogue Showroom</a>
+                <a href="../index.html" class="nav-link-btn">← Catalogue Showroom</a>
                 <button onclick="window.print()" class="btn-print-copper">
                     <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
                     Imprimer (A4)
@@ -1245,9 +1235,14 @@
     <!-- PAGE 1 -->
     <div class="page">
         <div class="header-top">
-            <div class="header-left">
-                PROPOSITION COMMERCIALE — ERP SCOLAIRE
-                <div class="sub">Édition Performance &amp; Maîtrise (ERP Tout-en-Un, Billetage &amp; Paie RH)</div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 38px; height: 38px; border-radius: 9px; background: #1C1917; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(28, 25, 23, 0.15); border: 1px solid #443E3A; flex-shrink: 0;">
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
+                </div>
+                <div class="header-left">
+                    PROPOSITION COMMERCIALE — ERP SCOLAIRE
+                    <div class="sub">Édition Performance &amp; Maîtrise (ERP Tout-en-Un, Billetage &amp; Paie RH)</div>
+                </div>
             </div>
             <div class="header-right">
                 Émis en <strong>2026</strong><br>
@@ -1419,13 +1414,21 @@
         </div>
 
         <!-- ENCART TRANSVERSAL : PACK MATERIEL IMPRIMANTE (POUR TOUS) -->
-        <div class="hardware-box">
-            <div class="h-left">
-                <div class="h-title">
-                    <svg style="width: 16px; height: 16px; color: var(--rust);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                    Pack Matériel Clés en Main : Imprimante Thermique 80 mm POS-80 (Optionnel)
+        <div class="hardware-box" style="align-items: center;">
+            <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
+                <div style="position: relative; flex-shrink: 0;">
+                    <img src="../assets/img/pack_imprimante_3d.jpg" alt="Pack Matériel POS-80 3D" style="width: 72px; height: 60px; object-fit: cover; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.18); border: 1px solid var(--border); display: block;">
+                    <span style="position: absolute; bottom: -3px; right: -3px; background: var(--rust); color: white; font-size: 6.5px; font-weight: 800; padding: 1px 4px; border-radius: 3px;">3D Pack</span>
                 </div>
-                <p>Imprimante thermique professionnelle 80 mm neuve, massicot automatique, zéro coût d'encre + 5 bobines thermiques offertes + câblage USB blindé + configuration complète des ports Windows et garantie remplacement matériel 1 an.</p>
+                <div class="h-left">
+                    <div class="h-title">
+                        <svg style="width: 16px; height: 16px; color: var(--rust);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                        Pack Matériel Clés en Main : Imprimante 80 mm POS
+                        <span style="font-size: 8px; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 6px; border-radius: 3px; text-transform: uppercase; margin-left: 6px;">Service Confort Clés en Main</span>
+                    </div>
+                    <p>Imprimante thermique professionnelle 80 mm neuve, massicot automatique, zéro coût d'encre + 5 bobines thermiques offertes + câblage USB blindé + configuration complète des ports Windows et garantie remplacement matériel 1 an.<br>
+                    <span style="color: var(--rust); font-weight: 600;">✦ Mise à disposition d'équipement physique à prix coûtant sans marge logicielle dissimulée : nous sélectionnons et paramétrons le matériel pour votre confort.</span></p>
+                </div>
             </div>
             <div class="h-price">
                 450&nbsp;000&nbsp;Ar
@@ -1851,6 +1854,15 @@
             <span>Page 04 / 04</span>
         </div>
     </div>
+
+    <!-- PIED DE PAGE WEB UNIFIÉ (MASQUÉ À L'IMPRESSION) -->
+    <footer class="no-print" style="margin: 35px auto 20px auto; max-width: 900px; text-align: center; color: var(--text-gray); font-size: 11px; padding: 20px 10px; border-top: 1px solid rgba(0,0,0,0.08);">
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
+            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
+            <span>MISSI INNOVATION &bull; Solutions Logicielles &bull; Madagascar</span>
+        </div>
+        <div>Éditeur de progiciels métiers de haute précision &bull; Document officiel calibré pour affichage web et impression A4</div>
+    </footer>
 
 </body>
 </html>

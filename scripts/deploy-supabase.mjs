@@ -59,6 +59,8 @@ async function ensureBucket() {
   }
 }
 
+const publicDir = path.resolve(__dirname, '..', 'public');
+
 function getAllFiles(dir, base = '') {
   let results = [];
   const list = fs.readdirSync(dir);
@@ -67,13 +69,9 @@ function getAllFiles(dir, base = '') {
     const relPath = path.join(base, file).replace(/\\/g, '/');
     const stat = fs.statSync(fullPath);
     if (stat.isDirectory()) {
-      if (file !== 'node_modules' && file !== '.firebase' && !file.startsWith('.')) {
-        results = results.concat(getAllFiles(fullPath, relPath));
-      }
+      results = results.concat(getAllFiles(fullPath, relPath));
     } else {
-      if (!file.startsWith('.') && file !== 'package.json' && file !== 'package-lock.json' && file !== 'deploy-supabase.mjs') {
-        results.push({ fullPath, relPath });
-      }
+      results.push({ fullPath, relPath });
     }
   }
   return results;
@@ -81,8 +79,8 @@ function getAllFiles(dir, base = '') {
 
 async function uploadFiles() {
   await ensureBucket();
-  const files = getAllFiles(__dirname);
-  console.log(`🚀 Téléversement de ${files.length} fichiers vers Supabase Storage...`);
+  const files = getAllFiles(publicDir);
+  console.log(`🚀 Téléversement de ${files.length} fichiers (dossier public/) vers Supabase Storage...`);
 
   let count = 0;
   for (const file of files) {

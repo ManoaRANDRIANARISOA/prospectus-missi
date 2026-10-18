@@ -58,82 +58,124 @@
             font-family: 'Playfair Display', Georgia, serif;
         }
 
-        /* TOP ACTION BAR */
-        .top-bar-nav {
+        /* TOP NAV UNIFIÉ MISSI INNOVATION */
+        .top-nav {
             position: sticky;
             top: 0;
             z-index: 99999;
-            background: rgba(29, 26, 23, 0.94);
             backdrop-filter: blur(16px);
-            border-bottom: 2px solid var(--copper);
-            padding: 12px 28px;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #E8E5DD;
+            padding: 0.75rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .nav-inner {
+            max-width: 1240px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+            gap: 1rem;
+            flex-wrap: wrap;
         }
-
-        .top-bar-nav .brand {
+        .brand-link {
             display: flex;
             align-items: center;
-            gap: 12px;
-            color: white;
+            gap: 0.75rem;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
+            color: #1C1917;
         }
-
-        .top-bar-nav .style-tag {
-            background: rgba(194, 103, 43, 0.25);
-            border: 1px solid var(--copper);
-            color: #FED7AA;
-            padding: 4px 12px;
-            border-radius: 999px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .top-bar-nav .nav-links {
+        .brand-logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: #1C1917;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
+            border: 1px solid #443E3A;
+            flex-shrink: 0;
         }
-
-        .btn-nav {
-            text-decoration: none;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 0.8rem;
+        .brand-title-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+        .brand-name-accent {
             font-weight: 600;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #C2672B;
+        }
+        .brand-tagline {
+            font-size: 0.7rem;
+            color: #78716C;
+            font-weight: 500;
+        }
+        .nav-badges {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .nav-doc-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            background: #FDF6F0;
+            color: #9A4C1B;
+            border: 1px solid #F5D6C1;
+            border-radius: 9999px;
             display: inline-flex;
             align-items: center;
             gap: 6px;
+        }
+        .nav-link-btn {
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #57534E;
+            background: white;
+            border: 1px solid #E8E5DD;
+            padding: 5px 12px;
+            border-radius: 6px;
             transition: all 0.15s ease;
         }
-
-        .btn-nav-glass {
-            background: rgba(255,255,255,0.08);
-            color: #E7E5E4;
-            border: 1px solid rgba(255,255,255,0.15);
+        .nav-link-btn:hover {
+            border-color: #C2672B;
+            color: #C2672B;
+            background: #FDF6F0;
         }
-
-        .btn-nav-glass:hover {
-            background: rgba(255,255,255,0.18);
+        .btn-print-copper {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #C2672B;
             color: white;
-        }
-
-        .btn-nav-copper {
-            background: var(--copper);
-            color: white;
-            border: 1px solid var(--copper);
+            border: 1px solid #C2672B;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 6px;
             cursor: pointer;
-            box-shadow: 0 2px 8px rgba(194, 103, 43, 0.35);
+            box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
+            transition: all 0.15s ease;
         }
-
-        .btn-nav-copper:hover {
-            background: var(--copper-dark);
+        .btn-print-copper:hover {
+            background: #9A4C1B;
+            box-shadow: 0 4px 12px rgba(194, 103, 43, 0.35);
         }
 
         /* 3D WORKSPACE ARTBOARD (CANVAS COMPOSITION - INSPIRATION IMAGE 1) */
@@ -551,21 +593,25 @@
 <body>
 
     <!-- TOP NAVIGATION -->
-    <header class="top-bar-nav">
-        <a href="index.html" class="brand">
-            <svg width="22" height="22" viewBox="0 0 48 48" fill="none">
-                <circle cx="24" cy="24" r="22" fill="#C2672B"/>
-                <path d="M14 34V18L24 25L34 18V34" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            Missi Innovation &bull; Study Agent Pro
-        </a>
-        <div style="display: flex; align-items: center; gap: 12px;">
-            <span class="style-tag">Style 1 : Atelier 3D &amp; Flow Tactile</span>
-            <div class="nav-links">
-                <a href="perspectives_ameliorations_bento_ui.html" class="btn-nav btn-nav-glass">Style 2 (Bento UI Board) →</a>
-                <a href="proposition_commerciale.html" class="btn-nav btn-nav-glass">← Proposition 4 Pages</a>
-                <a href="index.html" class="btn-nav btn-nav-glass">Showroom</a>
-                <button onclick="window.print()" class="btn-nav btn-nav-copper">
+    <header class="top-nav no-print">
+        <div class="nav-inner">
+            <a href="../index.html" class="brand-link">
+                <div class="brand-logo-mark">
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
+                </div>
+                <div class="brand-title-wrap">
+                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
+                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
+                </div>
+            </a>
+            <div class="nav-badges">
+                <div class="nav-doc-badge">
+                    <span>Study Agent</span> &bull; Style 1 : Atelier 3D & Flow Tactile
+                </div>
+                <a href="../education/perspectives-bento-ui.html" class="nav-link-btn">Style 2 (Bento Board) →</a>
+                <a href="../education/proposition-papier-art.html" class="nav-link-btn">← Proposition 4 Pages</a>
+                <a href="../index.html" class="nav-link-btn">Showroom</a>
+                <button onclick="window.print()" class="btn-print-copper">
                     <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
                     Imprimer Format Planche
                 </button>
@@ -575,6 +621,22 @@
 
     <!-- ARTBOARD CANVAS COMPOSITION (EXACT REPRODUCTION IMAGE 1) -->
     <main class="artboard-container">
+        <!-- BOARD BRAND HEADER -->
+        <div id="board-brand-header" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; background: rgba(255,255,255,0.92); border: 1px solid #E2D7C8; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(44,30,20,0.06); position: relative; z-index: 20;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 38px; height: 38px; border-radius: 9px; background: #1C1917; display: flex; align-items: center; justify-content: center; border: 1px solid #443E3A; flex-shrink: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
+                </div>
+                <div>
+                    <div style="font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--copper); text-transform: uppercase;">MISSI INNOVATION &bull; STUDY AGENT PRO</div>
+                    <div style="font-size: 9px; color: var(--text-muted);">Roadmap Technologique &amp; Catalogue Modulaire &bull; Architecture Souveraine</div>
+                </div>
+            </div>
+            <div style="text-align: right; font-size: 10px; color: var(--text-muted);">
+                Édition <strong style="color: var(--text-main);">2026-2027</strong><br>
+                <span>Style 1 &bull; Planche Atelier 3D &amp; Flow Tactile</span>
+            </div>
+        </div>
 
         <!-- SVG SCHEMATIC NETWORK WIRES (EXACT WIREFRAME FLOW) -->
         <svg class="schematic-svg-layer" viewBox="0 0 1200 1100" fill="none">
@@ -842,6 +904,15 @@
             <strong>Missi Innovation</strong> &bull; Plateforme ERP Scolaire Clés-en-Main &bull; Tous les modules s'intègrent nativement à votre base locale existante.
         </div>
     </main>
+
+    <!-- PIED DE PAGE WEB UNIFIÉ (MASQUÉ À L'IMPRESSION) -->
+    <footer class="no-print" style="margin: 35px auto 20px auto; max-width: 900px; text-align: center; color: var(--text-gray); font-size: 11px; padding: 20px 10px; border-top: 1px solid rgba(0,0,0,0.08);">
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
+            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
+            <span>MISSI INNOVATION &bull; Solutions Logicielles &bull; Madagascar</span>
+        </div>
+        <div>Éditeur de progiciels métiers de haute précision &bull; Document officiel calibré pour affichage web et impression A4</div>
+    </footer>
 
 </body>
 </html>
