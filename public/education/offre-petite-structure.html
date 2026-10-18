@@ -29,7 +29,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text-dark);
             background-color: #262626;
             font-size: 13px;
@@ -1201,8 +1201,7 @@
         }
 
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
+    </head>
 <body>
 
     <!-- BARRE D'ACTION WEB (MASQUÉE TOTALEMENT À L'IMPRESSION) -->
@@ -1414,9 +1413,8 @@
         <!-- ENCART TRANSVERSAL : PACK MATERIEL IMPRIMANTE (POUR TOUS) -->
         <div class="hardware-box" style="align-items: center;">
             <div style="display: flex; align-items: center; gap: 12px; flex: 1;">
-                <div style="position: relative; flex-shrink: 0;">
-                    <img src="../assets/img/pack_imprimante_3d.jpg" alt="Pack Matériel POS-80 3D" style="width: 72px; height: 60px; object-fit: cover; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.18); border: 1px solid var(--border); display: block;">
-                    <span style="position: absolute; bottom: -3px; right: -3px; background: var(--rust); color: white; font-size: 6.5px; font-weight: 800; padding: 1px 4px; border-radius: 3px;">3D Pack</span>
+                <div class="hardware-popout-wrap" style="position: relative; flex-shrink: 0; padding: 0 4px;">
+                    <img src="../assets/img/pack_imprimante_3d.jpg" alt="Pack Matériel POS-80" style="width: 82px; height: auto; display: block; mix-blend-mode: multiply; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.18)); transform: scale(1.1) translateY(-2px); transition: transform 0.2s ease;">
                 </div>
                 <div class="h-left">
                     <div class="h-title">

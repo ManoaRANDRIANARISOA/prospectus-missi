@@ -849,8 +849,13 @@
                 </div>
             </a>
             <div class="nav-badges">
-                <div class="nav-doc-badge">
-                    <span>Study Agent Pro</span> &bull; Prospectus Visuel (12 Écrans Réels — 5 Pages)
+                <div class="formula-switcher-nav no-print" title="Adapter le prospectus et les tarifs à la taille de votre école">
+                    <button id="nav-btn-petite" class="switch-btn" onclick="switchFormula('petite')">Petite Structure</button>
+                    <button id="nav-btn-moyenne" class="switch-btn active" onclick="switchFormula('moyenne')">Moyenne Structure</button>
+                    <button id="nav-btn-grande" class="switch-btn" onclick="switchFormula('grande')">Grande Structure</button>
+                </div>
+                <div class="nav-doc-badge" id="nav-badge-structure">
+                    <span>Study Agent Pro</span> &bull; Édition Moyenne Structure
                 </div>
                 <a href="../index.html" class="nav-link-btn">← Catalogue Showroom</a>
                 <a href="../education/proposition-papier-art.html" class="nav-link-btn">Proposition Tarifaire</a>
@@ -1415,23 +1420,31 @@
                 </div>
             </div>
 
-            <!-- GRILLE TARIFAIRE DES FORMULES (SANS RESTRICTIONS D'EFFECTIFS) -->
+            <!-- GRILLE TARIFAIRE DES FORMULES ADAPTABLES AUX 3 OFFRES -->
             <div style="margin-bottom: 7px;">
-                <div style="font-size: 8.5px; font-weight: 800; text-transform: uppercase; color: var(--rust); letter-spacing: 0.8px; margin-bottom: 3px;">
-                    ✦ Choisissez Votre Formule d'Adoption Mensuelle
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                    <div style="font-size: 8.5px; font-weight: 800; text-transform: uppercase; color: var(--rust); letter-spacing: 0.8px;">
+                        ✦ Formules d'Adoption Mensuelle &bull; <span id="section-structure-label" style="color: var(--text-dark);">Moyenne Structure</span>
+                    </div>
+                    <div class="no-print" style="display: flex; gap: 4px;">
+                        <button class="page-switch-btn" id="page-btn-petite" onclick="switchFormula('petite')">Petite Structure</button>
+                        <button class="page-switch-btn active" id="page-btn-moyenne" onclick="switchFormula('moyenne')">Moyenne Structure</button>
+                        <button class="page-switch-btn" id="page-btn-grande" onclick="switchFormula('grande')">Grande Structure</button>
+                    </div>
                 </div>
+
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 7px;">
-                    <!-- FORMULE 1 -->
+                    <!-- FORMULE 1 DYNAMIQUE -->
                     <div class="pricing-mini-card">
                         <div>
                             <div class="pm-header">
-                                <span class="pm-title">Formule 1 : Opérationnelle</span>
-                                <div class="pm-price">119 000 Ar <span class="unit">/ mois</span></div>
+                                <span class="pm-title" id="dyn-f1-title">Formule 1 : Opérationnelle</span>
+                                <div class="pm-price" id="dyn-f1-price">119 000 Ar <span class="unit">/ mois</span></div>
                             </div>
-                            <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25;">
+                            <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25;" id="dyn-f1-desc">
                                 Caisse &amp; Secrétariat mono-poste &bull; 100% Hors-ligne &bull; Frais d'installation : 200 000 Ar
                             </div>
-                            <ul class="pm-list">
+                            <ul class="pm-list" id="dyn-f1-list">
                                 <li><span class="pm-check">✓</span> Gestion des élèves, inscriptions &amp; fratries</li>
                                 <li><span class="pm-check">✓</span> Journal de Caisse &amp; Moteur d'Alertes Impayés</li>
                                 <li><span class="pm-check">✓</span> Saisie des notes, calcul des moyennes &amp; bulletins PDF</li>
@@ -1440,17 +1453,17 @@
                         </div>
                     </div>
 
-                    <!-- FORMULE 2 -->
+                    <!-- FORMULE 2 DYNAMIQUE -->
                     <div class="pricing-mini-card featured">
                         <div>
                             <div class="pm-header">
-                                <span class="pm-title" style="color: var(--rust-dark);">Formule 2 : Excellence VIP ★</span>
-                                <div class="pm-price">149 000 Ar <span class="unit">/ mois</span></div>
+                                <span class="pm-title" style="color: var(--rust-dark);" id="dyn-f2-title">Formule 2 : Excellence VIP ★</span>
+                                <div class="pm-price" id="dyn-f2-price">149 000 Ar <span class="unit">/ mois</span></div>
                             </div>
-                            <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25;">
+                            <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25;" id="dyn-f2-desc">
                                 ERP Intégral Multi-Postes &bull; Billetage &bull; Frais d'installation : 250 000 Ar
                             </div>
-                            <ul class="pm-list">
+                            <ul class="pm-list" id="dyn-f2-list">
                                 <li><span class="pm-check">✓</span> <strong>Tout le contenu Opérationnel inclus</strong></li>
                                 <li><span class="pm-check">✓</span> <strong>Licence Multi-Postes Réseau Local (2 à 3 postes simultanés)</strong></li>
                                 <li><span class="pm-check">✓</span> <strong>Billetage physique 20 000 à 100 Ar &amp; Ticket Z scellé</strong></li>
@@ -1459,6 +1472,12 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+
+                <div class="no-print" style="margin-top: 5px; text-align: right;">
+                    <a href="offre-moyenne-structure.html" id="dyn-proposal-link" style="font-size: 7.8px; font-weight: 700; color: var(--rust); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                        <span>Consulter la proposition A4 officielle complète pour cette structure →</span>
+                    </a>
                 </div>
             </div>
 
@@ -1484,10 +1503,9 @@
                 <!-- Pack Matériel -->
                 <div style="background: #FAFAFA; border: 1.5px solid var(--rust); border-radius: 6px; padding: 6px 9px; display: flex; justify-content: space-between; align-items: center; gap: 8px;">
                     <div style="display: flex; align-items: center; gap: 8px;">
-                        <div style="position: relative; flex-shrink: 0;">
-                            <img src="../assets/img/pack_imprimante_3d.jpg" alt="Pack Matériel Imprimante 80mm POS 3D" style="width: 50px; height: 42px; object-fit: cover; border-radius: 5px; box-shadow: 0 3px 8px rgba(0,0,0,0.18); border: 1px solid var(--border); display: block;">
-                            <span style="position: absolute; bottom: -2px; right: -2px; background: var(--rust-dark); color: white; font-size: 6px; font-weight: 800; padding: 1px 3px; border-radius: 2px;">3D</span>
-                        </div>
+                        <div class="hardware-popout-wrap" style="position: relative; flex-shrink: 0; padding: 0 4px;">
+                    <img src="../assets/img/pack_imprimante_3d.jpg" alt="Pack Matériel POS-80" style="width: 82px; height: auto; display: block; mix-blend-mode: multiply; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.18)); transform: scale(1.1) translateY(-2px); transition: transform 0.2s ease;">
+                </div>
                         <div>
                             <div style="display: flex; align-items: center; gap: 5px;">
                                 <div style="font-size: 8.5px; font-weight: 800; color: var(--text-dark);">Pack Matériel : Imprimante 80 mm POS</div>
@@ -1561,6 +1579,148 @@
         function closeLightbox(e) {
             if (e.target.id === 'lightbox' || e.target.id === 'lightbox-close') {
                 document.getElementById('lightbox').classList.remove('active');
+            }
+        }
+
+        
+        // INTERACTIVE 3-FORMULA SWITCHER ENGINE
+        const FORMULA_PRESETS = {
+            petite: {
+                badge: '<span>Study Agent Pro</span> &bull; Édition Petite Structure',
+                sectionLabel: 'Petite Structure (Émergence & Autonomie)',
+                link: 'offre-petite-structure.html',
+                f1: {
+                    title: 'Formule 1 : Émergence Essentielle',
+                    price: '59 000 Ar <span class="unit">/ mois</span>',
+                    desc: 'Caisse &amp; Secrétariat &bull; 100% Hors-ligne &bull; Frais d\'installation : 200 000 Ar',
+                    items: [
+                        'Gestion complète des dossiers élèves &amp; fratries',
+                        'Journal de caisse &amp; alertes impayés d\'écolages',
+                        'Certificats de scolarité &amp; reçus d\'encaissement en 1 clic',
+                        'Sauvegarde locale automatique quotidienne'
+                    ]
+                },
+                f2: {
+                    title: 'Formule 2 : Émergence Pro ★',
+                    price: '89 000 Ar <span class="unit">/ mois</span>',
+                    desc: 'Tout-en-un optimisé &bull; Clôture caisse &bull; Frais d\'installation : 250 000 Ar',
+                    items: [
+                        '<strong>Tout le contenu Émergence inclus</strong>',
+                        '<strong>Saisie des notes, calcul des moyennes &amp; bulletins PDF</strong>',
+                        '<strong>Pointage présence, retards &amp; cantine</strong>',
+                        '<strong>Clôture de caisse quotidienne billetée</strong>',
+                        '<strong>Synchronisation miroir Cloud Supabase</strong>'
+                    ]
+                }
+            },
+            moyenne: {
+                badge: '<span>Study Agent Pro</span> &bull; Édition Moyenne Structure',
+                sectionLabel: 'Moyenne Structure (Performance & Maîtrise)',
+                link: 'offre-moyenne-structure.html',
+                f1: {
+                    title: 'Formule 1 : Opérationnelle',
+                    price: '119 000 Ar <span class="unit">/ mois</span>',
+                    desc: 'Caisse &amp; Secrétariat mono-poste &bull; 100% Hors-ligne &bull; Frais d\'installation : 200 000 Ar',
+                    items: [
+                        'Gestion des élèves, inscriptions &amp; fratries',
+                        'Journal de Caisse &amp; Moteur d\'Alertes Impayés',
+                        'Saisie des notes, calcul des moyennes &amp; bulletins PDF',
+                        'Pointage journalier Bus &amp; Cantine scolaire'
+                    ]
+                },
+                f2: {
+                    title: 'Formule 2 : Excellence VIP ★',
+                    price: '149 000 Ar <span class="unit">/ mois</span>',
+                    desc: 'ERP Intégral Multi-Postes &bull; Billetage &bull; Frais d\'installation : 250 000 Ar',
+                    items: [
+                        '<strong>Tout le contenu Opérationnel inclus</strong>',
+                        '<strong>Licence Multi-Postes Réseau Local (2 à 3 postes simultanés)</strong>',
+                        '<strong>Billetage physique 20 000 à 100 Ar &amp; Ticket Z scellé</strong>',
+                        '<strong>Module Paie RH Malagasy (IRSA, CNaPS &amp; Fiches de paie)</strong>',
+                        '<strong>Auto-Guérison Cloud Supabase &amp; Bilan 18h par email</strong>'
+                    ]
+                }
+            },
+            grande: {
+                badge: '<span>Study Agent Pro</span> &bull; Édition Grande Structure',
+                sectionLabel: 'Grande Structure (Prestige & Multi-Campus)',
+                link: 'offre-grande-structure.html',
+                f1: {
+                    title: 'Formule 1 : Campus Opérationnel',
+                    price: '169 000 Ar <span class="unit">/ mois</span>',
+                    desc: 'Réseau 3 postes &bull; Trésorerie multi-caisses &bull; Frais d\'installation : 300 000 Ar',
+                    items: [
+                        'Licence Multi-postes Réseau Local 3 postes simultanés',
+                        'Gestion élèves multi-sections, programmes &amp; coefficients',
+                        'Double caisse écolages avec traque automatique des impayés',
+                        'Reçus thermiques 80 mm &amp; tickets duplicata certifiés'
+                    ]
+                },
+                f2: {
+                    title: 'Formule 2 : Prestige Institutionnel ★',
+                    price: '249 000 Ar <span class="unit">/ mois</span>',
+                    desc: 'Gouvernance campus &bull; Audit &bull; Frais d\'installation : 450 000 Ar',
+                    items: [
+                        '<strong>Réseau Local Haute Capacité (Postes illimités sur campus)</strong>',
+                        '<strong>Grand Livre contradictoire &amp; journal d\'audit inaltérable</strong>',
+                        '<strong>Paie RH avancée, gestion contrats &amp; pointage biométrique</strong>',
+                        '<strong>Clôture caisse billetée multi-guichets &amp; Ticket Z sécurisé</strong>',
+                        '<strong>Serveur Cloud Supabase Miroir Haute Disponibilité</strong>'
+                    ]
+                }
+            }
+        };
+
+        function switchFormula(key) {
+            const preset = FORMULA_PRESETS[key];
+            if (!preset) return;
+
+            // Update Nav Buttons
+            ['petite', 'moyenne', 'grande'].forEach(k => {
+                const navBtn = document.getElementById('nav-btn-' + k);
+                const pageBtn = document.getElementById('page-btn-' + k);
+                if (navBtn) navBtn.classList.toggle('active', k === key);
+                if (pageBtn) pageBtn.classList.toggle('active', k === key);
+            });
+
+            // Update Header Badge
+            const badge = document.getElementById('nav-badge-structure');
+            if (badge) badge.innerHTML = preset.badge;
+
+            // Update Page Section Label & Link
+            const secLabel = document.getElementById('section-structure-label');
+            if (secLabel) secLabel.innerText = preset.sectionLabel;
+
+            const linkEl = document.getElementById('dyn-proposal-link');
+            if (linkEl) {
+                linkEl.href = preset.link;
+                linkEl.innerHTML = '<span>Consulter la proposition A4 complète pour ' + preset.sectionLabel + ' →</span>';
+            }
+
+            // Update Formule 1
+            const f1Title = document.getElementById('dyn-f1-title');
+            const f1Price = document.getElementById('dyn-f1-price');
+            const f1Desc = document.getElementById('dyn-f1-desc');
+            const f1List = document.getElementById('dyn-f1-list');
+
+            if (f1Title) f1Title.innerText = preset.f1.title;
+            if (f1Price) f1Price.innerHTML = preset.f1.price;
+            if (f1Desc) f1Desc.innerHTML = preset.f1.desc;
+            if (f1List) {
+                f1List.innerHTML = preset.f1.items.map(it => '<li><span class="pm-check">✓</span> ' + it + '</li>').join('');
+            }
+
+            // Update Formule 2
+            const f2Title = document.getElementById('dyn-f2-title');
+            const f2Price = document.getElementById('dyn-f2-price');
+            const f2Desc = document.getElementById('dyn-f2-desc');
+            const f2List = document.getElementById('dyn-f2-list');
+
+            if (f2Title) f2Title.innerText = preset.f2.title;
+            if (f2Price) f2Price.innerHTML = preset.f2.price;
+            if (f2Desc) f2Desc.innerHTML = preset.f2.desc;
+            if (f2List) {
+                f2List.innerHTML = preset.f2.items.map(it => '<li><span class="pm-check">✓</span> ' + it + '</li>').join('');
             }
         }
 
