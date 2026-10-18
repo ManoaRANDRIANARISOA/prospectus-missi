@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sélecteur de Modules & Devis Sur-Mesure | Missi Innovation</title>
+  <link rel="icon" type="image/svg+xml" href="assets/img/missi_logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --canvas: #FAF9F5;
+      --surface: #FFFFFF;
+      --surface-warm: #F6F4ED;
+      --surface-subtle: #FBFBF9;
+      
+      --border: #E8E5DD;
+      --border-subtle: #F2EFE8;
+      --border-accent: #E8D3BF;
+      
+      --text: #1C1917;
+      --text-muted: #57534E;
+      --text-soft: #78716C;
+      --text-light: #A8A29E;
+      
+      --brand-primary: #1C1917;
+      --brand-charcoal: #292524;
+      --brand-copper: #C2672B;
+      --brand-copper-dark: #9A4C1B;
+      --brand-copper-light: #FDF6F0;
+      --brand-copper-border: #F5D6C1;
+      
+      --brand-amber: #D97706;
+      --brand-amber-light: #FEF3C7;
+      
+      --status-emerald: #059669;
+      --status-bg: #ECFDF5;
+      --status-border: #A7F3D0;
+
+      --shadow-sm: 0 1px 3px 0 rgba(28, 25, 23, 0.04);
+      --shadow-md: 0 4px 10px -1px rgba(28, 25, 23, 0.06), 0 2px 4px -2px rgba(28, 25, 23, 0.03);
+      --shadow-lg: 0 14px 28px -4px rgba(28, 25, 23, 0.08), 0 4px 10px -2px rgba(28, 25, 23, 0.03);
+      
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--canvas);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 14.5px;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 120px; /* Espace pour la barre de devis sticky */
+    }
+
+    .serif { font-family: 'Playfair Display', Georgia, serif; }
+    .outfit { font-family: 'Outfit', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* TOP NAVIGATION */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 99999;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      padding: 0 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--brand-primary);
+    }
+
+    .brand-title-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--brand-primary);
+    }
+
+    .brand-name-accent {
+      color: var(--brand-copper);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      font-weight: 500;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .btn-copper {
+      background: var(--brand-copper);
+      color: white;
+      border-color: var(--brand-copper);
+      box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
+    }
+    .btn-copper:hover {
+      background: var(--brand-copper-dark);
+      border-color: var(--brand-copper-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-secondary:hover {
+      border-color: var(--brand-copper);
+      color: var(--brand-copper-dark);
+      background: var(--brand-copper-light);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text-muted);
+    }
+    .btn-outline:hover {
+      border-color: var(--text);
+      color: var(--text);
+    }
+
+    /* CONTAINER */
+    .page-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    /* HERO */
+    .config-hero {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 2.5rem auto;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      background: var(--brand-copper-light);
+      color: var(--brand-copper-dark);
+      border: 1px solid var(--brand-copper-border);
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* CATEGORY FILTER PILLS */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--brand-copper);
+      color: var(--brand-copper-dark);
+    }
+
+    .filter-btn.active {
+      background: var(--brand-copper);
+      color: white;
+      border-color: var(--brand-copper);
+      box-shadow: 0 2px 8px rgba(194, 103, 43, 0.25);
+    }
+
+    /* MODULES GRID */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .module-card {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .module-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-accent);
+    }
+
+    .module-card.selected {
+      border-color: var(--brand-copper);
+      box-shadow: 0 4px 18px rgba(194, 103, 43, 0.18);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDFB 100%);
+    }
+
+    .module-card.selected::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--brand-copper);
+    }
+
+    .module-thumb-wrap {
+      position: relative;
+      background: #F3EFEA;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      cursor: pointer;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .module-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .module-card:hover .module-thumb-wrap img {
+      transform: scale(1.04);
+    }
+
+    .module-zoom-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(28, 25, 23, 0.85);
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0.9;
+    }
+
+    .module-body {
+      padding: 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .module-meta-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .module-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 7px;
+      border-radius: var(--radius-sm);
+      background: var(--brand-copper-light);
+      color: var(--brand-copper-dark);
+      border: 1px solid var(--brand-copper-border);
+    }
+
+    .module-rate {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--brand-copper);
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .module-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+    }
+
+    .module-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-bottom: 0.85rem;
+      flex: 1;
+    }
+
+    .module-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+      font-size: 0.78rem;
+      color: var(--text-gray);
+    }
+
+    .module-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      line-height: 1.35;
+    }
+
+    .module-bullets span {
+      color: var(--brand-copper);
+      font-weight: bold;
+    }
+
+    .module-footer {
+      padding: 0.85rem 1.25rem;
+      background: var(--surface-subtle);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .select-toggle-btn {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: 1.5px solid var(--border);
+      background: white;
+      color: var(--text);
+      transition: all 0.15s ease;
+    }
+
+    .select-toggle-btn:hover {
+      border-color: var(--brand-copper);
+      color: var(--brand-copper-dark);
+    }
+
+    .module-card.selected .select-toggle-btn {
+      background: var(--brand-copper);
+      color: white;
+      border-color: var(--brand-copper);
+      box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
+    }
+
+    /* STICKY QUOTE SUMMARY BAR AT BOTTOM */
+    .quote-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: rgba(28, 25, 23, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 2px solid var(--brand-copper);
+      padding: 0.9rem 1.5rem;
+      color: white;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .quote-bar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .quote-stats {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .quote-stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quote-stat-label {
+      font-size: 0.7rem;
+      color: #A8A29E;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .quote-stat-val {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .quote-stat-val.copper {
+      color: #F59E0B;
+    }
+
+    .quote-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    /* LIGHTBOX MODAL */
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100000;
+      background: rgba(15, 13, 11, 0.92);
+      backdrop-filter: blur(8px);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 1000px;
+      width: 100%;
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .lightbox-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .lightbox-header {
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1C1917;
+      color: white;
+    }
+
+    .lightbox-close {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+      .quote-bar {
+        padding: 0.75rem 1rem;
+      }
+      .quote-stats {
+        gap: 1rem;
+      }
+      .quote-stat-val {
+        font-size: 1.05rem;
+      }
+      .hero-title {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAVIGATION -->
+  <header class="top-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand-link" title="Missi Innovation — Retour au catalogue">
+        <img src="assets/img/missi_logo.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; flex-shrink: 0; display: block; box-shadow: 0 2px 8px rgba(28, 25, 23, 0.25);">
+        <div class="brand-title-wrap">
+          <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
+          <div class="brand-tagline">Configurateur &bull; Devis Modulaire Sur-Mesure</div>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-secondary">
+          ← Retour au Catalogue
+        </a>
+        <button onclick="window.print()" class="btn btn-outline">
+          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          Imprimer ce Devis
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-container">
+
+    <!-- HERO SECTION -->
+    <div class="config-hero">
+      <div class="hero-pill">
+        ✦ CONFIGURATEUR VISUEL &bull; ÉVALUATION IMMÉDIATE DU COÛT
+      </div>
+      <h1 class="hero-title serif">
+        Composez la Solution Idéale pour Votre Établissement
+      </h1>
+      <p class="hero-desc">
+        Ne payez que pour les modules dont vous avez réellement besoin. Cliquez sur chaque aperçu pour visualiser les interfaces réelles du logiciel, cochez vos options et obtenez instantanément le montant exact de votre investissement.
+      </p>
+    </div>
+
+    <!-- FILTRES PAR DOMAINE MÉTIER -->
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterModules('all', this)">Tous les Modules (14)</button>
+      <button class="filter-btn" onclick="filterModules('scolaire', this)">🏫 Scolarité &amp; Pédagogie</button>
+      <button class="filter-btn" onclick="filterModules('finance', this)">💰 Caisse &amp; Billetage</button>
+      <button class="filter-btn" onclick="filterModules('rh', this)">👥 RH &amp; Paie Légale</button>
+      <button class="filter-btn" onclick="filterModules('cantine', this)">🚌 Cantine, Bus &amp; Badges</button>
+      <button class="filter-btn" onclick="filterModules('hardware', this)">🖨️ Pack Matériel POS</button>
+    </div>
+
+    <!-- GRILLE DE MODULES AVEC APERÇU VISUEL RÉEL -->
+    <div class="modules-grid" id="modulesGrid">
+
+      <!-- 1. TABLEAU DE BORD DIRECTEUR (SOCLE) -->
+      <div class="module-card selected" data-category="scolaire" data-cost="0" data-required="true" data-id="m1">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/02_tableau_de_bord_directeur.png', 'Tableau de Bord Directeur & Pilotage')">
+          <img src="assets/img/02_tableau_de_bord_directeur.png" alt="Tableau de bord directeur" loading="lazy">
+          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag">Socle Fondamental</span>
+            <span class="module-rate" style="color: var(--status-emerald);">Inclus dans le socle</span>
+          </div>
+          <h3 class="module-title">Tableau de Bord Stratégique Directeur</h3>
+          <p class="module-desc">Vue panoramique en temps réel : effectifs actifs, taux d'encaissement du mois, alertes de trésorerie et KPI de rentabilité.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Indicateurs financiers &amp; effectifs consolidés</li>
+            <li><span>✓</span> Alertes immédiates des anomalies de caisse</li>
+            <li><span>✓</span> Exportation des bilans de direction PDF/Excel</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m1')" disabled style="opacity: 0.8; cursor: default;">
+            ✓ Inclus dans le socle obligatoire
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. GESTION DES DOSSIERS ÉLÈVES (SOCLE) -->
+      <div class="module-card selected" data-category="scolaire" data-cost="0" data-required="true" data-id="m2">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/03_gestion_eleves_dossiers.png', 'Dossiers Élèves & Inscriptions')">
+          <img src="assets/img/03_gestion_eleves_dossiers.png" alt="Dossiers élèves" loading="lazy">
+          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag">Socle Fondamental</span>
+            <span class="module-rate" style="color: var(--status-emerald);">Inclus dans le socle</span>
+          </div>
+          <h3 class="module-title">Dossiers Élèves &amp; Inscriptions</h3>
+          <p class="module-desc">Fiches élèves complètes, fratries, contact des tuteurs, certificats de scolarité en 1 clic et historique du parcours.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Gestion des fratries &amp; réductions automatiques</li>
+            <li><span>✓</span> Certificats de scolarité normalisés avec QR Code</li>
+            <li><span>✓</span> Import gratuit de vos listes Excel existantes</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m2')" disabled style="opacity: 0.8; cursor: default;">
+            ✓ Inclus dans le socle obligatoire
+          </button>
+        </div>
+      </div>
+
+      <!-- 3. JOURNAL DE CAISSE & RECOUVREMENT -->
+      <div class="module-card selected" data-category="finance" data-cost="25000" data-id="m3">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/04_journal_financier_recettes.png', 'Journal Financier & Recettes Écolages')">
+          <img src="assets/img/04_journal_financier_recettes.png" alt="Journal financier" loading="lazy">
+          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag">Finance &amp; Trésorerie</span>
+            <span class="module-rate">+25 000 Ar / mois</span>
+          </div>
+          <h3 class="module-title">Journal de Caisse &amp; Recouvrement des Écolages</h3>
+          <p class="module-desc">Encaissement guichet rapide en 4 secondes avec reçus thermiques ou A5, gestion des acomptes et rapprochement bancaire.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Saisie ultra-rapide par matricule ou nom</li>
+            <li><span>✓</span> Journal inaltérable des encaissements par caissier</li>
+            <li><span>✓</span> Élimination des contestations grâce aux reçus officiels</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m3')">
+            <span class="btn-check-icon">✓</span> <span class="btn-text">Module Sélectionné</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 4. BILLETAGE PHYSIQUE & CLÔTURE SCELÉE -->
+      <div class="module-card selected" data-category="finance" data-cost="25000" data-id="m4">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/05_pointage_caisse_billetage.png', 'Pointage Caisse & Billetage Physique')">
+          <img src="assets/img/05_pointage_caisse_billetage.png" alt="Billetage physique" loading="lazy">
+          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag">Sécurité Caisse</span>
+            <span class="module-rate">+25 000 Ar / mois</span>
+          </div>
+          <h3 class="module-title">Billetage Physique &amp; Clôture Scellée (Ticket Z)</h3>
+          <p class="module-desc">Comptage physique des coupures de 20 000 à 100 Ar lors de la fermeture à 18h. Verrouillage interdisant tout écart non justifié.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Clôture quotidienne inviolable avec ticket Z scellé</li>
+            <li><span>✓</span> Détection automatique de tout écart de caisse</li>
+            <li><span>✓</span> Réconciliation physique vs informatique sans faille</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m4')">
+            <span class="btn-check-icon">✓</span> <span class="btn-text">Module Sélectionné</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 5. TRAQUE DES IMPAYÉS -->
+      <div class="module-card selected" data-category="finance" data-cost="20000" data-id="m5">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/06_alertes_recouvrement_impayes.png', 'Traque des Impayés & Relances SMS')">
+          <img src="assets/img/06_alertes_recouvrement_impayes.png" alt="Traque des impayés" loading="lazy">
+          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag">Recouvrement</span>
+            <span class="module-rate">+20 000 Ar / mois</span>
+          </div>
+          <h3 class="module-title">Traque Active des Impayés &amp; Relances</h3>
+          <p class="module-desc">Filtrez instantanément les retards d'écolage par classe et préparez les lettres et SMS de relance sans oubli.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Liste dynamique des familles débitrices par tranche</li>
+            <li><span>✓</span> Réduction prouvée de 85% des impayés d'écolage</li>
+            <li><span>✓</span> Historique des accords d'échéancier accordés</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m5')">
+            <span class="btn-check-icon">✓</span> <span class="btn-text">Module Sélectionné</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 6. GESTION DES NOTES & BULLETINS -->
+      <div class="module-card selected" data-category="scolaire" data-cost="25000" data-id="m6">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/09_saisie_notes_bulletins.png', 'Saisie des Notes & Bulletins Trimestriels')">
+          <img src="assets/img/09_saisie_notes_bulletins.png" alt="Saisie notes et bulletins" loading="lazy">
+          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag">Pédagogie &amp; Examens</span>
+            <span class="module-rate">+25 000 Ar / mois</span>
+          </div>
+          <h3 class="module-title">Saisie des Notes &amp; Bulletins Trimestriels A4</h3>
+          <p class="module-desc">Calcul automatisé des moyennes pondérées, classements, appréciations et édition instantanée des livrets trimestriels officiels.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Coefficients personnalisables par série et niveau</li>
+            <li><span>✓</span> Génération en masse de 500 bulletins en moins de 30 sec</li>
+            <li><span>✓</span> Tableaux d'honneur et statistiques de réussite</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m6')">
+            <span class="btn-check-icon">✓</span> <span class="btn-text">Module Sélectionné</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 7. GESTION RH & VACATIONS ENSEIGNANTS -->
+      <div class="module-card selected" data-category="rh" data-cost="24000" data-id="m7">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/07_gestion_personnel_salaires.png', 'Gestion du Personnel & Vacations Profs')">
+          <img src="assets/img/07_gestion_personnel_salaires.png" alt="Gestion personnel et salaires" loading="lazy">
+          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag">Ressources Humaines</span>
+            <span class="module-rate">+24 000 Ar / mois</span>
+          </div>
+          <h3 class="module-title">Gestion RH, Vacations Professeurs &amp; Pointage</h3>
+          <p class="module-desc">Dossiers employés (permanents et vacataires), taux horaires, relevé des heures de cours dispensées et calcul des majorations.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Relevé mensuel des heures effectives par classe</li>
+            <li><span>✓</span> Suivi des acomptes et avances sur salaire</li>
+            <li><span>✓</span> Clôture salariale mensuelle sans omission</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m7')">
+            <span class="btn-check-icon">✓</span> <span class="btn-text">Module Sélectionné</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 8. PAIE LÉGALE MALAGASY (IRSA, CNAPS) -->
+      <div class="module-card" data-category="rh" data-cost="25000" data-id="m8">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/08_alertes_impayes_rh.png', 'Paie Légale Malagasy IRSA, CNaPS & OSTIE')">
+          <img src="assets/img/08_alertes_impayes_rh.png" alt="Paie légale Malagasy" loading="lazy">
+          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag">Conformité Fiscale</span>
+            <span class="module-rate">+25 000 Ar / mois</span>
+          </div>
+          <h3 class="module-title">Paie Légale Malagasy (IRSA, CNaPS &amp; OSTIE)</h3>
+          <p class="module-desc">Barème fiscal Malagasy intégré (tranches IRSA, CNaPS 1% salariale / 13% patronale, OSTIE/AMIT) avec édition des fiches de paie PDF.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Bulletins de salaire conformes au Code du Travail</li>
+            <li><span>✓</span> Déclaration récapitulative trimestrielle CNaPS</li>
+            <li><span>✓</span> Déduction automatique des prêts et avances</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m8')">
+            <span class="btn-check-icon">+</span> <span class="btn-text">Ajouter au Devis</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 9. POINTAGE BUS, CANTINE & BADGES RFID -->
+      <div class="module-card" data-category="cantine" data-cost="30000" data-id="m9">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/10_pointage_bus_cantine.png', 'Pointage Cantine Scolaire, Bus & Badges RFID')">
+          <img src="assets/img/10_pointage_bus_cantine.png" alt="Pointage bus et cantine" loading="lazy">
+          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag">Vie Scolaire &amp; Flux</span>
+            <span class="module-rate">+30 000 Ar / mois</span>
+          </div>
+          <h3 class="module-title">Pointage Cantine, Transport Bus &amp; Badges RFID</h3>
+          <p class="module-desc">Borne réfectoire ultra-rapide (2 secondes par élève), décompte automatique des forfaits repas prépayés et pointage des montées de bus.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Compatibilité avec cartes code-barres ou badges RFID</li>
+            <li><span>✓</span> Suivi des régimes alimentaires et allergies</li>
+            <li><span>✓</span> Traçabilité de présence sécurisante pour les parents</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m9')">
+            <span class="btn-check-icon">+</span> <span class="btn-text">Ajouter au Devis</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 10. RAPPORTS COMPTABLES & EXPORTS EXCEL -->
+      <div class="module-card" data-category="finance" data-cost="15000" data-id="m10">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/11_rapports_comptables_exports.png', 'Rapports Comptables & Grand Livre')">
+          <img src="assets/img/11_rapports_comptables_exports.png" alt="Rapports comptables" loading="lazy">
+          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag">Comptabilité Générale</span>
+            <span class="module-rate">+15 000 Ar / mois</span>
+          </div>
+          <h3 class="module-title">Grand Livre Comptable &amp; Exports Excel</h3>
+          <p class="module-desc">Exportation instantanée des écritures vers votre logiciel comptable (Sage, Ciel) ou formats universels Excel/CSV pour votre expert-comptable.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Ventilation des comptes de classe 7 (produits écolages)</li>
+            <li><span>✓</span> Relevé mensuel des charges de personnel</li>
+            <li><span>✓</span> Audit complet conforme aux normes malagasy</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m10')">
+            <span class="btn-check-icon">+</span> <span class="btn-text">Ajouter au Devis</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 11. SYNCHRONISATION CLOUD SOUVERAINE -->
+      <div class="module-card" data-category="finance" data-cost="20000" data-id="m11">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/01_connexion_cloud.png', 'Sauvegarde Cloud & Synchronisation Miroir')">
+          <img src="assets/img/01_connexion_cloud.png" alt="Connexion Cloud et sauvegarde" loading="lazy">
+          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag">Infrastructures &amp; Backup</span>
+            <span class="module-rate">+20 000 Ar / mois</span>
+          </div>
+          <h3 class="module-title">Sauvegarde Miroir Cloud &amp; Accès Multi-Sites</h3>
+          <p class="module-desc">Double sécurité : moteur local autonome à l'école + réplication Cloud chiffrée lors des retours de connexion pour consultation à distance.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Consultation du tableau de bord depuis votre domicile</li>
+            <li><span>✓</span> Restauration instantanée en cas de sinistre matériel</li>
+            <li><span>✓</span> Chiffrement de bout en bout des données élèves</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m11')">
+            <span class="btn-check-icon">+</span> <span class="btn-text">Ajouter au Devis</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 12. PACK MATÉRIEL IMPRIMANTE 80MM POS -->
+      <div class="module-card selected" data-category="hardware" data-cost="0" data-hardware="450000" data-id="m12">
+        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/pack_imprimante_cutout.png', 'Pack Matériel Imprimante 80 mm POS & Bobines')">
+          <img src="assets/img/pack_imprimante_cutout.png" alt="Pack imprimante 80 mm POS" style="object-fit: contain; padding: 1.25rem; background: white;" loading="lazy">
+          <div class="module-zoom-badge">🔍 Vue Matériel</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta-row">
+            <span class="module-tag" style="background: #ECFDF5; color: #065F46; border-color: #A7F3D0;">Service Confort Clés en Main</span>
+            <span class="module-rate" style="color: var(--brand-copper-dark); font-size: 0.95rem;">450 000 Ar (One-Shot)</span>
+          </div>
+          <h3 class="module-title">Pack Matériel : Imprimante 80 mm POS</h3>
+          <p class="module-desc">Imprimante thermique neuve USB avec massicot automatique, 5 bobines de papier thermique fournies et pré-configuration directe sur vos postes.</p>
+          <ul class="module-bullets">
+            <li><span>✓</span> Zéro coût d'encre (technologie thermique directe)</li>
+            <li><span>✓</span> Mise à disposition à prix coûtant réel sans marge</li>
+            <li><span>✓</span> Prêt immédiat sous 4h en cas d'avarie matérielle</li>
+          </ul>
+        </div>
+        <div class="module-footer">
+          <button class="select-toggle-btn" onclick="toggleModule('m12')">
+            <span class="btn-check-icon">✓</span> <span class="btn-text">Pack Matériel Sélectionné</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- STICKY QUOTE BAR (CALCULATEUR EN DIRECT) -->
+  <div class="quote-bar">
+    <div class="quote-bar-inner">
+      <div class="quote-stats">
+        <div class="quote-stat-item">
+          <span class="quote-stat-label">Modules Sélectionnés</span>
+          <span class="quote-stat-val" id="statCount">7 modules</span>
+        </div>
+        <div class="quote-stat-item">
+          <span class="quote-stat-label">Abonnement Mensuel</span>
+          <span class="quote-stat-val copper" id="statMonthly">119 000 Ar <span style="font-size: 0.75rem; color: #D6D3D1;">/ mois</span></span>
+        </div>
+        <div class="quote-stat-item">
+          <span class="quote-stat-label">Déploiement &amp; Matériel</span>
+          <span class="quote-stat-val" id="statOneShot">700 000 Ar <span style="font-size: 0.72rem; color: #A8A29E;">(One-shot)</span></span>
+        </div>
+      </div>
+
+      <div class="quote-actions">
+        <button onclick="window.print()" class="btn btn-copper" style="padding: 0.65rem 1.25rem;">
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          Générer / Imprimer Mon Devis A4
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX MODAL POUR AGRANDIR LES ÉCRANS -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <div class="lightbox-header">
+        <span id="lightboxTitle" style="font-weight: 700; font-size: 0.95rem;">Aperçu Interface</span>
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      </div>
+      <img id="lightboxImg" src="" alt="Capture interface zoom">
+    </div>
+  </div>
+
+  <script>
+    // BASE COST SETUP
+    const BASE_MONTHLY_START = 0; // Socle de base
+    const BASE_DEPLOYMENT_FEE = 250000; // Déploiement logiciel sur site
+
+    function formatAr(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " Ar";
+    }
+
+    function toggleModule(id) {
+      const card = document.querySelector(`[data-id="${id}"]`);
+      if (!card || card.dataset.required === 'true') return;
+
+      card.classList.toggle('selected');
+      const isSelected = card.classList.contains('selected');
+      const btn = card.querySelector('.select-toggle-btn');
+      
+      if (isSelected) {
+        btn.querySelector('.btn-check-icon').textContent = '✓';
+        btn.querySelector('.btn-text').textContent = 'Module Sélectionné';
+      } else {
+        btn.querySelector('.btn-check-icon').textContent = '+';
+        btn.querySelector('.btn-text').textContent = 'Ajouter au Devis';
+      }
+
+      calculateQuote();
+    }
+
+    function calculateQuote() {
+      const selectedCards = document.querySelectorAll('.module-card.selected');
+      let monthlyTotal = 0;
+      let oneShotTotal = BASE_DEPLOYMENT_FEE;
+      let count = selectedCards.length;
+
+      selectedCards.forEach(card => {
+        const cost = parseInt(card.dataset.cost || '0', 10);
+        const hardware = parseInt(card.dataset.hardware || '0', 10);
+        monthlyTotal += cost;
+        oneShotTotal += hardware;
+      });
+
+      // Appliquer une tarification palier douce
+      if (monthlyTotal < 69000 && monthlyTotal > 0) {
+        monthlyTotal = 69000; // Forfait minimum essentiel
+      }
+
+      document.getElementById('statCount').textContent = count + " modules";
+      document.getElementById('statMonthly').innerHTML = formatAr(monthlyTotal) + ' <span style="font-size: 0.75rem; color: #D6D3D1;">/ mois</span>';
+      document.getElementById('statOneShot').innerHTML = formatAr(oneShotTotal) + ' <span style="font-size: 0.72rem; color: #A8A29E;">(One-shot)</span>';
+    }
+
+    function filterModules(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.module-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function openLightbox(src, title) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('lightboxModal').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.remove('active');
+    }
+
+    // Initial calculation on load
+    calculateQuote();
+  </script>
+</body>
+</html>

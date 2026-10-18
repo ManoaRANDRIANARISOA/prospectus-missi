@@ -555,6 +555,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5rem;
+      align-items: stretch;
     }
 
     .proposal-card {
@@ -565,6 +566,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      height: 100%;
       box-shadow: var(--shadow-sm);
       transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
       position: relative;
@@ -583,6 +585,9 @@
     }
 
     .card-top {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
       margin-bottom: 1.25rem;
     }
 
@@ -706,6 +711,33 @@
       flex-wrap: wrap;
     }
 
+    .card-bottom-slot {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .features-grid-2col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.65rem 1rem;
+      margin: 1rem 0;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .feature-item svg {
+      flex-shrink: 0;
+      color: var(--brand-copper);
+    }
+
     /* ==========================================================================
        CARTE LARGE POUR RESIPRO ET WEB VITRINE
        ========================================================================== */
@@ -714,7 +746,7 @@
       display: grid;
       grid-template-columns: 1.25fr 0.75fr;
       gap: 2rem;
-      align-items: center;
+      align-items: stretch;
     }
 
     /* ==========================================================================
@@ -846,6 +878,10 @@
       </a>
 
       <div class="nav-badges">
+        <a href="configurateur.html" class="btn btn-copper" style="font-size: 0.78rem; padding: 0.4rem 0.85rem;">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+          Sélecteur de Modules &bull; Devis
+        </a>
         <button onclick="window.print()" class="btn btn-outline" style="font-size: 0.78rem; padding: 0.4rem 0.85rem;">
           <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
           Imprimer le Catalogue
@@ -935,6 +971,10 @@
         <span>Manuels &amp; Architecture</span>
         <span class="tab-count">2</span>
       </a>
+      <a href="configurateur.html" class="sector-tab" style="background: var(--brand-copper); color: white; border-color: var(--brand-copper); margin-left: auto;">
+        <span>🛠️ Sélecteur de Modules sur Mesure</span>
+        <span class="tab-count" style="background: white; color: var(--brand-copper);">Nouveau</span>
+      </a>
     </nav>
 
 
@@ -1014,13 +1054,19 @@
               <li><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Certificats de scolarité PDF générés en 1 clic</li>
             </ul>
           </div>
-          <div class="card-actions">
-            <a href="education/offre-petite-structure.html" class="btn btn-secondary" style="flex: 1;">
-              Consulter le Dossier
-            </a>
-            <button onclick="window.open('education/offre-petite-structure.html')" class="btn btn-outline" title="Imprimer">
-              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-            </button>
+          <div class="card-bottom-slot" style="margin-top: auto; padding-top: 0.85rem; border-top: 1px dashed var(--border);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; min-height: 18px;">
+              <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.04em;">Format 3 Pages A4</span>
+              <span style="font-size: 0.65rem; color: var(--text-soft); background: var(--surface-warm); padding: 1.5px 6px; border-radius: 999px;">Édition Essentielle</span>
+            </div>
+            <div class="card-actions">
+              <a href="education/offre-petite-structure.html" class="btn btn-secondary" style="flex: 1; padding: 0.6rem 0.75rem; font-size: 0.82rem;">
+                Consulter le Dossier
+              </a>
+              <button onclick="window.open('education/offre-petite-structure.html')" class="btn btn-outline" style="padding: 0.6rem 0.75rem;" title="Imprimer">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -1055,19 +1101,19 @@
               <li><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Paie légale Malagasy (IRSA, CNaPS &amp; Fiches PDF)</li>
             </ul>
           </div>
-          <!-- CHOIX DU STYLE DE PRÉSENTATION (A/B) -->
-          <div style="background: var(--brand-copper-light); border: 1px solid var(--brand-copper-border); border-radius: 8px; padding: 10px; margin-top: 12px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-              <span style="font-size: 0.7rem; font-weight: 700; color: var(--brand-copper-dark); text-transform: uppercase; letter-spacing: 0.05em;">
+          <!-- CHOIX DU STYLE DE PRÉSENTATION (A/B) CALIBRÉ DANS LE BOTTOM SLOT -->
+          <div class="card-bottom-slot" style="margin-top: auto; padding-top: 0.85rem; border-top: 1px dashed var(--brand-copper-border);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; min-height: 18px;">
+              <span style="font-size: 0.7rem; font-weight: 700; color: var(--brand-copper-dark); text-transform: uppercase; letter-spacing: 0.04em;">
                 ✨ Présentation A/B au Choix (4 Pages)
               </span>
               <span style="font-size: 0.65rem; background: var(--brand-copper); color: white; padding: 1.5px 6px; border-radius: 999px; font-weight: 700;">Édition 2026</span>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <a href="education/proposition-papier-art.html" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.5rem 0.6rem; text-align: center; justify-content: center; display: flex; align-items: center; gap: 4px;" title="Ouvrir Version 1 (Papier d'Art & Flow)">
+            <div class="card-actions" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <a href="education/proposition-papier-art.html" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.6rem 0.5rem; text-align: center; justify-content: center; display: flex; align-items: center; gap: 4px;" title="Ouvrir Version 1 (Papier d'Art & Flow)">
                 📜 Style 1 · Papier d'Art
               </a>
-              <a href="education/proposition-bento-glass.html" class="btn btn-copper" style="font-size: 0.78rem; padding: 0.5rem 0.6rem; text-align: center; justify-content: center; display: flex; align-items: center; gap: 4px;" title="Ouvrir Version 2 (Bento Glass & Widgets)">
+              <a href="education/proposition-bento-glass.html" class="btn btn-copper" style="font-size: 0.78rem; padding: 0.6rem 0.5rem; text-align: center; justify-content: center; display: flex; align-items: center; gap: 4px;" title="Ouvrir Version 2 (Bento Glass & Widgets)">
                 💎 Style 2 · Bento Glass →
               </a>
             </div>
@@ -1102,13 +1148,19 @@
               <li><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Support prioritaire 7j/7 avec astreinte technique</li>
             </ul>
           </div>
-          <div class="card-actions">
-            <a href="education/offre-grande-structure.html" class="btn btn-secondary" style="flex: 1;">
-              Consulter le Dossier
-            </a>
-            <button onclick="window.open('education/offre-grande-structure.html')" class="btn btn-outline" title="Imprimer">
-              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-            </button>
+          <div class="card-bottom-slot" style="margin-top: auto; padding-top: 0.85rem; border-top: 1px dashed var(--border);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; min-height: 18px;">
+              <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.04em;">Format 3 Pages A4</span>
+              <span style="font-size: 0.65rem; color: var(--text-soft); background: var(--surface-warm); padding: 1.5px 6px; border-radius: 999px;">Édition Prestige VIP</span>
+            </div>
+            <div class="card-actions">
+              <a href="education/offre-grande-structure.html" class="btn btn-secondary" style="flex: 1; padding: 0.6rem 0.75rem; font-size: 0.82rem;">
+                Consulter le Dossier
+              </a>
+              <button onclick="window.open('education/offre-grande-structure.html')" class="btn btn-outline" style="padding: 0.6rem 0.75rem;" title="Imprimer">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -1139,27 +1191,28 @@
         </div>
 
         <!-- ENCART NOUVEAUTÉ : HOMESCHOOLING & ÉDUCATION PARENTALE (STUDY HOME PWA) -->
-        <div style="grid-column: 1 / -1; background: linear-gradient(135deg, #FAFDFB 0%, #F0FDFA 100%); border: 1.5px solid #CCFBF1; border-left: 5px solid #0D9488; border-radius: var(--radius-lg); padding: 1.5rem 1.75rem; box-shadow: 0 4px 16px rgba(13, 148, 136, 0.06); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.75rem;">
+        <div style="grid-column: 1 / -1; background: linear-gradient(135deg, #FAF8F5 0%, #FFFDFB 100%); border: 1.5px solid var(--brand-copper-border); border-left: 5px solid var(--brand-copper); border-radius: var(--radius-lg); padding: 1.5rem 1.75rem; box-shadow: 0 4px 16px rgba(44, 30, 20, 0.05); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.75rem;">
           <div style="flex: 1; min-width: 300px;">
             <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px;">
-              <span style="font-size: 0.72rem; font-weight: 800; color: #0F766E; background: #CCFBF1; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em;">Nouvelle Application PWA</span>
-              <h4 style="font-size: 1.15rem; font-weight: 800; color: #1C1917; margin: 0;">Study Home PWA &bull; Pour Parents &amp; Homeschooling</h4>
-              <span style="font-size: 0.7rem; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 7px; border-radius: 999px;">100% Hors-Ligne &bull; Multi-OS</span>
+              <span style="font-size: 0.72rem; font-weight: 800; color: var(--brand-copper-dark); background: var(--brand-copper-light); border: 1px solid var(--brand-copper-border); padding: 2px 9px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em;">👨‍👩‍👧‍👦 Éducation en Famille &amp; Tuteurs Privés</span>
+              <h4 style="font-size: 1.15rem; font-weight: 800; color: #1C1917; margin: 0;">Study Home &bull; La Plateforme Pédagogique des Parents</h4>
+              <span style="font-size: 0.7rem; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 2px 8px; border-radius: 999px;">0% Publicité &bull; 100% Hors-Ligne</span>
             </div>
             <p style="font-size: 0.88rem; color: #57534E; margin: 0 0 8px 0; line-height: 1.5;">
-              L'application web progressive souveraine conçue pour l'instruction en famille et les tuteurs privés : suivi quotidien des leçons et des devoirs, découpage par cycle, carnet de réussite et génération en 1 clic du dossier d'inspection académique.
+              Offrez à vos enfants un cadre scolaire serein et stimulant à la maison : planification intuitive des devoirs, carnet de compétences par palier et <strong>génération en 1 clic de votre dossier officiel d'inspection académique</strong>.
             </p>
-            <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 0.8rem; color: #0F766E; font-weight: 600;">
-              <span>✓ Accessible Web, PC Windows/Mac &amp; Mobile</span>
-              <span>✓ Zéro publicité ni distraction</span>
-              <span>✓ Dès 39 000 Ar / mois</span>
+            <div style="display: flex; gap: 14px; flex-wrap: wrap; font-size: 0.8rem; color: var(--brand-copper-dark); font-weight: 600;">
+              <span>✓ Sérénité totale : Dossier d'inspection conforme prêt en 1 clic</span>
+              <span>✓ Zéro distraction : Zéro publicité, protège l'attention de l'enfant</span>
+              <span>✓ Accessible partout : PC familial, tablette ou mobile &bull; Dès 39 000 Ar/mois</span>
             </div>
           </div>
-          <div style="display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; min-width: 200px;">
-            <a href="education/homeschooling-pwa.html" class="btn btn-primary" style="background: #0D9488; border-color: #0F766E; text-align: center; justify-content: center; font-size: 0.85rem; padding: 0.6rem 1.1rem; box-shadow: 0 3px 10px rgba(13, 148, 136, 0.25);">
-              Ouvrir le Dossier PWA (3 Pages) →
+          <div style="display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; min-width: 220px;">
+            <a href="education/homeschooling-pwa.html" class="btn btn-copper" style="text-align: center; justify-content: center; font-size: 0.85rem; padding: 0.65rem 1.15rem;">
+              Découvrir la Solution Familles (3 Pages) →
             </a>
-            <a href="education/homeschooling-pwa.html" onclick="window.open('education/homeschooling-pwa.html'); return false;" class="btn btn-outline" style="text-align: center; justify-content: center; font-size: 0.75rem; padding: 0.35rem 0.8rem;">
+            <a href="education/homeschooling-pwa.html" onclick="window.open('education/homeschooling-pwa.html'); return false;" class="btn btn-secondary" style="text-align: center; justify-content: center; font-size: 0.78rem; padding: 0.4rem 0.8rem;">
+              <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
               Imprimer Format A4
             </a>
           </div>
@@ -1310,80 +1363,99 @@
 
       <div class="cards-grid">
         <div class="proposal-card featured card-wide-layout">
-          <div>
-            <div class="card-kicker-row">
-              <span class="card-tag">ERP Entreprise &bull; Format 3 Pages A4</span>
-              <span style="font-size: 0.75rem; color: var(--text-soft); font-weight: 600;">
-                ✓ Conformité Fiscale &bull; NIF/STAT &bull; Backup Cloud
-              </span>
+          <!-- COLONNE GAUCHE : PRÉSENTATION, FONCTIONNALITÉS & ACTIONS -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="card-kicker-row">
+                <span class="card-tag">ERP Entreprise &bull; Format 3 Pages A4</span>
+                <span style="font-size: 0.75rem; color: var(--text-soft); font-weight: 600;">
+                  ✓ Conformité Fiscale &bull; NIF/STAT &bull; Backup Cloud
+                </span>
+              </div>
+
+              <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; line-height: 1.25;">
+                Proposition Commerciale ERP Société — Gestion Commerciale, Stocks &amp; RH
+              </h3>
+
+              <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 0.85rem;">
+                Système complet de pilotage d'entreprise : devis proforma transformables en factures officielles avec mentions légales Madagascar (NIF, STAT, RCS), suivi précis des stocks multi-dépôts (PMP/FIFO), caisse tactile point de vente, journal de trésorerie inaltérable et calcul automatisé des salaires avec bulletins PDF conformes au Code du Travail.
+              </p>
+
+              <!-- GRILLE DE FONCTIONNALITÉS SUR 2 COLONNES HARMONIEUSES -->
+              <div class="features-grid-2col">
+                <div class="feature-item">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Facturation NIF / STAT (Proforma &amp; Finale)</span>
+                </div>
+                <div class="feature-item">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Gestion Stocks Multi-Dépôts &amp; PMP/FIFO</span>
+                </div>
+                <div class="feature-item">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Rapprochement Mobile Money (MVola, Orange)</span>
+                </div>
+                <div class="feature-item">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Module RH &amp; Paie Légale (IRSA, CNaPS, PDF)</span>
+                </div>
+                <div class="feature-item">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Planning Réservations &amp; Affectation Ressources</span>
+                </div>
+                <div class="feature-item">
+                  <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                  <span>Mise en Service sous 48h &amp; Support Prioritaire</span>
+                </div>
+              </div>
             </div>
 
-            <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; line-height: 1.25;">
-              Proposition Commerciale ERP Société — Gestion Commerciale, Stocks &amp; RH
-            </h3>
-
-            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1rem;">
-              Système complet de pilotage d'entreprise : devis proforma transformables en factures officielles avec mentions légales Madagascar (NIF, STAT, RCS), suivi précis des stocks multi-dépôts et alertes ruptures, caisse tactile point de vente, journal de trésorerie inaltérable et calcul automatisé des salaires avec bulletins PDF conformes au Code du Travail.
-            </p>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
-              <div class="price-box" style="background: var(--brand-copper-light); border-color: var(--brand-copper-border);">
-                <div class="price-row">
-                  <span>Abonnement Pack Entreprise Intégral :</span>
-                  <strong class="price-highlight" style="font-size: 1.15rem;">199 000 Ar / mois</strong>
-                </div>
-                <div class="price-setup" style="border-color: var(--brand-copper-border);">
-                  Tarif 1er trimestre (-33% promo) &bull; Déploiement &amp; formation : 350 000 Ar (One-shot)
-                </div>
-              </div>
-
-              <div style="background: white; border: 1px solid var(--border); border-radius: 6px; padding: 0.85rem;">
-                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text); margin-bottom: 4px;">Atouts Clés Entreprise :</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
-                  • Multi-postes en réseau local sans ralentissement<br>
-                  • Double sécurité : 100% hors-ligne + Backup Cloud discret<br>
-                  • Pointage biométrique &amp; journal d'audit des actions
-                </div>
-              </div>
-            </div>
-
-            <div class="features-grid-3col">
-              <div class="feature-item">
-                <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span>Facturation NIF / STAT (Proforma &amp; Finale)</span>
-              </div>
-              <div class="feature-item">
-                <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span>Gestion des Stocks Multi-Dépôts &amp; PMP/FIFO</span>
-              </div>
-              <div class="feature-item">
-                <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span>Rapprochement Mobile Money (MVola, Airtel, Orange)</span>
-              </div>
-              <div class="feature-item">
-                <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span>Module RH &amp; Paie Légale (IRSA, CNaPS, Fiches PDF)</span>
-              </div>
-              <div class="feature-item">
-                <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span>Planning Réservations &amp; Affectation Ressources</span>
-              </div>
-              <div class="feature-item">
-                <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                <span>Mise en Service sous 48h &amp; Support Prioritaire</span>
-              </div>
+            <div class="card-actions" style="margin-top: 1rem;">
+              <a href="entreprises/erp-societe.html" class="btn btn-copper">
+                <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Consulter la Proposition Entreprise (A4)
+              </a>
+              <button onclick="window.open('entreprises/erp-societe.html')" class="btn btn-outline" title="Imprimer">
+                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                Imprimer le Dossier
+              </button>
             </div>
           </div>
 
-          <div class="card-actions" style="margin-top: 1.25rem;">
-            <a href="entreprises/erp-societe.html" class="btn btn-copper">
-              <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-              Consulter la Proposition Entreprise (A4)
-            </a>
-            <button onclick="window.open('entreprises/erp-societe.html')" class="btn btn-outline" title="Imprimer">
-              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-              Imprimer le Dossier
-            </button>
+          <!-- COLONNE DROITE : PANNEAU TARIF & ENGAGEMENTS STRUCTURÉS (HARMONIE PARFAITE) -->
+          <div style="background: var(--surface-warm); border: 1.5px solid var(--border-accent); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brand-copper-dark); margin-bottom: 0.85rem;">
+                ✦ Formule Clés en Main &bull; Pack Intégral
+              </div>
+              <div class="price-box" style="background: white; border-color: var(--brand-copper-border); margin-bottom: 0.85rem;">
+                <div class="price-row">
+                  <span>Abonnement Pack Entreprise :</span>
+                  <strong class="price-highlight" style="font-size: 1.15rem;">199 000 Ar / mois</strong>
+                </div>
+                <div class="price-setup" style="border-color: var(--brand-copper-border);">
+                  Tarif 1er trimestre (-33% promo) &bull; Déploiement : 350 000 Ar
+                </div>
+              </div>
+              <div style="font-size: 0.78rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem;">Garanties Opérationnelles :</div>
+              <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.78rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 0.5rem;">
+                <li style="display: flex; align-items: center; gap: 7px;">
+                  <span style="color: var(--brand-copper); font-weight: bold;">✔</span> Multi-postes en réseau local sans ralentissement
+                </li>
+                <li style="display: flex; align-items: center; gap: 7px;">
+                  <span style="color: var(--brand-copper); font-weight: bold;">✔</span> 100% hors-ligne (zéro panne lors des coupures JIRAMA)
+                </li>
+                <li style="display: flex; align-items: center; gap: 7px;">
+                  <span style="color: var(--brand-copper); font-weight: bold;">✔</span> Sauvegardes miroirs Cloud sécurisées automatiques
+                </li>
+                <li style="display: flex; align-items: center; gap: 7px;">
+                  <span style="color: var(--brand-copper); font-weight: bold;">✔</span> Pointage biométrique &amp; journal d'audit des actions
+                </li>
+              </ul>
+            </div>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--border); font-size: 0.75rem; color: var(--brand-copper-dark); font-weight: 600;">
+              ✨ Formation complète de votre équipe sur site incluse
+            </div>
           </div>
         </div>
       </div>
