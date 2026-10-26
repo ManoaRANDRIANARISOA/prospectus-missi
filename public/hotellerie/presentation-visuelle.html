@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResiPro Suite — Présentation Visuelle &amp; Démo Écrans Hôtellerie &amp; Restauration Madagascar | Missi Innovation</title>
+    
+    <!-- SEO & MÉTADONNÉES LOCALES HÔTELLERIE -->
+    <meta name="description" content="Découvrez ResiPro Suite en images réelles : planning interactif des chambres sans surbooking, caisse tactile bar/restaurant, note sur chambre, économat, fiches techniques et facturation NIF/STAT 100% hors-ligne à Madagascar.">
+    <meta name="keywords" content="logiciel hotel madagascar, logiciel restaurant nosy be, pms hotelier sainte marie, caisse tactile restaurant tana, facturation nif stat hotel madagascar, resipro missi innovation">
+    <link rel="canonical" href="https://missi-innovation.web.app/hotellerie/presentation-visuelle.html">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_MG">
+    <meta property="og:title" content="ResiPro Suite — Présentation Visuelle &amp; Démo Écrans Hôtellerie Madagascar">
+    <meta property="og:description" content="Planning chambres, caisse tactile restaurant, fiches techniques et facturation légale. Amorti dès la 1ère nuitée louée par mois !">
+    <meta property="og:url" content="https://missi-innovation.web.app/hotellerie/presentation-visuelle.html">
+    <meta property="og:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ResiPro Suite — Démo Écrans Hôtellerie &amp; Restauration Madagascar">
+    <meta name="twitter:description" content="Progiciel de gestion hôtelière 100% hors-ligne. Planning sans surbooking, caisse tactile et fiches techniques.">
+    <meta name="twitter:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png">
+
+    <!-- SCHEMA.ORG STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ResiPro Suite Hôtelière & Restauration",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, Windows, Offline SQLite",
+      "offers": {
+        "@type": "Offer",
+        "price": "129000",
+        "priceCurrency": "MGA"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Missi Innovation",
+        "url": "https://missi-innovation.web.app"
+      }
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../assets/img/missi_logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rust: #A45A3D;
+            --rust-dark: #824229;
+            --rust-light: #FBF4F0;
+            --rust-subtle: #F3E5DC;
+            --text-dark: #1C1917;
+            --text-gray: #57534E;
+            --text-light: #78716C;
+            --border: #E8E5DD;
+            --border-warm: #E6D8CD;
+            --green: #059669;
+            --green-dark: #047857;
+            --green-light: #ECFDF5;
+            --green-border: #A7F3D0;
+            --blue: #2563EB;
+            --blue-light: #EFF6FF;
+            --amber: #D97706;
+            --amber-light: #FFFBEB;
+            --bg-app: #24211E;
+            --card-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            --card-shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-app);
+            font-size: 11.5px;
+            line-height: 1.45;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', Georgia, serif;
+            letter-spacing: -0.015em;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* HEADER UNIFIÉ MISSI INNOVATION */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #E8E5DD;
+            height: 64px;
+            min-height: 64px;
+            max-height: 64px;
+            padding: 0 1.5rem;
+            box-sizing: border-box;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-inner {
+            width: 100%;
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            height: 100%;
+            flex-wrap: nowrap;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #1C1917;
+            flex-shrink: 0;
+        }
+
+        .brand-logo-mark {
+            width: 36px;
+            height: 36px;
+            border-radius: 9px;
+            background: #1C1917;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
+            border: 1px solid #443E3A;
+            flex-shrink: 0;
+        }
+
+        .brand-title-wrap {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+
+        .brand-name-accent {
+            font-weight: 600;
+            font-size: 0.72rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--rust);
+        }
+
+        .brand-tagline {
+            font-size: 0.7rem;
+            color: #78716C;
+            font-weight: 500;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .nav-link-btn {
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #57534E;
+            background: white;
+            border: 1px solid #E8E5DD;
+            padding: 0 12px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 6px;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link-btn:hover {
+            border-color: var(--rust);
+            color: var(--rust);
+            background: var(--rust-light);
+        }
+
+        .btn-print-copper {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--rust);
+            color: white;
+            border: 1px solid var(--rust);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0 14px;
+            height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(164, 90, 61, 0.25);
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+
+        .btn-print-copper:hover {
+            background: var(--rust-dark);
+            box-shadow: 0 4px 12px rgba(164, 90, 61, 0.35);
+        }
+
+        /* FEUILLE A4 (AFFICHAGE ÉCRAN & IMPRESSION) */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            padding: 12mm 16mm 10mm 16mm;
+            margin: 15mm auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .page-content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 5px;
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 8px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* FOOTER WEB UNIFIÉ HAUTE VISIBILITÉ (WEB ONLY) */
+        .web-footer-unified {
+            margin: 40px auto 25px auto;
+            max-width: 960px;
+            text-align: center;
+            padding: 24px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            color: #D6D3D1;
+            font-size: 11px;
+            background: #1C1917;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .web-footer-brand-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .web-footer-subtext {
+            color: #A8A29E;
+            font-size: 10.5px;
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* HEADER DES PAGES */
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1.5px solid var(--rust);
+            padding-bottom: 7px;
+            margin-bottom: 10px;
+        }
+
+        .header-left {
+            text-transform: uppercase;
+            font-size: 9.5px;
+            letter-spacing: 1px;
+            font-weight: 800;
+            color: var(--rust-dark);
+            line-height: 1.25;
+        }
+
+        .header-left .sub {
+            color: var(--text-light);
+            font-size: 8.5px;
+            letter-spacing: 0.4px;
+            font-weight: 500;
+            margin-top: 2px;
+            text-transform: none;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5px;
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+
+        .header-right strong {
+            color: var(--text-dark);
+            font-size: 10.5px;
+        }
+
+        /* ENCART MARQUE BLANCHE PRESTIGE */
+        .white-label-banner {
+            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%);
+            border: 1px solid #E2D9CF;
+            border-left: 4px solid var(--rust);
+            border-radius: 7px;
+            padding: 7px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 11px;
+            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.04);
+        }
+
+        .wlb-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .wlb-badge {
+            background: linear-gradient(135deg, #A45A3D 0%, #824229 100%);
+            color: white;
+            font-size: 8.5px;
+            font-weight: 800;
+            padding: 3.5px 9px;
+            border-radius: 5px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 5px rgba(164, 90, 61, 0.25);
+        }
+
+        .wlb-text {
+            font-size: 9px;
+            color: var(--text-dark);
+            line-height: 1.35;
+        }
+
+        .wlb-text strong {
+            color: var(--rust-dark);
+            font-weight: 700;
+        }
+
+        .wlb-offline-tag {
+            font-size: 8.5px;
+            font-weight: 700;
+            color: #047857;
+            white-space: nowrap;
+            background: #ECFDF5;
+            padding: 3.5px 9px;
+            border-radius: 9999px;
+            border: 1px solid #A7F3D0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 1px 2px rgba(5, 150, 105, 0.08);
+        }
+
+        /* WINDOWS POUR CAPTURES D'ÉCRAN */
+        .screen-window {
+            background: #FDFBF7;
+            border: 1px solid #D5CFC7;
+            border-radius: 7px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .screen-window:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--card-shadow-lg);
+            border-color: var(--rust);
+        }
+
+        .window-titlebar {
+            background: #EFECE6;
+            border-bottom: 1px solid #DDD8CE;
+            padding: 4px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .window-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+        }
+        .window-dot.red { background: #EF4444; }
+        .window-dot.yellow { background: #F59E0B; }
+        .window-dot.green { background: #10B981; }
+
+        .window-title {
+            font-size: 8.5px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .window-badge {
+            font-size: 7.5px;
+            font-weight: 700;
+            background: white;
+            color: var(--rust);
+            padding: 1px 5px;
+            border-radius: 3px;
+            border: 1px solid var(--border-warm);
+        }
+
+        .screen-img-wrap {
+            position: relative;
+            overflow: hidden;
+            background: #FAF8F5;
+        }
+
+        .screen-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .zoom-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            gap: 6px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .screen-window:hover .zoom-overlay {
+            opacity: 1;
+        }
+
+        /* ANNOTATIONS CALLOUT */
+        .callout-badge {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.9);
+            color: white;
+            font-size: 7.5px;
+            font-weight: 700;
+            padding: 3px 7px;
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.25);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            z-index: 2;
+        }
+
+        .callout-badge.green {
+            background: #047857;
+        }
+
+        .callout-badge.blue {
+            background: #1D4ED8;
+        }
+
+        .callout-badge.copper {
+            background: #824229;
+        }
+
+        /* TITRES DE SECTIONS */
+        .sec-title-wrap {
+            margin-bottom: 8px;
+        }
+
+        .sec-kicker {
+            font-size: 8px;
+            font-weight: 800;
+            color: var(--rust);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sec-kicker::before {
+            content: "";
+            display: inline-block;
+            width: 12px;
+            height: 2px;
+            background: var(--rust);
+        }
+
+        .sec-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.25;
+            margin-top: 1px;
+        }
+
+        .sec-desc {
+            font-size: 9px;
+            color: var(--text-gray);
+            line-height: 1.35;
+            margin-top: 2px;
+        }
+
+        /* PILLARS MINI-GRID */
+        .pillars-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7px;
+            margin-bottom: 9px;
+        }
+
+        .pillar-mini {
+            background: #FAF8F5;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 6px 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .pillar-mini.highlight {
+            background: var(--rust-light);
+            border-color: var(--rust-subtle);
+        }
+
+        .p-icon-title {
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .p-desc {
+            font-size: 7.8px;
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+
+        /* BENEFIT CARDS */
+        .benefit-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 7px 9px;
+            font-size: 8.5px;
+        }
+
+        .benefit-card strong {
+            color: var(--rust-dark);
+            font-size: 9.5px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .benefit-card p {
+            color: var(--text-gray);
+            line-height: 1.3;
+        }
+
+        /* GRILLES */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .grid-3col {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7px;
+        }
+
+        /* CARTES DE FORMULES */
+        .pricing-mini-card {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 9px 11px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-mini-card.featured {
+            border: 1.5px solid var(--rust);
+            background: var(--rust-light);
+            box-shadow: 0 4px 12px rgba(164, 90, 61, 0.12);
+        }
+
+        .pm-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .pm-title {
+            font-size: 10.5px;
+            font-weight: 800;
+            color: var(--text-dark);
+            text-transform: uppercase;
+        }
+
+        .pm-price {
+            font-size: 13.5px;
+            font-weight: 800;
+            color: var(--rust-dark);
+        }
+
+        .pm-price .unit {
+            font-size: 8px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .pm-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            margin-top: 6px;
+            font-size: 8.2px;
+            color: var(--text-gray);
+        }
+
+        .pm-list li {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .pm-check {
+            color: var(--green);
+            font-weight: 800;
+            font-size: 8.5px;
+        }
+
+        /* HARDWARE PACK */
+        .hardware-pack-box {
+            background: linear-gradient(135deg, #FFFDFB 0%, #FBF6F1 100%);
+            border: 1.5px solid #E2D2C3;
+            border-radius: 7px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin: 10px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .hp-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hp-icon-box {
+            width: 48px;
+            height: 48px;
+            background: white;
+            border: 1px solid #E6DCD2;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            padding: 4px;
+        }
+
+        .hp-icon-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .hp-title {
+            font-size: 10.5px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .hp-desc {
+            font-size: 8.5px;
+            color: var(--text-gray);
+            line-height: 1.3;
+            margin-top: 1px;
+        }
+
+        .hp-price-tag {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .hp-price {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--rust-dark);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .hp-tag {
+            font-size: 7.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--green);
+            background: var(--green-light);
+            border: 1px solid var(--green-border);
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 2px;
+        }
+
+        /* ROI BANNER */
+        .roi-banner {
+            background: linear-gradient(135deg, #064E3B 0%, #047857 100%);
+            color: white;
+            border-radius: 7px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            box-shadow: 0 4px 12px rgba(6, 78, 59, 0.25);
+            margin-top: 9px;
+        }
+
+        .roi-title {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .roi-desc {
+            font-size: 8.5px;
+            color: #D1FAE5;
+            line-height: 1.35;
+            margin-top: 2px;
+        }
+
+        .roi-stat-box {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            padding: 6px 12px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .roi-stat-num {
+            font-size: 16px;
+            font-weight: 900;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .roi-stat-lbl {
+            font-size: 7.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* LIGHTBOX MODAL */
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            z-index: 100000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 24px;
+            backdrop-filter: blur(8px);
+        }
+
+        #lightbox.active {
+            display: flex;
+        }
+
+        #lightbox-img {
+            max-width: 94vw;
+            max-height: 86vh;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            object-fit: contain;
+            background: white;
+        }
+
+        #lightbox-caption {
+            color: #F3F4F6;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+            text-align: center;
+            background: rgba(28, 25, 23, 0.85);
+            padding: 6px 18px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        #lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 20px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        #lightbox-close:hover {
+            background: rgba(239, 68, 68, 0.8);
+            transform: scale(1.1);
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .no-print, .top-nav, #lightbox, .web-footer-unified {
+                display: none !important;
+            }
+            .page {
+                box-shadow: none !important;
+                margin: 0 !important;
+                width: 210mm !important;
+                height: 297mm !important;
+                max-height: 297mm !important;
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" onclick="closeLightbox(event)">
+        <button id="lightbox-close" onclick="closeLightbox(event)" title="Fermer">✕</button>
+        <img id="lightbox-img" src="" alt="Capture plein écran">
+        <div id="lightbox-caption">Aperçu grand angle</div>
+    </div>
+
+    <!-- HEADER NAVIGATION UNIFIÉE MISSI INNOVATION -->
+    <header class="top-nav no-print">
+        <div class="nav-inner">
+            <a href="../index.html" class="brand-link" title="Retour au portail Missi Innovation">
+                <div class="brand-logo-mark">
+                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation Logo" width="22" height="22">
+                </div>
+                <div class="brand-title-wrap">
+                    <div class="brand-name">
+                        MISSI <span class="brand-name-accent">INNOVATION</span>
+                    </div>
+                    <div class="brand-tagline">Progiciels Métiers &bull; Madagascar</div>
+                </div>
+            </a>
+
+            <div class="nav-actions">
+                <a href="../configurateur.html?secteur=hotellerie" class="nav-link-btn" title="Simuler votre devis ResiPro en ligne">
+                    ⚙️ Configurateur Devis
+                </a>
+                <a href="resipro.html" class="nav-link-btn" title="Consulter le dossier tarifaire A4 officiel">
+                    📄 Dossier Commercial A4
+                </a>
+                <button onclick="window.print()" class="btn-print-copper" title="Imprimer ou exporter en PDF officiel">
+                    <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                    Imprimer / PDF
+                </button>
+                <a href="https://wa.me/261386121473?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20une%20d%C3%A9monstration%20de%20ResiPro%20Suite%20pour%20mon%20h%C3%B4tel/restaurant." target="_blank" class="btn-print-copper" style="background: #059669; border-color: #059669;" title="Contacter un conseiller WhatsApp">
+                    💬 WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- =======================================================================
+         PAGE 1 : COCKPIT DIRECTIONNEL & PILIERS DE RENTABILITÉ HÔTELIÈRE
+         ======================================================================= -->
+    <div class="page" id="page-1">
+        <div class="page-content-area">
+            <!-- Header page -->
+            <div class="header-top">
+                <div class="header-left">
+                    ResiPro Suite &bull; Pôle Hôtellerie &amp; Restauration
+                    <div class="sub">Dossier de Présentation Visuelle &amp; Spécifications Opérationnelles</div>
+                </div>
+                <div class="header-right">
+                    <strong>Missi Innovation Madagascar</strong><br>
+                    Édition Nationale &bull; Antananarivo &bull; Régions
+                </div>
+            </div>
+
+            <!-- Encart Marque Blanche Prestige -->
+            <div class="white-label-banner">
+                <div class="wlb-content">
+                    <div class="wlb-badge">★ Marque Blanche</div>
+                    <div class="wlb-text">
+                        <strong>Votre Établissement sous son propre blason :</strong> Votre logo, vos coordonnées officielles et vos mentions fiscales (NIF &amp; STAT) imprimés sur chaque facture, note de chambre et reçu de caisse.
+                    </div>
+                </div>
+                <div class="wlb-offline-tag">
+                    🛡️ 100% Hors-Ligne Résilient
+                </div>
+            </div>
+
+            <!-- Titre de la page -->
+            <div class="sec-title-wrap">
+                <div class="sec-kicker">Vision Globale Direction</div>
+                <h1 class="sec-title serif">Cockpit de Pilotage Hôtelier &amp; KPIs en Temps Réel</h1>
+                <p class="sec-desc">
+                    Vue panoramique et synthétique pour la direction générale : taux d'occupation, chiffre d'affaires consolidé (chambres, restaurant, bar), arrivées et départs du jour sans latence.
+                </p>
+            </div>
+
+            <!-- Grand Écran 01 : Dashboard -->
+            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_01_dashboard.png', 'Cockpit Directionnel ResiPro — Taux d'occupation, CA Hébergement vs Restauration et arrivées du jour')">
+                <div class="window-titlebar">
+                    <div class="window-dots">
+                        <div class="window-dot red"></div>
+                        <div class="window-dot yellow"></div>
+                        <div class="window-dot green"></div>
+                    </div>
+                    <div class="window-title">
+                        <span>📊 ResiPro Suite — Tableau de Bord Directionnel &amp; Ratios d'Exploitation</span>
+                        <span class="window-badge">Temps Réel</span>
+                    </div>
+                    <div style="font-size: 7.5px; color: var(--text-light); font-weight: 600;">Aperçu HD cliquable</div>
+                </div>
+                <div class="screen-img-wrap" style="height: 142mm;">
+                    <img src="../assets/img/resipro_01_dashboard.png" alt="Tableau de bord directionnel ResiPro">
+                    <div class="zoom-overlay">🔍 Cliquez pour agrandir l'écran en haute résolution</div>
+                    
+                    <div class="callout-badge copper" style="top: 14px; left: 16px;">
+                        🏨 Taux d'Occupation &amp; Disponibilités Instantanées
+                    </div>
+                    <div class="callout-badge green" style="top: 14px; right: 18px;">
+                        💰 CA Consolidé : Chambres + Resto + Bar
+                    </div>
+                    <div class="callout-badge blue" style="bottom: 16px; left: 16px;">
+                        🛎️ Flux Clients : Check-in, Check-out &amp; Séjours en cours
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bandeau des 4 piliers d'excellence hôtelière -->
+            <div class="pillars-strip">
+                <div class="pillar-mini highlight">
+                    <div class="p-icon-title">🛡️ Zéro Surbooking</div>
+                    <div class="p-desc">Planning visuel des chambres mis à jour à la seconde avec statut d'occupation clair.</div>
+                </div>
+                <div class="pillar-mini">
+                    <div class="p-icon-title">🍽️ Caisse Unifiée Bar/Resto</div>
+                    <div class="p-desc">Transfert automatique des consommations sur la note de chambre sans double saisie.</div>
+                </div>
+                <div class="pillar-mini">
+                    <div class="p-icon-title">⚡ 100% Hors-Ligne</div>
+                    <div class="p-desc">Résilience totale aux coupures d'électricité Jirama et pannes de connexion Internet.</div>
+                </div>
+                <div class="pillar-mini highlight">
+                    <div class="p-icon-title">💎 Amortissement Éclair</div>
+                    <div class="p-desc">Rentabilisé dès la 1ère nuitée louée dans le mois (79k à 129k Ar/m).</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; ResiPro Suite Hôtellerie &bull; Dossier de Présentation Officiel</span>
+            <span>Page 01 / 06 &bull; Cockpit de Pilotage Directionnel</span>
+        </div>
+    </div>
+
+    <!-- =======================================================================
+         PAGE 2 : PLANNING INTERACTIF DES CHAMBRES & HOUSEKEEPING
+         ======================================================================= -->
+    <div class="page" id="page-2">
+        <div class="page-content-area">
+            <!-- Header page -->
+            <div class="header-top">
+                <div class="header-left">
+                    Module Hébergement &bull; Réception &amp; Housekeeping
+                    <div class="sub">Gestion Visuelle des Chambres, Bungalows &amp; Suivi d'Entretien</div>
+                </div>
+                <div class="header-right">
+                    <strong>ResiPro Front-Desk</strong><br>
+                    Multi-Séjours &bull; Check-in Express
+                </div>
+            </div>
+
+            <div class="sec-title-wrap">
+                <div class="sec-kicker">Module Réception &amp; Chambres</div>
+                <h2 class="sec-title serif">Planning Dynamique des Chambres &amp; Statuts de Ménage</h2>
+                <p class="sec-desc">
+                    Grille interactive type Gantt organisée par catégorie (Standard, Supérieure, Suite, Bungalow). Enregistrement des clients, gestion des arrhes, attribution des chambres et contrôle du ménage.
+                </p>
+            </div>
+
+            <!-- Grand Écran 02 : Planning Chambres -->
+            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_02_planning_chambres.png', 'Planning Interactif des Chambres — Vue calendrier, gestion des arrivées, départs et entretien')">
+                <div class="window-titlebar">
+                    <div class="window-dots">
+                        <div class="window-dot red"></div>
+                        <div class="window-dot yellow"></div>
+                        <div class="window-dot green"></div>
+                    </div>
+                    <div class="window-title">
+                        <span>🗓️ ResiPro Suite — Calendrier Visuel des Réservations &amp; Séjours</span>
+                        <span class="window-badge">Anti-Surbooking</span>
+                    </div>
+                    <div style="font-size: 7.5px; color: var(--text-light); font-weight: 600;">Aperçu HD cliquable</div>
+                </div>
+                <div class="screen-img-wrap" style="height: 146mm;">
+                    <img src="../assets/img/resipro_02_planning_chambres.png" alt="Planning des chambres ResiPro">
+                    <div class="zoom-overlay">🔍 Cliquez pour agrandir l'écran en haute résolution</div>
+
+                    <div class="callout-badge copper" style="top: 14px; left: 16px;">
+                        📅 Calendrier Gantt avec glisser-déposer intuitif
+                    </div>
+                    <div class="callout-badge green" style="top: 14px; right: 18px;">
+                        🧹 Statuts Housekeeping : Propre / Recouche / En travaux
+                    </div>
+                    <div class="callout-badge blue" style="bottom: 16px; left: 16px;">
+                        👥 Multi-séjours &amp; Fiches de police pré-remplies
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grille de bénéfices -->
+            <div class="grid-3col">
+                <div class="benefit-card">
+                    <strong>Check-in Express en 2 Clics</strong>
+                    <p>Saisie ultra-rapide des coordonnées clients, dates de séjour, tarif convenu et versement des arrhes de réservation.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Gestion des Séjours Multi-Chambres</strong>
+                    <p>Affectation de familles et groupes sur plusieurs chambres avec un folio unique consolidé ou facturation séparée.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Coordination avec les Femmes de Chambre</strong>
+                    <p>Mise à jour immédiate du statut de la chambre dès qu'elle est inspectée et prête pour le prochain arrivant.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; ResiPro Suite Hôtellerie &bull; Dossier de Présentation Officiel</span>
+            <span>Page 02 / 06 &bull; Planning des Chambres &amp; Hébergement</span>
+        </div>
+    </div>
+
+    <!-- =======================================================================
+         PAGE 3 : CAISSE TACTILE BAR & RESTAURANT (POS)
+         ======================================================================= -->
+    <div class="page" id="page-3">
+        <div class="page-content-area">
+            <div class="header-top">
+                <div class="header-left">
+                    Module Restauration &bull; Point de Vente Tactile POS
+                    <div class="sub">Commandes de Salle, Terrasse, Bar &amp; Transfert Chambre</div>
+                </div>
+                <div class="header-right">
+                    <strong>ResiPro Restaurant POS</strong><br>
+                    Clôture Z Scellée &bull; Ticket 80 mm
+                </div>
+            </div>
+
+            <div class="sec-title-wrap">
+                <div class="sec-kicker">Point de Vente Restaurant &amp; Bar</div>
+                <h2 class="sec-title serif">Caisse Tactile Intuitive &amp; Note sur Chambre Automatique</h2>
+                <p class="sec-desc">
+                    Interface tactile conçue pour une rapidité absolue en service : plan de tables, sélection visuelle des plats et boissons, division de note et transfert direct sur la chambre d'un client.
+                </p>
+            </div>
+
+            <!-- Grand Écran 03 : Caisse Tactile -->
+            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_03_restaurant_pos.png', 'Point de Vente Restaurant & Bar — Prise de commande tactile, plan de tables et note sur chambre')">
+                <div class="window-titlebar">
+                    <div class="window-dots">
+                        <div class="window-dot red"></div>
+                        <div class="window-dot yellow"></div>
+                        <div class="window-dot green"></div>
+                    </div>
+                    <div class="window-title">
+                        <span>🍽️ ResiPro Suite — Interface Tactile Restaurant, Bar &amp; Terrasse</span>
+                        <span class="window-badge">Zéro Carence</span>
+                    </div>
+                    <div style="font-size: 7.5px; color: var(--text-light); font-weight: 600;">Aperçu HD cliquable</div>
+                </div>
+                <div class="screen-img-wrap" style="height: 146mm;">
+                    <img src="../assets/img/resipro_03_restaurant_pos.png" alt="Caisse tactile restaurant ResiPro">
+                    <div class="zoom-overlay">🔍 Cliquez pour agrandir l'écran en haute résolution</div>
+
+                    <div class="callout-badge copper" style="top: 14px; left: 16px;">
+                        🍹 Prise de commande fluide par catégories &amp; images
+                    </div>
+                    <div class="callout-badge green" style="top: 14px; right: 18px;">
+                        🏨 Bouton Magique : « Transférer sur la Chambre »
+                    </div>
+                    <div class="callout-badge blue" style="bottom: 16px; left: 16px;">
+                        🧾 Impression instantanée ticket de caisse 80 mm thermique
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grille de bénéfices -->
+            <div class="grid-3col">
+                <div class="benefit-card">
+                    <strong>Zéro Oubli au Check-Out</strong>
+                    <p>Le serveur transfère la consommation du bar ou du restaurant directement sur la chambre. La note apparaît instantanément à la réception.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Plan de Salle Dynamique</strong>
+                    <p>Gestion des tables occupées, réservées ou en attente d'addition (Salle, Terrasse extérieure, Piscine, Bar lounge).</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Clôture de Caisse Billetée</strong>
+                    <p>Édition du Ticket Z quotidien scellé avec décompte exact des billets en Ariary et traçabilité de chaque serveur.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; ResiPro Suite Hôtellerie &bull; Dossier de Présentation Officiel</span>
+            <span>Page 03 / 06 &bull; Caisse Restaurant POS &amp; Bar</span>
+        </div>
+    </div>
+
+    <!-- =======================================================================
+         PAGE 4 : FACTURATION FOLIO CLIENT & MULTI-DEVISES
+         ======================================================================= -->
+    <div class="page" id="page-4">
+        <div class="page-content-area">
+            <div class="header-top">
+                <div class="header-left">
+                    Module Finances &bull; Folio Client &amp; Facturation Légale
+                    <div class="sub">Multi-Devises (EUR, USD, MGA) &amp; Conformité Fiscale NIF/STAT</div>
+                </div>
+                <div class="header-right">
+                    <strong>ResiPro Billing</strong><br>
+                    Règlement Fractionné &bull; Acomptes
+                </div>
+            </div>
+
+            <div class="sec-title-wrap">
+                <div class="sec-kicker">Gestion Financière &amp; Encaissements</div>
+                <h2 class="sec-title serif">Facture Globale Consolidée &amp; Règlement Multi-Devises</h2>
+                <p class="sec-desc">
+                    Regroupement clair et détaillé de toutes les prestations du séjour : nuitées, petits-déjeuners, consommations resto, blanchisserie, excursions et taxe de séjour sur une facture officielle.
+                </p>
+            </div>
+
+            <!-- Grand Écran 04 : Facturation Finances -->
+            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_04_facturation_finances.png', 'Folio Client & Facturation — Vue globale des consommations, devises et règlements')">
+                <div class="window-titlebar">
+                    <div class="window-dots">
+                        <div class="window-dot red"></div>
+                        <div class="window-dot yellow"></div>
+                        <div class="window-dot green"></div>
+                    </div>
+                    <div class="window-title">
+                        <span>🧾 ResiPro Suite — Folio Client Consolidé &amp; Journal des Encaissements</span>
+                        <span class="window-badge">Légal NIF / STAT</span>
+                    </div>
+                    <div style="font-size: 7.5px; color: var(--text-light); font-weight: 600;">Aperçu HD cliquable</div>
+                </div>
+                <div class="screen-img-wrap" style="height: 146mm;">
+                    <img src="../assets/img/resipro_04_facturation_finances.png" alt="Facturation et finances ResiPro">
+                    <div class="zoom-overlay">🔍 Cliquez pour agrandir l'écran en haute résolution</div>
+
+                    <div class="callout-badge copper" style="top: 14px; left: 16px;">
+                        💱 Multi-Devises : Conversion automatique EUR / USD / MGA
+                    </div>
+                    <div class="callout-badge green" style="top: 14px; right: 18px;">
+                        💳 Règlements Multiples : Espèces, Carte, Mobile Money (MVola)
+                    </div>
+                    <div class="callout-badge blue" style="bottom: 16px; left: 16px;">
+                        🏛️ Facturation conforme aux exigences fiscales malagasy
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grille de bénéfices -->
+            <div class="grid-3col">
+                <div class="benefit-card">
+                    <strong>Paiement en Devises Étrangères</strong>
+                    <p>Idéal pour les touristes et voyageurs d'affaires : fixation du taux de change du jour et conversion automatique en temps réel.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Encaissements Fractionnés</strong>
+                    <p>Possibilité de payer une partie en espèces, une partie par Mobile Money et le reste par carte bancaire sans erreur de calcul.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Journal Financier Inaltérable</strong>
+                    <p>Traçabilité intégrale des acomptes, remises accordées et clôtures de caisse pour éviter toute divergence comptable.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; ResiPro Suite Hôtellerie &bull; Dossier de Présentation Officiel</span>
+            <span>Page 04 / 06 &bull; Folio Client, Facturation &amp; Devises</span>
+        </div>
+    </div>
+
+    <!-- =======================================================================
+         PAGE 5 : ÉCONOMAT, GESTION DES STOCKS & FICHES TECHNIQUES CUISINE
+         ======================================================================= -->
+    <div class="page" id="page-5">
+        <div class="page-content-area">
+            <div class="header-top">
+                <div class="header-left">
+                    Module Économat &bull; Stocks, Cave &amp; Fiches Techniques
+                    <div class="sub">Maîtrise du Food Cost, Anti-Gaspillage &amp; Alertes Péremption</div>
+                </div>
+                <div class="header-right">
+                    <strong>ResiPro Inventory</strong><br>
+                    Déstockage Automatique &bull; Marges
+                </div>
+            </div>
+
+            <div class="sec-title-wrap">
+                <div class="sec-kicker">Économat, Cuisine &amp; Rentabilité</div>
+                <h2 class="sec-title serif">Contrôle des Coûts Ingrédients &amp; Gestion des Stocks</h2>
+                <p class="sec-desc">
+                    Associez chaque plat et boisson à sa fiche technique exacte : déstockage automatique des denrées à chaque vente et calcul précis de la marge brute par portion servie.
+                </p>
+            </div>
+
+            <!-- Double écran : Économat (haut) et Fiches techniques (bas) -->
+            <div class="grid-2col" style="margin-bottom: 9px;">
+                <!-- Écran 05 : Économat -->
+                <div class="screen-window" style="margin-bottom: 0;" onclick="openLightbox('../assets/img/resipro_05_stock_economat.png', 'Économat & Stocks — Suivi des bouteilles, denrées, seuils d'alerte et inventaires')">
+                    <div class="window-titlebar">
+                        <div class="window-dots">
+                            <div class="window-dot red"></div>
+                            <div class="window-dot yellow"></div>
+                            <div class="window-dot green"></div>
+                        </div>
+                        <div class="window-title">
+                            <span>📦 Stocks &amp; Économat</span>
+                            <span class="window-badge">Alertes Réassort</span>
+                        </div>
+                    </div>
+                    <div class="screen-img-wrap" style="height: 98mm;">
+                        <img src="../assets/img/resipro_05_stock_economat.png" alt="Économat et stocks ResiPro">
+                        <div class="zoom-overlay">🔍 Cliquer pour agrandir</div>
+                    </div>
+                </div>
+
+                <!-- Écran 06 : Fiches techniques -->
+                <div class="screen-window" style="margin-bottom: 0;" onclick="openLightbox('../assets/img/resipro_06_fiches_techniques.png', 'Fiches Techniques Restaurant — Calcul du coût de revient par portion et contrôle des marges')">
+                    <div class="window-titlebar">
+                        <div class="window-dots">
+                            <div class="window-dot red"></div>
+                            <div class="window-dot yellow"></div>
+                            <div class="window-dot green"></div>
+                        </div>
+                        <div class="window-title">
+                            <span>🥩 Fiches Techniques &amp; Food Cost</span>
+                            <span class="window-badge">Marge Brute</span>
+                        </div>
+                    </div>
+                    <div class="screen-img-wrap" style="height: 98mm;">
+                        <img src="../assets/img/resipro_06_fiches_techniques.png" alt="Fiches techniques cuisine ResiPro">
+                        <div class="zoom-overlay">🔍 Cliquer pour agrandir</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grille de bénéfices -->
+            <div class="grid-3col">
+                <div class="benefit-card">
+                    <strong>Déstockage Automatique</strong>
+                    <p>Chaque burger ou cocktail commandé décrémente automatiquement le pain, la viande ou les bouteilles en cave sans manipulation manuelle.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Contrôle du Coût Portion (Food Cost)</strong>
+                    <p>Visualisez immédiatement votre coût de revient matière et ajustez vos prix de carte pour sécuriser une marge bénéficiaire supérieure à 65%.</p>
+                </div>
+                <div class="benefit-card">
+                    <strong>Traque des Pertes et Coulages</strong>
+                    <p>Détectez instantanément les écarts entre les ventes encaissées et le stock réel lors des inventaires hebdomadaires.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; ResiPro Suite Hôtellerie &bull; Dossier de Présentation Officiel</span>
+            <span>Page 05 / 06 &bull; Économat, Cave &amp; Fiches Techniques</span>
+        </div>
+    </div>
+
+    <!-- =======================================================================
+         PAGE 6 : FORMULES TARIFAIRES, PACK MATÉRIEL & CONTACT DIRECT
+         ======================================================================= -->
+    <div class="page" id="page-6">
+        <div class="page-content-area">
+            <div class="header-top">
+                <div class="header-left">
+                    Tarification &bull; Packs Clés en Main &amp; Déploiement
+                    <div class="sub">Investissement Mesuré &bull; Amorti dès la 1ère Nuitée Louée</div>
+                </div>
+                <div class="header-right">
+                    <strong>Missi Innovation Madagascar</strong><br>
+                    Support Permanent &bull; Déploiement 48h
+                </div>
+            </div>
+
+            <div class="sec-title-wrap">
+                <div class="sec-kicker">Formules Officielles &amp; Investissement</div>
+                <h2 class="sec-title serif">Des Tarifs Clairs, sans Surcoût Caché ni Commission</h2>
+                <p class="sec-desc">
+                    Zéro pourcentage prélevé sur vos réservations : vous conservez 100% de vos recettes. Un abonnement mensuel fixe et transparent adapté à la taille de votre structure.
+                </p>
+            </div>
+
+            <!-- Grille des 2 Formules -->
+            <div class="grid-2col" style="margin-bottom: 9px;">
+                <!-- Formule 1 : Socle Métier -->
+                <div class="pricing-mini-card">
+                    <div>
+                        <div class="pm-header">
+                            <span class="pm-title">Offre 1 : Socle au Choix</span>
+                            <span class="pm-price">79 000 Ar <span class="unit">/ mois</span></span>
+                        </div>
+                        <div style="font-size: 8px; color: var(--text-light); margin-bottom: 6px;">
+                            Hébergement seul <em>OU</em> Restaurant seul &bull; Frais d'installation : 200 000 Ar
+                        </div>
+                        <ul class="pm-list">
+                            <li><span class="pm-check">✓</span> Planning dynamique des chambres sans surbooking</li>
+                            <li><span class="pm-check">✓</span> Gestion des check-in / check-out et fiches de police</li>
+                            <li><span class="pm-check">✓</span> Facturation client et reçus de règlement en Ariary</li>
+                            <li><span class="pm-check">✓</span> <strong>Fonctionnement 100% Hors-Ligne autonome</strong></li>
+                            <li><span class="pm-check">✓</span> Sauvegarde locale quotidienne sécurisée</li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--border); font-size: 8px; color: var(--text-gray);">
+                        Idéal pour : Petites résidences, lodges de moins de 8 chambres ou restaurants indépendants.
+                    </div>
+                </div>
+
+                <!-- Formule 2 : Pack Intégral Recommandé -->
+                <div class="pricing-mini-card featured">
+                    <div>
+                        <div class="pm-header">
+                            <span class="pm-title" style="color: var(--rust-dark);">Offre 2 : Pack Intégral ★</span>
+                            <span class="pm-price">129 000 Ar <span class="unit">/ mois</span></span>
+                        </div>
+                        <div style="font-size: 8px; color: var(--rust-dark); font-weight: 600; margin-bottom: 6px;">
+                            Hôtel + Resto/Bar + Économat + Multi-Postes &bull; Frais d'installation : 250 000 Ar
+                        </div>
+                        <ul class="pm-list">
+                            <li><span class="pm-check">✓</span> <strong>Tout le contenu du Socle Hébergement inclus</strong></li>
+                            <li><span class="pm-check">✓</span> <strong>Caisse Tactile Bar &amp; Restaurant (POS)</strong></li>
+                            <li><span class="pm-check">✓</span> <strong>Transfert automatique des notes sur les chambres</strong></li>
+                            <li><span class="pm-check">✓</span> <strong>Économat, cave &amp; fiches techniques de cuisine</strong></li>
+                            <li><span class="pm-check">✓</span> <strong>Facturation consolidée Multi-Devises (EUR, USD, MGA)</strong></li>
+                            <li><span class="pm-check">✓</span> <strong>Synchronisation miroir Cloud &amp; Accès direction à distance</strong></li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--rust-subtle); font-size: 8px; color: var(--rust-dark); font-weight: 700;">
+                        ★ La formule plébiscitée par les hôtels-restaurants et complexes touristiques à Madagascar.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pack Matériel Imprimante Thermique -->
+            <div class="hardware-pack-box">
+                <div class="hp-left">
+                    <div class="hp-icon-box">
+                        <img src="../assets/img/pack_imprimante_cutout.png" alt="Imprimante thermique POS 80 mm">
+                    </div>
+                    <div>
+                        <div class="hp-title">Pack Matériel Équipement : Imprimante Thermique POS 80 mm Massicot Auto</div>
+                        <div class="hp-desc">
+                            Matériel professionnel neuf garanti, zéro coût de cartouche d'encre + 5 bobines 80 mm offertes + calibrage et paramétrage clés en main avec vos coordonnées d'établissement.
+                        </div>
+                    </div>
+                </div>
+                <div class="hp-price-tag">
+                    <div class="hp-price">450 000 Ar</div>
+                    <div class="hp-tag">Matériel Neuf &bull; One-Shot</div>
+                </div>
+            </div>
+
+            <!-- Bannière ROI Éclair -->
+            <div class="roi-banner">
+                <div>
+                    <div class="roi-title">💡 Démonstration Mathématique de Rentabilité Immédiate</div>
+                    <div class="roi-desc">
+                        Dans un hôtel à Madagascar où le tarif moyen de la chambre est de <strong>120 000 Ar à 200 000 Ar la nuitée</strong>, <strong>une seule nuitée louée par mois</strong> suffit à rentabiliser l'intégralité de votre logiciel ResiPro !
+                    </div>
+                </div>
+                <div class="roi-stat-box">
+                    <div class="roi-stat-num">1 Nuitée</div>
+                    <div class="roi-stat-lbl">Amorti par mois</div>
+                </div>
+            </div>
+
+            <!-- Zone de contact et déploiement -->
+            <div style="background: #FAF8F5; border: 1px solid var(--border-warm); border-radius: 7px; padding: 10px 14px; margin-top: 9px; display: flex; align-items: center; justify-content: space-between; gap: 14px;">
+                <div>
+                    <div style="font-size: 10px; font-weight: 800; color: var(--text-dark);">
+                        🚀 Déploiement en 48h &bull; Formation de vos équipes sur site ou à distance
+                    </div>
+                    <div style="font-size: 8.5px; color: var(--text-gray); margin-top: 2px;">
+                        Configuration de votre plan de chambres, saisie de votre carte restaurant et accompagnement au premier service.
+                    </div>
+                </div>
+                <div style="display: flex; gap: 8px; flex-shrink: 0;" class="no-print">
+                    <a href="../configurateur.html?secteur=hotellerie" class="nav-link-btn" style="height: 32px; background: white; border-color: var(--rust); color: var(--rust); font-weight: 700;">
+                        ⚙️ Personnaliser mon Devis
+                    </a>
+                    <a href="https://wa.me/261386121473?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20r%C3%A9server%20une%20d%C3%A9monstration%20de%20ResiPro%20pour%20mon%20h%C3%B4tel." target="_blank" class="btn-print-copper" style="height: 32px; background: #059669; border-color: #059669;">
+                        💬 Prendre Rendez-Vous WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span><strong>Missi Innovation</strong> &bull; ResiPro Suite Hôtellerie &bull; Dossier de Présentation Officiel</span>
+            <span>Page 06 / 06 &bull; Formules, Matériel &amp; Déploiement Clés en Main</span>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVE LIGHTBOX & SHORTCUTS -->
+    <script>
+        function openLightbox(src, caption) {
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
+            img.src = src;
+            cap.innerText = caption || 'Aperçu capture d\'écran';
+            lb.classList.add('active');
+        }
+
+        function closeLightbox(e) {
+            if (e.target.id === 'lightbox' || e.target.id === 'lightbox-close') {
+                document.getElementById('lightbox').classList.remove('active');
+            }
+        }
+
+        // Close lightbox on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.getElementById('lightbox').classList.remove('active');
+            }
+        });
+
+        // Auto print trigger if URL param present
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.location.search.includes('print=1') || window.location.hash === '#print') {
+                setTimeout(function() {
+                    window.print();
+                }, 600);
+            }
+        });
+    </script>
+
+    <!-- PIED DE PAGE WEB UNIFIÉ HAUTE VISIBILITÉ (MASQUÉ À L'IMPRESSION) -->
+    <footer class="web-footer-unified no-print">
+        <div class="web-footer-brand-row">
+            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
+            <span>MISSI INNOVATION &bull; Solutions Logicielles Métiers &bull; Madagascar</span>
+        </div>
+        <p class="web-footer-subtext">
+            Éditeur de progiciels métiers de haute précision pour l'Éducation, l'Hôtellerie et les Entreprises. Document officiel calibré pour affichage web et impression A4.
+        </p>
+    </footer>
+
+</body>
+</html>

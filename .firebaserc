@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "missi-inovation"
-  }
+  },
+  "targets": {
+    "missi-inovation": {
+      "hosting": {
+        "missi-innovation": [
+          "missi-innovation"
+        ],
+        "missi-inovation": [
+          "missi-inovation"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

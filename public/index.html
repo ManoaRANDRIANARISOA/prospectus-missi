@@ -3,7 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Missi Innovation — Catalogue Officiel des Progiciels Métiers & Propositions Commerciales</title>
+  <title>Missi Innovation | Éditeur de Progiciels Métiers & Logiciels de Gestion à Madagascar</title>
+
+  <!-- RÉFÉRENCEMENT NATUREL (SEO) & LOCAL MADAGASCAR -->
+  <meta name="description" content="Missi Innovation : Progiciels de gestion 100% hors-ligne et connectés Cloud à Madagascar. ResiPro (Hôtellerie & Restaurant), Study Agent (Établissements Scolaires), TourAgent (Tour Opérateurs), ERP PME. Conforme NIF/STAT, TVA 20% et MVola.">
+  <meta name="keywords" content="logiciel madagascar, progiciel gestion madagascar, erp madagascar, logiciel ecole madagascar, logiciel hotel madagascar, study agent pro, resipro, touragent pro, logiciel facturation nif stat, caisse point de vente madagascar, devis logiciel antananarivo">
+  <meta name="author" content="Missi Innovation Madagascar">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://missi-innovation.web.app/">
+
+  <!-- OPEN GRAPH / FACEBOOK / LINKEDIN -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_MG">
+  <meta property="og:title" content="Missi Innovation | Progiciels Métiers de Haute Précision à Madagascar">
+  <meta property="og:description" content="Découvrez notre suite logicielle conçue pour Madagascar : Écoles, Hôtels & Restaurants, Tour Opérateurs, PME et Homeschooling. Tarifs officiels en Ariary.">
+  <meta property="og:url" content="https://missi-innovation.web.app/">
+  <meta property="og:site_name" content="Missi Innovation">
+  <meta property="og:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png">
+
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Missi Innovation | Logiciels de Gestion pour Entreprises & Établissements à Madagascar">
+  <meta name="twitter:description" content="ERP et logiciels métiers locaux : fonctionnement garanti hors-ligne (tolérance JIRAMA), conformité fiscale NIF/STAT et synchronisation Supabase Cloud.">
+  <meta name="twitter:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png">
+
+  <!-- SCHEMA.ORG STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://missi-innovation.web.app/#organization",
+        "name": "Missi Innovation",
+        "url": "https://missi-innovation.web.app/",
+        "logo": "https://missi-innovation.web.app/assets/img/missi_logo.svg",
+        "description": "Éditeur de progiciels métiers de haute précision et solutions logicielles autonomes à Madagascar.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Antananarivo",
+          "addressCountry": "MG"
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://missi-innovation.web.app/#localbusiness",
+        "name": "Missi Innovation Madagascar",
+        "image": "https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png",
+        "telephone": "+261340000000",
+        "priceRange": "39 000 Ar - 199 000 Ar / mois",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Antananarivo",
+          "addressCountry": "MG"
+        },
+        "currenciesAccepted": "MGA, EUR, USD",
+        "paymentAccepted": "Cash, Bank Transfer, MVola"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "ResiPro Suite Hôtellerie",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Windows, Offline SQLite",
+        "offers": {
+          "@type": "Offer",
+          "price": "129000",
+          "priceCurrency": "MGA"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Study Agent Pro Scolaire",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web, Windows, Offline SQLite",
+        "offers": {
+          "@type": "Offer",
+          "price": "149000",
+          "priceCurrency": "MGA"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "TourAgent Pro Réceptif",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Windows, Offline SQLite",
+        "offers": {
+          "@type": "Offer",
+          "price": "179000",
+          "priceCurrency": "MGA"
+        }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Entreprise Pro ERP",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, Windows, Offline SQLite",
+        "offers": {
+          "@type": "Offer",
+          "price": "199000",
+          "priceCurrency": "MGA"
+        }
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/svg+xml" href="assets/img/missi_logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -660,18 +765,26 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 4px;
+      gap: 10px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .price-row span {
+      white-space: nowrap;
     }
 
     .price-row strong {
       font-size: 0.95rem;
       color: var(--text);
       font-family: 'Outfit', sans-serif;
+      white-space: nowrap;
     }
 
     .price-highlight {
       color: var(--brand-copper);
       font-weight: 800;
+      white-space: nowrap;
     }
 
     .price-setup {
@@ -837,24 +950,69 @@
     }
 
     @media (max-width: 640px) {
-      .page-container {
-        padding: 1.5rem 1rem 3rem;
-      }
-      .hero-title {
-        font-size: 1.65rem;
-      }
-      .hero-desc {
-        font-size: 0.92rem;
-      }
-      .hero-metrics-strip {
-        grid-template-columns: 1fr;
+      .top-nav {
+        height: auto;
+        min-height: 64px;
+        padding: 0.75rem 1rem;
       }
       .nav-inner {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
+        gap: 0.75rem;
+      }
+      .nav-badges {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 0.5rem;
+      }
+      .nav-badges .btn {
+        flex: 1;
+        min-width: 140px;
+        text-align: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        padding: 0.5rem 0.6rem;
+      }
+      .page-container {
+        padding: 1.25rem 0.85rem 3rem;
+      }
+      .hero-missi {
+        padding: 1.75rem 1.25rem;
+        border-radius: var(--radius-md);
+      }
+      .hero-title {
+        font-size: 1.55rem;
+      }
+      .hero-desc {
+        font-size: 0.9rem;
+      }
+      .hero-metrics-strip {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem;
+      }
+      .proposal-card {
+        padding: 1.25rem;
+      }
+      .card-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
       }
       .card-actions .btn {
-        width: 100%;
+        width: 100% !important;
+        min-height: 40px;
+      }
+      .specs-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .specs-box {
+        padding: 1.5rem 1.25rem;
       }
     }
   </style>
@@ -878,11 +1036,7 @@
       </a>
 
       <div class="nav-badges">
-        <a href="configurateur.html" class="btn btn-copper" style="font-size: 0.78rem; padding: 0.4rem 0.85rem;">
-          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
-          Sélecteur de Modules &bull; Devis
-        </a>
-        <button onclick="window.print()" class="btn btn-outline" style="font-size: 0.78rem; padding: 0.4rem 0.85rem;">
+        <button onclick="window.print()" class="btn btn-outline" style="font-size: 0.8rem; padding: 0.45rem 0.95rem;">
           <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
           Imprimer le Catalogue
         </button>
@@ -909,15 +1063,19 @@
       </h1>
       
       <p class="hero-desc">
-        Progiciels de gestion tout-en-un certifiés <strong>100% hors-ligne</strong> (tolérance native aux délestages JIRAMA et coupures réseau) avec synchronisation Cloud chiffrée. Accédez à l'ensemble de nos dossiers d'ingénierie, présentations visuelles haute définition et offres tarifaires pour l'<strong>Éducation</strong>, l'<strong>Hôtellerie-Restauration</strong> et le <strong>Web</strong>.
+        Progiciels de gestion tout-en-un certifiés <strong>100% hors-ligne</strong> (tolérance native aux délestages JIRAMA et coupures réseau) avec synchronisation Cloud chiffrée. Accédez à l'ensemble de nos dossiers d'ingénierie, présentations visuelles haute définition et offres tarifaires pour l'<strong>Éducation</strong>, l'<strong>Entreprise</strong>, l'<strong>Hôtellerie</strong> et le <strong>Tourisme</strong>.
       </p>
 
-      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.25rem;">
-        <a href="education/presentation-visuelle.html" class="btn btn-copper" style="padding: 0.75rem 1.45rem;">
-          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-          Consulter le Prospectus Visuel (12 Écrans &bull; 5 Pages)
+      <div style="display: flex; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 2.25rem;">
+        <a href="configurateur.html" class="btn btn-copper" style="padding: 0.85rem 1.6rem; font-size: 0.95rem; box-shadow: 0 4px 14px rgba(194, 103, 43, 0.35);">
+          <svg width="17" height="17" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+          🛠️ Sélecteur de Modules &amp; Devis Sur-Mesure
         </a>
-        <a href="#scolaire" class="btn btn-secondary">
+        <a href="education/presentation-visuelle.html" class="btn btn-secondary" style="padding: 0.85rem 1.35rem; font-size: 0.9rem;">
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          Prospectus Visuel (12 Écrans)
+        </a>
+        <a href="#scolaire" class="btn btn-outline" style="padding: 0.85rem 1.25rem; font-size: 0.9rem;">
           Parcourir les Solutions
         </a>
       </div>
@@ -1055,9 +1213,11 @@
             </ul>
           </div>
           <div class="card-bottom-slot" style="margin-top: auto; padding-top: 0.85rem; border-top: 1px dashed var(--border);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; min-height: 18px;">
-              <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.04em;">Format 3 Pages A4</span>
-              <span style="font-size: 0.65rem; color: var(--text-soft); background: var(--surface-warm); padding: 1.5px 6px; border-radius: 999px;">Édition Essentielle</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 0.55rem; min-height: 22px;">
+              <span style="font-size: 0.68rem; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap;">Format 3 Pages A4</span>
+              <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2.5px 8px; border-radius: 999px; background: var(--surface-warm); border: 1px solid var(--border); font-size: 0.67rem; font-weight: 600; color: var(--text-soft); white-space: nowrap; flex-shrink: 0; line-height: 1;">
+                Édition Essentielle
+              </span>
             </div>
             <div class="card-actions">
               <a href="education/offre-petite-structure.html" class="btn btn-secondary" style="flex: 1; padding: 0.6rem 0.75rem; font-size: 0.82rem;">
@@ -1103,11 +1263,14 @@
           </div>
           <!-- CHOIX DU STYLE DE PRÉSENTATION (A/B) CALIBRÉ DANS LE BOTTOM SLOT -->
           <div class="card-bottom-slot" style="margin-top: auto; padding-top: 0.85rem; border-top: 1px dashed var(--brand-copper-border);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; min-height: 18px;">
-              <span style="font-size: 0.7rem; font-weight: 700; color: var(--brand-copper-dark); text-transform: uppercase; letter-spacing: 0.04em;">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 0.55rem; min-height: 22px;">
+              <span style="font-size: 0.68rem; font-weight: 800; color: var(--brand-copper-dark); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                 ✨ Présentation A/B au Choix (4 Pages)
               </span>
-              <span style="font-size: 0.65rem; background: var(--brand-copper); color: white; padding: 1.5px 6px; border-radius: 999px; font-weight: 700;">Édition 2026</span>
+              <span style="display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 999px; background: rgba(194, 103, 43, 0.09); border: 1px solid rgba(194, 103, 43, 0.28); color: var(--brand-copper-dark); font-size: 0.67rem; font-weight: 700; letter-spacing: 0.02em; white-space: nowrap; flex-shrink: 0; line-height: 1;">
+                <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--brand-copper); display: inline-block;"></span>
+                Édition 2026
+              </span>
             </div>
             <div class="card-actions" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
               <a href="education/proposition-papier-art.html" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.6rem 0.5rem; text-align: center; justify-content: center; display: flex; align-items: center; gap: 4px;" title="Ouvrir Version 1 (Papier d'Art & Flow)">
@@ -1149,9 +1312,11 @@
             </ul>
           </div>
           <div class="card-bottom-slot" style="margin-top: auto; padding-top: 0.85rem; border-top: 1px dashed var(--border);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; min-height: 18px;">
-              <span style="font-size: 0.7rem; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.04em;">Format 3 Pages A4</span>
-              <span style="font-size: 0.65rem; color: var(--text-soft); background: var(--surface-warm); padding: 1.5px 6px; border-radius: 999px;">Édition Prestige VIP</span>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 0.55rem; min-height: 22px;">
+              <span style="font-size: 0.68rem; font-weight: 700; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap;">Format 3 Pages A4</span>
+              <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2.5px 8px; border-radius: 999px; background: var(--surface-warm); border: 1px solid var(--border); font-size: 0.67rem; font-weight: 600; color: var(--text-soft); white-space: nowrap; flex-shrink: 0; line-height: 1;">
+                Édition Prestige VIP
+              </span>
             </div>
             <div class="card-actions">
               <a href="education/offre-grande-structure.html" class="btn btn-secondary" style="flex: 1; padding: 0.6rem 0.75rem; font-size: 0.82rem;">
@@ -1428,12 +1593,15 @@
               <div style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--brand-copper-dark); margin-bottom: 0.85rem;">
                 ✦ Formule Clés en Main &bull; Pack Intégral
               </div>
-              <div class="price-box" style="background: white; border-color: var(--brand-copper-border); margin-bottom: 0.85rem;">
-                <div class="price-row">
-                  <span>Abonnement Pack Entreprise :</span>
-                  <strong class="price-highlight" style="font-size: 1.15rem;">199 000 Ar / mois</strong>
+              <div class="price-box" style="background: white; border-color: var(--brand-copper-border); margin-bottom: 0.85rem; padding: 12px 14px;">
+                <div style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted); margin-bottom: 4px;">
+                  Abonnement Pack Entreprise
                 </div>
-                <div class="price-setup" style="border-color: var(--brand-copper-border);">
+                <div style="display: flex; align-items: baseline; gap: 8px;">
+                  <strong class="price-highlight" style="font-size: 1.45rem; font-weight: 800; color: var(--brand-copper); font-family: 'Outfit', sans-serif; white-space: nowrap;">199 000 Ar</strong>
+                  <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-soft); white-space: nowrap;">/ mois</span>
+                </div>
+                <div class="price-setup" style="border-color: var(--brand-copper-border); margin-top: 6px;">
                   Tarif 1er trimestre (-33% promo) &bull; Déploiement : 350 000 Ar
                 </div>
               </div>
@@ -1471,6 +1639,42 @@
         <p class="sec-desc">
           Deux progiciels spécialisés et cloisonnés selon vos exigences opérationnelles : <strong>ResiPro</strong> pour l'exploitation hôtelière et la restauration, et <strong>TourAgent Pro</strong> pour l'ingénierie de circuits, les cotations en devises et les vouchers.
         </p>
+      </div>
+
+      <!-- SPOTLIGHT RESIPRO : DOSSIER DE PRÉSENTATION VISUELLE & DÉMONSTRATION ÉCRANS -->
+      <div class="spotlight-card" style="margin-bottom: 2rem; border-color: #E6D8CD; background: linear-gradient(135deg, #FFFDFB 0%, #FAF5F0 100%);">
+        <span class="spotlight-badge" style="background: linear-gradient(135deg, #A45A3D 0%, #824229 100%);">★ Recommandé pour Hôtels &amp; Lodges</span>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+            <span class="card-tag" style="background: #FBF4F0; color: #824229; border-color: #E6D8CD;">Démonstration Écrans Réels</span>
+            <span style="font-size: 0.78rem; color: var(--brand-copper-dark); font-weight: 600;">
+              ✓ Amorti dès la 1ère nuitée louée par mois
+            </span>
+          </div>
+          <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text); margin-bottom: 8px; line-height: 1.25;">
+            ResiPro Suite &bull; Dossier de Présentation Visuelle (6 Écrans HD)
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1.25rem;">
+            Le dossier d'exception pour <strong>convaincre les hôteliers et restaurateurs dès le premier regard</strong> : planning des chambres anti-surbooking, terminal tactile restaurant &amp; bar, note sur chambre automatique, folio client multi-devises (EUR, USD, MGA), économat et fiches techniques de cuisine avec zoom plein écran interactif.
+          </p>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <a href="hotellerie/presentation-visuelle.html" class="btn btn-copper">
+              <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              Découvrir la Présentation Visuelle (6 Pages A4)
+            </a>
+            <button onclick="window.open('hotellerie/presentation-visuelle.html?print=1')" class="btn btn-secondary">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+              Imprimer Format A4
+            </button>
+            <a href="hotellerie/resipro.html" class="btn btn-outline" style="font-size: 0.8rem;">
+              Dossier A4 Classique
+            </a>
+          </div>
+        </div>
+        <div class="spotlight-preview" onclick="window.location.href='hotellerie/presentation-visuelle.html'" style="cursor: pointer;">
+          <img src="assets/img/resipro_01_dashboard.png" alt="Cockpit Directionnel ResiPro Suite">
+          <div class="preview-pill">6 Écrans Réels &bull; Zoom HD</div>
+        </div>
       </div>
 
       <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 1.5rem;">
@@ -1511,7 +1715,7 @@
                   Offre 2 : Pack Intégral ★
                 </div>
                 <div style="font-size: 1.05rem; font-weight: 800; color: var(--brand-copper-dark); font-family: 'Outfit', sans-serif;">
-                  149 000 Ar <span style="font-size: 0.72rem; font-weight: 500; color: var(--brand-copper);">/ mois</span>
+                  129 000 Ar <span style="font-size: 0.72rem; font-weight: 500; color: var(--brand-copper);">/ mois</span>
                 </div>
                 <div style="font-size: 0.75rem; color: var(--brand-copper-dark); margin-top: 3px;">
                   Chambres + Resto + Stocks + Clôtures Z synchronisées.
@@ -1527,11 +1731,14 @@
           </div>
 
           <div class="card-actions">
-            <a href="hotellerie/resipro.html" class="btn btn-copper" style="flex: 1;">
+            <a href="hotellerie/presentation-visuelle.html" class="btn btn-copper" style="flex: 1;">
               <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-              Consulter le Dossier Hôtellerie (A4)
+              Démo Écrans ResiPro (6 Pages)
             </a>
-            <button onclick="window.open('hotellerie/resipro.html')" class="btn btn-outline" title="Imprimer">
+            <a href="hotellerie/resipro.html" class="btn btn-secondary" title="Dossier Commercial A4">
+              Dossier A4
+            </a>
+            <button onclick="window.open('hotellerie/presentation-visuelle.html?print=1')" class="btn btn-outline" title="Imprimer">
               <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
             </button>
           </div>

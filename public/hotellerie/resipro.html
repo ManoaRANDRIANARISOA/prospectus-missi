@@ -4,7 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposition Commerciale — ResiPro ERP Hôtellerie &amp; Restauration | Missi Innovation</title>
+    <title>ResiPro — Progiciel de Gestion Hôtellerie & Restauration Madagascar | Missi Innovation</title>
+    
+    <!-- SEO & MÉTADONNÉES LOCALES HÔTELLERIE -->
+    <meta name="description" content="ResiPro : Logiciel de gestion pour hôtels, lodges, résidences et restaurants à Madagascar. Planning visuel sans surbooking, caisse restaurant avec note de chambre, fiches techniques et facturation légale NIF/STAT.">
+    <meta name="keywords" content="logiciel hotel madagascar, pms hotelier madagascar, logiciel restaurant caisse madagascar, resipro madagascar, facturation nif stat hotel, gestion chambres lodge nosy be sainte marie antananarivo">
+    <link rel="canonical" href="https://missi-innovation.web.app/hotellerie/resipro.html">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_MG">
+    <meta property="og:title" content="ResiPro — Progiciel de Gestion Hôtellerie & Restauration Madagascar">
+    <meta property="og:description" content="Proposition commerciale et spécifications techniques de ResiPro. Amorti dès la 1ère nuitée louée dans le mois.">
+    <meta property="og:url" content="https://missi-innovation.web.app/hotellerie/resipro.html">
+    <meta property="og:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png">
+
+    <!-- SCHEMA.ORG STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ResiPro Suite Hôtelière & Restauration",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, Windows, Offline SQLite",
+      "offers": {
+        "@type": "Offer",
+        "price": "129000",
+        "priceCurrency": "MGA"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Missi Innovation",
+        "url": "https://missi-innovation.web.app"
+      }
+    }
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="../assets/img/missi_logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -699,7 +734,7 @@
         }
 
         .specs-table td {
-            padding: 4px 0;
+            padding: 6.5px 4px;
             border-bottom: 1px solid var(--border);
             vertical-align: top;
         }
@@ -715,7 +750,7 @@
             width: 68%;
             color: var(--text-gray);
             font-size: 10.5px;
-            line-height: 1.4;
+            line-height: 1.45;
         }
 
         /* FOOTER */
@@ -858,6 +893,208 @@
             box-shadow: 0 4px 12px rgba(194, 103, 43, 0.35);
         }
 
+        /* PREVENT HORIZONTAL OVERFLOW */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        .top-nav {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 900px) {
+            .nav-doc-badge {
+                display: none !important;
+            }
+        }
+
+        /* WORKFLOW & COMPARISON HÔTELIER */
+        .workflow-section {
+            background: #FAF8F5;
+            border: 1px solid var(--border-warm);
+            border-radius: 7px;
+            padding: 7px 11px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .wf-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+
+        .wf-header h3 {
+            font-size: 11px;
+            color: var(--rust);
+            font-weight: 600;
+        }
+
+        .wf-steps-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .wf-step {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 5px 6px;
+            text-align: center;
+            min-height: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .wf-step-num {
+            font-size: 8px;
+            font-weight: 800;
+            color: var(--rust);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1px;
+        }
+
+        .wf-step-title {
+            font-size: 8.8px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.15;
+            margin-bottom: 2px;
+        }
+
+        .wf-step-desc {
+            font-size: 7.2px;
+            color: var(--text-gray);
+            line-height: 1.25;
+        }
+
+        .wf-step-arrow {
+            color: var(--rust);
+            font-size: 11px;
+            font-weight: bold;
+            opacity: 0.6;
+        }
+
+        .comparison-section {
+            border: 1px solid var(--border-warm);
+            border-radius: 7px;
+            overflow: hidden;
+            background: white;
+            margin-bottom: 6px;
+        }
+
+        .comp-header {
+            background: #FAF8F5;
+            padding: 5px 11px;
+            border-bottom: 1px solid var(--border-warm);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comp-header h3 {
+            font-size: 11px;
+            color: var(--rust);
+            font-weight: 600;
+        }
+
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8.4px;
+        }
+
+        .comp-table th {
+            text-align: left;
+            padding: 4px 8px;
+            background: #F5EFE8;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 8px;
+            border-bottom: 1px solid var(--border-warm);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .comp-table th.th-old {
+            color: #991B1B;
+            background: #FEF2F2;
+        }
+
+        .comp-table th.th-new {
+            color: var(--rust);
+            background: #FDF4ED;
+        }
+
+        .comp-table td {
+            padding: 4px 8px;
+            border-bottom: 1px solid #F5EFE8;
+            vertical-align: middle;
+            line-height: 1.28;
+        }
+
+        .comp-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comp-table td.td-old {
+            background: #FFFBFB;
+            color: #7F1D1D;
+            font-size: 8px;
+        }
+
+        .comp-table td.td-new {
+            background: #FFFDF9;
+            color: #27272A;
+            font-size: 8.2px;
+        }
+
+        .comp-table td.td-new strong {
+            color: var(--rust);
+        }
+
+        .roi-stats-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7px;
+            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%);
+            border: 1px solid var(--border-warm);
+            border-radius: 6px;
+            padding: 6px 10px;
+        }
+
+        .roi-stat-col {
+            text-align: center;
+            border-right: 1px dashed var(--border-warm);
+            padding: 0 4px;
+        }
+
+        .roi-stat-col:last-child {
+            border-right: none;
+        }
+
+        .roi-stat-val {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--rust);
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.1;
+        }
+
+        .roi-stat-lbl {
+            font-size: 7.2px;
+            color: var(--text-gray);
+            line-height: 1.25;
+            margin-top: 1px;
+        }
+
     </style>
 </head>
 
@@ -880,7 +1117,10 @@
                 <span>ResiPro Suite</span> &bull; Hôtellerie, Restauration &amp; Caisse
             </div>
             <div style="display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0;">
-                <a href="../index.html" class="nav-link-btn" style="height: 32px; display: inline-flex; align-items: center; padding: 0 12px; text-decoration: none;">← Catalogue Showroom</a>
+                <a href="presentation-visuelle.html" class="nav-link-btn" style="height: 32px; display: inline-flex; align-items: center; padding: 0 12px; text-decoration: none; background: #FDF6F0; color: #9A4C1B; border-color: #F5D6C1; font-weight: 700;">
+                    ✨ Démo Visuelle (6 Écrans)
+                </a>
+                <a href="../index.html" class="nav-link-btn" style="height: 32px; display: inline-flex; align-items: center; padding: 0 12px; text-decoration: none;">← Catalogue</a>
                 <button onclick="window.print()" class="btn-print-copper" style="height: 32px; padding: 0 14px; display: inline-flex; align-items: center;">
                     <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
                     <span>Imprimer (A4)</span>
@@ -992,6 +1232,109 @@
             <div class="text-block">
                 <h4>Facturation Fiscale & Tableaux de Bord</h4>
                 <p>Facturation certifiée A4 (NIF/STAT, cachet/signature), devis proformas séparés du CA, caisse en direct et pilotage du taux d'occupation.</p>
+            </div>
+        </div>
+
+        <!-- WORKFLOW INTÉGRÉ HÔTELIER (5 ÉTAPES CLÉS) -->
+        <div class="workflow-section">
+            <div class="wf-header">
+                <span class="badge-gold">Flux Intégré Hôtelier</span>
+                <h3 class="serif">Du Check-in à la Facturation Fiscale &amp; Clôture</h3>
+            </div>
+            <div class="wf-steps-grid">
+                <div class="wf-step">
+                    <div class="wf-step-num">Étape 01</div>
+                    <div class="wf-step-title">Réservation &amp; Check-in</div>
+                    <div class="wf-step-desc">Planning visuel des chambres, fiche voyageur et acompte enregistré.</div>
+                </div>
+                <div class="wf-step-arrow">➔</div>
+                <div class="wf-step">
+                    <div class="wf-step-num">Étape 02</div>
+                    <div class="wf-step-title">Note sur Chambre</div>
+                    <div class="wf-step-desc">Bascule 1-clic des consommations restaurant &amp; bar sur le dossier résident.</div>
+                </div>
+                <div class="wf-step-arrow">➔</div>
+                <div class="wf-step">
+                    <div class="wf-step-num">Étape 03</div>
+                    <div class="wf-step-title">Intendance &amp; Linge</div>
+                    <div class="wf-step-desc">Suivi pressing, stock petit-déjeuner et économat cuisine sans coulage.</div>
+                </div>
+                <div class="wf-step-arrow">➔</div>
+                <div class="wf-step">
+                    <div class="wf-step-num">Étape 04</div>
+                    <div class="wf-step-title">Facture A4 / Reçu 80mm</div>
+                    <div class="wf-step-desc">Facture globale NIF/STAT ou reçu immédiat avec vignettes touristiques.</div>
+                </div>
+                <div class="wf-step-arrow">➔</div>
+                <div class="wf-step">
+                    <div class="wf-step-num">Étape 05</div>
+                    <div class="wf-step-title">Clôture Caisse &amp; Taux</div>
+                    <div class="wf-step-desc">Billetage des espèces, devises étrangères et pilotage du RevPAR.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TABLEAU COMPARATIF : GESTION MANUELLE VS RESIPRO -->
+        <div class="comparison-section">
+            <div class="comp-header">
+                <span class="badge-gold">Rentabilité Immédiate</span>
+                <h3 class="serif">Pourquoi les Hôtels &amp; Restaurants Choisissent ResiPro</h3>
+            </div>
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Points Critiques</th>
+                        <th style="width: 37%;" class="th-old">Gestion Manuelle (Cahier / Excel)</th>
+                        <th style="width: 38%;" class="th-new">Avec Plateforme ResiPro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Disponibilité des chambres</strong></td>
+                        <td class="td-old">❌ Risque élevé de surbooking et ratures sur cahier</td>
+                        <td class="td-new">✓ <strong>Planning dynamique temps réel</strong> multi-séjours</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Consommations Resto / Bar</strong></td>
+                        <td class="td-old">❌ Bons volants égarés, oublis d'imputation au départ</td>
+                        <td class="td-new">✓ <strong>Transfert instantané 1-clic</strong> sur note de chambre</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Économat &amp; Boissons</strong></td>
+                        <td class="td-old">❌ Coulage invisible : écarts de stock non détectés</td>
+                        <td class="td-new">✓ <strong>Décompte automatique</strong> à la vente et alertes seuil</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facturation &amp; Fiscalité</strong></td>
+                        <td class="td-old">❌ Factures manuscrites rejetées par les sociétés</td>
+                        <td class="td-new">✓ <strong>Factures certifiées A4 (NIF/STAT)</strong> + reçus 80mm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tolérance Pannes JIRAMA</strong></td>
+                        <td class="td-old">❌ Blocage complet dès qu'Internet ou le courant coupe</td>
+                        <td class="td-new">✓ <strong>100% Autonome Hors-Ligne</strong> + sauvegarde Cloud</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- BANDEAU DE RÉASSURANCE HÔTELIÈRE -->
+        <div class="roi-stats-strip">
+            <div class="roi-stat-col">
+                <div class="roi-stat-val">0 Surbooking</div>
+                <div class="roi-stat-lbl">Planning intelligent libérant les jours intermédiaires</div>
+            </div>
+            <div class="roi-stat-col">
+                <div class="roi-stat-val">1 Nuitée</div>
+                <div class="roi-stat-lbl">Suffit à amortir l'abonnement du mois entier</div>
+            </div>
+            <div class="roi-stat-col">
+                <div class="roi-stat-val">100%</div>
+                <div class="roi-stat-lbl">Conforme Madagascar NIF/STAT &amp; MVola</div>
+            </div>
+            <div class="roi-stat-col">
+                <div class="roi-stat-val">7j / 7</div>
+                <div class="roi-stat-lbl">Assistance réactive et formation sur place offerte</div>
             </div>
         </div>
 
@@ -1232,10 +1575,48 @@
             </tbody>
         </table>
 
-        <div style="margin-top: 10px; padding: 7px 11px; border: 1px solid var(--border); border-radius: 5px; background: #FAFAFA; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: var(--text-gray); flex-wrap: wrap; gap: 6px;">
-            <div><strong>Déploiement & Assistance :</strong> Équipe locale à Madagascar · Mise en service sous 48h</div>
-            <div><strong>Fiabilité locale :</strong> Conçu pour les réseaux instables · Sauvegardes Cloud automatisées</div>
-            <div><strong>Règlement :</strong> Virement bancaire ou Mobile Money (MVola)</div>
+        <div style="margin-top: 10px; margin-bottom: 8px; padding: 7px 11px; border: 1px solid var(--border); border-radius: 5px; background: #FAF8F5; display: flex; justify-content: space-between; align-items: center; font-size: 9.5px; color: var(--text-gray); flex-wrap: wrap; gap: 6px;">
+            <div><strong>⚡ Déploiement &amp; Assistance :</strong> Équipe locale à Madagascar &bull; Mise en service sous 48h</div>
+            <div><strong>🛡️ Fiabilité Locale :</strong> Conçu pour les réseaux instables &bull; Sauvegardes Cloud automatisées</div>
+            <div><strong>💳 Règlement :</strong> Virement bancaire ou Mobile Money (MVola)</div>
+        </div>
+
+        <!-- BON POUR ACCORD & ENGAGEMENT CONTRACTUEL HÔTELLERIE -->
+        <div style="border: 1.5px solid var(--rust); border-radius: 6px; padding: 10px 14px; background: var(--rust-light); margin-top: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; border-bottom: 1px solid rgba(164, 90, 61, 0.25); padding-bottom: 4px;">
+                <h4 class="serif" style="font-size: 12.5px; color: var(--rust); font-weight: 700; margin: 0;">
+                    ✦ Bon pour Accord &amp; Validation Officielle de Déploiement Hôtelier
+                </h4>
+                <span style="font-size: 8.5px; color: var(--text-gray); text-transform: uppercase; letter-spacing: 0.5px;">Document Contractuel Engageant</span>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 10px; color: var(--text-dark); flex-wrap: wrap; gap: 8px;">
+                <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                    <label style="cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                        <input type="checkbox" style="accent-color: var(--rust); width: 14px; height: 14px;">
+                        <span><strong>Formule 1 : Module Spécialisé</strong> (79 000 Ar/m + 250k inst.)</span>
+                    </label>
+                    <label style="cursor: pointer; display: flex; align-items: center; gap: 5px;">
+                        <input type="checkbox" checked style="accent-color: var(--rust); width: 14px; height: 14px;">
+                        <span><strong>Formule 2 : Pack Intégral Établissement</strong> (129 000 Ar/m + 250k inst.)</span>
+                    </label>
+                </div>
+                <label style="cursor: pointer; display: flex; align-items: center; gap: 5px; font-size: 9.5px; color: var(--rust); font-weight: 600;">
+                    <input type="checkbox" checked style="accent-color: var(--rust); width: 13px; height: 13px;">
+                    <span>Option Pack Matériel Imprimante 80 mm POS (+450 000 Ar)</span>
+                </label>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 6px;">
+                <div style="background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; min-height: 48px; font-size: 9px;">
+                    <strong style="color: var(--text-dark); display: block; margin-bottom: 2px;">Pour l'Établissement Hôtelier (Direction Générale) :</strong>
+                    <span style="color: var(--text-light); font-size: 8px;">Date, Nom du signataire &amp; Mention manuscrite « Bon pour accord » :</span>
+                </div>
+                <div style="background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 10px; min-height: 48px; font-size: 9px;">
+                    <strong style="color: var(--text-dark); display: block; margin-bottom: 2px;">Pour l'Éditeur &amp; Intégrateur (Missi Innovation) :</strong>
+                    <span style="color: var(--text-light); font-size: 8px;">Date, Signature &amp; Engagement d'installation et formation sous 48h :</span>
+                </div>
+            </div>
         </div>
 
         <div class="page-footer">

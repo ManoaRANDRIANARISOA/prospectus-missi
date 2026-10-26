@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide Stratégique & Pratique : LLM Gratuits Nouvelle Génération avec OpenCode | Missi Innovation</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/missi_logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #AD8B73;
+      --primary-dark: #8C6D58;
+      --primary-darker: #46372D;
+      --primary-light: #EFE9E3;
+      --bg: #FAF8F5;
+      --surface: #FFFFFF;
+      --surface-subtle: #F4EFEA;
+      --border: #E6DCD2;
+      --border-focus: #AD8B73;
+      --text: #2D241E;
+      --text-muted: #6E5D53;
+      --accent: #CEAB93;
+      --accent-warm: #E27B58;
+      --success: #15803D;
+      --success-bg: #DCFCE7;
+      --warning: #B45309;
+      --warning-bg: #FEF3C7;
+      --info: #0369A1;
+      --info-bg: #E0F2FE;
+      --danger: #B91C1C;
+      --danger-bg: #FEE2E2;
+      --shadow-sm: 0 1px 3px 0 rgba(70, 55, 45, 0.05);
+      --shadow: 0 4px 16px -2px rgba(70, 55, 45, 0.08), 0 2px 6px -1px rgba(70, 55, 45, 0.04);
+      --shadow-lg: 0 16px 32px -4px rgba(70, 55, 45, 0.12), 0 6px 12px -2px rgba(70, 55, 45, 0.06);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    code, pre, kbd {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Layout */
+    .app-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 290px;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 1.75rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--primary-darker);
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--primary), var(--primary-darker));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-meta h1 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .brand-meta span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-group-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: var(--surface-subtle);
+      color: var(--primary-darker);
+      font-weight: 600;
+    }
+
+    .nav-link.active {
+      border-left: 3px solid var(--primary);
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 3rem 5rem 3rem;
+    }
+
+    /* Header */
+    .doc-header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.8rem;
+      background: var(--primary-light);
+      color: var(--primary-darker);
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-pill.success {
+      background: var(--success-bg);
+      color: var(--success);
+    }
+
+    .badge-pill.warning {
+      background: var(--warning-bg);
+      color: var(--warning);
+    }
+
+    .badge-pill.info {
+      background: var(--info-bg);
+      color: var(--info);
+    }
+
+    .doc-title {
+      font-size: 2.35rem;
+      font-weight: 800;
+      color: var(--primary-darker);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .doc-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 820px;
+    }
+
+    /* Typography & Sections */
+    section {
+      margin-bottom: 3.5rem;
+      scroll-margin-top: 2rem;
+    }
+
+    h2 {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--primary-darker);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    /* Cards & Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.25rem;
+      margin: 1.25rem 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-darker);
+    }
+
+    .card-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: var(--radius-md);
+      padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      border-left: 4px solid;
+    }
+
+    .callout.tip {
+      background: #F0FDF4;
+      border-color: var(--success);
+      color: #14532D;
+    }
+
+    .callout.warning {
+      background: #FFFBEB;
+      border-color: var(--warning);
+      color: #78350F;
+    }
+
+    .callout.info {
+      background: #F0F9FF;
+      border-color: var(--info);
+      color: #0C4A6E;
+    }
+
+    .callout-icon {
+      font-size: 1.35rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .callout-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: var(--surface-subtle);
+      color: var(--primary-darker);
+      font-weight: 600;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(244, 239, 234, 0.4);
+    }
+
+    .model-badge {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--primary-darker);
+      font-weight: 500;
+    }
+
+    /* Steps list */
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .step-body {
+      flex: 1;
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary-darker);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Code blocks */
+    .code-block {
+      background: #201A16;
+      color: #F8F5F2;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: 1rem 0;
+      box-shadow: var(--shadow);
+    }
+
+    .code-header {
+      background: #171310;
+      padding: 0.5rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.78rem;
+      color: #B5A89F;
+    }
+
+    .code-content {
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+
+    .btn-copy {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .btn-copy:hover {
+      background: var(--primary);
+    }
+
+    /* Tabs */
+    .tabs-wrapper {
+      margin: 1.5rem 0;
+    }
+
+    .tabs-header {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.65rem 1.2rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: var(--transition);
+    }
+
+    .tab-btn.active {
+      color: var(--primary-darker);
+      border-bottom-color: var(--primary);
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Footer */
+    .doc-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .app-container {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .main-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <a href="#" class="brand">
+      <div class="brand-logo">MI</div>
+      <div class="brand-meta">
+        <h1>Missi Innovation</h1>
+        <span>Tech Documentation</span>
+      </div>
+    </a>
+
+    <div>
+      <div class="nav-group-title">Sommaire du Guide</div>
+      <ul class="nav-list">
+        <li><a href="#context" class="nav-link active">1. Contexte du Dépôt</a></li>
+        <li><a href="#debunk" class="nav-link">2. Modèles Réussis vs "Vieux"</a></li>
+        <li><a href="#catalog" class="nav-link">3. Les Modèles Disponibles</a></li>
+        <li><a href="#comparison" class="nav-link">4. OpenCode vs Claude Code</a></li>
+        <li><a href="#setup-guide" class="nav-link">5. Tutoriel Pas-à-Pas OpenCode</a></li>
+        <li><a href="#config-file" class="nav-link">6. Fichier JSON Prêt à l'Emploi</a></li>
+        <li><a href="#recommendations" class="nav-link">7. Conseils & Stratégie</a></li>
+      </ul>
+    </div>
+
+    <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border);">
+      <div style="font-size: 0.78rem; color: var(--text-muted);">
+        <strong>Version Doc :</strong> 2026.10<br>
+        <strong>Système :</strong> Windows 11 • OpenCode
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="doc-header">
+      <div class="badge-pill success">
+        <span>●</span> Guide Technique Opérationnel
+      </div>
+      <h1 class="doc-title">Exploiter les LLM Gratuits Nouvelle Génération avec OpenCode</h1>
+      <p class="doc-subtitle">
+        Synthèse complète du dépôt <code>mnfst/awesome-free-llm-apis</code>, analyse des modèles disponibles en 2026, comparaison stratégique avec Claude Code, et configuration pas-à-pas sur votre machine.
+      </p>
+    </header>
+
+    <!-- SECTION 1 -->
+    <section id="context">
+      <h2>1. Contexte du Dépôt <code>awesome-free-llm-apis</code></h2>
+      <p>
+        Le dépôt GitHub <a href="https://github.com/mnfst/awesome-free-llm-apis" target="_blank" style="color: var(--primary-dark); font-weight: 600;">mnfst/awesome-free-llm-apis</a> (créé et maintenu par Manifest) est une référence mondiale recensant les fournisseurs d'IA qui mettent à disposition des <strong>tiers gratuits permanents</strong> (<em>Permanent Free Tiers</em>) pour l'inférence de modèles de langage.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-title">0 € Garanti</div>
+          <p class="card-meta">Aucune carte bancaire requise</p>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">Tous les services référencés ne demandent aucun moyen de paiement pour activer l'inférence.</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Standard OpenAI</div>
+          <p class="card-meta">Compatibilité universelle</p>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">Tous les endpoints utilisent la spécification standard OpenAI (<code>/v1/chat/completions</code>).</p>
+        </div>
+        <div class="card">
+          <div class="card-title">Agent Skill Prêt</div>
+          <p class="card-meta">Dossier free-llm-apis/SKILL.md</p>
+          <p style="font-size: 0.88rem; color: var(--text-muted);">Le dépôt fournit des instructions pour être directement exploité par les agents de code IA.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="debunk">
+      <h2>2. Clarification : "Vieux modèles" ou Nouvelle Génération ?</h2>
+      
+      <div class="callout warning">
+        <div class="callout-icon">💡</div>
+        <div class="callout-content">
+          <strong>Pourquoi l'impression de "vieux modèles" est trompeuse :</strong><br>
+          Quand on pense aux API gratuites, on imagine souvent de vieux modèles 7B dépassés (comme Llama 2 ou d'anciennes variantes). Or, le catalogue du repo est <strong>extrêmement récent (mis à jour en octobre 2026)</strong>. Il intègre la toute dernière génération de modèles ouverts majeurs.
+        </div>
+      </div>
+
+      <p>
+        Cependant, il faut bien distinguer deux catégories de modèles sur le marché mondial :
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="border-left: 4px solid var(--success);">
+          <div class="card-title">✅ Ce qui EST disponible gratuitement</div>
+          <p class="card-meta">Modèles Open-Weights & Free Tiers Subventionnés</p>
+          <ul style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.7;">
+            <li><strong>GPT-OSS 120B & 20B</strong> (Modèles ouverts très performants)</li>
+            <li><strong>DeepSeek-V4</strong> (Flash & Pro, avec 400K à 1M de contexte)</li>
+            <li><strong>Qwen 3.5 & 3.8</strong> (jusqu'à 397B paramètres)</li>
+            <li><strong>Google Gemini 3.8 / 3.7 Flash & 2.5 Pro</strong> (1M tokens)</li>
+            <li><strong>Llama 4 Scout</strong> & <strong>Gemma 4 (31B)</strong></li>
+            <li><strong>Poolside Laguna 2.1 & Cohere North Mini</strong> (spécialisés Code)</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-left: 4px solid var(--danger);">
+          <div class="card-title">❌ Ce qui n'est JAMAIS gratuit en API</div>
+          <p class="card-meta">Modèles propriétaires sous licence fermée</p>
+          <ul style="padding-left: 1.2rem; font-size: 0.88rem; line-height: 1.7;">
+            <li><strong>Claude 3.7 / 3.5 Sonnet</strong> (Anthropic ne propose AUCUN free tier API)</li>
+            <li><strong>OpenAI o1 / o3-mini / GPT-4.5</strong> (OpenAI facture au token sans free tier)</li>
+            <li><em>Raison :</em> Le coût unitaire de calcul par requête est trop lourd pour être offert sans modèle publicitaire ou quota commercial payant.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="catalog">
+      <h2>3. Le Catalogue Réel des Modèles Gratuits (2026)</h2>
+      <p>Voici le tableau synthétique des meilleurs fournisseurs et modèles actuellement actifs dans le dépôt :</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Fournisseur</th>
+              <th>Modèle Recommandé</th>
+              <th>Contexte</th>
+              <th>Quotas Gratuits</th>
+              <th>Points Forts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Groq</strong> 🇺🇸</td>
+              <td><span class="model-badge">openai/gpt-oss-120b</span><br><span class="model-badge">qwen/qwen3.8-27b</span></td>
+              <td>131K</td>
+              <td>30 RPM • 1 000 RPD</td>
+              <td><span class="badge-pill success">Vitesse Inégalée</span> Puces LPU ultra-rapides</td>
+            </tr>
+            <tr>
+              <td><strong>Kilo Code / OpenRouter</strong> 🇺🇸</td>
+              <td><span class="model-badge">poolside/laguna-s-2.1:free</span><br><span class="model-badge">cohere/north-mini-code:free</span></td>
+              <td>262K</td>
+              <td>200 req/heure</td>
+              <td><span class="badge-pill info">Spécialisé Code</span> Optimisé refactoring & syntaxe</td>
+            </tr>
+            <tr>
+              <td><strong>Google AI Studio</strong> 🇺🇸</td>
+              <td><span class="model-badge">gemini-3.8-flash</span><br><span class="model-badge">gemini-2.5-pro</span></td>
+              <td>1M</td>
+              <td>15 RPM • 1 500 RPD</td>
+              <td><span class="badge-pill warning">Mémoire Gigantesque</span> Ingère des projets entiers</td>
+            </tr>
+            <tr>
+              <td><strong>Ollama Cloud</strong> 🇺🇸</td>
+              <td><span class="model-badge">deepseek-v4-flash</span><br><span class="model-badge">mistral-large-3:675b</span></td>
+              <td>1M / 256K</td>
+              <td>Usage hebdomadaire gratuit</td>
+              <td><span class="badge-pill success">Raisonnement</span> Modèles massifs de pointe</td>
+            </tr>
+            <tr>
+              <td><strong>OVHcloud AI</strong> 🇫🇷</td>
+              <td><span class="model-badge">Qwen3.5-397B-A17B</span><br><span class="model-badge">gpt-oss-120b</span></td>
+              <td>262K</td>
+              <td>2 RPM par IP</td>
+              <td><span class="badge-pill info">100% Anonyme</span> Aucun compte ni clé requis !</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="comparison">
+      <h2>4. Pourquoi OpenCode et Pas Claude Code ?</h2>
+      
+      <p>
+        Vous avez mentionné que vous disposez déjà d'<strong>OpenCode</strong> sur votre PC, et vous vous demandiez ce qu'il fallait penser de <strong>Claude Code</strong>. Voici une comparaison objective :
+      </p>
+
+      <div class="grid-2">
+        <div class="card" style="background: #FAFAF7; border: 2px solid var(--primary);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <div class="card-title" style="color: var(--primary-darker); font-size: 1.25rem;">OpenCode Desktop</div>
+            <span class="badge-pill success">Option Gagnante pour ce Repo</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Installé sur votre PC : <code>C:\Users\MANOA PC\AppData\Local\Programs\@opencode-aidesktop\OpenCode.exe</code>
+          </p>
+          <ul style="font-size: 0.88rem; line-height: 1.7; padding-left: 1.2rem;">
+            <li><strong>Compatible avec toutes les API gratuites :</strong> Supporte nativement les URL personnalisées (Groq, OpenRouter, Google, OVHcloud).</li>
+            <li><strong>Coût d'exploitation :</strong> <strong>0,00 €</strong> permanent.</li>
+            <li><strong>Interface ergonomique :</strong> Interface graphique avec arbre de fichiers, système de diff en direct, application de patchs en 1 clic.</li>
+            <li><strong>Multi-modèles à la volée :</strong> Permet de basculer entre Groq (rapide) et Gemini (grand contexte) selon le besoin.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <div class="card-title" style="font-size: 1.25rem;">Claude Code (CLI)</div>
+            <span class="badge-pill warning">Incompatible avec le Gratuit</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Outil terminal officiel d'Anthropic (<code>@anthropic-ai/claude-code</code>).
+          </p>
+          <ul style="font-size: 0.88rem; line-height: 1.7; padding-left: 1.2rem;">
+            <li><strong>Verrouillé sur l'écosystème Anthropic :</strong> Conçu pour consommer l'API payante de Claude 3.7 Sonnet.</li>
+            <li><strong>Coût :</strong> Payant au token (consomme rapidement des crédits lors d'analyses de répertoires entiers).</li>
+            <li><strong>Incompatible avec ce repo :</strong> Ne permet pas d'indiquer simplement une clé Groq ou OpenRouter sans proxy complexe.</li>
+            <li><strong>Verdict :</strong> Excellent si vous avez un compte payant Anthropic, mais inadapté si votre objectif est le zéro coût.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="setup-guide">
+      <h2>5. Guide Pas-à-Pas : Configuration d'OpenCode</h2>
+      
+      <div class="steps-container">
+        <!-- Étape 1 -->
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Créer votre première clé gratuite (Exemple : Groq)</div>
+            <p>
+              Groq est la recommandation n°1 pour la vitesse de génération et son modèle <strong>GPT-OSS 120B</strong>.
+            </p>
+            <ol style="padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.7;">
+              <li>Rendez-vous sur <a href="https://console.groq.com/keys" target="_blank" style="color: var(--primary-dark); font-weight: 600;">console.groq.com/keys</a>.</li>
+              <li>Créez un compte avec votre email ou votre compte GitHub (aucune carte bancaire demandée).</li>
+              <li>Cliquez sur <strong>"Create API Key"</strong>, donnez-lui un nom (ex: <code>opencode-groq</code>) et copiez la clé générée (commence par <code>gsk_...</code>).</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Étape 2 -->
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Ouvrir OpenCode et accéder aux réglages</div>
+            <p>
+              Lancez OpenCode sur votre machine. Cliquez sur l'icône d'engrenage <strong>Settings</strong> (ou raccourci <code>Ctrl + ,</code>) en bas à gauche de la fenêtre.
+            </p>
+            <div class="callout info" style="margin: 0.75rem 0;">
+              <div class="callout-icon">ℹ️</div>
+              <div class="callout-content">
+                Si vous préférez modifier directement le fichier de configuration JSON, OpenCode stocke sa configuration dans :<br>
+                <code>C:\Users\MANOA PC\.config\opencode\opencode.jsonc</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Étape 3 -->
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Ajouter le Provider dans l'interface</div>
+            <p>Dans la section <strong>Providers</strong> ou <strong>Models</strong> :</p>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Champ</th>
+                    <th>Valeur à renseigner</th>
+                    <th>Remarque</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Provider Type</strong></td>
+                    <td><code>OpenAI Compatible</code></td>
+                    <td>Format standard universel</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Provider Name</strong></td>
+                    <td><code>Groq Cloud</code></td>
+                    <td>Nom d'affichage libre</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Base URL</strong></td>
+                    <td><code>https://api.groq.com/openai/v1</code></td>
+                    <td>L'adresse du serveur d'inférence</td>
+                  </tr>
+                  <tr>
+                    <td><strong>API Key</strong></td>
+                    <td><code>gsk_votre_cle_ici</code></td>
+                    <td>La clé générée à l'étape 1</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Model ID</strong></td>
+                    <td><code>openai/gpt-oss-120b</code></td>
+                    <td>Ou <code>qwen/qwen3.8-27b</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Étape 4 -->
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">Tester l'exécution dans OpenCode</div>
+            <p>
+              Ouvrez votre projet (par exemple votre dossier <code>c:\wrk\Portf</code> ou <code>c:\wrk\prospectus-missi</code>) dans OpenCode.
+            </p>
+            <p>Ouvrez le panneau de discussion / d'édition et posez votre première question technique :</p>
+            <div class="code-block">
+              <div class="code-header">
+                <span>Prompt de test recommandé</span>
+                <button class="btn-copy" onclick="copyText('test-prompt')">Copier</button>
+              </div>
+              <pre class="code-content" id="test-prompt">Analyse ce fichier JavaScript/HTML et propose 3 optimisations de performance et d'accessibilité sans altérer la logique existante.</pre>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--success); font-weight: 600;">
+              ✨ La réponse de GPT-OSS 120B ou Qwen 3.8 sur Groq doit apparaître en quelques secondes (débit typique : 250 à 400 tokens/seconde).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="config-file">
+      <h2>6. Configuration Prête à l'Emploi (Fichier <code>opencode.jsonc</code>)</h2>
+      <p>
+        Si vous préférez configurer directement le fichier JSON pour avoir tous les meilleurs providers gratuits en un seul clic, voici le bloc prêt à coller :
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span>~/.config/opencode/opencode.jsonc</span>
+          <button class="btn-copy" onclick="copyText('json-config')">Copier le JSON</button>
+        </div>
+        <pre class="code-content" id="json-config">{
+  "providers": {
+    // 1. GROQ : Vitesse pure & GPT-OSS 120B
+    "groq": {
+      "type": "openai",
+      "name": "Groq (Ultra-Fast)",
+      "baseUrl": "https://api.groq.com/openai/v1",
+      "apiKey": "VOTRE_CLE_GROQ_ICI",
+      "models": [
+        { "id": "openai/gpt-oss-120b", "name": "GPT-OSS 120B" },
+        { "id": "qwen/qwen3.8-27b", "name": "Qwen 3.8 27B" }
+      ]
+    },
+
+    // 2. OPENROUTER : Spécialisé Code (Poolside Laguna & North Mini)
+    "openrouter-free": {
+      "type": "openai",
+      "name": "OpenRouter (Free Pool)",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "apiKey": "VOTRE_CLE_OPENROUTER_ICI",
+      "models": [
+        { "id": "poolside/laguna-s-2.1:free", "name": "Laguna Code 2.1" },
+        { "id": "cohere/north-mini-code:free", "name": "North Mini Code" },
+        { "id": "nvidia/nemotron-3-ultra-550b-a55b:free", "name": "Nemotron-3 550B" }
+      ]
+    },
+
+    // 3. GOOGLE AI STUDIO : Grand Contexte (1 Million de tokens)
+    "google-gemini": {
+      "type": "openai",
+      "name": "Google Gemini",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai/",
+      "apiKey": "VOTRE_CLE_GEMINI_ICI",
+      "models": [
+        { "id": "gemini-3.8-flash", "name": "Gemini 3.8 Flash" },
+        { "id": "gemini-2.5-pro", "name": "Gemini 2.5 Pro" }
+      ]
+    },
+
+    // 4. OVHCLOUD : Anonyme & Sans clé (Secours gratuit)
+    "ovh-anonymous": {
+      "type": "openai",
+      "name": "OVHcloud (No Key)",
+      "baseUrl": "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1",
+      "apiKey": "none",
+      "models": [
+        { "id": "gpt-oss-120b", "name": "OVH GPT-OSS 120B" },
+        { "id": "Qwen3.5-397B-A17B", "name": "OVH Qwen 397B" }
+      ]
+    }
+  },
+  "defaultModel": "openai/gpt-oss-120b"
+}</pre>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section id="recommendations">
+      <h2>7. Conseils & Stratégie selon vos Tâches de Développement</h2>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="badge-pill success">Au quotidien</div>
+          <div class="card-title" style="margin-top: 0.5rem;">Groq + GPT-OSS 120B</div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem;">
+            Idéal pour générer des fonctions, styliser du CSS, expliquer un bug ou écrire des tests unitaires en temps réel.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="badge-pill info">Gros Refactoring</div>
+          <div class="card-title" style="margin-top: 0.5rem;">Laguna ou North Mini</div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem;">
+            Modèles entraînés spécifiquement sur le code et les AST. Moins d'hallucinations de syntaxe lors de modifications structurelles.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="badge-pill warning">Projet Complet</div>
+          <div class="card-title" style="margin-top: 0.5rem;">Gemini 3.8 Flash</div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem;">
+            Quand vous devez lui faire lire 15 fichiers en même temps grâce à sa fenêtre d'1 million de tokens.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-icon">🛡️</div>
+        <div class="callout-content">
+          <strong>Règle d'or sur les Tiers Gratuits :</strong><br>
+          Les tiers gratuits peuvent utiliser les prompts pour l'entraînement (sauf opt-out explicite). <strong>Ne transmettez jamais</strong> de tokens de production, de clés d'API sensibles, ou de mots de passe de bases de données dans vos requêtes.
+        </div>
+      </div>
+    </section>
+
+    <footer class="doc-footer">
+      <div>© 2026 Missi Innovation • Documentation Technique Interne</div>
+      <div>Basé sur le dépôt <code>mnfst/awesome-free-llm-apis</code></div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  function copyText(elementId) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = event.target;
+      const originalText = btn.innerText;
+      btn.innerText = "Copié !";
+      btn.style.background = "#15803D";
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.style.background = "";
+      }, 2000);
+    });
+  }
+
+  // Smooth scroll active state
+  window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    let current = '';
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

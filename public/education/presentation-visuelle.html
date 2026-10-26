@@ -3,7 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dossier de Présentation Visuelle & Démonstration — Study Agent Pro | Missi Innovation</title>
+    <title>Study Agent Pro — Logiciel de Gestion Scolaire & Caisse Madagascar | Missi Innovation</title>
+    
+    <!-- SEO & MÉTADONNÉES LOCALES SCOLAIRE -->
+    <meta name="description" content="Study Agent Pro : Progiciel complet de gestion scolaire pour écoles privées, collèges et lycées à Madagascar. Suivi des écolages, caisse scellée 18h, bulletins de notes officiels MEN et SMS/WhatsApp parents.">
+    <meta name="keywords" content="logiciel gestion ecole madagascar, logiciel scolarite antananarivo, ecolages caisse billetage madagascar, bulletins de notes men madagascar, study agent pro, missi innovation">
+    <link rel="canonical" href="https://missi-innovation.web.app/education/presentation-visuelle.html">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_MG">
+    <meta property="og:title" content="Study Agent Pro — Logiciel de Gestion Scolaire & Caisse Madagascar">
+    <meta property="og:description" content="Présentation visuelle et démonstration de Study Agent Pro. Éradiquez les fraudes de caisse et éditez vos bulletins sans dépendre d'Internet.">
+    <meta property="og:url" content="https://missi-innovation.web.app/education/presentation-visuelle.html">
+    <meta property="og:image" content="https://missi-innovation.web.app/assets/img/02_tableau_de_bord_directeur.png">
+
+    <!-- SCHEMA.ORG STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Study Agent Pro Scolaire",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web, Windows, Offline SQLite",
+      "offers": {
+        "@type": "Offer",
+        "price": "149000",
+        "priceCurrency": "MGA"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Missi Innovation",
+        "url": "https://missi-innovation.web.app"
+      }
+    }
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="../assets/img/missi_logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1518,7 +1553,7 @@
                                 <div class="pm-price" id="dyn-f1-price">119 000 Ar <span class="unit">/ mois</span></div>
                             </div>
                             <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.25;" id="dyn-f1-desc">
-                                Caisse &amp; Secrétariat mono-poste &bull; 100% Hors-ligne &bull; Frais d'installation : 200 000 Ar
+                                Caisse &amp; Secrétariat mono-poste &bull; 100% Hors-ligne &bull; Frais d'installation : 250 000 Ar
                             </div>
                             <ul class="pm-list" id="dyn-f1-list">
                                 <li><span class="pm-check">✓</span> Gestion des élèves, inscriptions &amp; fratries</li>
@@ -1660,33 +1695,34 @@
         }
 
         
-        // INTERACTIVE 3-FORMULA SWITCHER ENGINE
+        // INTERACTIVE 3-FORMULA SWITCHER ENGINE (ALIGNÉ SUR LES 3 PROSPECTUS OFFICIELS)
         const FORMULA_PRESETS = {
             petite: {
                 badge: '<span>Study Agent Pro</span> &bull; Édition Petite Structure',
-                sectionLabel: 'Petite Structure (Émergence & Autonomie)',
+                sectionLabel: 'Petite Structure (Essentielle & Autonomie)',
                 link: 'offre-petite-structure.html',
                 f1: {
-                    title: 'Formule 1 : Émergence Essentielle',
-                    price: '59 000 Ar <span class="unit">/ mois</span>',
-                    desc: 'Caisse &amp; Secrétariat &bull; 100% Hors-ligne &bull; Frais d\'installation : 200 000 Ar',
+                    title: 'Formule 1 : Starter',
+                    price: '69 000 Ar <span class="unit">/ mois</span>',
+                    desc: 'Scolarité &amp; Caisse Essentielle &bull; 100% Hors-ligne &bull; Frais d\'installation : 200 000 Ar',
                     items: [
-                        'Gestion complète des dossiers élèves &amp; fratries',
-                        'Journal de caisse &amp; alertes impayés d\'écolages',
-                        'Certificats de scolarité &amp; reçus d\'encaissement en 1 clic',
-                        'Sauvegarde locale automatique quotidienne'
+                        'Inscriptions &amp; dossiers élèves (Matricule automatique)',
+                        'Journal de caisse complet, reçus &amp; suivi des écolages',
+                        'Certificats de scolarité PDF officiels en 1 clic',
+                        'Carnet de notes numérique &amp; moyennes automatiques',
+                        'Fonctionnement 100% Hors-Ligne (Tolérance JIRAMA)'
                     ]
                 },
                 f2: {
-                    title: 'Formule 2 : Émergence Pro ★',
-                    price: '89 000 Ar <span class="unit">/ mois</span>',
-                    desc: 'Tout-en-un optimisé &bull; Clôture caisse &bull; Frais d\'installation : 250 000 Ar',
+                    title: 'Formule 2 : Sérénité Caisse ★',
+                    price: '119 000 Ar <span class="unit">/ mois</span>',
+                    desc: 'Alertes impayés, billetage &amp; clôture Z &bull; Frais d\'installation : 200 000 Ar',
                     items: [
-                        '<strong>Tout le contenu Émergence inclus</strong>',
-                        '<strong>Saisie des notes, calcul des moyennes &amp; bulletins PDF</strong>',
-                        '<strong>Pointage présence, retards &amp; cantine</strong>',
-                        '<strong>Clôture de caisse quotidienne billetée</strong>',
-                        '<strong>Synchronisation miroir Cloud Supabase</strong>'
+                        '<strong>Tout le contenu Starter inclus</strong>',
+                        '<strong>Moteur d\'Alertes Impayés &amp; Reliquats au jour le jour</strong>',
+                        '<strong>Clôture journalière avec billetage physique (20 000 à 100 Ar)</strong>',
+                        '<strong>Impression directe ESC/POS (Reçus &amp; Ticket Z 80 mm scellé)</strong>',
+                        '<strong>Bilan automatique de caisse à 18h &amp; Sauvegarde Cloud</strong>'
                     ]
                 }
             },
@@ -1697,12 +1733,13 @@
                 f1: {
                     title: 'Formule 1 : Opérationnelle',
                     price: '119 000 Ar <span class="unit">/ mois</span>',
-                    desc: 'Caisse &amp; Secrétariat mono-poste &bull; 100% Hors-ligne &bull; Frais d\'installation : 200 000 Ar',
+                    desc: 'Caisse, Scolarité &amp; Impayés &bull; 100% Hors-ligne &bull; Frais d\'installation : 250 000 Ar',
                     items: [
-                        'Gestion des élèves, inscriptions &amp; fratries',
-                        'Journal de Caisse &amp; Moteur d\'Alertes Impayés',
+                        'Gestion des élèves, fratries &amp; affectation de classe',
+                        'Journal de caisse &amp; Moteur d\'Alertes Impayés',
                         'Saisie des notes, calcul des moyennes &amp; bulletins PDF',
-                        'Pointage journalier Bus &amp; Cantine scolaire'
+                        'Pointage quotidien (Assiduité, Bus &amp; Cantine)',
+                        'Fonctionnement 100% Hors-Ligne résilient JIRAMA'
                     ]
                 },
                 f2: {
@@ -1712,8 +1749,8 @@
                     items: [
                         '<strong>Tout le contenu Opérationnel inclus</strong>',
                         '<strong>Licence Multi-Postes Réseau Local (2 à 3 postes simultanés)</strong>',
-                        '<strong>Billetage physique 20 000 à 100 Ar &amp; Ticket Z scellé</strong>',
-                        '<strong>Module Paie RH Malagasy (IRSA, CNaPS &amp; Fiches de paie)</strong>',
+                        '<strong>Billetage physique 20 000 à 100 Ar &amp; Ticket Z 80 mm scellé</strong>',
+                        '<strong>Module RH &amp; Paie Légale Malagasy (IRSA, CNaPS &amp; Fiches PDF)</strong>',
                         '<strong>Auto-Guérison Cloud Supabase &amp; Bilan 18h par email</strong>'
                     ]
                 }
@@ -1723,26 +1760,27 @@
                 sectionLabel: 'Grande Structure (Prestige & Multi-Campus)',
                 link: 'offre-grande-structure.html',
                 f1: {
-                    title: 'Formule 1 : Campus Opérationnel',
-                    price: '169 000 Ar <span class="unit">/ mois</span>',
-                    desc: 'Réseau 3 postes &bull; Trésorerie multi-caisses &bull; Frais d\'installation : 300 000 Ar',
+                    title: 'Formule 1 : Grand Établissement',
+                    price: '290 000 Ar <span class="unit">/ mois</span>',
+                    desc: 'Multi-Postes Réseau (jusqu\'à 5 postes) &bull; Guichets Caisse &bull; Audit &amp; Setup : 450 000 Ar',
                     items: [
-                        'Licence Multi-postes Réseau Local 3 postes simultanés',
-                        'Gestion élèves multi-sections, programmes &amp; coefficients',
-                        'Double caisse écolages avec traque automatique des impayés',
-                        'Reçus thermiques 80 mm &amp; tickets duplicata certifiés'
+                        'Licence Multi-Postes Réseau (jusqu\'à 5 postes simultanés)',
+                        'Guichets de caisse isolés (C1, C2, C3) anti-collision de reçus',
+                        'Clôture journalière avec billetage physique &amp; Ticket Z scellé',
+                        'Module RH &amp; Paie Légale Malagasy (IRSA, CNaPS &amp; Bulletins PDF)',
+                        'Moteur d\'Auto-Guérison Multi-Postes (Supabase Cloud + SQLite WAL)'
                     ]
                 },
                 f2: {
                     title: 'Formule 2 : Prestige Institutionnel ★',
-                    price: '249 000 Ar <span class="unit">/ mois</span>',
-                    desc: 'Gouvernance campus &bull; Audit &bull; Frais d\'installation : 450 000 Ar',
+                    price: '490 000 Ar <span class="unit">/ mois</span>',
+                    desc: 'Postes illimités &bull; Multi-Campus &bull; SLA 7j/7 dédié &bull; Audit &amp; Setup : 450 000 Ar',
                     items: [
-                        '<strong>Réseau Local Haute Capacité (Postes illimités sur campus)</strong>',
-                        '<strong>Grand Livre contradictoire &amp; journal d\'audit inaltérable</strong>',
-                        '<strong>Paie RH avancée, gestion contrats &amp; pointage biométrique</strong>',
-                        '<strong>Clôture caisse billetée multi-guichets &amp; Ticket Z sécurisé</strong>',
-                        '<strong>Serveur Cloud Supabase Miroir Haute Disponibilité</strong>'
+                        '<strong>Tout le contenu Grand Établissement inclus</strong>',
+                        '<strong>Postes et guichets d\'encaissement ILLIMITÉS sur le campus</strong>',
+                        '<strong>Instance Cloud Supabase dédiée haute disponibilité</strong>',
+                        '<strong>Contrat SLA Support Garanti 7j/7 avec astreinte technique</strong>',
+                        '<strong>Formation sur site de tous les corps de métier &amp; Télémétrie</strong>'
                     ]
                 }
             }

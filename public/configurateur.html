@@ -3,11 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sélecteur de Modules & Devis Sur-Mesure | Missi Innovation</title>
+  <title>Configurateur de Progiciels & Devis Immédiat Madagascar | Missi Innovation</title>
+  
+  <!-- SEO & MÉTADONNÉES LOCALES MADAGASCAR -->
+  <meta name="description" content="Configurateur interactif et devis transparent en Ariary pour vos progiciels à Madagascar : ResiPro (Hôtels & Resto), Study Agent (Écoles privées), TourAgent (Tour Opérateurs) et ERP PME. 100% conforme NIF/STAT et MVola.">
+  <meta name="keywords" content="logiciel madagascar, configurateur erp madagascar, logiciel ecole antananarivo, logiciel hotel restaurant madagascar, resipro, study agent pro, touragent pro, facturation nif stat madagascar, caisse mvola, devis logiciel ariary">
+  <meta name="author" content="Missi Innovation Madagascar">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://missi-innovation.web.app/configurateur">
+
+  <!-- OPEN GRAPH / SOCIAL -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_MG">
+  <meta property="og:title" content="Configurateur de Progiciels & Devis Immédiat Madagascar | Missi Innovation">
+  <meta property="og:description" content="Composez votre solution logicielle métier pour votre établissement à Madagascar. Tarifs officiels transparents, packs complets et sur-mesure.">
+  <meta property="og:url" content="https://missi-innovation.web.app/configurateur">
+  <meta property="og:site_name" content="Missi Innovation">
+  <meta property="og:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png">
+
+  <!-- TWITTER CARDS -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Configurateur de Progiciels Métiers Madagascar | Missi Innovation">
+  <meta name="twitter:description" content="Calculez en direct votre budget logiciel pour École, Hôtel, PME ou Tourisme à Madagascar.">
+  <meta name="twitter:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png">
+
+  <!-- SCHEMA.ORG STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Configurateur Progiciels Missi Innovation Madagascar",
+    "url": "https://missi-innovation.web.app/configurateur",
+    "description": "Simulateur et configurateur de progiciels métiers pour les établissements scolaires, hôteliers, agences touristiques et PME à Madagascar.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All (Web, Windows, Android, Offline)",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "MGA",
+      "lowPrice": "39000",
+      "highPrice": "199000",
+      "offerCount": "6"
+    },
+    "provider": {
+      "@type": "Organization",
+      "name": "Missi Innovation",
+      "url": "https://missi-innovation.web.app",
+      "logo": "https://missi-innovation.web.app/assets/img/missi_logo.svg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Antananarivo",
+        "addressCountry": "MG"
+      }
+    }
+  }
+  </script>
+
   <link rel="icon" type="image/svg+xml" href="assets/img/missi_logo.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
       --canvas: #FAF9F5;
@@ -57,75 +112,71 @@
       line-height: 1.6;
       font-size: 14.5px;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 120px; /* Espace pour la barre de devis sticky */
+      padding-bottom: 140px; /* Espace pour la barre de devis sticky */
     }
 
     .serif { font-family: 'Playfair Display', Georgia, serif; }
     .outfit { font-family: 'Outfit', sans-serif; }
     .mono { font-family: 'JetBrains Mono', monospace; }
 
-    /* TOP NAVIGATION */
-    .top-nav {
+    /* HEADER */
+    .top-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      z-index: 99999;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background: rgba(255, 255, 255, 0.94);
-      border-bottom: 1px solid var(--border);
-      height: 64px;
-      padding: 0 1.5rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      display: flex;
-      align-items: center;
+      z-index: 50;
     }
 
-    .nav-inner {
-      width: 100%;
+    .header-inner {
       max-width: 1280px;
       margin: 0 auto;
+      padding: 0.85rem 1.5rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 1.5rem;
     }
 
-    .brand-link {
+    .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 12px;
       text-decoration: none;
-      color: var(--brand-primary);
     }
 
-    .brand-title-wrap {
+    .logo-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: #1C1917;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
+      border: 1px solid #443E3A;
+      flex-shrink: 0;
     }
 
-    .brand-name {
+    .brand-text-name {
       font-family: 'Outfit', sans-serif;
       font-weight: 800;
       font-size: 1.15rem;
       line-height: 1.1;
-      letter-spacing: -0.01em;
-      color: var(--brand-primary);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .brand-name-accent {
-      color: var(--brand-copper);
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .brand-tagline {
+    .brand-text-sub {
       font-size: 0.72rem;
       color: var(--text-soft);
       font-weight: 500;
     }
 
-    .nav-actions {
+    .header-nav {
       display: flex;
       align-items: center;
       gap: 0.75rem;
@@ -134,40 +185,33 @@
     .btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.55rem 1.1rem;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
       border-radius: var(--radius-sm);
-      font-size: 0.85rem;
-      font-weight: 600;
       text-decoration: none;
       transition: all 0.15s ease;
       cursor: pointer;
       border: 1px solid transparent;
-      white-space: nowrap;
     }
 
     .btn-copper {
       background: var(--brand-copper);
       color: white;
-      border-color: var(--brand-copper);
-      box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
     }
     .btn-copper:hover {
       background: var(--brand-copper-dark);
-      border-color: var(--brand-copper-dark);
-      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(194, 103, 43, 0.35);
     }
 
-    .btn-secondary {
-      background: var(--surface);
-      color: var(--text);
-      border-color: var(--border);
-    }
-    .btn-secondary:hover {
-      border-color: var(--brand-copper);
-      color: var(--brand-copper-dark);
+    .btn-copper-light {
       background: var(--brand-copper-light);
+      color: var(--brand-copper-dark);
+      border-color: var(--brand-copper-border);
+    }
+    .btn-copper-light:hover {
+      background: #faeae0;
     }
 
     .btn-outline {
@@ -184,14 +228,14 @@
     .page-container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem;
+      padding: 2.2rem 1.5rem;
     }
 
     /* HERO */
     .config-hero {
       text-align: center;
-      max-width: 860px;
-      margin: 0 auto 2.5rem auto;
+      max-width: 880px;
+      margin: 0 auto 2rem auto;
     }
 
     .hero-pill {
@@ -207,11 +251,11 @@
       background: var(--brand-copper-light);
       color: var(--brand-copper-dark);
       border: 1px solid var(--brand-copper-border);
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
     }
 
     .hero-title {
-      font-size: 2.4rem;
+      font-size: 2.35rem;
       font-weight: 800;
       line-height: 1.2;
       color: var(--text);
@@ -219,9 +263,198 @@
     }
 
     .hero-desc {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--text-muted);
       line-height: 1.6;
+    }
+
+    /* SECTOR SELECTOR TABS (WARM MISSI PALETTE) */
+    .sector-nav-wrap {
+      margin-bottom: 2rem;
+    }
+
+    .sector-nav-title {
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-soft);
+      margin-bottom: 0.85rem;
+    }
+
+    .sector-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .sector-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.65rem 1.35rem;
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sector-tab-btn:hover {
+      border-color: var(--brand-copper);
+      color: var(--brand-copper-dark);
+      background: #FFFDFB;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(194, 103, 43, 0.12);
+    }
+
+    .sector-tab-btn.active {
+      background: linear-gradient(135deg, #C2672B 0%, #9A4C1B 100%);
+      color: white;
+      border-color: #824229;
+      box-shadow: 0 4px 14px rgba(194, 103, 43, 0.35);
+    }
+
+    .sector-tab-btn.active .sector-icon {
+      transform: scale(1.15);
+    }
+
+    .sector-icon {
+      font-size: 1.1rem;
+      transition: transform 0.2s;
+    }
+
+    /* RECOMMENDED PACK SPOTLIGHT BANNER */
+    .pack-spotlight {
+      background: linear-gradient(135deg, #FFFDFB 0%, #FAF6EE 100%);
+      border: 2px solid var(--brand-copper-border);
+      border-left: 6px solid var(--brand-copper);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 6px 20px rgba(194, 103, 43, 0.08);
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .pack-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .pack-badge-recommend {
+      background: var(--brand-copper);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .pack-badge-discount {
+      background: var(--status-bg);
+      color: var(--status-emerald);
+      border: 1px solid var(--status-border);
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .pack-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .pack-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 0.85rem;
+    }
+
+    .pack-modules-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .pack-module-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--text-soft);
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .pack-pricing-col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.6rem;
+      border-left: 1px dashed var(--border-accent);
+      padding-left: 1.5rem;
+    }
+
+    .pack-old-price {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+
+    .pack-cur-price {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--brand-copper-dark);
+      font-family: 'Outfit', sans-serif;
+      line-height: 1;
+    }
+
+    .pack-cur-price .unit {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .pack-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--brand-copper);
+      color: white;
+      border: 1px solid var(--brand-copper);
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(194, 103, 43, 0.28);
+      transition: all 0.2s ease;
+    }
+
+    .pack-cta-btn:hover {
+      background: var(--brand-copper-dark);
+      transform: translateY(-1px);
     }
 
     /* CATEGORY FILTER PILLS */
@@ -230,13 +463,13 @@
       justify-content: center;
       gap: 0.5rem;
       flex-wrap: wrap;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
 
     .filter-btn {
-      padding: 0.5rem 1rem;
+      padding: 0.45rem 0.95rem;
       border-radius: var(--radius-full);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       border: 1px solid var(--border);
       background: white;
@@ -262,6 +495,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
       gap: 1.5rem;
+      margin-bottom: 2.5rem;
     }
 
     .module-card {
@@ -269,41 +503,31 @@
       border: 1.5px solid var(--border);
       border-radius: var(--radius-md);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: all 0.2s ease;
       position: relative;
+      box-shadow: var(--shadow-sm);
     }
 
     .module-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
       border-color: var(--border-accent);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
     }
 
     .module-card.selected {
       border-color: var(--brand-copper);
-      box-shadow: 0 4px 18px rgba(194, 103, 43, 0.18);
-      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDFB 100%);
-    }
-
-    .module-card.selected::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--brand-copper);
+      box-shadow: 0 0 0 1.5px var(--brand-copper), 0 8px 24px rgba(194, 103, 43, 0.12);
     }
 
     .module-thumb-wrap {
+      width: 100%;
+      height: 185px;
+      background: #F1F5F9;
       position: relative;
-      background: #F3EFEA;
       overflow: hidden;
-      aspect-ratio: 16 / 9;
       cursor: pointer;
       border-bottom: 1px solid var(--border);
     }
@@ -312,13 +536,12 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top;
+      object-position: top center;
       transition: transform 0.3s ease;
-      display: block;
     }
 
-    .module-card:hover .module-thumb-wrap img {
-      transform: scale(1.04);
+    .module-thumb-wrap:hover img {
+      transform: scale(1.03);
     }
 
     .module-zoom-badge {
@@ -326,23 +549,17 @@
       bottom: 8px;
       right: 8px;
       background: rgba(28, 25, 23, 0.85);
-      backdrop-filter: blur(4px);
       color: white;
-      font-size: 0.7rem;
-      font-weight: 600;
+      font-size: 0.72rem;
+      font-weight: 700;
       padding: 3px 8px;
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      opacity: 0.9;
+      border-radius: 4px;
+      backdrop-filter: blur(4px);
     }
 
     .module-body {
-      padding: 1.25rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
+      padding: 1.25rem 1.4rem;
+      flex-grow: 1;
     }
 
     .module-meta-row {
@@ -354,86 +571,86 @@
 
     .module-tag {
       font-size: 0.7rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      padding: 2px 7px;
-      border-radius: var(--radius-sm);
+      color: var(--brand-copper);
       background: var(--brand-copper-light);
-      color: var(--brand-copper-dark);
-      border: 1px solid var(--brand-copper-border);
+      padding: 2px 8px;
+      border-radius: 4px;
     }
 
     .module-rate {
-      font-size: 0.78rem;
-      font-weight: 800;
-      color: var(--brand-copper);
       font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .module-rate.included {
+      color: var(--status-emerald);
+      font-size: 0.85rem;
     }
 
     .module-title {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 800;
       color: var(--text);
       line-height: 1.3;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.45rem;
     }
 
     .module-desc {
-      font-size: 0.84rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      line-height: 1.45;
+      line-height: 1.5;
       margin-bottom: 0.85rem;
-      flex: 1;
     }
 
     .module-bullets {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
-      margin-bottom: 1rem;
-      font-size: 0.78rem;
-      color: var(--text-gray);
+      gap: 5px;
+      font-size: 0.82rem;
+      color: var(--text-soft);
     }
 
     .module-bullets li {
       display: flex;
       align-items: flex-start;
       gap: 6px;
-      line-height: 1.35;
     }
 
-    .module-bullets span {
+    .module-bullets li span {
       color: var(--brand-copper);
-      font-weight: bold;
+      font-weight: 800;
     }
 
     .module-footer {
-      padding: 0.85rem 1.25rem;
-      background: var(--surface-subtle);
+      padding: 1rem 1.4rem;
       border-top: 1px solid var(--border-subtle);
+      background: var(--surface-subtle);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
     }
 
     .select-toggle-btn {
       width: 100%;
-      padding: 0.6rem 1rem;
+      padding: 0.65rem 1rem;
       border-radius: var(--radius-sm);
-      font-size: 0.85rem;
       font-weight: 700;
+      font-size: 0.85rem;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      border: 1.5px solid var(--border);
-      background: white;
-      color: var(--text);
+      gap: 8px;
       transition: all 0.15s ease;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text-muted);
     }
 
     .select-toggle-btn:hover {
@@ -442,34 +659,63 @@
     }
 
     .module-card.selected .select-toggle-btn {
-      background: var(--brand-copper);
-      color: white;
+      background: var(--brand-copper-light);
       border-color: var(--brand-copper);
-      box-shadow: 0 2px 6px rgba(194, 103, 43, 0.25);
+      color: var(--brand-copper-dark);
     }
 
-    /* STICKY QUOTE SUMMARY BAR AT BOTTOM */
+    /* CUSTOM INQUIRY BOX (PRESTATION SUR-MESURE & ENVOI WHATSAPP) */
+    .custom-inquiry-box {
+      background: #FFFDF9;
+      border: 2px dashed var(--brand-copper-border);
+      border-radius: var(--radius-md);
+      padding: 2rem 2.2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 16px rgba(194, 103, 43, 0.06);
+    }
+
+    .custom-inquiry-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 1.5rem;
+    }
+
+    .inquiry-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--brand-copper-light);
+      border: 1.5px solid var(--brand-copper-border);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      flex-shrink: 0;
+    }
+
+    /* STICKY QUOTE BAR */
     .quote-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      z-index: 9999;
-      background: rgba(28, 25, 23, 0.96);
+      background: rgba(28, 25, 23, 0.98);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-top: 2px solid var(--brand-copper);
-      padding: 0.9rem 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
       color: white;
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.25);
+      padding: 0.85rem 1.5rem;
+      z-index: 100;
+      box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.3);
     }
 
     .quote-bar-inner {
       max-width: 1280px;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 1.5rem;
       flex-wrap: wrap;
     }
@@ -487,40 +733,40 @@
     }
 
     .quote-stat-label {
-      font-size: 0.7rem;
-      color: #A8A29E;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      color: #A8A29E;
+      font-weight: 700;
     }
 
     .quote-stat-val {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: white;
       font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.25rem;
+      line-height: 1.2;
     }
 
     .quote-stat-val.copper {
-      color: #F59E0B;
+      color: #E8833A;
     }
 
     .quote-actions {
       display: flex;
-      gap: 0.75rem;
       align-items: center;
+      gap: 0.75rem;
     }
 
     /* LIGHTBOX MODAL */
     .lightbox-modal {
-      display: none;
       position: fixed;
       inset: 0;
-      z-index: 100000;
-      background: rgba(15, 13, 11, 0.92);
-      backdrop-filter: blur(8px);
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(6px);
+      display: none;
       align-items: center;
       justify-content: center;
+      z-index: 200;
       padding: 2rem;
     }
 
@@ -529,28 +775,23 @@
     }
 
     .lightbox-content {
-      max-width: 1000px;
-      width: 100%;
       background: white;
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-md);
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-      position: relative;
-    }
-
-    .lightbox-content img {
-      width: 100%;
-      height: auto;
-      display: block;
+      max-width: 95vw;
+      max-height: 90vh;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
     }
 
     .lightbox-header {
-      padding: 1rem 1.5rem;
+      padding: 0.75rem 1.25rem;
+      background: #0F172A;
+      color: white;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #1C1917;
-      color: white;
     }
 
     .lightbox-close {
@@ -562,387 +803,185 @@
       line-height: 1;
     }
 
-    @media (max-width: 768px) {
-      .quote-bar {
-        padding: 0.75rem 1rem;
-      }
-      .quote-stats {
-        gap: 1rem;
-      }
-      .quote-stat-val {
-        font-size: 1.05rem;
-      }
-      .hero-title {
-        font-size: 1.75rem;
-      }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: calc(90vh - 50px);
+      object-fit: contain;
+      display: block;
+    }
+
+    @media (max-width: 960px) {
+      .pack-spotlight { grid-template-columns: 1fr; }
+      .pack-pricing-col { align-items: flex-start; border-left: none; padding-left: 0; border-top: 1px dashed var(--border-accent); padding-top: 1.2rem; }
+      .quote-stats { gap: 1rem; }
+      .hero-title { font-size: 1.85rem; }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- TOP NAVIGATION -->
-  <header class="top-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="brand-link" title="Missi Innovation — Retour au catalogue">
-        <img src="assets/img/missi_logo.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; flex-shrink: 0; display: block; box-shadow: 0 2px 8px rgba(28, 25, 23, 0.25);">
-        <div class="brand-title-wrap">
-          <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
-          <div class="brand-tagline">Configurateur &bull; Devis Modulaire Sur-Mesure</div>
+  <!-- EN-TÊTE PRINCIPAL -->
+  <header class="top-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-wrap">
+        <div class="logo-box">
+          <img src="assets/img/missi_logo.svg" alt="Missi Innovation" width="34" height="34" style="border-radius: 9px; display: block;">
+        </div>
+        <div>
+          <div class="brand-text-name">
+            MISSI <span style="color: var(--brand-copper); font-size: 0.72rem; letter-spacing: 0.12em;">INNOVATION</span>
+          </div>
+          <div class="brand-text-sub">Progiciels Métiers &bull; Madagascar 2026</div>
         </div>
       </a>
 
-      <div class="nav-actions">
-        <a href="index.html" class="btn btn-secondary">
-          ← Retour au Catalogue
+      <div class="header-nav">
+        <a href="index.html" class="btn btn-outline">
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          Accueil &amp; Prospectus
         </a>
-        <button onclick="window.print()" class="btn btn-outline">
-          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-          Imprimer ce Devis
-        </button>
+        <a href="#customInquiryZone" class="btn btn-copper-light">
+          💬 Besoin Sur-Mesure
+        </a>
       </div>
     </div>
   </header>
 
+  <!-- CONTENEUR DU CONFIGURATEUR -->
   <div class="page-container">
 
     <!-- HERO SECTION -->
     <div class="config-hero">
-      <div class="hero-pill">
-        ✦ CONFIGURATEUR VISUEL &bull; ÉVALUATION IMMÉDIATE DU COÛT
+      <div class="hero-pill" id="heroPill">
+        ⚡ SIMULATEUR TARIFAIRE OFFICIEL &bull; TARIFS EN ARIARY (MGA)
       </div>
-      <h1 class="hero-title serif">
-        Composez la Solution Idéale pour Votre Établissement
+      <h1 class="hero-title" id="heroTitle">
+        Composez Votre Progiciel de Gestion Métier
       </h1>
-      <p class="hero-desc">
-        Ne payez que pour les modules dont vous avez réellement besoin. Cliquez sur chaque aperçu pour visualiser les interfaces réelles du logiciel, cochez vos options et obtenez instantanément le montant exact de votre investissement.
+      <p class="hero-desc" id="heroDesc">
+        Bénéficiez du <strong>Pack Intégral Recommandé</strong> remisé pour maximiser votre retour sur investissement, ou composez vos options à la carte en toute transparence.
       </p>
     </div>
 
-    <!-- FILTRES PAR DOMAINE MÉTIER -->
-    <div class="filter-bar">
-      <button class="filter-btn active" onclick="filterModules('all', this)">Tous les Modules (14)</button>
-      <button class="filter-btn" onclick="filterModules('scolaire', this)">🏫 Scolarité &amp; Pédagogie</button>
-      <button class="filter-btn" onclick="filterModules('finance', this)">💰 Caisse &amp; Billetage</button>
-      <button class="filter-btn" onclick="filterModules('rh', this)">👥 RH &amp; Paie Légale</button>
-      <button class="filter-btn" onclick="filterModules('cantine', this)">🚌 Cantine, Bus &amp; Badges</button>
-      <button class="filter-btn" onclick="filterModules('hardware', this)">🖨️ Pack Matériel POS</button>
+    <!-- SÉLECTEUR DE SECTEUR (BOUTONS CUIVRE & ÉLÉGANTS) -->
+    <div class="sector-nav-wrap">
+      <div class="sector-nav-title">Sélectionnez Votre Secteur d'Activité :</div>
+      <div class="sector-tabs">
+        <button class="sector-tab-btn active" onclick="switchSector('education', this)">
+          <span class="sector-icon">🎓</span> Éducation &amp; Scolarité
+        </button>
+        <button class="sector-tab-btn" onclick="switchSector('hotellerie', this)">
+          <span class="sector-icon">🏨</span> Hôtellerie &amp; Restauration
+        </button>
+        <button class="sector-tab-btn" onclick="switchSector('tourisme', this)">
+          <span class="sector-icon">🧭</span> Tourisme &amp; Réceptifs
+        </button>
+        <button class="sector-tab-btn" onclick="switchSector('entreprise', this)">
+          <span class="sector-icon">🏢</span> Entreprises &amp; PME / Négoce
+        </button>
+        <button class="sector-tab-btn" onclick="switchSector('homeschooling', this)">
+          <span class="sector-icon">🏡</span> Homeschooling &amp; Familles
+        </button>
+        <button class="sector-tab-btn" onclick="switchSector('crossdomaine', this)">
+          <span class="sector-icon">🌐</span> Prestation Libre &amp; Sur-Mesure
+        </button>
+      </div>
     </div>
 
-    <!-- GRILLE DE MODULES AVEC APERÇU VISUEL RÉEL -->
+    <!-- BANNIÈRE PACK RECOMMANDÉ DU SECTEUR ACTIF -->
+    <div class="pack-spotlight" id="packSpotlight">
+      <div>
+        <div class="pack-badge-row">
+          <span class="pack-badge-recommend">★ Pack Métier Officiel</span>
+          <span class="pack-badge-discount" id="packDiscountBadge">-30% D'AVANTAGE PACK</span>
+        </div>
+        <h2 class="pack-title" id="packTitle">Pack Intégral Établissement Scolaire</h2>
+        <p class="pack-desc" id="packDesc">
+          L'assemblage optimal plébiscité par les directeurs d'établissements : scolarité, encaissement rapide, billetage physique 18h, traque des impayés et bulletins officiels sans double saisie.
+        </p>
+        <div class="pack-modules-list" id="packPillsList">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+
+      <div class="pack-pricing-col">
+        <div class="pack-old-price" id="packOldPrice">214 000 Ar / mois à la carte</div>
+        <div class="pack-cur-price" id="packCurPrice">
+          149 000 Ar <span class="unit">/ mois</span>
+        </div>
+        <button class="pack-cta-btn" onclick="applyRecommendedPack()">
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          Appliquer ce Pack Recommandé
+        </button>
+      </div>
+    </div>
+
+    <!-- FILTRES PAR DOMAINE DE MODULES -->
+    <div class="filter-bar" id="filterBar">
+      <!-- Injected dynamically based on active sector -->
+    </div>
+
+    <!-- GRILLE DES MODULES SÉCTORIELS -->
     <div class="modules-grid" id="modulesGrid">
+      <!-- Injected dynamically based on active sector -->
+    </div>
 
-      <!-- 1. TABLEAU DE BORD DIRECTEUR (SOCLE) -->
-      <div class="module-card selected" data-category="scolaire" data-cost="0" data-required="true" data-id="m1">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/02_tableau_de_bord_directeur.png', 'Tableau de Bord Directeur & Pilotage')">
-          <img src="assets/img/02_tableau_de_bord_directeur.png" alt="Tableau de bord directeur" loading="lazy">
-          <div class="module-zoom-badge">🔍 Zoom Interface</div>
-        </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag">Socle Fondamental</span>
-            <span class="module-rate" style="color: var(--status-emerald);">Inclus dans le socle</span>
-          </div>
-          <h3 class="module-title">Tableau de Bord Stratégique Directeur</h3>
-          <p class="module-desc">Vue panoramique en temps réel : effectifs actifs, taux d'encaissement du mois, alertes de trésorerie et KPI de rentabilité.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Indicateurs financiers &amp; effectifs consolidés</li>
-            <li><span>✓</span> Alertes immédiates des anomalies de caisse</li>
-            <li><span>✓</span> Exportation des bilans de direction PDF/Excel</li>
-          </ul>
-        </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m1')" disabled style="opacity: 0.8; cursor: default;">
-            ✓ Inclus dans le socle obligatoire
-          </button>
+    <!-- ZONE PROJET SUR-MESURE & ENVOI DIRECT (WHATSAPP / IMAGE / CAHIER DES CHARGES) -->
+    <div class="custom-inquiry-box" id="customInquiryZone">
+      <div class="custom-inquiry-header">
+        <div class="inquiry-icon">✨</div>
+        <div>
+          <h3 class="serif" style="font-size: 1.25rem; color: var(--text); margin-bottom: 4px;">
+            Vous avez un besoin spécifique ou un processus métier sur-mesure ?
+          </h3>
+          <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">
+            Vous gérez un flux unique, un tableau Excel à convertir, ou un besoin non répertorié ? Décrivez-le ici, joignez une photo de votre support actuel et transmettez-le directement à notre équipe technique.
+          </p>
         </div>
       </div>
 
-      <!-- 2. GESTION DES DOSSIERS ÉLÈVES (SOCLE) -->
-      <div class="module-card selected" data-category="scolaire" data-cost="0" data-required="true" data-id="m2">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/03_gestion_eleves_dossiers.png', 'Dossiers Élèves & Inscriptions')">
-          <img src="assets/img/03_gestion_eleves_dossiers.png" alt="Dossiers élèves" loading="lazy">
-          <div class="module-zoom-badge">🔍 Zoom Interface</div>
+      <div class="custom-inquiry-form">
+        <div style="margin-bottom: 1.1rem;">
+          <label style="display: block; font-weight: 700; font-size: 0.84rem; margin-bottom: 6px; color: var(--text);">
+            📝 Décrivez votre besoin ou vos règles de fonctionnement :
+          </label>
+          <textarea id="customProjectDesc" rows="4" placeholder="Ex: Nous avons 12 employés en roulement de nuit et 3 dépôts de pièces détachées. Nous souhaitons que la sortie d'un article génère automatiquement une alerte et une fiche de paie déduisant les avances..." style="width: 100%; border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 0.85rem; font-family: inherit; font-size: 0.9rem; line-height: 1.5; resize: vertical;"></textarea>
         </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag">Socle Fondamental</span>
-            <span class="module-rate" style="color: var(--status-emerald);">Inclus dans le socle</span>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem;">
+          <div>
+            <label style="display: block; font-weight: 700; font-size: 0.84rem; margin-bottom: 6px; color: var(--text);">
+              📎 Joindre une photo ou document (Ex: Excel, facture, reçu, croquis) :
+            </label>
+            <div class="file-upload-wrap" style="position: relative; border: 1.5px dashed var(--border-accent); background: var(--brand-copper-light); border-radius: var(--radius-sm); padding: 0.9rem 1rem; text-align: center; cursor: pointer; transition: all 0.2s ease;">
+              <input type="file" id="customProjectFile" accept="image/*,.pdf,.xlsx,.xls,.docx" style="position: absolute; inset: 0; opacity: 0; cursor: pointer;" onchange="handleFileSelect(this)">
+              <div id="fileUploadLabel" style="font-size: 0.86rem; color: var(--brand-copper-dark); font-weight: 700;">
+                📷 Cliquez ici pour joindre une image ou un fichier
+              </div>
+              <div id="fileNamePreview" style="font-size: 0.78rem; color: var(--text-soft); margin-top: 4px;">
+                (Captures d'écran, photos smartphone, PDF, tableurs — Max 15 Mo)
+              </div>
+            </div>
           </div>
-          <h3 class="module-title">Dossiers Élèves &amp; Inscriptions</h3>
-          <p class="module-desc">Fiches élèves complètes, fratries, contact des tuteurs, certificats de scolarité en 1 clic et historique du parcours.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Gestion des fratries &amp; réductions automatiques</li>
-            <li><span>✓</span> Certificats de scolarité normalisés avec QR Code</li>
-            <li><span>✓</span> Import gratuit de vos listes Excel existantes</li>
-          </ul>
+
+          <div>
+            <label style="display: block; font-weight: 700; font-size: 0.84rem; margin-bottom: 6px; color: var(--text);">
+              📞 Vos Coordonnées (Nom, Établissement &amp; Téléphone / WhatsApp) :
+            </label>
+            <input type="text" id="customClientContact" placeholder="Ex: M. Rakoto • 034 00 000 00 • contact@domaine.mg" style="width: 100%; border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 0.85rem; font-family: inherit; font-size: 0.9rem;">
+          </div>
         </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m2')" disabled style="opacity: 0.8; cursor: default;">
-            ✓ Inclus dans le socle obligatoire
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: flex-end; align-items: center; border-top: 1px solid var(--border); padding-top: 1rem;">
+          <button type="button" class="btn btn-outline" onclick="copyQuoteSummary()" style="font-size: 0.85rem; padding: 0.65rem 1.15rem;">
+            📋 Copier le Récapitulatif Devis
+          </button>
+          <button type="button" class="btn btn-copper" onclick="sendViaWhatsApp()" style="background: #25D366; border-color: #20BA5A; font-size: 0.88rem; padding: 0.65rem 1.35rem; font-weight: 800;">
+            💬 Envoyer Ma Demande sur WhatsApp Direct
           </button>
         </div>
       </div>
-
-      <!-- 3. JOURNAL DE CAISSE & RECOUVREMENT -->
-      <div class="module-card selected" data-category="finance" data-cost="25000" data-id="m3">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/04_journal_financier_recettes.png', 'Journal Financier & Recettes Écolages')">
-          <img src="assets/img/04_journal_financier_recettes.png" alt="Journal financier" loading="lazy">
-          <div class="module-zoom-badge">🔍 Zoom Interface</div>
-        </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag">Finance &amp; Trésorerie</span>
-            <span class="module-rate">+25 000 Ar / mois</span>
-          </div>
-          <h3 class="module-title">Journal de Caisse &amp; Recouvrement des Écolages</h3>
-          <p class="module-desc">Encaissement guichet rapide en 4 secondes avec reçus thermiques ou A5, gestion des acomptes et rapprochement bancaire.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Saisie ultra-rapide par matricule ou nom</li>
-            <li><span>✓</span> Journal inaltérable des encaissements par caissier</li>
-            <li><span>✓</span> Élimination des contestations grâce aux reçus officiels</li>
-          </ul>
-        </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m3')">
-            <span class="btn-check-icon">✓</span> <span class="btn-text">Module Sélectionné</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- 4. BILLETAGE PHYSIQUE & CLÔTURE SCELÉE -->
-      <div class="module-card selected" data-category="finance" data-cost="25000" data-id="m4">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/05_pointage_caisse_billetage.png', 'Pointage Caisse & Billetage Physique')">
-          <img src="assets/img/05_pointage_caisse_billetage.png" alt="Billetage physique" loading="lazy">
-          <div class="module-zoom-badge">🔍 Zoom Interface</div>
-        </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag">Sécurité Caisse</span>
-            <span class="module-rate">+25 000 Ar / mois</span>
-          </div>
-          <h3 class="module-title">Billetage Physique &amp; Clôture Scellée (Ticket Z)</h3>
-          <p class="module-desc">Comptage physique des coupures de 20 000 à 100 Ar lors de la fermeture à 18h. Verrouillage interdisant tout écart non justifié.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Clôture quotidienne inviolable avec ticket Z scellé</li>
-            <li><span>✓</span> Détection automatique de tout écart de caisse</li>
-            <li><span>✓</span> Réconciliation physique vs informatique sans faille</li>
-          </ul>
-        </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m4')">
-            <span class="btn-check-icon">✓</span> <span class="btn-text">Module Sélectionné</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- 5. TRAQUE DES IMPAYÉS -->
-      <div class="module-card selected" data-category="finance" data-cost="20000" data-id="m5">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/06_alertes_recouvrement_impayes.png', 'Traque des Impayés & Relances SMS')">
-          <img src="assets/img/06_alertes_recouvrement_impayes.png" alt="Traque des impayés" loading="lazy">
-          <div class="module-zoom-badge">🔍 Zoom Interface</div>
-        </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag">Recouvrement</span>
-            <span class="module-rate">+20 000 Ar / mois</span>
-          </div>
-          <h3 class="module-title">Traque Active des Impayés &amp; Relances</h3>
-          <p class="module-desc">Filtrez instantanément les retards d'écolage par classe et préparez les lettres et SMS de relance sans oubli.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Liste dynamique des familles débitrices par tranche</li>
-            <li><span>✓</span> Réduction prouvée de 85% des impayés d'écolage</li>
-            <li><span>✓</span> Historique des accords d'échéancier accordés</li>
-          </ul>
-        </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m5')">
-            <span class="btn-check-icon">✓</span> <span class="btn-text">Module Sélectionné</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- 6. GESTION DES NOTES & BULLETINS -->
-      <div class="module-card selected" data-category="scolaire" data-cost="25000" data-id="m6">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/09_saisie_notes_bulletins.png', 'Saisie des Notes & Bulletins Trimestriels')">
-          <img src="assets/img/09_saisie_notes_bulletins.png" alt="Saisie notes et bulletins" loading="lazy">
-          <div class="module-zoom-badge">🔍 Zoom Interface</div>
-        </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag">Pédagogie &amp; Examens</span>
-            <span class="module-rate">+25 000 Ar / mois</span>
-          </div>
-          <h3 class="module-title">Saisie des Notes &amp; Bulletins Trimestriels A4</h3>
-          <p class="module-desc">Calcul automatisé des moyennes pondérées, classements, appréciations et édition instantanée des livrets trimestriels officiels.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Coefficients personnalisables par série et niveau</li>
-            <li><span>✓</span> Génération en masse de 500 bulletins en moins de 30 sec</li>
-            <li><span>✓</span> Tableaux d'honneur et statistiques de réussite</li>
-          </ul>
-        </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m6')">
-            <span class="btn-check-icon">✓</span> <span class="btn-text">Module Sélectionné</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- 7. GESTION RH & VACATIONS ENSEIGNANTS -->
-      <div class="module-card selected" data-category="rh" data-cost="24000" data-id="m7">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/07_gestion_personnel_salaires.png', 'Gestion du Personnel & Vacations Profs')">
-          <img src="assets/img/07_gestion_personnel_salaires.png" alt="Gestion personnel et salaires" loading="lazy">
-          <div class="module-zoom-badge">🔍 Zoom Interface</div>
-        </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag">Ressources Humaines</span>
-            <span class="module-rate">+24 000 Ar / mois</span>
-          </div>
-          <h3 class="module-title">Gestion RH, Vacations Professeurs &amp; Pointage</h3>
-          <p class="module-desc">Dossiers employés (permanents et vacataires), taux horaires, relevé des heures de cours dispensées et calcul des majorations.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Relevé mensuel des heures effectives par classe</li>
-            <li><span>✓</span> Suivi des acomptes et avances sur salaire</li>
-            <li><span>✓</span> Clôture salariale mensuelle sans omission</li>
-          </ul>
-        </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m7')">
-            <span class="btn-check-icon">✓</span> <span class="btn-text">Module Sélectionné</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- 8. PAIE LÉGALE MALAGASY (IRSA, CNAPS) -->
-      <div class="module-card" data-category="rh" data-cost="25000" data-id="m8">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/08_alertes_impayes_rh.png', 'Paie Légale Malagasy IRSA, CNaPS & OSTIE')">
-          <img src="assets/img/08_alertes_impayes_rh.png" alt="Paie légale Malagasy" loading="lazy">
-          <div class="module-zoom-badge">🔍 Zoom Interface</div>
-        </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag">Conformité Fiscale</span>
-            <span class="module-rate">+25 000 Ar / mois</span>
-          </div>
-          <h3 class="module-title">Paie Légale Malagasy (IRSA, CNaPS &amp; OSTIE)</h3>
-          <p class="module-desc">Barème fiscal Malagasy intégré (tranches IRSA, CNaPS 1% salariale / 13% patronale, OSTIE/AMIT) avec édition des fiches de paie PDF.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Bulletins de salaire conformes au Code du Travail</li>
-            <li><span>✓</span> Déclaration récapitulative trimestrielle CNaPS</li>
-            <li><span>✓</span> Déduction automatique des prêts et avances</li>
-          </ul>
-        </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m8')">
-            <span class="btn-check-icon">+</span> <span class="btn-text">Ajouter au Devis</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- 9. POINTAGE BUS, CANTINE & BADGES RFID -->
-      <div class="module-card" data-category="cantine" data-cost="30000" data-id="m9">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/10_pointage_bus_cantine.png', 'Pointage Cantine Scolaire, Bus & Badges RFID')">
-          <img src="assets/img/10_pointage_bus_cantine.png" alt="Pointage bus et cantine" loading="lazy">
-          <div class="module-zoom-badge">🔍 Zoom Interface</div>
-        </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag">Vie Scolaire &amp; Flux</span>
-            <span class="module-rate">+30 000 Ar / mois</span>
-          </div>
-          <h3 class="module-title">Pointage Cantine, Transport Bus &amp; Badges RFID</h3>
-          <p class="module-desc">Borne réfectoire ultra-rapide (2 secondes par élève), décompte automatique des forfaits repas prépayés et pointage des montées de bus.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Compatibilité avec cartes code-barres ou badges RFID</li>
-            <li><span>✓</span> Suivi des régimes alimentaires et allergies</li>
-            <li><span>✓</span> Traçabilité de présence sécurisante pour les parents</li>
-          </ul>
-        </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m9')">
-            <span class="btn-check-icon">+</span> <span class="btn-text">Ajouter au Devis</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- 10. RAPPORTS COMPTABLES & EXPORTS EXCEL -->
-      <div class="module-card" data-category="finance" data-cost="15000" data-id="m10">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/11_rapports_comptables_exports.png', 'Rapports Comptables & Grand Livre')">
-          <img src="assets/img/11_rapports_comptables_exports.png" alt="Rapports comptables" loading="lazy">
-          <div class="module-zoom-badge">🔍 Zoom Interface</div>
-        </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag">Comptabilité Générale</span>
-            <span class="module-rate">+15 000 Ar / mois</span>
-          </div>
-          <h3 class="module-title">Grand Livre Comptable &amp; Exports Excel</h3>
-          <p class="module-desc">Exportation instantanée des écritures vers votre logiciel comptable (Sage, Ciel) ou formats universels Excel/CSV pour votre expert-comptable.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Ventilation des comptes de classe 7 (produits écolages)</li>
-            <li><span>✓</span> Relevé mensuel des charges de personnel</li>
-            <li><span>✓</span> Audit complet conforme aux normes malagasy</li>
-          </ul>
-        </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m10')">
-            <span class="btn-check-icon">+</span> <span class="btn-text">Ajouter au Devis</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- 11. SYNCHRONISATION CLOUD SOUVERAINE -->
-      <div class="module-card" data-category="finance" data-cost="20000" data-id="m11">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/01_connexion_cloud.png', 'Sauvegarde Cloud & Synchronisation Miroir')">
-          <img src="assets/img/01_connexion_cloud.png" alt="Connexion Cloud et sauvegarde" loading="lazy">
-          <div class="module-zoom-badge">🔍 Zoom Interface</div>
-        </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag">Infrastructures &amp; Backup</span>
-            <span class="module-rate">+20 000 Ar / mois</span>
-          </div>
-          <h3 class="module-title">Sauvegarde Miroir Cloud &amp; Accès Multi-Sites</h3>
-          <p class="module-desc">Double sécurité : moteur local autonome à l'école + réplication Cloud chiffrée lors des retours de connexion pour consultation à distance.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Consultation du tableau de bord depuis votre domicile</li>
-            <li><span>✓</span> Restauration instantanée en cas de sinistre matériel</li>
-            <li><span>✓</span> Chiffrement de bout en bout des données élèves</li>
-          </ul>
-        </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m11')">
-            <span class="btn-check-icon">+</span> <span class="btn-text">Ajouter au Devis</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- 12. PACK MATÉRIEL IMPRIMANTE 80MM POS -->
-      <div class="module-card selected" data-category="hardware" data-cost="0" data-hardware="450000" data-id="m12">
-        <div class="module-thumb-wrap" onclick="openLightbox('assets/img/pack_imprimante_cutout.png', 'Pack Matériel Imprimante 80 mm POS & Bobines')">
-          <img src="assets/img/pack_imprimante_cutout.png" alt="Pack imprimante 80 mm POS" style="object-fit: contain; padding: 1.25rem; background: white;" loading="lazy">
-          <div class="module-zoom-badge">🔍 Vue Matériel</div>
-        </div>
-        <div class="module-body">
-          <div class="module-meta-row">
-            <span class="module-tag" style="background: #ECFDF5; color: #065F46; border-color: #A7F3D0;">Service Confort Clés en Main</span>
-            <span class="module-rate" style="color: var(--brand-copper-dark); font-size: 0.95rem;">450 000 Ar (One-Shot)</span>
-          </div>
-          <h3 class="module-title">Pack Matériel : Imprimante 80 mm POS</h3>
-          <p class="module-desc">Imprimante thermique neuve USB avec massicot automatique, 5 bobines de papier thermique fournies et pré-configuration directe sur vos postes.</p>
-          <ul class="module-bullets">
-            <li><span>✓</span> Zéro coût d'encre (technologie thermique directe)</li>
-            <li><span>✓</span> Mise à disposition à prix coûtant réel sans marge</li>
-            <li><span>✓</span> Prêt immédiat sous 4h en cas d'avarie matérielle</li>
-          </ul>
-        </div>
-        <div class="module-footer">
-          <button class="select-toggle-btn" onclick="toggleModule('m12')">
-            <span class="btn-check-icon">✓</span> <span class="btn-text">Pack Matériel Sélectionné</span>
-          </button>
-        </div>
-      </div>
-
     </div>
 
   </div>
@@ -952,23 +991,27 @@
     <div class="quote-bar-inner">
       <div class="quote-stats">
         <div class="quote-stat-item">
-          <span class="quote-stat-label">Modules Sélectionnés</span>
-          <span class="quote-stat-val" id="statCount">7 modules</span>
+          <span class="quote-stat-label">Formule Active</span>
+          <span class="quote-stat-val" id="statConfigName" style="font-size: 0.95rem; color: #E8D3BF;">Pack Intégral</span>
+        </div>
+        <div class="quote-stat-item">
+          <span class="quote-stat-label">Modules Inclus</span>
+          <span class="quote-stat-val" id="statCount">6 modules</span>
         </div>
         <div class="quote-stat-item">
           <span class="quote-stat-label">Abonnement Mensuel</span>
-          <span class="quote-stat-val copper" id="statMonthly">119 000 Ar <span style="font-size: 0.75rem; color: #D6D3D1;">/ mois</span></span>
+          <span class="quote-stat-val copper" id="statMonthly">149 000 Ar <span style="font-size: 0.72rem; color: #D6D3D1;">/ mois</span></span>
         </div>
         <div class="quote-stat-item">
-          <span class="quote-stat-label">Déploiement &amp; Matériel</span>
-          <span class="quote-stat-val" id="statOneShot">700 000 Ar <span style="font-size: 0.72rem; color: #A8A29E;">(One-shot)</span></span>
+          <span class="quote-stat-label">Frais Déploiement &amp; Matériel</span>
+          <span class="quote-stat-val" id="statOneShot">250 000 Ar <span style="font-size: 0.7rem; color: #A8A29E;">(One-shot)</span></span>
         </div>
       </div>
 
       <div class="quote-actions">
-        <button onclick="window.print()" class="btn btn-copper" style="padding: 0.65rem 1.25rem;">
+        <button onclick="window.print()" class="btn btn-copper" style="padding: 0.65rem 1.35rem;">
           <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-          Générer / Imprimer Mon Devis A4
+          Imprimer Mon Devis A4
         </button>
       </div>
     </div>
@@ -978,7 +1021,7 @@
   <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
     <div class="lightbox-content" onclick="event.stopPropagation()">
       <div class="lightbox-header">
-        <span id="lightboxTitle" style="font-weight: 700; font-size: 0.95rem;">Aperçu Interface</span>
+        <span id="lightboxTitle" style="font-weight: 700; font-size: 0.95rem;">Aperçu Interface Réelle</span>
         <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
       </div>
       <img id="lightboxImg" src="" alt="Capture interface zoom">
@@ -986,82 +1029,1614 @@
   </div>
 
   <script>
-    // BASE COST SETUP
-    const BASE_MONTHLY_START = 0; // Socle de base
-    const BASE_DEPLOYMENT_FEE = 250000; // Déploiement logiciel sur site
+    // =========================================================================
+    // BASE DE DONNÉES MULTI-SECTEURS CONFORME AUX PROSPECTUS OFFICIELS
+    // =========================================================================
+    const SECTORS_DATA = {
+      education: {
+        name: "Éducation & Scolarité",
+        appTitle: "Study Agent Pro",
+        heroPill: "🎓 SECTEUR ÉDUCATION &bull; SCOLARITÉ &amp; ÉCOLES PRIVÉES",
+        heroTitle: "Composez l'ERP Idéal pour Votre Établissement Scolaire",
+        heroDesc: "Le progiciel le plus complet de Madagascar pour sécuriser les écolages, éradiquer les fraudes de caisse et éditer vos bulletins A4 sans dépendre d'Internet.",
+        baseCost: 119000,
+        deploymentFee: 250000,
+        pack: {
+          name: "Pack Intégral Établissement Scolaire ★",
+          packPrice: 149000,
+          rawSum: 214000,
+          discountBadge: "-30% D'AVANTAGE PACK",
+          desc: "La formule complète plébiscitée par les directeurs d'école : socle secrétariat, journal d'encaissements, billetage physique 18h, traque des impayés et bulletins trimestriels officiels.",
+          includedIds: ["edu_m1", "edu_m2", "edu_m3", "edu_m4", "edu_m5"]
+        },
+        categories: [
+          { key: "all", label: "Tous les Modules" },
+          { key: "scolaire", label: "🏫 Scolarité & Bulletins" },
+          { key: "caisse", label: "💰 Caisse & Billetage" },
+          { key: "comm", label: "📲 Communication Parents" },
+          { key: "rh", label: "👥 RH & Paie Enseignants" },
+          { key: "cantine", label: "🚌 Flux Bus & Cantine" },
+          { key: "hardware", label: "🖨️ Pack Matériel POS" }
+        ],
+        modules: [
+          {
+            id: "edu_m1",
+            category: "scolaire",
+            tag: "Socle Logiciel",
+            rateText: "Socle Inclus (119 000 Ar/m)",
+            cost: 119000,
+            hardware: 0,
+            required: true,
+            title: "Tableau de Bord Stratégique Directeur & Scolarité",
+            desc: "Vue d'ensemble en temps réel : effectifs élèves, taux de recouvrement du mois, alertes de trésorerie et bilans d'écolage consolidés.",
+            bullets: [
+              "Effectifs et statistiques consolidés par classe",
+              "Alertes immédiates des anomalies de caisse",
+              "Exportation des bilans de direction PDF / Excel"
+            ],
+            img: "assets/img/02_tableau_de_bord_directeur.png"
+          },
+          {
+            id: "edu_m2",
+            category: "scolaire",
+            tag: "Secrétariat & Fiches",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Inscriptions, Fiches Élèves & Gestion des Fratries",
+            desc: "Fiches élèves complètes avec photo, pièces d'identité, calcul automatique des réductions fratries (2e, 3e enfant) et certificats en 1 clic.",
+            bullets: [
+              "Attribution automatique des matricules uniques",
+              "Barème de réductions fratries configurable",
+              "Recherche instantanée par nom, classe ou matricule"
+            ],
+            img: "assets/img/03_gestion_eleves_dossiers.png"
+          },
+          {
+            id: "edu_m3",
+            category: "caisse",
+            tag: "Recettes Caisse",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Moteur de Caisse & Reçus Thermiques 80 mm",
+            desc: "Encaissement ultra-rapide des écolages, frais d'inscription et fournitures avec édition immédiate du reçu officiel.",
+            bullets: [
+              "Saisie en 3 clics par matricule",
+              "Journal inaltérable des encaissements par caissier",
+              "Élimination des contestations grâce aux reçus officiels"
+            ],
+            img: "assets/img/04_journal_financier_recettes.png"
+          },
+          {
+            id: "edu_m4",
+            category: "caisse",
+            tag: "Sécurité Anti-Fraude",
+            rateText: "+20 000 Ar / mois",
+            cost: 20000,
+            hardware: 0,
+            required: false,
+            title: "Billetage Physique 18h & Clôture Scellée (Ticket Z)",
+            desc: "Comptage physique des coupures de 20 000 à 100 Ar à la fermeture de 18h. Verrouillage interdisant tout écart non justifié.",
+            bullets: [
+              "Clôture quotidienne inviolable avec ticket Z scellé",
+              "Détection automatique de tout écart de caisse",
+              "Réconciliation physique vs informatique sans faille"
+            ],
+            img: "assets/img/05_pointage_caisse_billetage.png"
+          },
+          {
+            id: "edu_m5",
+            category: "scolaire",
+            tag: "Évaluations MEN",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Bulletins de Notes Officiels, Coefficients & Moyennes",
+            desc: "Calcul automatique des moyennes pondérées par matière, rangs, appréciations des enseignants et génération PDF A4 prête à imprimer.",
+            bullets: [
+              "Conforme aux barèmes officiels de l'Éducation Nationale",
+              "Verrouillage des notes après validation du conseil",
+              "Zéro risque d'erreur de calcul manuel"
+            ],
+            img: "assets/img/09_saisie_notes_bulletins.png"
+          },
+          {
+            id: "edu_m6",
+            category: "comm",
+            tag: "Communication Directe",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Notifications SMS & WhatsApp Directes aux Parents",
+            desc: "Envoi automatique des rappels d'échéances d'écolage, alertes retards du matin et diffusion des avis urgents sur smartphones.",
+            bullets: [
+              "Canal direct WhatsApp sans surcoût d'opérateur",
+              "Augmentation prouvée de 35% du recouvrement à l'échéance",
+              "Modèles de messages pré-configurés en français et malgache"
+            ],
+            img: "assets/img/06_alertes_recouvrement_impayes.png"
+          },
+          {
+            id: "edu_m7",
+            category: "scolaire",
+            tag: "Sécurité & Badges",
+            rateText: "+20 000 Ar / mois",
+            cost: 20000,
+            hardware: 0,
+            required: false,
+            title: "Cartes Scolaires Sécurisées avec QR Code & Photo",
+            desc: "Génération et impression de cartes d'élèves infalsifiables avec QR Code individuel pour le pointage des entrées et de la cantine.",
+            bullets: [
+              "Format carte d'identité ou PVC avec logo établissement",
+              "Scan immédiat par caméra smartphone ou douchette USB",
+              "Réduction radicale des intrusions d'inconnus"
+            ],
+            img: "assets/img/03_gestion_eleves_dossiers.png"
+          },
+          {
+            id: "edu_m8",
+            category: "scolaire",
+            tag: "Assiduité",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Gestion des Retards, Absences & Carnet de Correspondance",
+            desc: "Pointage des présences en temps réel par classe avec cumul des heures d'absence et justification médicale.",
+            bullets: [
+              "Rapports d'assiduité mensuels pour les conseils de classe",
+              "Détection précoce du décrochage scolaire",
+              "Historique d'assiduité imprimable sur le bulletin"
+            ],
+            img: "assets/img/08_alertes_impayes_rh.png"
+          },
+          {
+            id: "edu_m9",
+            category: "rh",
+            tag: "Gestion Sociale",
+            rateText: "+30 000 Ar / mois",
+            cost: 30000,
+            hardware: 0,
+            required: false,
+            title: "Paie des Enseignants & Personnel (Heures de Vacation)",
+            desc: "Décompte des heures de vacation par professeur, fiches de paie conformes aux tranches locales et suivi des acomptes.",
+            bullets: [
+              "Calcul automatique des salaires selon volume horaire réel",
+              "Suivi rigoureux des avances sur salaire en cours de mois",
+              "Registre du personnel et contrats archivés"
+            ],
+            img: "assets/img/07_gestion_personnel_salaires.png"
+          },
+          {
+            id: "edu_m10",
+            category: "cantine",
+            tag: "Flux Scolaires",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Pointage Cantine, Transport Bus & Gestion des Repas",
+            desc: "Borne de pointage réfectoire (2 secondes par élève) et suivi des forfaits repas prépayés avec contrôle d'accès au bus scolaire.",
+            bullets: [
+              "Décompte automatique des tickets cantine prépayés",
+              "Listes d'embarquement bus par trajet / quartier",
+              "Zéro passager clandestin ou repas non comptabilisé"
+            ],
+            img: "assets/img/10_pointage_bus_cantine.png"
+          },
+          {
+            id: "edu_m11",
+            category: "caisse",
+            tag: "Sauvegarde Cloud",
+            rateText: "+20 000 Ar / mois",
+            cost: 20000,
+            hardware: 0,
+            required: false,
+            title: "Sauvegarde Miroir Cloud Supabase & Accès Multi-Sites",
+            desc: "Moteur local autonome à l'école + réplication Cloud chiffrée lors des retours de connexion pour consultation distante par la direction.",
+            bullets: [
+              "Consultation à distance de vos chiffres clés",
+              "Restauration instantanée en cas de panne machine",
+              "Chiffrement de bout en bout conforme aux normes"
+            ],
+            img: "assets/img/01_connexion_cloud.png"
+          },
+          {
+            id: "edu_m12",
+            category: "hardware",
+            tag: "Matériel POS",
+            rateText: "450 000 Ar (One-Shot)",
+            cost: 0,
+            hardware: 450000,
+            required: false,
+            title: "Pack Imprimante Thermique 80 mm POS & 5 Bobines",
+            desc: "Imprimante USB robuste haute vitesse avec massicot automatique, zéro cartouche d'encre et 5 bobines offertes.",
+            bullets: [
+              "Édition instantanée des reçus d'écolage",
+              "Technologie thermique directe sans entretien",
+              "Matériel neuf sous garantie avec remplacement express"
+            ],
+            img: "assets/img/pack_imprimante_cutout.png"
+          }
+        ]
+      },
 
-    function formatAr(num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " Ar";
+      hotellerie: {
+        name: "Hôtellerie & Restauration",
+        appTitle: "ResiPro Suite Hôtelière",
+        heroPill: "🏨 SECTEUR HÔTELLERIE &bull; HÔTELS, RESORTS &amp; RESTAURANTS",
+        heroTitle: "Pilotez Chambres, Restaurant &amp; Bar en Totale Sérénité",
+        heroDesc: "Solution tout-en-un conçue pour les réalités de Madagascar : réservations sans surbooking, caisse bar/restaurant avec note sur chambre et fonctionnement hors-ligne garanti.",
+        baseCost: 79000,
+        deploymentFee: 250000,
+        pack: {
+          name: "Pack Intégral Établissement ResiPro ★",
+          packPrice: 129000,
+          rawSum: 174000,
+          discountBadge: "-26% D'AVANTAGE PACK",
+          desc: "La formule complète du prospectus officiel : planning dynamique des chambres, facturation restaurant/bar, transferts de notes sur chambre, devises étrangères et clôture de caisse scellée.",
+          includedIds: ["hot_m1", "hot_m2", "hot_m3", "hot_m4", "hot_m5"]
+        },
+        categories: [
+          { key: "all", label: "Tous les Modules" },
+          { key: "hebergement", label: "🛏️ Chambres & Réception" },
+          { key: "restaurant", label: "🍽️ Restaurant & Bar" },
+          { key: "caisse", label: "💰 Caisse & Devises" },
+          { key: "stock", label: "🍷 Économat & Boissons" },
+          { key: "options", label: "⭐ Options Évolutives" },
+          { key: "hardware", label: "🖨️ Pack Matériel POS" }
+        ],
+        modules: [
+          {
+            id: "hot_m1",
+            category: "hebergement",
+            tag: "Socle Hôtelier",
+            rateText: "Socle Inclus (79 000 Ar/m)",
+            cost: 79000,
+            hardware: 0,
+            required: true,
+            title: "Planning Visuel des Chambres & Réservations",
+            desc: "Calendrier interactif des disponibilités par type de chambre (Standard, Supérieure, Suite, Bungalow), arrivées, départs et multi-séjours.",
+            bullets: [
+              "Check-in / Check-out ultra-rapide des clients",
+              "Fiche voyageur avec copie passeport et carte d'identité",
+              "Élimination radicale de tout risque de surbooking"
+            ],
+            img: "assets/img/resipro_02_planning_chambres.png"
+          },
+          {
+            id: "hot_m2",
+            category: "hebergement",
+            tag: "Facturation Séjour",
+            rateText: "+35 000 Ar / mois",
+            cost: 35000,
+            hardware: 0,
+            required: false,
+            title: "Facturation Globale Séjour & Vignettes Touristiques",
+            desc: "Facture unifiée intégrant nuitées, petit-déjeuner, blanchisserie, vignettes touristiques obligatoires et taxes de séjour aux normes NIF/STAT.",
+            bullets: [
+              "Facture fiscale prête pour les clients corporate (NIF/STAT)",
+              "Gestion des acomptes à la réservation et solde au départ",
+              "Règlement fractionné (Espèces, Carte, Mobile Money MVola)"
+            ],
+            img: "assets/img/resipro_04_facturation_finances.png"
+          },
+          {
+            id: "hot_m3",
+            category: "restaurant",
+            tag: "Point de Vente Resto",
+            rateText: "+35 000 Ar / mois",
+            cost: 35000,
+            hardware: 0,
+            required: false,
+            title: "Caisse Restaurant & Bar / Facturation sur Chambre",
+            desc: "Prise de commande rapide, gestion des tables, édition de l'addition et bascule en 1 clic de l'addition sur la note de la chambre.",
+            bullets: [
+              "Reconnaissance immédiate du numéro de chambre du résident",
+              "Bascule 1-clic pour paiement global en fin de séjour",
+              "Clôture de service par serveur avec contrôle du tiroir"
+            ],
+            img: "assets/img/resipro_03_restaurant_pos.png"
+          },
+          {
+            id: "hot_m4",
+            category: "caisse",
+            tag: "Finances & Devises",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Caisse Multi-Devises (EUR, USD, MGA) & Billetage",
+            desc: "Encaissement direct en devises avec taux de change du jour, rendu de monnaie en Ariary et billetage scellé en fin de journée.",
+            bullets: [
+              "Tableau des devises étrangères avec valorisation en MGA",
+              "Billetage inviolable des coupures de 20 000 à 100 Ar",
+              "Zéro fuite de trésorerie sur les services de nuit"
+            ],
+            img: "assets/img/resipro_01_dashboard.png"
+          },
+          {
+            id: "hot_m5",
+            category: "stock",
+            tag: "Gestion Économat",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Suivi des Stocks Boissons & Économat Cuisine",
+            desc: "Contrôle des bouteilles, fûts, épicerie et denrées avec seuils d'alerte critiques anti-rupture et inventaires réguliers.",
+            bullets: [
+              "Décompte automatique des consommations bar à la vente",
+              "Alertes de réapprovisionnement pour éviter toute rupture client",
+              "Rapprochement d'inventaire bimensuel sans calculs fastidieux"
+            ],
+            img: "assets/img/resipro_05_stock_economat.png"
+          },
+          {
+            id: "hot_m6",
+            category: "options",
+            tag: "Option 1 Prospectus",
+            rateText: "+19 000 Ar / mois",
+            cost: 19000,
+            hardware: 0,
+            required: false,
+            title: "Fiches Techniques, Food Cost & Calcul des Marges Resto",
+            desc: "Décomposition ingrédient par ingrédient de chaque plat et cocktail, suivi du coût matière exact et protection de votre marge brute.",
+            bullets: [
+              "Calcul instantané du coût de revient et de la marge en %",
+              "Détection du Top 5 des écarts d'ingrédients et des pertes",
+              "Mise à jour automatique des coûts lors des hausses fournisseurs"
+            ],
+            img: "assets/img/resipro_06_fiches_techniques.png"
+          },
+          {
+            id: "hot_m7",
+            category: "options",
+            tag: "Option 2 Prospectus",
+            rateText: "+29 000 Ar / mois",
+            cost: 29000,
+            hardware: 0,
+            required: false,
+            title: "Gestion du Linge Hôtelier & Suivi Pressing / Blanchisserie",
+            desc: "Suivi en direct des rotations draps, serviettes et nappes : départs blanchisserie, retours propres, contrôle des pertes et usure.",
+            bullets: [
+              "État du stock de linge propre par étage et par chambre",
+              "Bons d'envoi et de retour pressing sans litiges",
+              "Zéro pénurie de draps lors des rotations du week-end"
+            ],
+            img: "assets/img/resipro_05_stock_economat.png"
+          },
+          {
+            id: "hot_m8",
+            category: "options",
+            tag: "Option 3 Prospectus",
+            rateText: "+39 000 Ar / mois",
+            cost: 39000,
+            hardware: 0,
+            required: false,
+            title: "Gestion Sociale & Paie Légale Conforme (CNaPS, OSTIE, IRSA)",
+            desc: "Gestion complète du personnel hôtelier : fiches de paie conformes aux tranches locales, registre des avances de quinzaine et plannings.",
+            bullets: [
+              "Édition des bulletins de paie légaux prêts à signer",
+              "Suivi rigoureux des avances sur salaire en cours de mois",
+              "Évite l'achat d'un logiciel de paie externe coûteux"
+            ],
+            img: "assets/img/erp_01_facturation_crm.png"
+          },
+          {
+            id: "hot_m9",
+            category: "options",
+            tag: "Option 4 Prospectus",
+            rateText: "+39 000 Ar / mois",
+            cost: 39000,
+            hardware: 0,
+            required: false,
+            title: "Intelligence Artificielle Prédictive des Approvisionnements",
+            desc: "Algorithme d'anticipation des commandes de denrées et boissons calculé selon le taux d'occupation prévisionnel des 15 prochains jours.",
+            bullets: [
+              "Propositions automatiques de bons de commande fournisseurs",
+              "Élimination du gaspillage de denrées périssables",
+              "Optimisation du fond de roulement de la cuisine"
+            ],
+            img: "assets/img/resipro_01_dashboard.png"
+          },
+          {
+            id: "hot_m10",
+            category: "caisse",
+            tag: "Sauvegarde Cloud",
+            rateText: "+20 000 Ar / mois",
+            cost: 20000,
+            hardware: 0,
+            required: false,
+            title: "Sauvegarde Miroir Cloud Supabase & Accès Distant Direction",
+            desc: "Réplication sécurisée de vos données hôtelières sur Cloud chiffré permettant à la direction de consulter les chiffres clés à distance.",
+            bullets: [
+              "Consultation smartphone du taux d'occupation et de la caisse",
+              "Restauration instantanée en cas de panne de l'ordinateur de réception",
+              "Chiffrement complet conforme aux normes de sécurité"
+            ],
+            img: "assets/img/01_connexion_cloud.png"
+          },
+          {
+            id: "hot_m11",
+            category: "hardware",
+            tag: "Matériel Reçu",
+            rateText: "450 000 Ar (One-Shot)",
+            cost: 0,
+            hardware: 450000,
+            required: false,
+            title: "Pack Imprimante Addition & Reçus 80 mm POS",
+            desc: "Imprimante thermique silencieuse et robuste pour l'impression instantanée des notes de restaurant et reçus de séjour.",
+            bullets: [
+              "Format professionnel valorisant pour la clientèle étrangère",
+              "Technologie thermique sans encre ni cartouche",
+              "5 rouleaux de papier haute qualité inclus"
+            ],
+            img: "assets/img/pack_imprimante_cutout.png"
+          }
+        ]
+      },
+
+      tourisme: {
+        name: "Tourisme & Réceptifs",
+        appTitle: "TourAgent Pro Réceptif",
+        heroPill: "🧭 SECTEUR TOURISME &bull; TOUR OPÉRATEURS &amp; AGENCES RÉCEPTIVES",
+        heroTitle: "Maîtrisez Vos Circuits, Feuilles de Route &amp; Cotations",
+        heroDesc: "Le progiciel pensé pour les réceptifs de Madagascar : chiffrage de cotations rentables, coordination chauffeurs/guides, suivi prestataires et vouchers multi-devises.",
+        baseCost: 119000,
+        deploymentFee: 250000,
+        pack: {
+          name: "Pack Intégral Tour Opérateur ★",
+          packPrice: 179000,
+          rawSum: 244000,
+          discountBadge: "-27% D'AVANTAGE PACK",
+          desc: "L'arsenal complet du réceptif malagasy : chiffrage proforma multi-devises, émission automatique des vouchers prestataires, flotte 4x4, caisse circuit et conformité fiscale NIF/STAT.",
+          includedIds: ["tour_m1", "tour_m2", "tour_m3", "tour_m4", "tour_m5"]
+        },
+        categories: [
+          { key: "all", label: "Tous les Modules" },
+          { key: "circuits", label: "🗺️ Cotations & Circuits" },
+          { key: "logistique", label: "🚗 Flotte 4x4 & Vouchers" },
+          { key: "finances", label: "💶 Devises & Acomptes" },
+          { key: "options", label: "⭐ Options Évolutives" },
+          { key: "hardware", label: "🖨️ Pack Matériel POS" }
+        ],
+        modules: [
+          {
+            id: "tour_m1",
+            category: "circuits",
+            tag: "Socle Tourisme",
+            rateText: "Socle Inclus (119 000 Ar/m)",
+            cost: 119000,
+            hardware: 0,
+            required: true,
+            title: "Tableau de Bord des Dossiers & Départs Circuits",
+            desc: "Vision claire des circuits confirmés, arrivées aéroport Ivato/Nosy Be, suivi des dossiers et bilans de rentabilité par destination.",
+            bullets: [
+              "Planning général des départs et véhicules mobilisés",
+              "Statut en direct de chaque dossier voyageur",
+              "Suivi du volume d'affaires et marges prévisionnelles"
+            ],
+            img: "assets/img/touragent_01_circuits_vouchers.png"
+          },
+          {
+            id: "tour_m2",
+            category: "circuits",
+            tag: "Rentabilité Circuit",
+            rateText: "+35 000 Ar / mois",
+            cost: 35000,
+            hardware: 0,
+            required: false,
+            title: "Moteur de Cotation Multi-Devises (EUR, USD, MGA)",
+            desc: "Chiffrez vos programmes jour par jour (hôtels, entrées parcs MNP, carburant, pirogue, guide) en devises avec marge d'agence verrouillée.",
+            bullets: [
+              "Génération d'un devis proforma séduisant pour le client ou l'agence",
+              "Calcul instantané du prix par passager selon la taille du groupe",
+              "Protection contre les fluctuations des cours de devises"
+            ],
+            img: "assets/img/touragent_01_circuits_vouchers.png"
+          },
+          {
+            id: "tour_m3",
+            category: "logistique",
+            tag: "Opérations Terrain",
+            rateText: "+30 000 Ar / mois",
+            cost: 30000,
+            hardware: 0,
+            required: false,
+            title: "Émission Instantanée des Vouchers Prestataires (Bons d'Échange)",
+            desc: "Génération en un clic des vouchers avec QR Code pour les hôtels partenaires, chauffeurs 4x4, guides locaux et parcs nationaux.",
+            bullets: [
+              "Élimine 100% des erreurs de réservation hôtelière",
+              "Format PDF A4 officiel avec tampon et signature agence",
+              "Transmission directe par WhatsApp / Email aux prestataires"
+            ],
+            img: "assets/img/touragent_01_circuits_vouchers.png"
+          },
+          {
+            id: "tour_m4",
+            category: "logistique",
+            tag: "Flotte 4x4 & Pistes",
+            rateText: "+35 000 Ar / mois",
+            cost: 35000,
+            hardware: 0,
+            required: false,
+            title: "Gestion de la Flotte 4x4, Suivi Gasoil & Planning Chauffeurs",
+            desc: "Affectation dynamique des véhicules tout-terrain, suivi précis de la consommation de gasoil au kilomètre et calendrier des révisions.",
+            bullets: [
+              "Planning visuel des 4x4 et chauffeurs sur le mois",
+              "Suivi analytique des coûts de carburant et entretiens",
+              "Prévention des pannes de piste grâce aux alertes vidange"
+            ],
+            img: "assets/img/touragent_02_flotte_planning.png"
+          },
+          {
+            id: "tour_m5",
+            category: "finances",
+            tag: "Trésorerie Circuit",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Caisse Circuit, Avances Guides & Justificatifs de Route",
+            desc: "Suivi des fonds de caisse confiés aux chauffeurs pour le carburant, péages et parcs, avec reddition des comptes au retour de mission.",
+            bullets: [
+              "Validation des reçus et justificatifs de dépenses de piste",
+              "Calcul automatique du reliquat dû ou à rembourser",
+              "Maîtrise absolue des frais annexes sur chaque itinéraire"
+            ],
+            img: "assets/img/05_pointage_caisse_billetage.png"
+          },
+          {
+            id: "tour_m6",
+            category: "finances",
+            tag: "Facturation Agence",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Facturation Fiscale NIF/STAT & Suivi Acomptes 30% / Solde",
+            desc: "Facturation officielle conforme pour agences émettrices et clients directs avec alertes sur les soldes impayés avant la remise des vouchers.",
+            bullets: [
+              "Factures conformes aux exigences fiscales locales (NIF/STAT)",
+              "Suivi des paiements par virement international ou carte",
+              "Journal comptable prêt pour l'expert-comptable"
+            ],
+            img: "assets/img/erp_01_facturation_crm.png"
+          },
+          {
+            id: "tour_m7",
+            category: "options",
+            tag: "Expérience Voyageur",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Carnet de Voyage Numérique & Feuilles de Route Dématérialisées",
+            desc: "Création d'un carnet de voyage élégant envoyé sur smartphone aux touristes avec détails des étapes, contacts d'urgence et conseils pratiques.",
+            bullets: [
+              "Valorisation haut de gamme de l'image de votre agence réceptive",
+              "Consultable hors-ligne par le voyageur durant le circuit",
+              "Mise à jour immédiate en cas de changement d'itinéraire"
+            ],
+            img: "assets/img/touragent_01_circuits_vouchers.png"
+          },
+          {
+            id: "tour_m8",
+            category: "options",
+            tag: "Rétro-Commissions",
+            rateText: "+30 000 Ar / mois",
+            cost: 30000,
+            hardware: 0,
+            required: false,
+            title: "Paie des Guides & Suivi des Commissions Tour Opérateurs",
+            desc: "Gestion des indemnités journalières des accompagnateurs et calcul des rétro-commissions dues aux agences partenaires émettrices.",
+            bullets: [
+              "Relevé automatique des commissions agences par dossier",
+              "Fiches d'honoraires claires pour guides et chauffeurs",
+              "Transparence financière totale sans risque de litige"
+            ],
+            img: "assets/img/erp_01_facturation_crm.png"
+          },
+          {
+            id: "tour_m9",
+            category: "finances",
+            tag: "Sauvegarde Cloud",
+            rateText: "+20 000 Ar / mois",
+            cost: 20000,
+            hardware: 0,
+            required: false,
+            title: "Sauvegarde Cloud Supabase & Accès Hors-Ligne Pistes",
+            desc: "Synchronisation Cloud dès que le réseau est disponible, avec consultation continue 100% hors-ligne dans les zones blanches de brousse.",
+            bullets: [
+              "Les chauffeurs accèdent aux vouchers même sans réseau mobile",
+              "Sauvegarde automatique des cotations et dossiers",
+              "Sécurité maximale de vos données commerciales"
+            ],
+            img: "assets/img/01_connexion_cloud.png"
+          },
+          {
+            id: "tour_m10",
+            category: "hardware",
+            tag: "Reçus Agence",
+            rateText: "450 000 Ar (One-Shot)",
+            cost: 0,
+            hardware: 450000,
+            required: false,
+            title: "Pack Imprimante Thermique Reçus de Caisse & Devises",
+            desc: "Imprimante compacte de comptoir pour délivrer instantanément les reçus d'acompte, de change et de vouchers aux clients.",
+            bullets: [
+              "Matériel neuf sous garantie sans entretien d'encre",
+              "Reçus horodatés avec nom du passager et du dossier",
+              "Bobines thermiques de départ incluses"
+            ],
+            img: "assets/img/pack_imprimante_cutout.png"
+          }
+        ]
+      },
+
+      entreprise: {
+        name: "Entreprises & PME",
+        appTitle: "Entreprise Pro ERP",
+        heroPill: "🏢 SECTEUR ENTREPRISES &bull; COMMERCE, PME &amp; NÉGOCE",
+        heroTitle: "Configurez l'ERP Idéal pour Votre Société &amp; Activité Commerciale",
+        heroDesc: "Facturation fiscale normalisée (NIF / STAT), tenue de caisse rigoureuse, inventaire multi-dépôts et paie locale 100% autonome sans abonnement international hors de prix.",
+        baseCost: 99000,
+        deploymentFee: 250000,
+        pack: {
+          name: "Pack ERP PME Intégral ★",
+          packPrice: 199000,
+          rawSum: 284000,
+          discountBadge: "-30% D'AVANTAGE PACK",
+          desc: "La formule complète du prospectus officiel : facturation légale NIF/STAT, gestion des stocks multi-dépôts, caisse scellée 18h, suivi des créances et paie salariale malagasy.",
+          includedIds: ["ent_m1", "ent_m2", "ent_m3", "ent_m4", "ent_m5", "ent_m7"]
+        },
+        categories: [
+          { key: "all", label: "Tous les Modules" },
+          { key: "facturation", label: "📑 Facturation & Devis" },
+          { key: "stock", label: "📦 Stocks & Dépôts" },
+          { key: "tresorerie", label: "💵 Caisse & Trésorerie" },
+          { key: "rh", label: "👥 RH & Paie Malagasy" },
+          { key: "hardware", label: "🖨️ Pack Matériel POS" }
+        ],
+        modules: [
+          {
+            id: "ent_m1",
+            category: "facturation",
+            tag: "Socle Entreprise",
+            rateText: "Socle Inclus (99 000 Ar/m)",
+            cost: 99000,
+            hardware: 0,
+            required: true,
+            title: "Tableau de Bord Financier & Chiffre d'Affaires PME",
+            desc: "Suivi des ventes du jour, marge brute par ligne d'activité, état des devis en cours et alertes de trésorerie.",
+            bullets: [
+              "Visualisation en temps réel du CA quotidien et mensuel",
+              "Historique complet des transactions clients",
+              "Export direct des données pour votre expert-comptable"
+            ],
+            img: "assets/img/erp_01_facturation_crm.png"
+          },
+          {
+            id: "ent_m2",
+            category: "facturation",
+            tag: "Fiscalité Malagasy",
+            rateText: "+35 000 Ar / mois",
+            cost: 35000,
+            hardware: 0,
+            required: false,
+            title: "Devis Proforma & Facturation Normalisée (NIF/STAT & TVA)",
+            desc: "Édition de factures légales avec mentions obligatoires, TVA 20% paramétrable, conversion devis proforma en facture en 1 clic.",
+            bullets: [
+              "Numérotation chronologique continue inaltérable",
+              "Personnalisation avec logo, coordonnées bancaires et signature",
+              "Envoi PDF automatique et impression format A4 conforme"
+            ],
+            img: "assets/img/erp_01_facturation_crm.png"
+          },
+          {
+            id: "ent_m3",
+            category: "stock",
+            tag: "Gestion Logistique",
+            rateText: "+35 000 Ar / mois",
+            cost: 35000,
+            hardware: 0,
+            required: false,
+            title: "Gestion des Stocks Multi-Dépôts & Alertes Seuil Bas",
+            desc: "Fiches articles avec codes-barres, entrées/sorties avec bons de livraison, valorisation au PUMP et alertes de rupture.",
+            bullets: [
+              "Gestion des transferts inter-dépôts (Tana, Tamatave, Majunga)",
+              "Alerte automatique dès qu'un produit atteint le seuil critique",
+              "Inventaire physique guidé avec calcul des écarts"
+            ],
+            img: "assets/img/erp_02_stocks_logistique.png"
+          },
+          {
+            id: "ent_m4",
+            category: "tresorerie",
+            tag: "Point de Vente",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Caisse Magasin, Billetage 18h & Ticket Z",
+            desc: "Encaissement multi-moyens (Espèces, Chèques, MVola, Virement) avec comptage physique des coupures à la clôture.",
+            bullets: [
+              "Impression de tickets de caisse 80 mm immédiate",
+              "Clôture journalière scellée interdisant tout trou de caisse",
+              "Rapprochement immédiat entre fonds réels et théoriques"
+            ],
+            img: "assets/img/05_pointage_caisse_billetage.png"
+          },
+          {
+            id: "ent_m5",
+            category: "tresorerie",
+            tag: "Recouvrement",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Traque des Créances Clients & Relances Factures Impayées",
+            desc: "Tableau de vieillissement de la balance âgée, alertes des factures échues et relances structurées pour préserver votre trésorerie.",
+            bullets: [
+              "Suivi des échéances de paiement convenues à 30 ou 60 jours",
+              "Historique des règlements partiels et acomptes perçus",
+              "Diminution prouvée de 40% des impayés commerciaux"
+            ],
+            img: "assets/img/erp_01_facturation_crm.png"
+          },
+          {
+            id: "ent_m6",
+            category: "stock",
+            tag: "Expéditions",
+            rateText: "+35 000 Ar / mois",
+            cost: 35000,
+            hardware: 0,
+            required: false,
+            title: "Livraisons, Bons d'Expédition & Gestion des Transporteurs",
+            desc: "Édition des bons de livraison (BL), gestion des adresses de livraison multiples et contrôle de réception signé par le client.",
+            bullets: [
+              "Conversion automatique Facture en Bon de Livraison",
+              "Suivi des colis confiés aux coopératives et transporteurs",
+              "Preuve de livraison horodatée sans litiges"
+            ],
+            img: "assets/img/erp_02_stocks_logistique.png"
+          },
+          {
+            id: "ent_m7",
+            category: "rh",
+            tag: "Paie Légale Locale",
+            rateText: "+35 000 Ar / mois",
+            cost: 35000,
+            hardware: 0,
+            required: false,
+            title: "Paie Salariale Malagasy (IRSA, CNaPS, OSTIE & Avances)",
+            desc: "Fiches de paie certifiées, calcul des tranches IRSA, CNaPS salariale/patronale, congés payés et avances sur salaire.",
+            bullets: [
+              "Conformité stricte au Code du Travail malagasy",
+              "Livre de paie mensuel récapitulatif pour expert-comptable",
+              "Édition fiches individuelles au format PDF prêt à signer"
+            ],
+            img: "assets/img/erp_01_facturation_crm.png"
+          },
+          {
+            id: "ent_m8",
+            category: "rh",
+            tag: "Planning & Présences",
+            rateText: "+30 000 Ar / mois",
+            cost: 30000,
+            hardware: 0,
+            required: false,
+            title: "Planning Visuel des Équipes & Ordres d'Intervention",
+            desc: "Gestion des plannings de travail par département, affectation des techniciens sur chantiers et pointage des heures de service.",
+            bullets: [
+              "Calendrier dynamique partagé entre responsables d'équipe",
+              "Ordres d'intervention détaillés remis aux intervenants",
+              "Contrôle des heures supplémentaires effectuées"
+            ],
+            img: "assets/img/resipro_02_planning_chambres.png"
+          },
+          {
+            id: "ent_m9",
+            category: "tresorerie",
+            tag: "Sauvegarde Cloud",
+            rateText: "+20 000 Ar / mois",
+            cost: 20000,
+            hardware: 0,
+            required: false,
+            title: "Sauvegarde Miroir Cloud Supabase & Accès Distant 24/7",
+            desc: "Protection de vos données d'entreprise contre les vols, pannes matérielles ou incendies avec miroir Cloud instantané.",
+            bullets: [
+              "Consultation à distance des résultats par les actionnaires",
+              "Restauration immédiate sans perte de transaction",
+              "Chiffrement haute sécurité de vos comptes financiers"
+            ],
+            img: "assets/img/01_connexion_cloud.png"
+          },
+          {
+            id: "ent_m10",
+            category: "hardware",
+            tag: "Matériel POS",
+            rateText: "450 000 Ar (One-Shot)",
+            cost: 0,
+            hardware: 450000,
+            required: false,
+            title: "Pack Imprimante Thermique Ticket 80 mm POS",
+            desc: "Imprimante USB haute vitesse avec massicot automatique, zéro cartouche d'encre et 5 bobines offertes.",
+            bullets: [
+              "Émission ultra-rapide des reçus et tickets de vente",
+              "Câblage et intégration sur votre poste de caisse",
+              "Matériel neuf avec garantie et remplacement express"
+            ],
+            img: "assets/img/pack_imprimante_cutout.png"
+          }
+        ]
+      },
+
+      homeschooling: {
+        name: "Homeschooling & Familles",
+        appTitle: "Study Home PWA",
+        heroPill: "🏡 HOMESCHOOLING &bull; INSTRUCTION EN FAMILLE &amp; COURS PRIVÉS",
+        heroTitle: "L'Espace Pédagogique Tout-en-Un pour Votre Famille",
+        heroDesc: "Développé avec et pour les familles éducatrices : planning modulable, check-list des matières et programmes à cocher, rappels d'échéances et livret d'évaluation conforme.",
+        baseCost: 39000,
+        deploymentFee: 50000,
+        pack: {
+          name: "Pack Famille Privilège & Cloud Supabase ★",
+          packPrice: 59000,
+          rawSum: 99000,
+          discountBadge: "-40% D'AVANTAGE FAMILLE",
+          desc: "Tous les outils indispensables pour l'apprentissage à la maison : emploi du temps modulable, check-list programme, rappels d'échéances et livret d'évaluation officiel.",
+          includedIds: ["home_m1", "home_m2", "home_m3", "home_m4", "home_m5"]
+        },
+        categories: [
+          { key: "all", label: "Tous les Modules" },
+          { key: "planning", label: "📅 Emploi du Temps & Rappels" },
+          { key: "pedagogie", label: "📚 Matières & Programmes" },
+          { key: "suivi", label: "⭐ Évaluation & Livrets" }
+        ],
+        modules: [
+          {
+            id: "home_m1",
+            category: "planning",
+            tag: "Socle Famille",
+            rateText: "Socle Inclus (39 000 Ar/m)",
+            cost: 39000,
+            hardware: 0,
+            required: true,
+            title: "Emploi du Temps Modulable & Check-list des Matières",
+            desc: "Organisation de la semaine d'instruction par blocs personnalisables, check-list interactive des objectifs quotidiens à cocher.",
+            bullets: [
+              "Adapté au rythme individuel de chaque enfant",
+              "Affichage visuel motivant sur tablette ou PC",
+              "Élimine la dispersion et les oublis de leçons"
+            ],
+            img: "assets/img/09_gestion_matieres_programmes.png"
+          },
+          {
+            id: "home_m2",
+            category: "pedagogie",
+            tag: "Programme MEN",
+            rateText: "+20 000 Ar / mois",
+            cost: 20000,
+            hardware: 0,
+            required: false,
+            title: "Référentiel des Matières & Progression Pédagogique",
+            desc: "Suivi pas à pas des notions abordées en Français, Mathématiques, Histoire-Géo et Sciences selon le niveau scolaire.",
+            bullets: [
+              "Validation d'acquis en un clic lors des révisions",
+              "Historique précis de l'avancement annuel",
+              "Dossier de suivi parfait pour les contrôles pédagogiques"
+            ],
+            img: "assets/img/09_gestion_matieres_programmes.png"
+          },
+          {
+            id: "home_m3",
+            category: "planning",
+            tag: "Rappels & Deadlines",
+            rateText: "+20 000 Ar / mois",
+            cost: 20000,
+            hardware: 0,
+            required: false,
+            title: "Rappels d'Échéances & Calendrier des Évaluations",
+            desc: "Alertes programmées pour les rendus de devoirs du CNED ou cours à distance, examens blancs et sorties pédagogiques.",
+            bullets: [
+              "Compte à rebours avant les sessions d'évaluations",
+              "Organisation sereine sans stress de dernière minute",
+              "Rappels sur smartphone des parents"
+            ],
+            img: "assets/img/06_alertes_recouvrement_impayes.png"
+          },
+          {
+            id: "home_m4",
+            category: "suivi",
+            tag: "Livret Officiel",
+            rateText: "+20 000 Ar / mois",
+            cost: 20000,
+            hardware: 0,
+            required: false,
+            title: "Livret d'Évaluation & Bulletins de Compétences PDF",
+            desc: "Édition en un clic d'un livret scolaire propre et structuré pour justifier du niveau académique auprès des autorités.",
+            bullets: [
+              "Relevé de notes et appréciations encourageantes",
+              "Format PDF imprimable haute qualité",
+              "Reconnaissance officielle lors d'une réintégration"
+            ],
+            img: "assets/img/09_saisie_notes_bulletins.png"
+          },
+          {
+            id: "home_m5",
+            category: "suivi",
+            tag: "Synchronisation Cloud",
+            rateText: "+20 000 Ar / mois",
+            cost: 20000,
+            hardware: 0,
+            required: false,
+            title: "Synchronisation Miroir Cloud Supabase Multi-Écrans",
+            desc: "Travaillez depuis n'importe quel appareil : PC de bureau, tablette des enfants ou smartphone des parents avec synchronisation sécurisée.",
+            bullets: [
+              "Accès simultané parents et enfants",
+              "Sauvegarde continue sans risque de perte",
+              "Fonctionne même lors des coupures Internet temporaires"
+            ],
+            img: "assets/img/01_connexion_cloud.png"
+          }
+        ]
+      },
+
+      crossdomaine: {
+        name: "Prestation Libre & Sur-Mesure",
+        appTitle: "Architecture Progicielle Sur-Mesure",
+        heroPill: "🌐 TOUS SECTEURS &bull; BRICK-BY-BRICK SUR-MESURE MADAGASCAR",
+        heroTitle: "Assemblez Vos Briques Fonctionnelles en Totale Liberté",
+        heroDesc: "Composez votre architecture personnalisée en piochant exactement les modules requis pour votre activité : planning, facturation NIF/STAT, caisse scellée, gestion de stock, RH ou devises.",
+        baseCost: 49000,
+        deploymentFee: 250000,
+        isCustomMode: true,
+        pack: {
+          name: "Formule Hybride Dégressive (-25% dès 5 modules)",
+          packPrice: 159000,
+          rawSum: 224000,
+          discountBadge: "-25% REMISE MULTI-MODULES",
+          desc: "Tarification progressive transparente : sélectionnez vos modules métier, le socle unifié s'adapte et applique une remise dégressive sur l'ensemble de votre configuration.",
+          includedIds: ["cross_m1", "cross_m2", "cross_m3", "cross_m4", "cross_m5"]
+        },
+        categories: [
+          { key: "all", label: "Toutes les Briques Disponibles" },
+          { key: "finances", label: "📑 Facturation & Devis NIF/STAT" },
+          { key: "tresorerie", label: "💰 Caisse, Devises & Billetage" },
+          { key: "operations", label: "📦 Stocks, Dépôts & Logistique" },
+          { key: "planning", label: "📅 Plannings & Ressources" },
+          { key: "rh", label: "👥 Personnel & Paie Malagasy" },
+          { key: "digital", label: "📲 Communication & Cloud" },
+          { key: "hardware", label: "🖨️ Pack Matériel POS" }
+        ],
+        modules: [
+          {
+            id: "cross_m1",
+            category: "finances",
+            tag: "Socle Progiciel Universel",
+            rateText: "Socle Inclus (49 000 Ar/m)",
+            cost: 49000,
+            hardware: 0,
+            required: true,
+            title: "Moteur Progiciel Universel Missi (Local + Chiffrement)",
+            desc: "Socle applicatif de haute précision : base de données SQLite locale ultra-rapide (tolérance coupures JIRAMA), gestion des utilisateurs et droits d'accès.",
+            bullets: [
+              "Architecture 100% hors-ligne résiliente aux pannes réseau",
+              "Gestion des profils employés et traçabilité des opérations",
+              "Tableau de bord d'accueil et paramètres généraux"
+            ],
+            img: "assets/img/01_connexion_cloud.png"
+          },
+          {
+            id: "cross_m2",
+            category: "finances",
+            tag: "Conformité Fiscale",
+            rateText: "+35 000 Ar / mois",
+            cost: 35000,
+            hardware: 0,
+            required: false,
+            title: "Facturation Légale A4 NIF/STAT, Devis & TVA 20% Paramétrable",
+            desc: "Émission instantanée de devis proforma, bons de commande et factures fiscales certifiées avec mentions obligatoires malagasy.",
+            bullets: [
+              "Numérotation chronologique continue inaltérable",
+              "Personnalisation complète avec logo et coordonnées bancaires",
+              "Conversion automatique Devis Proforma en Facture Définitive"
+            ],
+            img: "assets/img/erp_01_facturation_crm.png"
+          },
+          {
+            id: "cross_m3",
+            category: "tresorerie",
+            tag: "Sécurité Financière",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Caisse Journalière, Billetage 18h & Clôture Scellée (Ticket Z)",
+            desc: "Encaissement multi-moyens (Espèces, MVola, Chèques, Virement). Comptage physique des coupures interdisant tout trou de trésorerie.",
+            bullets: [
+              "Zéro coulage : réconciliation entre fonds réels et théoriques",
+              "Ticket Z quotidien scellé et inaltérable",
+              "Traçabilité nominative de chaque encaissement par agent"
+            ],
+            img: "assets/img/05_pointage_caisse_billetage.png"
+          },
+          {
+            id: "cross_m4",
+            category: "operations",
+            tag: "Gestion Matérielle",
+            rateText: "+35 000 Ar / mois",
+            cost: 35000,
+            hardware: 0,
+            required: false,
+            title: "Gestion des Stocks, Consommables & Alertes Seuil Critique",
+            desc: "Fiches articles, matières premières ou fournitures. Suivi des entrées/sorties avec bons de réception et valorisation au coût moyen PUMP.",
+            bullets: [
+              "Alertes automatiques dès qu'un seuil critique est atteint",
+              "Inventaire physique guidé avec calcul instantané des écarts",
+              "Traçabilité complète des consommations internes par département"
+            ],
+            img: "assets/img/erp_02_stocks_logistique.png"
+          },
+          {
+            id: "cross_m5",
+            category: "planning",
+            tag: "Planification",
+            rateText: "+30 000 Ar / mois",
+            cost: 30000,
+            hardware: 0,
+            required: false,
+            title: "Planning Visuel, Agendas & Réservations de Prestations",
+            desc: "Calendrier interactif pour réserver des salles, chambres, véhicules 4x4, créneaux d'ateliers ou rendez-vous sans risque de double réservation.",
+            bullets: [
+              "Vue chronologique jour / semaine / mois interactive",
+              "Affectation des ressources matérielles et humaines en 1 clic",
+              "Rappels automatiques et gestion des statuts de réservation"
+            ],
+            img: "assets/img/resipro_02_planning_chambres.png"
+          },
+          {
+            id: "cross_m6",
+            category: "operations",
+            tag: "Fichier Tiers",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "CRM Contacts, Fichier Clients / Fournisseurs & Historiques",
+            desc: "Annuaire centralisé de tous vos tiers : coordonnées, conditions de paiement accordées, historique complet des commandes et échanges.",
+            bullets: [
+              "Fiches profils avec pièces jointes (RIB, NIF/STAT, contrats)",
+              "Recherche ultra-rapide par numéro de téléphone ou nom",
+              "Segmentation ciblée pour vos actions commerciales"
+            ],
+            img: "assets/img/erp_01_facturation_crm.png"
+          },
+          {
+            id: "cross_m7",
+            category: "rh",
+            tag: "Paie Légale Locale",
+            rateText: "+35 000 Ar / mois",
+            cost: 35000,
+            hardware: 0,
+            required: false,
+            title: "Gestion Sociale, Pointage Équipes & Paie Conforme (CNaPS / OSTIE)",
+            desc: "Pointage des présences et fiches de paie légales conformes au Code du Travail malagasy (IRSA, CNaPS, OSTIE/AMIT et avances).",
+            bullets: [
+              "Édition mensuelle des bulletins de salaire certifiés",
+              "Registre transparent des acomptes et avances sur salaire",
+              "Livre de paie consolidé pour expert-comptable"
+            ],
+            img: "assets/img/erp_01_facturation_crm.png"
+          },
+          {
+            id: "cross_m8",
+            category: "operations",
+            tag: "Logistique Transport",
+            rateText: "+30 000 Ar / mois",
+            cost: 30000,
+            hardware: 0,
+            required: false,
+            title: "Bons de Livraison, Logistique & Suivi des Expéditions",
+            desc: "Génération des bons de livraison (BL), gestion des bordereaux transporteurs et suivi des colis envoyés en province.",
+            bullets: [
+              "Suivi de la remise aux coopératives de transport national",
+              "Preuve de livraison et décharge signée par le destinataire",
+              "Zéro colis égaré sans responsable identifié"
+            ],
+            img: "assets/img/erp_02_stocks_logistique.png"
+          },
+          {
+            id: "cross_m9",
+            category: "finances",
+            tag: "Recouvrement Cash",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Balance Âgée, Échéancier Créances & Relances Impayés",
+            desc: "Tableau de bord de surveillance des factures impayées avec relances programmées par Email ou SMS/WhatsApp pour protéger vos liquidités.",
+            bullets: [
+              "Visualisation immédiate des factures en retard de paiement",
+              "Modèles de relances progressives (amiable, mise en demeure)",
+              "Réduction sensible des délais moyens de paiement clients"
+            ],
+            img: "assets/img/erp_01_facturation_crm.png"
+          },
+          {
+            id: "cross_m10",
+            category: "tresorerie",
+            tag: "Devises Étrangères",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Caisse Multi-Devises (EUR, USD, MGA) & Taux de Change du Jour",
+            desc: "Gestion rigoureuse des encaissements en devises, calcul automatique des équivalents en Ariary et suivi du tiroir-caisse devises.",
+            bullets: [
+              "Historique quotidien des taux de change appliqués",
+              "Billetage distinct pour chaque devise étrangère",
+              "Protection contre les écarts de change"
+            ],
+            img: "assets/img/resipro_01_dashboard.png"
+          },
+          {
+            id: "cross_m11",
+            category: "digital",
+            tag: "Canal Instantané",
+            rateText: "+25 000 Ar / mois",
+            cost: 25000,
+            hardware: 0,
+            required: false,
+            title: "Notifications SMS & WhatsApp Directes aux Usagers ou Clients",
+            desc: "Diffusion instantanée de confirmations de commande, reçus de paiement ou rappels de rendez-vous sur smartphones.",
+            bullets: [
+              "Intégration directe via WhatsApp sans abonnement tiers complexe",
+              "Taux d'ouverture de 98% auprès du public malagasy",
+              "Historique des messages envoyés conservé dans le dossier"
+            ],
+            img: "assets/img/06_alertes_recouvrement_impayes.png"
+          },
+          {
+            id: "cross_m12",
+            category: "digital",
+            tag: "Haute Disponibilité",
+            rateText: "+20 000 Ar / mois",
+            cost: 20000,
+            hardware: 0,
+            required: false,
+            title: "Sauvegarde Miroir Cloud Supabase & Synchronisation Réseau",
+            desc: "Double protection : fonctionnement 100% autonome localement + réplication chiffrée sur Cloud distant avec accès multi-postes.",
+            bullets: [
+              "Consultation à distance de vos chiffres clés par la direction",
+              "Restauration instantanée en cas de sinistre ou panne d'ordinateur",
+              "Chiffrement de bout en bout conforme aux normes de sécurité"
+            ],
+            img: "assets/img/01_connexion_cloud.png"
+          },
+          {
+            id: "cross_m13",
+            category: "hardware",
+            tag: "Équipement Matériel",
+            rateText: "450 000 Ar (One-Shot)",
+            cost: 0,
+            hardware: 450000,
+            required: false,
+            title: "Pack Matériel : Imprimante Thermique POS 80 mm Massicot Auto",
+            desc: "Imprimante thermique professionnelle neuve USB, massicot automatique, zéro coût d'encre + 5 bobines 80 mm offertes + calibrage sur site.",
+            bullets: [
+              "Technologie thermique directe sans cartouche d'encre",
+              "Édition instantanée des reçus, tickets de caisse et notes",
+              "Matériel neuf sous garantie et paramétré clés en main"
+            ],
+            img: "assets/img/pack_imprimante_cutout.png"
+          }
+        ]
+      }
+    };
+
+    // =========================================================================
+    // ÉTAT GLOBAL DE L'APPLICATION
+    // =========================================================================
+    let currentSector = "education";
+    let activeCategory = "all";
+    let selectedModuleIds = new Set();
+    let isPackMode = true;
+    let selectedFileAttachment = null;
+
+    function formatAr(amount) {
+      return new Intl.NumberFormat("fr-FR").format(amount) + " Ar";
     }
 
-    function toggleModule(id) {
-      const card = document.querySelector(`[data-id="${id}"]`);
-      if (!card || card.dataset.required === 'true') return;
+    // Bascule de secteur métier
+    function switchSector(sectorKey, btn) {
+      currentSector = sectorKey;
+      activeCategory = "all";
 
-      card.classList.toggle('selected');
-      const isSelected = card.classList.contains('selected');
-      const btn = card.querySelector('.select-toggle-btn');
-      
-      if (isSelected) {
-        btn.querySelector('.btn-check-icon').textContent = '✓';
-        btn.querySelector('.btn-text').textContent = 'Module Sélectionné';
+      // Mise à jour de l'onglet actif
+      document.querySelectorAll(".sector-tab-btn").forEach(b => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+
+      const data = SECTORS_DATA[sectorKey];
+
+      // Mise à jour du Hero
+      document.getElementById("heroPill").innerHTML = data.heroPill;
+      document.getElementById("heroTitle").innerHTML = data.heroTitle;
+      document.getElementById("heroDesc").innerHTML = data.heroDesc;
+
+      // Par défaut au changement de secteur : sélection des modules du Pack Recommandé
+      selectedModuleIds.clear();
+      data.pack.includedIds.forEach(id => selectedModuleIds.add(id));
+      isPackMode = true;
+
+      // Rendu de la bannière pack
+      renderPackSpotlight();
+
+      // Rendu des filtres & modules
+      renderFilters();
+      renderModules();
+
+      // Affichage conditionnel de la zone sur-mesure
+      const inquiryZone = document.getElementById("customInquiryZone");
+      if (data.isCustomMode) {
+        inquiryZone.style.border = "2px solid var(--brand-copper)";
+        inquiryZone.style.background = "#FFFBF7";
       } else {
-        btn.querySelector('.btn-check-icon').textContent = '+';
-        btn.querySelector('.btn-text').textContent = 'Ajouter au Devis';
+        inquiryZone.style.border = "2px dashed var(--brand-copper-border)";
+        inquiryZone.style.background = "#FFFDF9";
       }
 
+      // Calcul du devis
       calculateQuote();
     }
 
-    function calculateQuote() {
-      const selectedCards = document.querySelectorAll('.module-card.selected');
-      let monthlyTotal = 0;
-      let oneShotTotal = BASE_DEPLOYMENT_FEE;
-      let count = selectedCards.length;
+    // Rendu dynamique de la bannière Pack Recommandé
+    function renderPackSpotlight() {
+      const data = SECTORS_DATA[currentSector];
+      const spotlight = document.getElementById("packSpotlight");
 
-      selectedCards.forEach(card => {
-        const cost = parseInt(card.dataset.cost || '0', 10);
-        const hardware = parseInt(card.dataset.hardware || '0', 10);
-        monthlyTotal += cost;
-        oneShotTotal += hardware;
-      });
+      document.getElementById("packTitle").textContent = data.pack.name;
+      document.getElementById("packDesc").textContent = data.pack.desc;
+      document.getElementById("packDiscountBadge").textContent = data.pack.discountBadge;
+      document.getElementById("packOldPrice").textContent = formatAr(data.pack.rawSum) + " / mois à la carte";
+      document.getElementById("packCurPrice").innerHTML = formatAr(data.pack.packPrice) + ' <span class="unit">/ mois</span>';
 
-      // Appliquer une tarification palier douce
-      if (monthlyTotal < 69000 && monthlyTotal > 0) {
-        monthlyTotal = 69000; // Forfait minimum essentiel
-      }
-
-      document.getElementById('statCount').textContent = count + " modules";
-      document.getElementById('statMonthly').innerHTML = formatAr(monthlyTotal) + ' <span style="font-size: 0.75rem; color: #D6D3D1;">/ mois</span>';
-      document.getElementById('statOneShot').innerHTML = formatAr(oneShotTotal) + ' <span style="font-size: 0.72rem; color: #A8A29E;">(One-shot)</span>';
-    }
-
-    function filterModules(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const cards = document.querySelectorAll('.module-card');
-      cards.forEach(card => {
-        if (cat === 'all' || card.dataset.category === cat) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
+      const pillsList = document.getElementById("packPillsList");
+      pillsList.innerHTML = "";
+      data.pack.includedIds.forEach(id => {
+        const mod = data.modules.find(m => m.id === id);
+        if (mod) {
+          const span = document.createElement("span");
+          span.className = "pack-module-pill";
+          span.textContent = "✓ " + mod.title.split("—")[0].split("&")[0].trim();
+          pillsList.appendChild(span);
         }
       });
     }
 
+    // Appliquer le pack recommandé en 1 clic
+    function applyRecommendedPack() {
+      const data = SECTORS_DATA[currentSector];
+      selectedModuleIds.clear();
+      data.pack.includedIds.forEach(id => selectedModuleIds.add(id));
+      isPackMode = true;
+      renderModules();
+      calculateQuote();
+
+      // Feedback visuel doux
+      const spotlight = document.getElementById("packSpotlight");
+      spotlight.style.transform = "scale(1.01)";
+      setTimeout(() => {
+        spotlight.style.transform = "none";
+      }, 300);
+    }
+
+    // Affichage des filtres par catégorie
+    function renderFilters() {
+      const data = SECTORS_DATA[currentSector];
+      const filterBar = document.getElementById("filterBar");
+      filterBar.innerHTML = "";
+
+      data.categories.forEach(cat => {
+        const btn = document.createElement("button");
+        btn.className = "filter-btn" + (cat.key === activeCategory ? " active" : "");
+        btn.textContent = cat.label;
+        btn.onclick = () => filterCategory(cat.key, btn);
+        filterBar.appendChild(btn);
+      });
+    }
+
+    function filterCategory(catKey, btn) {
+      activeCategory = catKey;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const cards = document.querySelectorAll(".module-card");
+      cards.forEach(card => {
+        if (catKey === "all" || card.dataset.category === catKey) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Rendu dynamique de la grille des cartes modules
+    function renderModules() {
+      const data = SECTORS_DATA[currentSector];
+      const grid = document.getElementById("modulesGrid");
+      grid.innerHTML = "";
+
+      data.modules.forEach(mod => {
+        const isSelected = selectedModuleIds.has(mod.id);
+        const card = document.createElement("div");
+        card.className = "module-card" + (isSelected ? " selected" : "");
+        card.dataset.id = mod.id;
+        card.dataset.category = mod.category;
+        card.dataset.cost = mod.cost;
+        card.dataset.hardware = mod.hardware;
+        card.dataset.required = mod.required ? "true" : "false";
+
+        if (activeCategory !== "all" && mod.category !== activeCategory) {
+          card.style.display = "none";
+        }
+
+        const bulletsHtml = mod.bullets.map(b => "<li><span>✓</span> " + b + "</li>").join("");
+        const safeTitle = mod.title.replace(/'/g, "\\'");
+
+        card.innerHTML = `
+          <div class="module-thumb-wrap" onclick="openLightbox('${mod.img}', '${safeTitle}')">
+            <img src="${mod.img}" alt="${mod.title}" loading="lazy" ${mod.hardware > 0 ? 'style="object-fit: contain; padding: 1.25rem; background: white;"' : ''}>
+            <div class="module-zoom-badge">🔍 Zoom Interface</div>
+          </div>
+          <div class="module-body">
+            <div class="module-meta-row">
+              <span class="module-tag">${mod.tag}</span>
+              <span class="module-rate ${mod.required ? 'included' : ''}">${mod.rateText}</span>
+            </div>
+            <h3 class="module-title">${mod.title}</h3>
+            <p class="module-desc">${mod.desc}</p>
+            <ul class="module-bullets">
+              ${bulletsHtml}
+            </ul>
+          </div>
+          <div class="module-footer">
+            <button class="select-toggle-btn" onclick="toggleModule('${mod.id}')">
+              <span class="btn-check-icon">${isSelected ? "✓" : "+"}</span>
+              <span class="btn-text">${isSelected ? (mod.required ? "Socle de Base Inclus" : (mod.hardware > 0 ? "Matériel Sélectionné" : "Module Sélectionné")) : (mod.hardware > 0 ? "Ajouter ce Matériel" : "Ajouter au Devis")}</span>
+            </button>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // Basculer la sélection d'un module
+    function toggleModule(id) {
+      const data = SECTORS_DATA[currentSector];
+      const mod = data.modules.find(m => m.id === id);
+      if (!mod || mod.required) return; // Le socle obligatoire ne peut être désactivé
+
+      if (selectedModuleIds.has(id)) {
+        selectedModuleIds.delete(id);
+      } else {
+        selectedModuleIds.add(id);
+      }
+
+      checkPackStatus();
+      renderModules();
+      calculateQuote();
+    }
+
+    // Vérifie si la sélection correspond au pack officiel
+    function checkPackStatus() {
+      const data = SECTORS_DATA[currentSector];
+      const packIds = data.pack.includedIds;
+      let hasAllPack = packIds.every(pid => selectedModuleIds.has(pid));
+      isPackMode = hasAllPack;
+    }
+
+    // Calcul du devis exact, transparent et vérifiable
+    function calculateQuote() {
+      const data = SECTORS_DATA[currentSector];
+      let monthlyTotal = 0;
+      let oneShotTotal = data.deploymentFee;
+      let count = selectedModuleIds.size;
+      let configLabel = "";
+
+      // 1. Calcul du matériel One-Shot
+      selectedModuleIds.forEach(id => {
+        const mod = data.modules.find(m => m.id === id);
+        if (mod && mod.hardware > 0) {
+          oneShotTotal += mod.hardware;
+        }
+      });
+
+      // 2. Calcul Mensuel
+      if (data.isCustomMode) {
+        // En mode Prestation Libre / Sur-Mesure :
+        // Base moteur (49k) + somme des briques additionnelles
+        monthlyTotal = data.baseCost;
+        let optionSum = 0;
+        let optionCount = 0;
+
+        selectedModuleIds.forEach(id => {
+          const mod = data.modules.find(m => m.id === id);
+          if (mod && !mod.required && mod.cost > 0) {
+            optionSum += mod.cost;
+            optionCount++;
+          }
+        });
+
+        // Remise dégressive multi-modules
+        if (optionCount >= 5) {
+          // -25% de remise sur les options
+          optionSum = Math.round(optionSum * 0.75);
+          configLabel = "Pack Libre 5+ Modules (-25% dégressif)";
+        } else if (optionCount >= 3) {
+          // -15% de remise sur les options
+          optionSum = Math.round(optionSum * 0.85);
+          configLabel = "Pack Libre 3+ Modules (-15% dégressif)";
+        } else {
+          configLabel = "Prestation Sur-Mesure À la Carte";
+        }
+
+        monthlyTotal += optionSum;
+
+      } else if (isPackMode) {
+        // Mode Pack Intégral du Prospectus :
+        // Le prix du pack s'applique directement
+        monthlyTotal = data.pack.packPrice;
+
+        // Si l'utilisateur a ajouté des modules supplémentaires HORS DU PACK (ex: IA prédictive, options évolutives)
+        selectedModuleIds.forEach(id => {
+          if (!data.pack.includedIds.includes(id)) {
+            const mod = data.modules.find(m => m.id === id);
+            if (mod && mod.cost > 0) {
+              monthlyTotal += mod.cost;
+            }
+          }
+        });
+
+        configLabel = data.pack.name;
+        document.getElementById("statConfigName").style.color = "#F59E0B";
+
+      } else {
+        // Mode À la carte :
+        // Le socle métier a son tarif de base (ex: 79k pour ResiPro, 119k pour Éducation/Tourisme, 99k pour ERP)
+        // Et chaque option cochée s'additionne arithmétiquement !
+        monthlyTotal = data.baseCost;
+
+        selectedModuleIds.forEach(id => {
+          const mod = data.modules.find(m => m.id === id);
+          if (mod && !mod.required && mod.cost > 0) {
+            monthlyTotal += mod.cost;
+          }
+        });
+
+        configLabel = "Formule Socle & Options À la Carte";
+        document.getElementById("statConfigName").style.color = "#FFFFFF";
+      }
+
+      document.getElementById("statConfigName").textContent = configLabel;
+      document.getElementById("statCount").textContent = count + " modules sélectionnés";
+      document.getElementById("statMonthly").innerHTML = formatAr(monthlyTotal) + ' <span style="font-size: 0.72rem; color: #D6D3D1;">/ mois</span>';
+      document.getElementById("statOneShot").innerHTML = formatAr(oneShotTotal) + ' <span style="font-size: 0.7rem; color: #A8A29E;">(Déploiement & Matériel)</span>';
+    }
+
+    // Gestion de l'upload de photo / document
+    function handleFileSelect(input) {
+      if (input.files && input.files[0]) {
+        selectedFileAttachment = input.files[0];
+        const sizeMb = (selectedFileAttachment.size / (1024 * 1024)).toFixed(2);
+        document.getElementById("fileUploadLabel").textContent = "✓ Fichier joint : " + selectedFileAttachment.name;
+        document.getElementById("fileUploadLabel").style.color = "#059669";
+        document.getElementById("fileNamePreview").textContent = "Taille : " + sizeMb + " Mo • Prêt pour transmission";
+      }
+    }
+
+    // Envoi direct par WhatsApp
+    function sendViaWhatsApp() {
+      const data = SECTORS_DATA[currentSector];
+      const desc = document.getElementById("customProjectDesc").value.trim();
+      const contact = document.getElementById("customClientContact").value.trim();
+
+      const selectedModulesNames = [];
+      selectedModuleIds.forEach(id => {
+        const mod = data.modules.find(m => m.id === id);
+        if (mod) selectedModulesNames.push(mod.title);
+      });
+
+      const monthlyText = document.getElementById("statMonthly").textContent.trim();
+      const oneShotText = document.getElementById("statOneShot").textContent.trim();
+      const configName = document.getElementById("statConfigName").textContent.trim();
+
+      let msg = "*DEMANDE DE DEVIS & CAHIER DES CHARGES — MISSI INNOVATION*\n\n";
+      msg += "*Secteur :* " + data.name + "\n";
+      msg += "*Formule :* " + configName + "\n";
+      msg += "*Abonnement estimé :* " + monthlyText + "\n";
+      msg += "*Déploiement & Matériel :* " + oneShotText + "\n\n";
+      msg += "*Modules retenus (" + selectedModulesNames.length + ") :*\n";
+      selectedModulesNames.forEach(name => {
+        msg += "• " + name + "\n";
+      });
+
+      if (desc) {
+        msg += "\n*Besoin spécifique / Cahier des charges :*\n" + desc + "\n";
+      }
+
+      if (contact) {
+        msg += "\n*Coordonnées client :* " + contact + "\n";
+      }
+
+      if (selectedFileAttachment) {
+        msg += "\n*(Note : Une pièce jointe a été préparée : " + selectedFileAttachment.name + ")*\n";
+      }
+
+      const waUrl = "https://wa.me/?text=" + encodeURIComponent(msg);
+      window.open(waUrl, "_blank");
+    }
+
+    // Copier le récapitulatif devis dans le presse-papier
+    function copyQuoteSummary() {
+      const data = SECTORS_DATA[currentSector];
+      const desc = document.getElementById("customProjectDesc").value.trim();
+      const contact = document.getElementById("customClientContact").value.trim();
+
+      const selectedModulesNames = [];
+      selectedModuleIds.forEach(id => {
+        const mod = data.modules.find(m => m.id === id);
+        if (mod) selectedModulesNames.push(mod.title);
+      });
+
+      const monthlyText = document.getElementById("statMonthly").textContent.trim();
+      const oneShotText = document.getElementById("statOneShot").textContent.trim();
+      const configName = document.getElementById("statConfigName").textContent.trim();
+
+      let summary = "PROPOSITION TARIFAIRE MISSI INNOVATION MADAGASCAR\n";
+      summary += "-----------------------------------------------------\n";
+      summary += "Secteur d'activité : " + data.name + "\n";
+      summary += "Formule : " + configName + "\n";
+      summary += "Abonnement mensuel : " + monthlyText + "\n";
+      summary += "Frais d'installation : " + oneShotText + "\n\n";
+      summary += "Modules sélectionnés (" + selectedModulesNames.length + ") :\n";
+      selectedModulesNames.forEach(name => {
+        summary += " - " + name + "\n";
+      });
+
+      if (desc) summary += "\nDescription besoin : " + desc + "\n";
+      if (contact) summary += "Contact : " + contact + "\n";
+
+      navigator.clipboard.writeText(summary).then(() => {
+        alert("✓ Le récapitulatif de votre devis a été copié dans votre presse-papier ! Vous pouvez le coller dans un e-mail ou sur WhatsApp.");
+      }).catch(() => {
+        alert("Récapitulatif généré :\n\n" + summary);
+      });
+    }
+
+    // Modal Lightbox Zoom
     function openLightbox(src, title) {
-      document.getElementById('lightboxImg').src = src;
-      document.getElementById('lightboxTitle').textContent = title;
-      document.getElementById('lightboxModal').classList.add('active');
+      document.getElementById("lightboxImg").src = src;
+      document.getElementById("lightboxTitle").textContent = title;
+      document.getElementById("lightboxModal").classList.add("active");
     }
 
     function closeLightbox() {
-      document.getElementById('lightboxModal').classList.remove('active');
+      document.getElementById("lightboxModal").classList.remove("active");
     }
 
-    // Initial calculation on load
-    calculateQuote();
+    // Initialisation au chargement
+    document.addEventListener("DOMContentLoaded", () => {
+      switchSector("education", document.querySelector(".sector-tab-btn.active"));
+    });
   </script>
 </body>
 </html>

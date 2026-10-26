@@ -51,7 +51,7 @@ prospectus-missi/
 │   └── deploy-supabase.mjs                           # Déploiement automatisé vers Supabase Storage
 │
 ├── firebase.json                                     # Configuration Firebase Hosting (public: "public" + 301 redirects)
-├── .firebaserc                                       # Projet Firebase actif ("missi-inovation")
+├── .firebaserc                                       # Projet Firebase actif ("missi-innovation")
 ├── package.json                                      # Dépendances npm et scripts de lancement
 ├── .env.example                                      # Gabarit des variables d'environnement
 └── README.md                                         # Ce document
@@ -80,7 +80,7 @@ Accédez à [http://localhost:5000](http://localhost:5000) pour afficher le cata
 
 ### 1. Déploiement Firebase Hosting (Production)
 Le site en production est hébergé sur :
-👉 **https://missi-inovation.web.app**
+👉 **https://missi-innovation.web.app**
 
 Pour déployer les mises à jour en un clic :
 ```bash

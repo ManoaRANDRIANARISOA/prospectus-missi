@@ -3,7 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Home — Guide Pédagogique Officiel & Dossier Familles Homeschooling | Missi Innovation</title>
+    <title>Study Home PWA — Guide & Dossier Officiel Familles Homeschooling Madagascar | Missi Innovation</title>
+    
+    <!-- SEO & MÉTADONNÉES LOCALES HOMESCHOOLING -->
+    <meta name="description" content="Study Home PWA : L'application tout-en-un pour l'instruction en famille et les cours privés à Madagascar. Planning modulable, référentiel des matières, suivi de progression et livret d'évaluation officiel.">
+    <meta name="keywords" content="homeschooling madagascar, instruction en famille madagascar, cours particuliers antananarivo, study home pwa, livret scolaire famille madagascar, missi innovation">
+    <link rel="canonical" href="https://missi-innovation.web.app/education/homeschooling-pwa.html">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_MG">
+    <meta property="og:title" content="Study Home PWA — Guide Familles Homeschooling Madagascar">
+    <meta property="og:description" content="Découvrez Study Home PWA : planifiez, suivez et évaluez l'apprentissage à la maison en toute sérénité.">
+    <meta property="og:url" content="https://missi-innovation.web.app/education/homeschooling-pwa.html">
+    <meta property="og:image" content="https://missi-innovation.web.app/assets/img/09_gestion_matieres_programmes.png">
+
+    <!-- SCHEMA.ORG STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Study Home PWA Famille",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Web, Windows, Android, iOS",
+      "offers": {
+        "@type": "Offer",
+        "price": "39000",
+        "priceCurrency": "MGA"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Missi Innovation",
+        "url": "https://missi-innovation.web.app"
+      }
+    }
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="../assets/img/missi_logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +72,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
         }
 
         body {
@@ -305,8 +345,8 @@
             border: 1px solid var(--brand-copper-border);
             border-left: 4.5px solid var(--brand-copper);
             border-radius: 8px;
-            padding: 11px 15px;
-            margin-bottom: 11px;
+            padding: 13px 16px;
+            margin-bottom: 12px;
             box-shadow: 0 2px 8px rgba(194, 103, 43, 0.05);
         }
 
@@ -314,11 +354,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .hero-badge-tag {
-            font-size: 8.5px;
+            font-size: 9px;
             font-weight: 800;
             color: var(--brand-copper-dark);
             text-transform: uppercase;
@@ -329,44 +369,44 @@
         }
 
         .hero-pill-right {
-            font-size: 7.5px;
+            font-size: 8px;
             font-weight: 700;
             color: #065F46;
             background: #ECFDF5;
             border: 1px solid #A7F3D0;
-            padding: 2px 8px;
+            padding: 2.5px 9px;
             border-radius: 999px;
             text-transform: uppercase;
         }
 
         .hero-banner h1 {
-            font-size: 17.5px;
+            font-size: 19px;
             font-weight: 800;
             color: var(--text-dark);
             line-height: 1.25;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
         .hero-banner h2 {
-            font-size: 11px;
+            font-size: 11.5px;
             font-weight: 700;
             color: var(--brand-copper-dark);
-            margin-bottom: 6px;
-            line-height: 1.3;
+            margin-bottom: 7px;
+            line-height: 1.35;
         }
 
         .hero-banner p {
-            font-size: 8.8px;
+            font-size: 9.2px;
             color: var(--text-gray);
-            line-height: 1.45;
+            line-height: 1.5;
         }
 
         /* 4 PILIERS HOMESCHOOLING */
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-bottom: 11px;
+            gap: 9px;
+            margin-bottom: 12px;
         }
 
         .pillar-box {
@@ -374,11 +414,11 @@
             border: 1px solid var(--border-color);
             border-top: 3px solid var(--brand-copper);
             border-radius: 7px;
-            padding: 8px 9px;
+            padding: 9px 10px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
         }
 
         .pillar-icon-row {
@@ -403,16 +443,16 @@
         }
 
         .pillar-box strong {
-            font-size: 9px;
+            font-size: 9.5px;
             font-weight: 800;
             color: var(--text-dark);
-            line-height: 1.2;
+            line-height: 1.25;
         }
 
         .pillar-box p {
-            font-size: 7.8px;
+            font-size: 8.4px;
             color: var(--text-gray);
-            line-height: 1.35;
+            line-height: 1.4;
         }
 
         /* SECTIONS DE CONTENU */
@@ -420,21 +460,21 @@
             background: white;
             border: 1px solid var(--border-color);
             border-radius: 7px;
-            padding: 10px 12px;
-            margin-bottom: 10px;
+            padding: 11px 13px;
+            margin-bottom: 11px;
         }
 
         .section-headline {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 7px;
-            padding-bottom: 5px;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
             border-bottom: 1px solid var(--border-subtle);
         }
 
         .section-headline h3 {
-            font-size: 9.8px;
+            font-size: 10.5px;
             font-weight: 800;
             color: var(--brand-copper-dark);
             text-transform: uppercase;
@@ -445,82 +485,84 @@
         .defis-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
+            gap: 9px;
         }
 
         .defi-card {
             background: var(--bg-page);
             border: 1px solid var(--border-color);
             border-radius: 6px;
-            padding: 7px 9px;
+            padding: 8px 10px;
         }
 
         .defi-card-title {
-            font-size: 8.5px;
+            font-size: 9px;
             font-weight: 800;
             color: var(--text-dark);
             display: flex;
             align-items: center;
             gap: 5px;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
         .defi-card p {
-            font-size: 7.7px;
+            font-size: 8.3px;
             color: var(--text-gray);
-            line-height: 1.3;
+            line-height: 1.38;
         }
 
         /* PRICING CARDS (PAGE 2) */
         .pricing-card-row {
             display: flex;
             flex-direction: column;
-            gap: 9px;
-            margin-bottom: 10px;
+            gap: 11px;
+            margin-bottom: 11px;
         }
 
         .pricing-card {
             background: white;
             border: 1px solid var(--border-color);
-            border-radius: 7px;
-            padding: 9px 12px;
+            border-radius: 8px;
+            padding: 11px 14px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.03);
         }
 
         .pricing-card.featured {
             border: 1.5px solid var(--brand-copper);
             background: linear-gradient(180deg, #FFFFFF 0%, #FFFDFB 100%);
-            box-shadow: 0 3px 10px rgba(194, 103, 43, 0.08);
+            box-shadow: 0 3px 12px rgba(194, 103, 43, 0.08);
         }
 
         .pricing-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 7px;
-            padding-bottom: 6px;
+            margin-bottom: 8px;
+            padding-bottom: 7px;
             border-bottom: 1px solid var(--border-subtle);
         }
 
         .pricing-badge {
-            font-size: 7.2px;
+            font-size: 7.8px;
             font-weight: 800;
             color: var(--brand-copper-dark);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             display: block;
-            margin-bottom: 1px;
+            margin-bottom: 2px;
         }
 
         .pricing-header h3 {
-            font-size: 11px;
+            font-size: 11.8px;
             font-weight: 800;
             color: var(--text-dark);
+            line-height: 1.25;
         }
 
         .pricing-sub {
-            font-size: 7.8px;
+            font-size: 8.3px;
             color: var(--text-soft);
+            margin-top: 2px;
         }
 
         .pricing-val-wrap {
@@ -529,20 +571,21 @@
         }
 
         .pricing-old-rate {
-            font-size: 8px;
+            font-size: 8.5px;
             color: var(--text-light);
             text-decoration: line-through;
         }
 
         .pricing-amount {
-            font-size: 13.5px;
+            font-size: 14.5px;
             font-weight: 900;
             color: var(--brand-copper-dark);
             font-family: 'Outfit', sans-serif;
+            line-height: 1.1;
         }
 
         .pricing-period {
-            font-size: 7.5px;
+            font-size: 8px;
             font-weight: 600;
             color: var(--text-soft);
         }
@@ -550,24 +593,25 @@
         .feature-bullets {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 5px 12px;
+            gap: 6px 14px;
             list-style: none;
         }
 
         .feature-bullets li {
-            font-size: 8.2px;
+            font-size: 8.6px;
             color: var(--text-dark);
-            line-height: 1.3;
+            line-height: 1.35;
             display: flex;
             align-items: flex-start;
-            gap: 5px;
+            gap: 6px;
         }
 
         .bullet-icon {
             color: var(--brand-copper);
             font-weight: 800;
-            font-size: 9px;
+            font-size: 9.5px;
             flex-shrink: 0;
+            margin-top: -1px;
         }
 
         /* CADRE BON POUR ACCORD */
@@ -575,19 +619,19 @@
             border: 1px dashed var(--brand-copper);
             background: #FDFBF8;
             border-radius: 7px;
-            padding: 8px 12px;
-            margin-top: 6px;
+            padding: 9px 13px;
+            margin-top: 8px;
         }
 
         .bon-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .bon-header strong {
-            font-size: 8.8px;
+            font-size: 9.2px;
             color: var(--brand-copper-dark);
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -596,27 +640,27 @@
         .bon-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
+            gap: 12px;
         }
 
         .sig-block {
             background: white;
             border: 1px solid var(--border-color);
             border-radius: 5px;
-            padding: 6px 8px;
-            height: 52px;
+            padding: 7px 9px;
+            height: 56px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .sig-block strong {
-            font-size: 7.5px;
+            font-size: 8px;
             color: var(--text-dark);
         }
 
         .sig-block span {
-            font-size: 6.8px;
+            font-size: 7.2px;
             color: var(--text-soft);
         }
 
@@ -624,8 +668,8 @@
         .spec-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 8px;
-            margin-bottom: 8px;
+            font-size: 8.6px;
+            margin-bottom: 9px;
             background: white;
             border: 1px solid var(--border-color);
             border-radius: 6px;
@@ -636,18 +680,18 @@
             background: var(--brand-copper-light);
             color: var(--brand-copper-dark);
             font-weight: 800;
-            padding: 6px 9px;
+            padding: 6.5px 10px;
             text-align: left;
             border-bottom: 1.5px solid var(--brand-copper-border);
-            font-size: 8.5px;
+            font-size: 8.8px;
             text-transform: uppercase;
             letter-spacing: 0.03em;
         }
 
         .spec-table td {
-            padding: 5.5px 9px;
+            padding: 6px 10px;
             border-bottom: 1px solid var(--border-subtle);
-            line-height: 1.35;
+            line-height: 1.4;
         }
 
         .spec-table tr:last-child td {
@@ -734,9 +778,7 @@
                 <div class="nav-doc-badge">
                     <span>Study Home</span> &bull; Dossier Officiel Familles &amp; Homeschooling
                 </div>
-                <a href="../configurateur.html" class="nav-link-btn" style="color: var(--brand-copper); font-weight: 700;">🛠️ Sélecteur de Modules</a>
-                <a href="../education/presentation-visuelle.html" class="nav-link-btn">Catalogue Study Agent</a>
-                <a href="../index.html" class="nav-link-btn">Accueil Showroom</a>
+                <a href="../index.html" class="nav-link-btn">← Catalogue Showroom</a>
                 <button onclick="window.print()" class="btn-print-action">
                     <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
                     Imprimer Dossier A4 (3 Pages)
@@ -890,56 +932,60 @@
                 Parce que l'instruction en famille est un choix de cœur exigeant, nous proposons une <strong>tarification douce, transparente et sans engagement contraignant</strong>, incluant la prise en main personnalisée, la configuration sur vos appareils et le support bienveillant de notre équipe.
             </p>
 
-            <!-- 2 FORMULES TARIFAIRES -->
+            <!-- 2 FORMULES TARIFAIRES DOUCES & ACCESSIBLES -->
             <div class="pricing-card-row">
-                <!-- FORMULE 1 : FAMILLE ESSENTIELLE -->
+                <!-- FORMULE 1 : FAMILLE ESSENTIELLE & AUTONOMIE -->
                 <div class="pricing-card">
                     <div class="pricing-header">
                         <div>
-                            <span class="pricing-badge">Formule 1 : Famille Essentielle (1 à 2 Enfants)</span>
-                            <h3>Suivi Pédagogique Quotidien &amp; Planning des Devoirs</h3>
-                            <div class="pricing-sub">Idéal pour les parents débutant le homeschooling avec 1 ou 2 enfants en autonomie.</div>
+                            <span class="pricing-badge">Formule 1 : Famille Essentielle &amp; Autonomie (1 à 2 Enfants)</span>
+                            <h3>Emploi du Temps Modulable, Check-List Programmes &amp; Rappels</h3>
+                            <div class="pricing-sub">La boîte à outils quotidienne complète pour structurer et rythmer les cours à domicile en toute liberté.</div>
                         </div>
                         <div class="pricing-val-wrap">
                             <div class="pricing-old-rate">55 000 Ar/mois</div>
                             <div class="pricing-amount">39 000 Ar <span class="pricing-period">/ mois</span></div>
-                            <span style="font-size: 6.8px; color: var(--brand-copper-dark); font-weight: 700; background: var(--brand-copper-light); padding: 1px 6px; border-radius: 3px;">Ou 290 000 Ar / an (Économie de 38%)</span>
+                            <span style="font-size: 7.2px; color: var(--brand-copper-dark); font-weight: 700; background: var(--brand-copper-light); padding: 2px 7px; border-radius: 4px;">Ou 290 000 Ar / an (Économie de 38%)</span>
                         </div>
                     </div>
                     <ul class="feature-bullets">
-                        <li><span class="bullet-icon">✓</span> <strong>Jusqu'à 2 profils enfants complets</strong> avec niveaux d'étude indépendants</li>
-                        <li><span class="bullet-icon">✓</span> <strong>Cahier de devoirs interactif</strong> avec statuts clairs (à faire / validé)</li>
-                        <li><span class="bullet-icon">✓</span> <strong>Suivi des leçons par discipline</strong> (Français, Maths, Éveil, Langues)</li>
-                        <li><span class="bullet-icon">✓</span> <strong>Mode 100% Hors-Ligne natif</strong> sur PC ou tablette familiale</li>
-                        <li><span class="bullet-icon">✓</span> <strong>Génération du carnet de suivi semestriel</strong> en format PDF officiel A4</li>
-                        <li><span class="bullet-icon">✓</span> <strong>Assistance pédagogique locale</strong> par message sous 24h ouvrées</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Emploi du Temps Modulable :</strong> Modèle personnalisable pré-intégré, insertion libre de vos horaires, cours, pauses et ateliers.</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Liste des Matières sur-mesure :</strong> Configuration souple des disciplines (Français, Malagasy, Maths, Sciences, Histoire, Langues).</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Programmes à insérer avec Check-List :</strong> Saisie de vos chapitres et leçons avec cases à cocher (Fait / En cours / Non fait).</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Système de Rappels &amp; Alertes Deadlines :</strong> Planning d'échéances modulables (mois, semaine, trimestre) avec rappels automatiques.</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Jusqu'à 2 Profils Enfants Cloisonnés :</strong> Niveaux d'étude et progressions distincts de la maternelle au secondaire.</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Mode 100% Hors-Ligne Natif :</strong> Aucune dépendance Internet, vos leçons et mémos restent accessibles en délestage.</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Génération du Carnet de Suivi A4 :</strong> Impression semestrielle officielle PDF propre pour archiver les progrès de l'enfant.</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Assistance Pédagogique Locale :</strong> Support technique réactif par messagerie sous 24h ouvrées.</li>
                     </ul>
                 </div>
 
-                <!-- FORMULE 2 : FAMILLE NOMBREUSE & TUTEURS D'ÉLITE -->
+                <!-- FORMULE 2 : FAMILLE PRIVILÈGE & CONFORT MAX -->
                 <div class="pricing-card featured">
                     <div class="pricing-header">
                         <div>
                             <div style="display: flex; align-items: center; gap: 6px;">
-                                <span class="pricing-badge" style="color: var(--brand-copper-dark);">Formule 2 : Famille Nombreuse &amp; Tuteurs ★</span>
-                                <span style="font-size: 7px; font-weight: 800; background: var(--brand-copper); color: white; padding: 1px 6px; border-radius: 999px; text-transform: uppercase;">Recommandé</span>
+                                <span class="pricing-badge" style="color: var(--brand-copper-dark);">Formule 2 : Famille Privilège &bull; Confort Max &amp; Tuteurs ★</span>
+                                <span style="font-size: 7.5px; font-weight: 800; background: var(--brand-copper); color: white; padding: 2px 8px; border-radius: 999px; text-transform: uppercase;">Recommandé</span>
                             </div>
-                            <h3 style="color: var(--brand-copper-dark);">Multi-Profils Illimités, Dossier d'Inspection &amp; Cloud Sync</h3>
-                            <div class="pricing-sub">Pour fratries de 3 enfants et plus, tuteurs privés et éducateurs indépendants à domicile.</div>
+                            <h3 style="color: var(--brand-copper-dark);">Tout l'Essentiel + Profils Illimités, Dossier d'Inspection &amp; Cloud Sync</h3>
+                            <div class="pricing-sub">Le confort absolu pour fratries de 3 enfants et plus, précepteurs privés et tuteurs indépendants à domicile.</div>
                         </div>
                         <div class="pricing-val-wrap">
                             <div class="pricing-old-rate">89 000 Ar/mois</div>
                             <div class="pricing-amount">59 000 Ar <span class="pricing-period">/ mois</span></div>
-                            <span style="font-size: 6.8px; color: var(--brand-copper-dark); font-weight: 700; background: var(--brand-copper-light); padding: 1px 6px; border-radius: 3px;">Ou 450 000 Ar / an (Option Licence Définitive Disponible)</span>
+                            <span style="font-size: 7.2px; color: var(--brand-copper-dark); font-weight: 700; background: var(--brand-copper-light); padding: 2px 7px; border-radius: 4px;">Ou 450 000 Ar / an (Option Licence Définitive Disponible)</span>
                         </div>
                     </div>
                     <ul class="feature-bullets">
-                        <li><span class="bullet-icon">✓</span> <strong>Tout le contenu Famille Essentielle inclus sans limitation</strong></li>
-                        <li><span class="bullet-icon">✓</span> <strong>Profils enfants &amp; tuteurs illimités</strong> avec cursus personnalisés</li>
-                        <li><span class="bullet-icon">✓</span> <strong>Module Dossier d'Inspection Académique</strong> complet et normalisé A4</li>
-                        <li><span class="bullet-icon">✓</span> <strong>Banque de ressources &amp; fiches d'exercices</strong> intégrée et enrichissable</li>
-                        <li><span class="bullet-icon">✓</span> <strong>Sauvegarde miroir Cloud chiffrée</strong> pour synchroniser 2 ordinateurs</li>
-                        <li><span class="bullet-icon">✓</span> <strong>Accompagnement prioritaire 6j/7</strong> avec session d'installation guidée</li>
+                        <li><span class="bullet-icon">✓</span> <strong>100% du socle Formule 1 inclus sans limitation</strong> (Emploi du temps, matières, check-lists, rappels deadlines).</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Profils Enfants &amp; Tuteurs Illimités :</strong> Gestion centralisée pour toute la fratrie, éducateurs et intervenants.</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Générateur de Dossier d'Inspection Académique 1-Clic :</strong> Livret A4 officiel normé avec journal d'activités daté.</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Banque de Ressources Pédagogiques Enrichissable :</strong> Fiches d'exercices, énoncés scannés et annales centralisés.</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Synchronisation Miroir Multi-Écrans Cloud :</strong> Données synchronisées entre l'ordinateur des parents et la tablette enfant.</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Sauvegarde Miroir Chiffrée Anti-Crash :</strong> Données scolaires protégées à vie contre toute panne de disque dur.</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Accompagnement VIP Confort Max 6j/7 :</strong> Session de démarrage et configuration personnalisée sur vos appareils.</li>
+                        <li><span class="bullet-icon">✓</span> <strong>Mises à Jour Réglementaires Gratuites :</strong> Évolution continue conforme aux socles éducatifs officiels.</li>
                     </ul>
                 </div>
             </div>
@@ -1021,15 +1067,11 @@
                 <tbody>
                     <tr>
                         <td class="col-feature">Découpage par Cycles &amp; Matières</td>
-                        <td class="col-desc">Arborescence complète modulable : Maternelle, Primaire (CP-CM2), Collège (6e-3e), Lycée ou cursus libre. Possibilité d'adapter les disciplines aux programmes officiels ou CNED.</td>
+                        <td class="col-desc">Arborescence modulable : Maternelle, Primaire (CP-CM2), Collège (6e-3e), Lycée ou cursus libre. Possibilité d'adapter les disciplines aux programmes officiels ou CNED.</td>
                     </tr>
                     <tr>
                         <td class="col-feature">Fonctionnement 100% Hors-Ligne</td>
                         <td class="col-desc">Moteur local haute performance. Toutes les leçons, devoirs et livrets d'acquis sont consultables et modifiables sans aucune connexion Internet active.</td>
-                    </tr>
-                    <tr>
-                        <td class="col-feature">Cahier de Texte &amp; Emploi du Temps</td>
-                        <td class="col-desc">Vue hebdomadaire intuitive par glisser-déposer pour équilibrer travail intellectuel, ateliers créatifs, sport et sorties découverte de la nature.</td>
                     </tr>
                     <tr>
                         <td class="col-feature">Carnet de Progression &amp; Badges</td>
@@ -1041,7 +1083,33 @@
             <table class="spec-table">
                 <thead>
                     <tr>
-                        <th colspan="2">2. Contrôle Pédagogique &amp; Inspection Académique Officielle</th>
+                        <th colspan="2">2. Emploi du Temps Modulable, Check-Lists &amp; Système de Rappels</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-feature">Emploi du Temps Modulable</td>
+                        <td class="col-desc">Modèle pré-configuré inclus dans l'application et 100% modifiable. Les parents et tuteurs insèrent librement leurs horaires, cours, ateliers d'éveil, pauses et activités sportives.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-feature">Liste des Matières sur-mesure</td>
+                        <td class="col-desc">Configuration souple des matières enseignées (Français, Malagasy, Mathématiques, Sciences, Histoire-Géo, Anglais, Arts...). Personnalisation libre par enfant selon les objectifs familiaux.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-feature">Programmes à Insérer &amp; Check-List</td>
+                        <td class="col-desc">Saisie des programmes et chapitres avec système de cases à cocher interactives (<em>Fait / En cours / Non fait</em>) pour visualiser d'un coup d'œil l'avancée pédagogique réelle sans stress.</td>
+                    </tr>
+                    <tr>
+                        <td class="col-feature">Système de Rappels &amp; Deadlines</td>
+                        <td class="col-desc">Planification des échéances avec dates cibles modifiables (mois, semaine, trimestre). Alertes automatiques prévenant des devoirs proches du temps réglementaire ou des tâches en retard.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th colspan="2">3. Contrôle Pédagogique &amp; Inspection Académique Officielle</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1063,7 +1131,7 @@
             <table class="spec-table">
                 <thead>
                     <tr>
-                        <th colspan="2">3. Charte Éthique &amp; Protection Absolue de l'Enfance</th>
+                        <th colspan="2">4. Charte Éthique &amp; Protection Absolue de l'Enfance</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1083,10 +1151,10 @@
             </table>
 
             <!-- Cadre d'Engagements Missi Innovation -->
-            <div style="margin-top: 6px; padding: 7px 11px; border: 1px solid var(--border-color); border-radius: 6px; background: #FAF9F5; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-gray); flex-wrap: wrap; gap: 6px;">
-                <div><strong style="color: var(--brand-copper-dark);">Activation Immédiate :</strong> Accès à l'application dès validation du dossier</div>
-                <div><strong style="color: var(--brand-copper-dark);">Accompagnement Dédié :</strong> Prise en main personnalisée pour les parents</div>
-                <div><strong style="color: var(--brand-copper-dark);">Règlement Souple :</strong> Virement bancaire ou Mobile Money (MVola, Orange)</div>
+            <div style="margin-top: 8px; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: #FAF9F5; display: flex; justify-content: space-between; align-items: center; font-size: 8.8px; color: var(--text-gray); flex-wrap: wrap; gap: 8px;">
+                <div><strong style="color: var(--brand-copper-dark);">⚡ Activation Immédiate :</strong> Accès à l'application dès validation du dossier</div>
+                <div><strong style="color: var(--brand-copper-dark);">🤝 Accompagnement Dédié :</strong> Prise en main personnalisée pour les parents</div>
+                <div><strong style="color: var(--brand-copper-dark);">💳 Règlement Souple :</strong> Virement bancaire ou Mobile Money (MVola, Orange)</div>
             </div>
         </div>
 

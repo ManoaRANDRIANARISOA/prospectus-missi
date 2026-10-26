@@ -4,7 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposition Commerciale — TourAgent Pro ERP Tour Opérateurs | Missi Innovation</title>
+    <title>TourAgent Pro — Logiciel Tour Opérateurs & Agences Réceptives Madagascar | Missi Innovation</title>
+    
+    <!-- SEO & MÉTADONNÉES LOCALES TOURISME -->
+    <meta name="description" content="TourAgent Pro : Le progiciel dédié aux tour-opérateurs et réceptifs à Madagascar. Cotations multi-devises (EUR, USD, MGA), émission de vouchers prestataires, flotte 4x4 et facturation fiscale NIF/STAT.">
+    <meta name="keywords" content="logiciel tour operateur madagascar, logiciel agence receptive madagascar, gestion circuits madagascar, vouchers hotels madagascar, flotte 4x4 madagascar, touragent pro, missi innovation">
+    <link rel="canonical" href="https://missi-innovation.web.app/tourisme/tour-operator.html">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="fr_MG">
+    <meta property="og:title" content="TourAgent Pro — Logiciel Tour Opérateurs & Réceptifs Madagascar">
+    <meta property="og:description" content="Proposition commerciale et cahier des charges de TourAgent Pro. Maîtrisez vos marges et votre logistique terrain.">
+    <meta property="og:url" content="https://missi-innovation.web.app/tourisme/tour-operator.html">
+    <meta property="og:image" content="https://missi-innovation.web.app/assets/img/touragent_01_circuits_vouchers.png">
+
+    <!-- SCHEMA.ORG STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TourAgent Pro Réceptif",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, Windows, Offline SQLite",
+      "offers": {
+        "@type": "Offer",
+        "price": "179000",
+        "priceCurrency": "MGA"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Missi Innovation",
+        "url": "https://missi-innovation.web.app"
+      }
+    }
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="../assets/img/missi_logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -502,22 +537,22 @@
         .specs-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 7px;
+            margin-bottom: 9px;
         }
 
         .specs-table th {
             text-align: left;
-            font-size: 10px;
+            font-size: 10.5px;
             font-weight: 700;
             color: var(--rust-dark);
             border-bottom: 1.5px solid var(--rust);
-            padding: 3px 0 2px 0;
+            padding: 5px 0 4px 0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .specs-table td {
-            padding: 3.5px 0;
+            padding: 6px 0;
             border-bottom: 1px solid var(--border);
             vertical-align: top;
         }
@@ -526,14 +561,14 @@
             width: 30%;
             font-weight: 700;
             color: var(--text-dark);
-            font-size: 9.5px;
+            font-size: 10px;
         }
 
         .specs-table td.feature-desc {
             width: 70%;
             color: var(--text-gray);
-            font-size: 9px;
-            line-height: 1.35;
+            font-size: 9.6px;
+            line-height: 1.45;
         }
 
         /* BON POUR ACCORD */
@@ -572,6 +607,366 @@
             color: var(--text-dark);
         }
 
+        /* ==========================================================================
+           COMPOSANTS ARTISTIQUES MARKETING HAUTE DENSITÉ (PAGE 1 & PAGE 2)
+           ========================================================================== */
+        /* WORKFLOW RECEPTIF 5 ETAPES */
+        .workflow-section {
+            background: #FAF8F5;
+            border: 1px solid var(--border-warm);
+            border-radius: 7px;
+            padding: 7px 11px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .wf-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+        }
+
+        .wf-header h3 {
+            font-size: 11px;
+            color: var(--rust-dark);
+            font-weight: 600;
+        }
+
+        .wf-steps-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .wf-step {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 5px 6px;
+            text-align: center;
+            min-height: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .wf-step-num {
+            font-size: 8px;
+            font-weight: 800;
+            color: var(--rust);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1px;
+        }
+
+        .wf-step-title {
+            font-size: 8.8px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.15;
+            margin-bottom: 2px;
+        }
+
+        .wf-step-desc {
+            font-size: 7.2px;
+            color: var(--text-gray);
+            line-height: 1.25;
+        }
+
+        .wf-step-arrow {
+            color: var(--rust);
+            font-size: 11px;
+            font-weight: bold;
+            opacity: 0.6;
+        }
+
+        /* TABLEAU COMPARATIF ROI EXCEL VS TOURAGENT */
+        .comparison-section {
+            border: 1px solid var(--border-warm);
+            border-radius: 7px;
+            overflow: hidden;
+            background: white;
+            margin-bottom: 6px;
+        }
+
+        .comp-header {
+            background: #FAF8F5;
+            padding: 5px 11px;
+            border-bottom: 1px solid var(--border-warm);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comp-header h3 {
+            font-size: 11px;
+            color: var(--rust-dark);
+            font-weight: 600;
+        }
+
+        .comp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8.4px;
+        }
+
+        .comp-table th {
+            text-align: left;
+            padding: 4px 8px;
+            background: #F5EFE8;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 8px;
+            border-bottom: 1px solid var(--border-warm);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .comp-table th.th-old {
+            color: #991B1B;
+            background: #FEF2F2;
+        }
+
+        .comp-table th.th-new {
+            color: var(--rust-dark);
+            background: #FDF4ED;
+        }
+
+        .comp-table td {
+            padding: 4px 8px;
+            border-bottom: 1px solid #F5EFE8;
+            vertical-align: middle;
+            line-height: 1.28;
+        }
+
+        .comp-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comp-table td.td-old {
+            background: #FFFBFB;
+            color: #7F1D1D;
+            font-size: 8px;
+        }
+
+        .comp-table td.td-new {
+            background: #FFFDF9;
+            color: #27272A;
+            font-size: 8.2px;
+        }
+
+        .comp-table td.td-new strong {
+            color: var(--rust-dark);
+        }
+
+        /* BANDEAU CHIFFRES D'IMPACT */
+        .roi-stats-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 7px;
+            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%);
+            border: 1px solid var(--border-warm);
+            border-radius: 6px;
+            padding: 6px 10px;
+        }
+
+        .roi-stat-col {
+            text-align: center;
+            border-right: 1px dashed var(--border-warm);
+            padding: 0 4px;
+        }
+
+        .roi-stat-col:last-child {
+            border-right: none;
+        }
+
+        .roi-stat-val {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--rust-dark);
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.1;
+        }
+
+        .roi-stat-lbl {
+            font-size: 7.2px;
+            color: var(--text-gray);
+            line-height: 1.25;
+            margin-top: 1px;
+        }
+
+        /* MATRICE COMPARATIVE FORMULE 1 VS FORMULE 2 (PAGE 2) */
+        .formula-matrix-box {
+            border: 1px solid var(--border-warm);
+            border-radius: 6px;
+            overflow: hidden;
+            background: white;
+            margin-bottom: 6px;
+        }
+
+        .f-matrix-title {
+            background: #FAF8F5;
+            padding: 5px 10px;
+            font-size: 9.2px;
+            font-weight: 700;
+            color: var(--rust-dark);
+            border-bottom: 1px solid var(--border-warm);
+        }
+
+        .f-matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8.2px;
+        }
+
+        .f-matrix-table th {
+            text-align: left;
+            padding: 3.5px 8px;
+            font-size: 8px;
+            font-weight: 700;
+            background: #F8F5F0;
+            color: var(--text-dark);
+            border-bottom: 1px solid var(--border-warm);
+        }
+
+        .f-matrix-table th.th-rec {
+            background: #FDF4ED;
+            color: var(--rust-dark);
+        }
+
+        .f-matrix-table td {
+            padding: 3.5px 8px;
+            border-bottom: 1px solid #F5EFE8;
+            color: var(--text-gray);
+            line-height: 1.25;
+        }
+
+        .f-matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .f-matrix-table td.td-rec {
+            background: #FFFDF9;
+            color: var(--text-dark);
+        }
+
+        .f-matrix-table td.td-rec strong {
+            color: var(--rust-dark);
+        }
+
+        /* BANDEAU ROI RECEPTIF (PAGE 2) */
+        .dmc-roi-banner {
+            background: #FAF8F5;
+            border-left: 3.5px solid var(--rust);
+            border-radius: 5px;
+            padding: 5px 9px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dmc-roi-badge {
+            font-size: 7.2px;
+            font-weight: 800;
+            background: var(--rust);
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            letter-spacing: 0.3px;
+        }
+
+        .dmc-roi-banner p {
+            font-size: 7.8px;
+            color: var(--text-gray);
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        /* BON EXECUTIF CONTRACTUEL COMPLET (PAGE 2) */
+        .bon-contract-box {
+            border: 1.5px dashed var(--rust);
+            border-radius: 7px;
+            padding: 6px 9px;
+            background: var(--rust-light);
+            margin-top: 3px;
+        }
+
+        .bon-contract-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+            border-bottom: 1px dashed rgba(164, 90, 61, 0.3);
+            padding-bottom: 3px;
+        }
+
+        .bon-contract-checkboxes {
+            display: flex;
+            gap: 7px;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+        }
+
+        .bon-cb-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 7.8px;
+            font-weight: 700;
+            color: var(--text-dark);
+            background: white;
+            border: 1px solid var(--border-warm);
+            padding: 2.5px 6px;
+            border-radius: 4px;
+        }
+
+        .bon-cb-box {
+            width: 9px;
+            height: 9px;
+            border: 1.5px solid var(--rust);
+            border-radius: 2px;
+            background: white;
+            display: inline-block;
+        }
+
+        .bon-contract-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .contract-frame {
+            background: white;
+            border: 1px solid var(--border-warm);
+            border-radius: 5px;
+            padding: 5px 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 7.3px;
+            color: var(--text-gray);
+            min-height: 62px;
+        }
+
+        .contract-frame strong {
+            font-size: 8px;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .contract-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-top: 2px;
+        }
+
         /* FOOTER DE PAGE A4 */
         .page-footer {
             border-top: 1px solid var(--border);
@@ -584,6 +979,12 @@
             color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        /* PREVENT HORIZONTAL OVERFLOW */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
         }
 
         /* ==========================================================================
@@ -606,6 +1007,14 @@
             display: flex;
             align-items: center;
             font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 900px) {
+            .nav-doc-badge {
+                display: none !important;
+            }
         }
 
         .nav-inner {
@@ -759,9 +1168,7 @@
             </div>
 
             <div class="nav-actions">
-                <a href="../configurateur.html" class="nav-link-btn" style="color: #C2672B; font-weight: 700;">🛠️ Sélecteur de Modules</a>
                 <a href="../index.html" class="nav-link-btn">← Catalogue Showroom</a>
-                <a href="../hotellerie/resipro.html" class="nav-link-btn">Édition Hôtellerie</a>
                 <button onclick="window.print()" class="btn-print-copper" title="Imprimer le dossier officiel en 3 pages A4">
                     <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
                     <span>Imprimer A4 (3 Pages)</span>
@@ -876,6 +1283,109 @@
                 <div class="text-block">
                     <h4>⚖️ Facturation Multidevises, Conformité NIF/STAT &amp; Acomptes</h4>
                     <p>Émission de devis proforma en EUR / USD pour clients étrangers et agences B2B internationales. Suivi des échéances d'acompte (30% à la réservation, solde 30j avant départ) et factures fiscales finales certifiées avec NIF, STAT et TVA.</p>
+                </div>
+            </div>
+
+            <!-- WORKFLOW OPÉRATIONNEL DMC (5 ÉTAPES CLÉS) -->
+            <div class="workflow-section">
+                <div class="wf-header">
+                    <span class="badge-gold">Flux Intégré 360°</span>
+                    <h3 class="serif">La Chaîne Logistique Réceptive de Bout en Bout</h3>
+                </div>
+                <div class="wf-steps-grid">
+                    <div class="wf-step">
+                        <div class="wf-step-num">Étape 01</div>
+                        <div class="wf-step-title">Cotation Express</div>
+                        <div class="wf-step-desc">Calcul du prix par passager selon taille du groupe, circuit, parcs et km 4x4.</div>
+                    </div>
+                    <div class="wf-step-arrow">➔</div>
+                    <div class="wf-step">
+                        <div class="wf-step-num">Étape 02</div>
+                        <div class="wf-step-title">Devis &amp; Acompte</div>
+                        <div class="wf-step-desc">Proforma EUR/USD avec échéancier contractuel (acompte 30% puis solde).</div>
+                    </div>
+                    <div class="wf-step-arrow">➔</div>
+                    <div class="wf-step">
+                        <div class="wf-step-num">Étape 03</div>
+                        <div class="wf-step-title">Vouchers Hôtels</div>
+                        <div class="wf-step-desc">Émission 1-clic des bons d'échange officiels horodatés avec code unique.</div>
+                    </div>
+                    <div class="wf-step-arrow">➔</div>
+                    <div class="wf-step">
+                        <div class="wf-step-num">Étape 04</div>
+                        <div class="wf-step-title">Feuille de Route</div>
+                        <div class="wf-step-desc">Ordre de mission chauffeur-guide, indemnités per diem et carburant piste.</div>
+                    </div>
+                    <div class="wf-step-arrow">➔</div>
+                    <div class="wf-step">
+                        <div class="wf-step-num">Étape 05</div>
+                        <div class="wf-step-title">Facture &amp; Marge</div>
+                        <div class="wf-step-desc">Facturation certifiée NIF/STAT et calcul de la rentabilité nette par dossier.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLEAU COMPARATIF : GESTION TRADITIONNELLE VS TOURAGENT PRO -->
+            <div class="comparison-section">
+                <div class="comp-header">
+                    <span class="badge-gold">Rentabilité Immédiate</span>
+                    <h3 class="serif">Pourquoi les Agences Réceptives Abandonnent Excel pour TourAgent Pro</h3>
+                </div>
+                <table class="comp-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Enjeux Réceptifs</th>
+                            <th style="width: 37%;" class="th-old">Gestion Classique (Excel / Fichiers Manuels)</th>
+                            <th style="width: 38%;" class="th-new">Avec Plateforme TourAgent Pro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Temps de cotation circuit</strong></td>
+                            <td class="td-old">❌ 2 à 4 heures par devis avec risque d'erreur de formule</td>
+                            <td class="td-new">✓ <strong>3 minutes chrono</strong> : calcul auto des nuitées, MNP et km 4x4</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fluctuation de l'Ariary</strong></td>
+                            <td class="td-old">❌ Risque de change subi : perte de marge si le cours dérape</td>
+                            <td class="td-new">✓ <strong>Taux MID verrouillé</strong> en EUR/USD avec marge protégée</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vouchers &amp; Hôtels</strong></td>
+                            <td class="td-old">❌ Rédaction manuelle Word/PDF : litiges fréquents sur singles/repas</td>
+                            <td class="td-new">✓ <strong>Vouchers PDF 1-clic certifiés</strong> avec conditions négociées</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flotte 4x4 &amp; Piste</strong></td>
+                            <td class="td-old">❌ Faux frais incontrôlés : litiges carburant et per diem chauffeurs</td>
+                            <td class="td-new">✓ <strong>Feuille de route rigoureuse</strong> : budget carburant tracé au km</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Autonomie Piste Hors-Ligne</strong></td>
+                            <td class="td-old">❌ Paralysie totale lors des coupures JIRAMA ou sans 4G</td>
+                            <td class="td-new">✓ <strong>100% Hors-Ligne</strong> avec miroir Cloud dès retour réseau</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- BANDEAU DE RÉASSURANCE & CHIFFRES D'IMPACT -->
+            <div class="roi-stats-strip">
+                <div class="roi-stat-col">
+                    <div class="roi-stat-val">+300%</div>
+                    <div class="roi-stat-lbl">Rapidité de réponse aux agences B2B</div>
+                </div>
+                <div class="roi-stat-col">
+                    <div class="roi-stat-val">0 Litige</div>
+                    <div class="roi-stat-lbl">Grâce aux vouchers horodatés avec les lodges</div>
+                </div>
+                <div class="roi-stat-col">
+                    <div class="roi-stat-val">100%</div>
+                    <div class="roi-stat-lbl">Opérationnel en brousse sans Internet</div>
+                </div>
+                <div class="roi-stat-col">
+                    <div class="roi-stat-val">&lt; 48h</div>
+                    <div class="roi-stat-lbl">Déploiement complet &amp; formation en agence</div>
                 </div>
             </div>
         </div>
@@ -1002,25 +1512,98 @@
                 </div>
             </div>
 
-            <!-- BON POUR ACCORD & VALIDATION -->
-            <div class="bon-mini-box">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
-                    <strong style="font-size: 9px; color: var(--rust-dark); text-transform: uppercase; letter-spacing: 0.5px;">
+            <!-- MATRICE COMPARATIVE FORMULE 1 VS FORMULE 2 -->
+            <div class="formula-matrix-box">
+                <div class="f-matrix-title serif">Synthèse Comparative des Deux Formules d'Adoption</div>
+                <table class="f-matrix-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 38%;">Périmètre &amp; Fonctionnalités</th>
+                            <th style="width: 31%;">Formule 1 : Essentielle (119 000 Ar)</th>
+                            <th style="width: 31%;" class="th-rec">Formule 2 : Intégral DMC (179 000 Ar) ★</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cotation circuits, parcs MNP &amp; Devis multidevises</td>
+                            <td>✓ Inclus (jusqu'à 25 circuits/mois)</td>
+                            <td class="td-rec">✓ <strong>Circuits illimités sans restriction</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Émission 1-clic des Vouchers Lodges &amp; Hôtels</td>
+                            <td>✓ Inclus (PDF officiels horodatés)</td>
+                            <td class="td-rec">✓ <strong>Inclus illimité + carnet de vouchers</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Gestion Flotte 4x4, Chauffeurs &amp; Per Diem</td>
+                            <td>— Non inclus / Optionnel</td>
+                            <td class="td-rec">✓ <strong>Inclus complet (km, carburant, rotation)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Commissions Agences Émettrices B2B &amp; Bilan Marge</td>
+                            <td>— Non inclus</td>
+                            <td class="td-rec">✓ <strong>Inclus (rentabilité réelle par dossier)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Postes simultanés &amp; Synchronisation Cloud Miroir</td>
+                            <td>1 Poste Direction mono-utilisateur</td>
+                            <td class="td-rec">✓ <strong>Multi-Postes Réseau (LAN) + Cloud 24/7</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ENCART RENTABILITÉ & ROI RÉCEPTIF -->
+            <div class="dmc-roi-banner">
+                <div class="dmc-roi-badge">💡 ROI DÈS LE 1ER TOURISTE</div>
+                <p>
+                    L'abonnement mensuel de <strong>179 000 Ar</strong> est l'équivalent de la marge d'une seule demi-journée d'excursion ou d'une nuitée lodge négociée. <strong>Dès votre premier dossier du mois, la plateforme est 100% amortie</strong> et tout le reste constitue un bénéfice net pur pour votre agence.
+                </p>
+            </div>
+
+            <!-- BON POUR ACCORD & ENGAGEMENT CONTRACTUEL FORMEL -->
+            <div class="bon-contract-box">
+                <div class="bon-contract-header">
+                    <strong style="font-size: 8.8px; color: var(--rust-dark); text-transform: uppercase; letter-spacing: 0.5px;">
                         ✦ Bon pour Accord &amp; Réservation de Déploiement en Agence
                     </strong>
-                    <span style="font-size: 7.5px; color: var(--text-light); text-transform: uppercase;">Mise en Service sous 48h Ouvrées</span>
+                    <span style="font-size: 7.2px; color: var(--text-light); text-transform: uppercase; font-weight: 700;">Déploiement Garanti sous 48h Ouvrées</span>
+                </div>
+
+                <div class="bon-contract-checkboxes">
+                    <div class="bon-cb-item"><span class="bon-cb-box"></span> Formule 1 : Essentielle (119 000 Ar/m)</div>
+                    <div class="bon-cb-item" style="border-color: var(--rust); background: #FAF5F0;"><span class="bon-cb-box" style="background: var(--rust);"></span> Formule 2 : Intégral DMC (179 000 Ar/m) ★</div>
+                    <div class="bon-cb-item"><span class="bon-cb-box"></span> Option Pack Matériel POS 80 mm (450 000 Ar)</div>
                 </div>
                 
-                <div class="bon-mini-grid">
-                    <div class="sig-mini">
-                        <strong>Pour l'Agence / Tour Opérateur (Direction Générale) :</strong>
-                        <span>Nom du Responsable : ..............................................................</span>
-                        <span>Date &amp; Signature précédée de « Bon pour accord » :</span>
+                <div class="bon-contract-grid">
+                    <div class="contract-frame">
+                        <div>
+                            <strong>Pour l'Agence Réceptive / DMC (Direction Générale) :</strong>
+                            <div class="contract-fields">
+                                <div>Raison Sociale : .....................................................................................</div>
+                                <div>NIF &amp; STAT : ..........................................................................................</div>
+                                <div>Nom &amp; Fonction du Signataire : ..........................................................</div>
+                            </div>
+                        </div>
+                        <div style="border-top: 1px dashed var(--border-warm); padding-top: 3px; margin-top: 3px; font-style: italic; color: var(--text-light); display: flex; justify-content: space-between;">
+                            <span>Date : ..... / ..... / 2026</span>
+                            <span>Signature précédée de « Bon pour accord » &amp; Cachet</span>
+                        </div>
                     </div>
-                    <div class="sig-mini">
-                        <strong>Pour Missi Innovation (Éditeur &amp; Déployeur) :</strong>
-                        <span>Ingénierie Déploiement Réceptif &amp; Formation Terrain</span>
-                        <span>Cachet &amp; Engagement d'Installation sous 48h ouvrées</span>
+                    <div class="contract-frame">
+                        <div>
+                            <strong>Pour Missi Innovation (Éditeur &amp; Déployeur Progiciels) :</strong>
+                            <div class="contract-fields">
+                                <div>Ingénierie Déploiement Réceptif &amp; Audit de vos circuits types</div>
+                                <div>Paramétrage local, formation sur site offerte de vos équipes</div>
+                                <div>Support prioritaire 6j/7 &amp; Maintien opérationnel garanti</div>
+                            </div>
+                        </div>
+                        <div style="border-top: 1px dashed var(--border-warm); padding-top: 3px; margin-top: 3px; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: var(--rust-dark); font-weight: 700;">Engagement sous 48h</span>
+                            <span style="font-weight: 700; color: #1C1917;">Cachet de la Direction Technique</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1133,11 +1716,34 @@
                 </tbody>
             </table>
 
+            <!-- TABLE 4 : SÉCURITÉ, CLOUD MIROIR & CONTINUITÉ TERRAIN -->
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th colspan="2" class="serif">4. Continuité d'Activité Hors-Ligne, Sauvegarde Cloud &amp; Support Terrain</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Mode 100% Hors-Ligne Autonome</td>
+                        <td class="feature-desc">Moteur local haute performance. Votre agence et vos chauffeurs consultent itinéraires, vouchers et contacts même en zone blanche sans aucune connexion Internet active.</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Sauvegarde Miroir Cloud Supabase</td>
+                        <td class="feature-desc">Synchronisation chiffrée automatique dès la reconnexion. Vos dossiers voyages, devis clients et historiques financiers sont protégés contre tout sinistre matériel.</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Assistance Dédiée 6j/7 &amp; Prêt Matériel</td>
+                        <td class="feature-desc">Équipe technique basée à Antananarivo. Prise en main directe à distance ou sur place, avec engagement de prêt de machine relais sous 4h en cas de panne critique.</td>
+                    </tr>
+                </tbody>
+            </table>
+
             <!-- Cadre d'engagements légaux -->
-            <div style="margin-top: 6px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 5px; background: #FAF8F5; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-gray); flex-wrap: wrap; gap: 6px;">
-                <div><strong>Déploiement Réceptif :</strong> Intégration de vos circuits existants sous 48h ouvrées</div>
-                <div><strong>Fiabilité Hors-Ligne :</strong> Fonctionne à 100% sur PC/tablette sans connexion en brousse</div>
-                <div><strong>Support Prioritaire :</strong> Assistance technique dédiée 6j/7 à Madagascar</div>
+            <div style="margin-top: 8px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: #FAF8F5; display: flex; justify-content: space-between; align-items: center; font-size: 8.8px; color: var(--text-gray); flex-wrap: wrap; gap: 8px;">
+                <div><strong style="color: var(--rust-dark);">⚡ Déploiement Réceptif :</strong> Intégration complète de vos circuits types sous 48h ouvrées</div>
+                <div><strong style="color: var(--rust-dark);">🛡️ Fiabilité Locale :</strong> 100% opérationnel en brousse sans dépendance réseau</div>
+                <div><strong style="color: var(--rust-dark);">🤝 Formation &amp; Suivi :</strong> Prise en main guidée sur site offerte pour vos équipes</div>
             </div>
         </div>
 
