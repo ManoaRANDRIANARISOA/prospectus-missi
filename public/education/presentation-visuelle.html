@@ -812,60 +812,157 @@
             color: var(--text-dark);
         }
 
-        /* LIGHTBOX MODAL */
+        /* LIGHTBOX MODAL WITH INTERACTIVE ZOOM & PAN */
         #lightbox {
             display: none;
             position: fixed;
             inset: 0;
             z-index: 99999;
-            background: rgba(10, 10, 15, 0.94);
-            backdrop-filter: blur(8px);
+            background: rgba(12, 10, 9, 0.94);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             align-items: center;
-            justify-content: center;
-            padding: 20px;
+            justify-content: space-between;
+            padding: 14px 20px 16px;
             flex-direction: column;
+            user-select: none;
         }
 
         #lightbox.active {
             display: flex;
         }
 
+        #lightbox-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 96vw;
+            gap: 10px;
+            z-index: 100002;
+            padding-bottom: 6px;
+        }
+
+        .lb-tool-group {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(28, 25, 23, 0.88);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+            padding: 2px 6px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+        }
+
+        .lb-tool-btn {
+            background: transparent;
+            border: none;
+            color: #FAF8F5;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 5px 9px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lb-tool-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+        }
+
+        #lb-zoom-level {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            min-width: 48px;
+            text-align: center;
+        }
+
+        .lb-tip {
+            font-size: 11px;
+            color: #D6D3D1;
+            background: rgba(28, 25, 23, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 4px 14px;
+            border-radius: 999px;
+        }
+
+        #lightbox-close {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 18px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        #lightbox-close:hover {
+            background: rgba(239, 68, 68, 0.85);
+            transform: scale(1.08);
+        }
+
+        #lightbox-viewport {
+            flex: 1;
+            width: 100%;
+            max-width: 96vw;
+            max-height: 80vh;
+            overflow: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.3) transparent;
+        }
+
+        #lightbox-viewport::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        #lightbox-viewport::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
+        }
+
         #lightbox-img {
-            max-width: 95vw;
-            max-height: 85vh;
+            max-width: 94vw;
+            max-height: 78vh;
             border-radius: 8px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.2);
             object-fit: contain;
+            background: white;
+            cursor: zoom-in;
+            transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+            transform-origin: center center;
+        }
+
+        #lightbox-img.is-zoomed {
+            cursor: grab;
+        }
+
+        #lightbox-img.is-zoomed:active {
+            cursor: grabbing;
         }
 
         #lightbox-caption {
-            color: white;
-            font-size: 13px;
+            color: #F3F4F6;
+            font-size: 12px;
             font-weight: 600;
-            margin-top: 14px;
+            margin-top: 8px;
             text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 6px 16px;
-            border-radius: 20px;
-        }
-
-        #lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 24px;
-            background: rgba(255, 255, 255, 0.15);
-            border: none;
-            color: white;
-            font-size: 20px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s;
+            background: rgba(28, 25, 23, 0.85);
+            padding: 5px 16px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            max-width: 90vw;
         }
 
         #lightbox-close:hover {
@@ -940,10 +1037,26 @@
 </head>
 <body>
 
-    <!-- LIGHTBOX MODAL -->
+    <!-- LIGHTBOX MODAL WITH INTERACTIVE ZOOM & PAN -->
     <div id="lightbox" onclick="closeLightbox(event)">
-        <button id="lightbox-close" onclick="closeLightbox(event)" title="Fermer">✕</button>
-        <img id="lightbox-img" src="" alt="Capture plein écran">
+        <!-- Top Controls Toolbar -->
+        <div id="lightbox-toolbar" onclick="event.stopPropagation()">
+            <div class="lb-tool-group">
+                <button class="lb-tool-btn" onclick="zoomOut()" title="Zoomer arrière (−)">−</button>
+                <button id="lb-zoom-level" class="lb-tool-btn" onclick="resetZoom()" title="Réinitialiser zoom (100%)">100%</button>
+                <button class="lb-tool-btn" onclick="zoomIn()" title="Zoomer avant (+)">+</button>
+                <button class="lb-tool-btn" onclick="toggleZoom()" title="Basculer Zoom">🔍</button>
+            </div>
+            <span class="lb-tip">💡 Cliquez sur l'image ou molette pour zoomer / déplacer</span>
+            <button id="lightbox-close" onclick="closeLightbox(event)" title="Fermer (Échap)">✕</button>
+        </div>
+
+        <!-- Scrollable/Pannable Viewport -->
+        <div id="lightbox-viewport" onclick="handleViewportClick(event)">
+            <img id="lightbox-img" src="" alt="Capture plein écran" onclick="handleImgClick(event)">
+        </div>
+
+        <!-- Caption Bottom -->
         <div id="lightbox-caption">Aperçu grand angle</div>
     </div>
 
@@ -1679,18 +1792,88 @@
 
     <!-- JAVASCRIPT FOR INTERACTIVE LIGHTBOX & SHORTCUTS -->
     <script>
+        let currentZoom = 1;
+        const zoomLevels = [1, 1.4, 1.8, 2.3, 3.0];
+
+        function updateZoomDisplay() {
+            const img = document.getElementById('lightbox-img');
+            const lbl = document.getElementById('lb-zoom-level');
+            const vp = document.getElementById('lightbox-viewport');
+            
+            if (lbl) lbl.textContent = Math.round(currentZoom * 100) + '%';
+            
+            if (!img) return;
+            if (currentZoom === 1) {
+                img.style.transform = 'scale(1)';
+                img.style.maxWidth = '94vw';
+                img.style.maxHeight = '78vh';
+                img.classList.remove('is-zoomed');
+                img.style.cursor = 'zoom-in';
+                if (vp) {
+                    vp.style.justifyContent = 'center';
+                    vp.scrollLeft = 0;
+                    vp.scrollTop = 0;
+                }
+            } else {
+                img.style.maxWidth = 'none';
+                img.style.maxHeight = 'none';
+                img.style.transform = 'scale(' + currentZoom + ')';
+                img.classList.add('is-zoomed');
+                img.style.cursor = 'grab';
+            }
+        }
+
+        function zoomIn() {
+            let next = zoomLevels.find(z => z > currentZoom + 0.05);
+            if (!next) next = Math.min(3.0, currentZoom + 0.3);
+            currentZoom = Math.round(next * 100) / 100;
+            updateZoomDisplay();
+        }
+
+        function zoomOut() {
+            let prev = [...zoomLevels].reverse().find(z => z < currentZoom - 0.05);
+            if (!prev) prev = 1;
+            currentZoom = Math.round(prev * 100) / 100;
+            updateZoomDisplay();
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            updateZoomDisplay();
+        }
+
+        function toggleZoom() {
+            currentZoom = (currentZoom === 1) ? 1.8 : 1;
+            updateZoomDisplay();
+        }
+
+        function handleImgClick(e) {
+            e.stopPropagation();
+            toggleZoom();
+        }
+
+        function handleViewportClick(e) {
+            if (e.target.id === 'lightbox-viewport' || e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        }
+
         function openLightbox(src, caption) {
             const lb = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
             const cap = document.getElementById('lightbox-caption');
             img.src = src;
             cap.innerText = caption || 'Aperçu capture d\'écran';
+            currentZoom = 1;
+            updateZoomDisplay();
             lb.classList.add('active');
         }
 
         function closeLightbox(e) {
-            if (e.target.id === 'lightbox' || e.target.id === 'lightbox-close') {
+            if (!e || e.target.id === 'lightbox' || e.target.id === 'lightbox-close' || e.target.id === 'lightbox-viewport') {
                 document.getElementById('lightbox').classList.remove('active');
+                currentZoom = 1;
+                updateZoomDisplay();
             }
         }
 
@@ -1833,10 +2016,66 @@
             }
         }
 
-        // Close lightbox on Escape key
+        // Mouse wheel zoom
+        window.addEventListener('DOMContentLoaded', function() {
+            const vp = document.getElementById('lightbox-viewport');
+            if (vp) {
+                vp.addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    if (e.deltaY < 0) {
+                        zoomIn();
+                    } else {
+                        zoomOut();
+                    }
+                }, { passive: false });
+
+                // Drag to pan when zoomed
+                let isDown = false;
+                let startX, startY, scrollLeft, scrollTop;
+
+                vp.addEventListener('mousedown', function(e) {
+                    if (currentZoom <= 1) return;
+                    isDown = true;
+                    vp.style.cursor = 'grabbing';
+                    startX = e.pageX - vp.offsetLeft;
+                    startY = e.pageY - vp.offsetTop;
+                    scrollLeft = vp.scrollLeft;
+                    scrollTop = vp.scrollTop;
+                });
+                vp.addEventListener('mouseleave', function() {
+                    isDown = false;
+                    if (vp) vp.style.cursor = currentZoom > 1 ? 'grab' : 'default';
+                });
+                vp.addEventListener('mouseup', function() {
+                    isDown = false;
+                    if (vp) vp.style.cursor = currentZoom > 1 ? 'grab' : 'default';
+                });
+                vp.addEventListener('mousemove', function(e) {
+                    if (!isDown || currentZoom <= 1) return;
+                    e.preventDefault();
+                    const x = e.pageX - vp.offsetLeft;
+                    const y = e.pageY - vp.offsetTop;
+                    const walkX = (x - startX) * 1.5;
+                    const walkY = (y - startY) * 1.5;
+                    vp.scrollLeft = scrollLeft - walkX;
+                    vp.scrollTop = scrollTop - walkY;
+                });
+            }
+        });
+
+        // Keyboard controls
         document.addEventListener('keydown', function(e) {
+            const lb = document.getElementById('lightbox');
+            if (!lb || !lb.classList.contains('active')) return;
+
             if (e.key === 'Escape') {
-                document.getElementById('lightbox').classList.remove('active');
+                closeLightbox();
+            } else if (e.key === '+' || e.key === '=') {
+                zoomIn();
+            } else if (e.key === '-') {
+                zoomOut();
+            } else if (e.key === '0') {
+                resetZoom();
             }
         });
 

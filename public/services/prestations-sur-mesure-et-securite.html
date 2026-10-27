@@ -133,10 +133,10 @@
       --brand-copper-dark: #824229;
       --brand-copper-soft: rgba(164, 90, 61, 0.12);
       --brand-copper-border: #E6D8CD;
-      --accent-navy: #1E293B;
-      --accent-navy-dark: #0F172A;
-      --accent-teal: #0D9488;
-      --accent-teal-soft: rgba(13, 148, 136, 0.12);
+      --brand-slate: #1C1917;
+      --brand-slate-soft: #292524;
+      --brand-emerald: #059669;
+      --brand-emerald-soft: rgba(5, 150, 105, 0.12);
       --surface-warm: #FAF5F0;
       --surface-card: #FFFFFF;
       --text: #1C1917;
@@ -407,7 +407,7 @@
     }
 
     .feature-list li span.check {
-      color: var(--accent-teal);
+      color: var(--brand-emerald);
       font-weight: bold;
     }
 
@@ -435,15 +435,15 @@
       font-weight: 600;
     }
 
-    /* DEEP DIVE BENTO (RESTRICT ACCESS / SECURITY) */
+    /* DEEP DIVE BENTO (RESTRICT ACCESS / SECURITY) - ALIGNÉ CHARTE MISSI INNOVATION */
     .bento-highlight {
-      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-      color: #F8FAFC;
+      background: linear-gradient(135deg, #1C1917 0%, #292524 100%);
+      color: #FAF8F5;
       border-radius: 16px;
       padding: 36px 40px;
       margin-bottom: 40px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.25);
+      border: 1.5px solid #824229;
+      box-shadow: 0 16px 36px rgba(28, 25, 23, 0.25);
     }
 
     .bento-highlight h3 {
@@ -456,7 +456,7 @@
 
     .bento-highlight p.lead {
       font-size: 0.95rem;
-      color: #CBD5E1;
+      color: #E7E5E4;
       max-width: 800px;
       margin-bottom: 24px;
       line-height: 1.6;
@@ -469,16 +469,22 @@
     }
 
     .bento-item {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(230, 216, 205, 0.15);
       border-radius: 12px;
       padding: 20px;
+      transition: all 0.2s ease;
+    }
+
+    .bento-item:hover {
+      border-color: rgba(164, 90, 61, 0.45);
+      transform: translateY(-2px);
     }
 
     .bento-item h4 {
       font-size: 1.05rem;
       font-weight: 700;
-      color: #38BDF8;
+      color: #E89E78;
       margin-bottom: 8px;
       display: flex;
       align-items: center;
@@ -487,7 +493,7 @@
 
     .bento-item p {
       font-size: 0.82rem;
-      color: #E2E8F0;
+      color: #D6D3D1;
       line-height: 1.5;
     }
 
@@ -647,12 +653,12 @@
         padding: 24px;
       }
       .bento-highlight {
-        color: #000;
-        background: #F1F5F9 !important;
-        border: 1px solid #CBD5E1;
+        color: #1C1917;
+        background: #FAF5F0 !important;
+        border: 1px solid #E6D8CD;
       }
       .bento-highlight h3, .bento-highlight p.lead, .bento-item h4, .bento-item p {
-        color: #0F172A !important;
+        color: #1C1917 !important;
       }
       .page-break {
         page-break-before: always;
@@ -724,7 +730,7 @@
             <div class="section-tag">Pôle 1 &bull; Ingénierie &amp; R&amp;D</div>
             <h2 class="section-h2">Développement Logiciel Sur-Mesure (Web, Mobile &amp; Desktop)</h2>
           </div>
-          <span style="font-size: 0.82rem; font-weight: 600; color: var(--accent-teal);">
+          <span style="font-size: 0.82rem; font-weight: 700; color: var(--brand-emerald);">
             ✓ Zéro limitation thématique &bull; Architecture Résiliente JIRAMA
           </span>
         </div>
@@ -799,10 +805,10 @@
         <!-- SECTION 2 : SÉCURITÉ INFORMATIQUE & RESTRICTION RÉSEAU (KIT RESTRICT ACCESS) -->
         <div class="bento-highlight">
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
-            <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #38BDF8; border-radius: 999px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">
+            <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; background: rgba(164, 90, 61, 0.2); border: 1px solid #A45A3D; color: #E89E78; border-radius: 999px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">
               🛡️ Pôle 2 &bull; Cybersécurité &amp; Contrôle des Parcs Informatiques
             </span>
-            <span style="font-size: 0.8rem; color: #94A3B8; font-weight: 600;">
+            <span style="font-size: 0.8rem; color: #A8A29E; font-weight: 600;">
               Intervention rapide à Antananarivo &amp; Télé-déploiement
             </span>
           </div>
