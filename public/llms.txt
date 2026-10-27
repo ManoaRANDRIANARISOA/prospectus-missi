@@ -58,7 +58,7 @@ Protection et optimisation des parcs informatiques d'entreprises et d'écoles :
 #### Homeschooling PWA (Éducation Familiale)
 - Outil d'organisation pour familles en instruction à domicile, cours particuliers et répétiteurs.
 - Cahier de textes, fiches d'exercices, suivi des compétences et évaluations.
-- Formule Autonomie : 39 000 Ar/mois.
+- Formule Autonomie : 39 000 Ar/mois (ou 390 000 Ar/an avec 2 mois offerts). Formule Privilège : 59 000 Ar/mois (ou 590 000 Ar/an avec 2 mois offerts).
 
 #### Création de Sites Vitrines & Portails Connectés
 - Sites web vitrines professionnels ultra-rapides, réservations directes sans commission, géolocalisation Google Maps.
