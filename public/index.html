@@ -147,20 +147,16 @@
       position: relative;
     }
 
-    /* HALO LUMINEUX SUIVANT LE CURSEUR (SUBTIL & LUXUEUX) */
-    .cursor-ambient-glow {
+    /* FOND AMBIANT 3D : ONDULATIONS D'EAU CALME & PLUIE APAISANTE */
+    #ambient-canvas {
       position: fixed;
       top: 0;
       left: 0;
-      width: 480px;
-      height: 480px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(194, 103, 43, 0.06) 0%, rgba(194, 103, 43, 0.015) 45%, transparent 70%);
+      width: 100vw;
+      height: 100vh;
       pointer-events: none;
-      transform: translate(-50%, -50%);
       z-index: 0;
-      transition: transform 0.12s cubic-bezier(0.1, 0.8, 0.3, 1);
-      will-change: transform;
+      opacity: 0.95;
     }
 
     /* TYPOGRAPHIE & HIÉRARCHIE */
@@ -946,10 +942,10 @@
     .marquee-group {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      padding-right: 1.5rem;
+      gap: 5.5rem;
+      padding-right: 5.5rem;
       flex-shrink: 0;
-      animation: marquee-scroll 24s linear infinite;
+      animation: marquee-scroll 34s linear infinite;
     }
 
     .marquee-wrapper-dark:hover .marquee-group {
@@ -965,82 +961,180 @@
       }
     }
 
-    /* Style Carte Carrée Multinationale (Dimension Généreuse) */
-    .client-brand-card {
-      display: flex;
-      flex-direction: column;
+    /* ENTITÉ CLIENT SANS BORDURES : LOGOS ÉLARGIS À 74PX, TEXTE À DROITE, ULTRA AÉRÉ */
+    .client-free-entity {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 148px;
-      min-width: 148px;
-      height: 130px;
-      padding: 16px 12px;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 18px;
+      gap: 1.25rem;
+      color: #FFFFFF;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-sizing: border-box;
-      text-align: center;
       cursor: pointer;
-      position: relative;
+      opacity: 0.88;
+      text-decoration: none;
     }
 
-    .client-brand-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 18px;
-      background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08), transparent 70%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-
-    .client-brand-card:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(194, 103, 43, 0.65);
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(194, 103, 43, 0.2);
-    }
-
-    .client-brand-card:hover::after {
+    .client-free-entity:hover {
       opacity: 1;
+      transform: translateY(-2px);
     }
 
-    .client-brand-logo {
-      height: 60px;
-      width: 60px;
+    .client-free-logo {
+      height: 74px;
+      width: auto;
+      max-width: 110px;
       object-fit: contain;
       display: block;
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
-      transition: transform 0.3s ease;
+      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
+      transition: all 0.3s ease;
     }
 
-    .client-brand-card:hover .client-brand-logo {
-      transform: scale(1.06);
+    .client-free-entity:hover .client-free-logo {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.28));
     }
 
-    .client-brand-name {
+    .client-free-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      text-align: left;
+    }
+
+    .client-free-title {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.74rem;
+      font-size: 0.88rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       color: #FFFFFF;
-      text-transform: uppercase;
-      line-height: 1.1;
+      line-height: 1.2;
       white-space: nowrap;
-      margin-top: 2px;
     }
 
-    .client-brand-sub {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.62rem;
+    .client-free-meta {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
-      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.52);
       line-height: 1;
       white-space: nowrap;
+    }
+
+    /* INVITATION SCROLL DÉCOUVRIR INNOVANTE (LUMIÈRE QUI TOURNE ET DESCEND SUR LA BORDURE) */
+    .hero-discover-row {
+      display: flex;
+      justify-content: center;
+      margin: 1.75rem 0 2.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .discover-innovative-pill {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      border-radius: 9999px;
+      padding: 2px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(44, 39, 36, 0.06);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+
+    .discover-innovative-pill:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(194, 103, 43, 0.2), 0 2px 8px rgba(44, 39, 36, 0.08);
+    }
+
+    /* Faisceau lumineux tournant sur la bordure */
+    .beam-light-spinner {
+      position: absolute;
+      top: -150%;
+      left: -150%;
+      width: 400%;
+      height: 400%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 280deg,
+        rgba(194, 103, 43, 0.25) 310deg,
+        #C2672B 335deg,
+        #F3A96E 350deg,
+        #FFFFFF 360deg
+      );
+      animation: beam-spin 3.2s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .discover-innovative-pill:hover .beam-light-spinner {
+      animation-duration: 2s;
+    }
+
+    @keyframes beam-spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .discover-inner {
+      position: relative;
+      z-index: 2;
+      background: #FFFFFF;
+      border-radius: 9999px;
+      padding: 9px 22px 9px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--text-muted);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+
+    .discover-innovative-pill:hover .discover-inner {
+      color: var(--brand-copper);
+      background: #FFFAF5;
+    }
+
+    .discover-mouse-icon {
+      width: 14px;
+      height: 22px;
+      border: 1.8px solid var(--brand-copper);
+      border-radius: 9px;
+      display: flex;
+      justify-content: center;
+      padding-top: 3px;
+      box-sizing: border-box;
+      flex-shrink: 0;
+    }
+
+    .discover-scroll-bead {
+      width: 3.5px;
+      height: 5px;
+      background: var(--brand-copper);
+      border-radius: 2px;
+      animation: bead-descend 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    }
+
+    @keyframes bead-descend {
+      0% { transform: translateY(0); opacity: 0; }
+      20% { opacity: 1; }
+      75% { transform: translateY(8px); opacity: 1; }
+      100% { transform: translateY(10px); opacity: 0; }
+    }
+
+    .discover-chevron {
+      color: var(--brand-copper);
+      animation: chevron-bob 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes chevron-bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(3px); }
     }
 
     /* ==========================================================================
@@ -1343,13 +1437,34 @@
       .cta-banner {
         padding: 2.25rem 1.5rem;
       }
+      .marquee-group {
+        gap: 3.5rem;
+        padding-right: 3.5rem;
+      }
+      .client-free-logo {
+        height: 58px;
+        max-width: 85px;
+      }
+      .client-free-title {
+        font-size: 0.8rem;
+      }
+      .client-free-meta {
+        font-size: 0.68rem;
+      }
+      .discover-innovative-pill .discover-inner {
+        font-size: 0.8rem;
+        padding: 8px 18px 8px 14px;
+      }
+      .hero-discover-row {
+        margin: 1.25rem 0 2rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HALO LUMINEUX SUIVANT LE CURSEUR -->
-  <div class="cursor-ambient-glow" aria-hidden="true"></div>
+  <!-- FOND AMBIANT 3D : ONDULATIONS D'EAU CALME & PLUIE APAISANTE -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
 
   <!-- ==========================================================================
        EN-TÊTE OFFICIELLE (HEADER STICKY 1 LIGNE STRICTE)
@@ -1419,11 +1534,21 @@
           <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20échanger%20avec%20un%20ingénieur%20technique." target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.72rem 1.2rem; font-size: 0.9rem;">
             💬 Échanger avec un Ingénieur
           </a>
+        </div>
 
-          <!-- INVITATION SCROLL ÉLÉGANTE -->
-          <a href="#solutions" class="scroll-invite" style="margin-left: 0.5rem;" title="Faire défiler vers les suites logicielles">
-            <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
-            <span>Découvrir</span>
+        <!-- INVITATION SCROLL DÉCOUVRIR INNOVANTE & SÉPARÉE (LUMIÈRE QUI TOURNE & DESCEND SUR LA BORDURE) -->
+        <div class="hero-discover-row">
+          <a href="#solutions" class="discover-innovative-pill" title="Découvrir les suites logicielles spécialisées">
+            <span class="beam-light-spinner"></span>
+            <span class="discover-inner">
+              <span class="discover-mouse-icon">
+                <span class="discover-scroll-bead"></span>
+              </span>
+              <span>Découvrir les Progiciels Métiers</span>
+              <svg class="discover-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
+            </span>
           </a>
         </div>
 
@@ -1841,125 +1966,108 @@
           <div class="marquee-wrapper-dark">
             <div class="marquee-track-dark">
               
-              <!-- GROUPE 1 -->
+              <!-- GROUPE 1 (AÉRÉ, SANS BORDURES, LOGOS 74PX, TEXTE À DROITE) -->
               <div class="marquee-group">
                 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge" class="client-brand-logo" style="width: 66px;">
-                  <div class="client-brand-name">OKA LODGE</div>
-                  <div class="client-brand-sub">Hôtellerie · Nature</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge Logo" class="client-free-logo" style="height: 76px;">
+                  <div class="client-free-info">
+                    <span class="client-free-title">OKA FOREST LODGE</span>
+                    <span class="client-free-meta">Hôtellerie Éco-Luxe &bull; Nature</span>
+                  </div>
                 </div>
 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa" class="client-brand-logo">
-                  <div class="client-brand-name">MANJARY SOA</div>
-                  <div class="client-brand-sub">Lycée Privé</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa Sceau" class="client-free-logo">
+                  <div class="client-free-info">
+                    <span class="client-free-title">LYCÉE MANJARY SOA</span>
+                    <span class="client-free-meta">Scolarité, Notes &bull; Antananarivo</span>
+                  </div>
                 </div>
 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/kanana_square_white.svg" alt="Kanana Camp" class="client-brand-logo">
-                  <div class="client-brand-name">KANANA CAMP</div>
-                  <div class="client-brand-sub">Lodge · Mantasoa</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/kanana_square_white.svg" alt="Kanana Camp Logo" class="client-free-logo">
+                  <div class="client-free-info">
+                    <span class="client-free-title">KANANA CAMP</span>
+                    <span class="client-free-meta">Lodge &bull; Lac Mantasoa</span>
+                  </div>
                 </div>
 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa" class="client-brand-logo">
-                  <div class="client-brand-name">ANDRIN'NY SOA</div>
-                  <div class="client-brand-sub">Résidence &amp; Resto</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa Logo" class="client-free-logo">
+                  <div class="client-free-info">
+                    <span class="client-free-title">NY ANDRIN'NY SOA</span>
+                    <span class="client-free-meta">Résidence &amp; Restauration</span>
+                  </div>
                 </div>
 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School" class="client-brand-logo">
-                  <div class="client-brand-name">SUNSHINE</div>
-                  <div class="client-brand-sub">Montessori School</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School Logo" class="client-free-logo">
+                  <div class="client-free-info">
+                    <span class="client-free-title">SUNSHINE MONTESSORI</span>
+                    <span class="client-free-meta">Enseignement &bull; Bypass</span>
+                  </div>
                 </div>
 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar" class="client-brand-logo">
-                  <div class="client-brand-name">ANKA</div>
-                  <div class="client-brand-sub">Énergie &amp; ESG</div>
-                </div>
-
-              </div>
-
-              <!-- GROUPE 2 (CLONE POUR DÉFILEMENT CONTINU INFINI) -->
-              <div class="marquee-group" aria-hidden="true">
-                
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge" class="client-brand-logo" style="width: 66px;">
-                  <div class="client-brand-name">OKA LODGE</div>
-                  <div class="client-brand-sub">Hôtellerie · Nature</div>
-                </div>
-
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa" class="client-brand-logo">
-                  <div class="client-brand-name">MANJARY SOA</div>
-                  <div class="client-brand-sub">Lycée Privé</div>
-                </div>
-
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/kanana_square_white.svg" alt="Kanana Camp" class="client-brand-logo">
-                  <div class="client-brand-name">KANANA CAMP</div>
-                  <div class="client-brand-sub">Lodge · Mantasoa</div>
-                </div>
-
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa" class="client-brand-logo">
-                  <div class="client-brand-name">ANDRIN'NY SOA</div>
-                  <div class="client-brand-sub">Résidence &amp; Resto</div>
-                </div>
-
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School" class="client-brand-logo">
-                  <div class="client-brand-name">SUNSHINE</div>
-                  <div class="client-brand-sub">Montessori School</div>
-                </div>
-
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar" class="client-brand-logo">
-                  <div class="client-brand-name">ANKA</div>
-                  <div class="client-brand-sub">Énergie &amp; ESG</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar Logo" class="client-free-logo" style="height: 68px;">
+                  <div class="client-free-info">
+                    <span class="client-free-title">ANKA MADAGASCAR</span>
+                    <span class="client-free-meta">Collecte Terrain ESG &bull; AFD</span>
+                  </div>
                 </div>
 
               </div>
 
-              <!-- GROUPE 3 (GARANTIE COUVERTURE ÉCRANS TRÈS LARGES ET ULTRA-WIDE) -->
+              <!-- GROUPE 2 (CLONE PARFAIT POUR DÉFILEMENT CONTINU INFINI SANS SAUT) -->
               <div class="marquee-group" aria-hidden="true">
                 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge" class="client-brand-logo" style="width: 66px;">
-                  <div class="client-brand-name">OKA LODGE</div>
-                  <div class="client-brand-sub">Hôtellerie · Nature</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge Logo" class="client-free-logo" style="height: 76px;">
+                  <div class="client-free-info">
+                    <span class="client-free-title">OKA FOREST LODGE</span>
+                    <span class="client-free-meta">Hôtellerie Éco-Luxe &bull; Nature</span>
+                  </div>
                 </div>
 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa" class="client-brand-logo">
-                  <div class="client-brand-name">MANJARY SOA</div>
-                  <div class="client-brand-sub">Lycée Privé</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa Sceau" class="client-free-logo">
+                  <div class="client-free-info">
+                    <span class="client-free-title">LYCÉE MANJARY SOA</span>
+                    <span class="client-free-meta">Scolarité, Notes &bull; Antananarivo</span>
+                  </div>
                 </div>
 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/kanana_square_white.svg" alt="Kanana Camp" class="client-brand-logo">
-                  <div class="client-brand-name">KANANA CAMP</div>
-                  <div class="client-brand-sub">Lodge · Mantasoa</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/kanana_square_white.svg" alt="Kanana Camp Logo" class="client-free-logo">
+                  <div class="client-free-info">
+                    <span class="client-free-title">KANANA CAMP</span>
+                    <span class="client-free-meta">Lodge &bull; Lac Mantasoa</span>
+                  </div>
                 </div>
 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa" class="client-brand-logo">
-                  <div class="client-brand-name">ANDRIN'NY SOA</div>
-                  <div class="client-brand-sub">Résidence &amp; Resto</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa Logo" class="client-free-logo">
+                  <div class="client-free-info">
+                    <span class="client-free-title">NY ANDRIN'NY SOA</span>
+                    <span class="client-free-meta">Résidence &amp; Restauration</span>
+                  </div>
                 </div>
 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School" class="client-brand-logo">
-                  <div class="client-brand-name">SUNSHINE</div>
-                  <div class="client-brand-sub">Montessori School</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School Logo" class="client-free-logo">
+                  <div class="client-free-info">
+                    <span class="client-free-title">SUNSHINE MONTESSORI</span>
+                    <span class="client-free-meta">Enseignement &bull; Bypass</span>
+                  </div>
                 </div>
 
-                <div class="client-brand-card">
-                  <img src="assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar" class="client-brand-logo">
-                  <div class="client-brand-name">ANKA</div>
-                  <div class="client-brand-sub">Énergie &amp; ESG</div>
+                <div class="client-free-entity">
+                  <img src="assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar Logo" class="client-free-logo" style="height: 68px;">
+                  <div class="client-free-info">
+                    <span class="client-free-title">ANKA MADAGASCAR</span>
+                    <span class="client-free-meta">Collecte Terrain ESG &bull; AFD</span>
+                  </div>
                 </div>
 
               </div>
@@ -2218,14 +2326,176 @@
         }
       }
 
-      // HALO AMBIANT FLUIDE SUIVANT LE CURSEUR (LÉGER, SANS RALENTISSEMENT)
-      const glow = document.querySelector('.cursor-ambient-glow');
-      if (glow && window.matchMedia('(pointer: fine)').matches) {
+    });
+
+    // ==========================================================================
+    // FOND AMBIANT 3D : ONDULATIONS D'EAU CALME, GOUTTES DE PLUIE & PARALLAXE
+    // ==========================================================================
+    (function initWaterCanvas() {
+      const canvas = document.getElementById('ambient-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2); // Cap at 2 for performance
+
+      function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.scale(dpr, dpr);
+      }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+
+      // Ripples array
+      const ripples = [];
+      let mouseX = width / 2;
+      let mouseY = height / 2;
+      let targetMouseX = mouseX;
+      let targetMouseY = mouseY;
+      let lastMoveTime = 0;
+      let lastMoveX = mouseX;
+      let lastMoveY = mouseY;
+
+      function createRipple(x, y, maxR, speed, maxAlpha, colorType) {
+        if (ripples.length > 25) ripples.shift();
+        ripples.push({
+          x,
+          y,
+          r: 0,
+          maxR: maxR || 90,
+          speed: speed || 1.1,
+          alpha: maxAlpha || 0.16,
+          maxAlpha: maxAlpha || 0.16,
+          colorType: colorType || 'copper' // 'copper' ou 'water'
+        });
+      }
+
+      // Interaction fluide avec le pointeur (création d'ondes douces lors du déplacement)
+      if (window.matchMedia('(pointer: fine)').matches) {
         window.addEventListener('pointermove', (e) => {
-          glow.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px) translate(-50%, -50%)';
+          targetMouseX = e.clientX;
+          targetMouseY = e.clientY;
+          const now = performance.now();
+          const dist = Math.hypot(e.clientX - lastMoveX, e.clientY - lastMoveY);
+          if (dist > 38 && now - lastMoveTime > 120) {
+            createRipple(e.clientX, e.clientY, 70 + Math.random() * 30, 1.25, 0.18, Math.random() > 0.4 ? 'copper' : 'water');
+            lastMoveX = e.clientX;
+            lastMoveY = e.clientY;
+            lastMoveTime = now;
+          }
         }, { passive: true });
       }
-    });
+
+      // Ondulation douce lors du clic
+      window.addEventListener('pointerdown', (e) => {
+        createRipple(e.clientX, e.clientY, 110, 1.6, 0.24, 'copper');
+      }, { passive: true });
+
+      // Gouttes de pluie apaisantes et spontanées à intervalles zen
+      let nextDropTime = performance.now() + 1000;
+      function scheduleDrop(now) {
+        if (now > nextDropTime) {
+          const rx = Math.random() * width;
+          const ry = Math.random() * height;
+          createRipple(rx, ry, 90 + Math.random() * 50, 0.9 + Math.random() * 0.4, 0.14, Math.random() > 0.5 ? 'copper' : 'water');
+          nextDropTime = now + 1600 + Math.random() * 1900; // Cadence douce et calme
+        }
+      }
+
+      // Éléments de profondeur 3D et caustiques aquatiques flottants
+      let orbAngle = 0;
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function animate(now) {
+        ctx.clearRect(0, 0, width, height);
+
+        if (!prefersReduced) {
+          // Lissage de la position souris pour un effet de parallaxe fluide et flottant
+          mouseX += (targetMouseX - mouseX) * 0.05;
+          mouseY += (targetMouseY - mouseY) * 0.05;
+
+          // Dérive angulaire des reflets aquatiques 3D
+          orbAngle += 0.003;
+          const pX = (mouseX / width - 0.5) * 40;
+          const pY = (mouseY / height - 0.5) * 40;
+
+          // Orbe 1 : Reflet cuivre chaud subtil
+          const g1 = ctx.createRadialGradient(
+            width * 0.25 + Math.cos(orbAngle) * 50 + pX,
+            height * 0.35 + Math.sin(orbAngle) * 40 + pY,
+            10,
+            width * 0.25 + pX,
+            height * 0.35 + pY,
+            340
+          );
+          g1.addColorStop(0, 'rgba(194, 103, 43, 0.045)');
+          g1.addColorStop(0.6, 'rgba(194, 103, 43, 0.012)');
+          g1.addColorStop(1, 'transparent');
+          ctx.fillStyle = g1;
+          ctx.fillRect(0, 0, width, height);
+
+          // Orbe 2 : Reflet bleu eau calme & brumeux
+          const g2 = ctx.createRadialGradient(
+            width * 0.75 + Math.sin(orbAngle * 0.8) * 60 - pX,
+            height * 0.55 + Math.cos(orbAngle * 0.8) * 50 - pY,
+            10,
+            width * 0.75 - pX,
+            height * 0.55 - pY,
+            380
+          );
+          g2.addColorStop(0, 'rgba(70, 110, 140, 0.04)');
+          g2.addColorStop(0.55, 'rgba(70, 110, 140, 0.01)');
+          g2.addColorStop(1, 'transparent');
+          ctx.fillStyle = g2;
+          ctx.fillRect(0, 0, width, height);
+
+          // Génération des gouttes de pluie douces
+          scheduleDrop(now);
+        }
+
+        // Rendu des ondulations concentriques
+        for (let i = ripples.length - 1; i >= 0; i--) {
+          const rip = ripples[i];
+          rip.r += rip.speed;
+          const progress = rip.r / rip.maxR;
+          rip.alpha = rip.maxAlpha * (1 - progress);
+
+          if (progress >= 1 || rip.alpha <= 0.005) {
+            ripples.splice(i, 1);
+            continue;
+          }
+
+          const strokeColor = rip.colorType === 'copper'
+            ? 'rgba(194, 103, 43, ' + rip.alpha + ')'
+            : 'rgba(60, 105, 140, ' + (rip.alpha * 0.85) + ')';
+
+          // Anneau extérieur d'ondulation
+          ctx.beginPath();
+          ctx.arc(rip.x, rip.y, rip.r, 0, Math.PI * 2);
+          ctx.strokeStyle = strokeColor;
+          ctx.lineWidth = 1.3;
+          ctx.stroke();
+
+          // Anneau intérieur (effet de profondeur de résonance aquatique)
+          if (rip.r > 16) {
+            ctx.beginPath();
+            ctx.arc(rip.x, rip.y, rip.r * 0.62, 0, Math.PI * 2);
+            ctx.strokeStyle = rip.colorType === 'copper'
+              ? 'rgba(194, 103, 43, ' + (rip.alpha * 0.45) + ')'
+              : 'rgba(60, 105, 140, ' + (rip.alpha * 0.4) + ')';
+            ctx.lineWidth = 0.9;
+            ctx.stroke();
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+    })();
   </script>
 
 </body>
