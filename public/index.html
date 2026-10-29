@@ -884,6 +884,28 @@
       pointer-events: none;
     }
 
+    .trust-ribbon-dark {
+      background: #141210;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 2rem 0 2.25rem;
+      margin-top: 2rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 20px 40px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trust-ribbon-dark::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: radial-gradient(circle, rgba(194, 103, 43, 0.8), transparent 70%);
+      pointer-events: none;
+    }
+
     .trust-ribbon-header {
       text-align: center;
       margin-bottom: 1.5rem;
@@ -892,14 +914,14 @@
     }
 
     .trust-ribbon-kicker {
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.16em;
       color: #E2DDD5;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .trust-ribbon-kicker span {
@@ -910,75 +932,115 @@
       position: relative;
       width: 100%;
       overflow: hidden;
-      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      padding: 6px 0;
     }
 
     .marquee-track-dark {
       display: flex;
-      gap: 2rem;
       width: max-content;
-      animation: marquee-scroll 28s linear infinite;
-      align-items: center;
+      user-select: none;
     }
 
-    .marquee-track-dark:hover {
+    .marquee-group {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-right: 1.5rem;
+      flex-shrink: 0;
+      animation: marquee-scroll 24s linear infinite;
+    }
+
+    .marquee-wrapper-dark:hover .marquee-group {
       animation-play-state: paused;
     }
 
-    .client-monochrome-card {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: var(--radius-md);
-      padding: 8px 20px;
-      color: #FFFFFF;
-      transition: all 0.25s ease;
-      white-space: nowrap;
-      height: 60px;
-      box-sizing: border-box;
+    @keyframes marquee-scroll {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
+      }
     }
 
-    .client-monochrome-card:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(194, 103, 43, 0.6);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    }
-
-    .client-logo-img {
-      display: block;
-      height: 44px;
-      max-height: 44px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .client-label {
+    /* Style Carte Carrée Multinationale (Dimension Généreuse) */
+    .client-brand-card {
       display: flex;
       flex-direction: column;
-      gap: 2px;
-      text-align: left;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 148px;
+      min-width: 148px;
+      height: 130px;
+      padding: 16px 12px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 18px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
     }
 
-    .client-label-title {
+    .client-brand-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .client-brand-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(194, 103, 43, 0.65);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 24px rgba(194, 103, 43, 0.2);
+    }
+
+    .client-brand-card:hover::after {
+      opacity: 1;
+    }
+
+    .client-brand-logo {
+      height: 60px;
+      width: 60px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+      transition: transform 0.3s ease;
+    }
+
+    .client-brand-card:hover .client-brand-logo {
+      transform: scale(1.06);
+    }
+
+    .client-brand-name {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.82rem;
+      font-size: 0.74rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       color: #FFFFFF;
-      line-height: 1.2;
+      text-transform: uppercase;
+      line-height: 1.1;
+      white-space: nowrap;
+      margin-top: 2px;
     }
 
-    .client-label-sub {
+    .client-brand-sub {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.68rem;
+      font-size: 0.62rem;
       font-weight: 500;
       letter-spacing: 0.04em;
-      color: rgba(255, 255, 255, 0.65);
-      line-height: 1.1;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1;
+      white-space: nowrap;
     }
 
     /* ==========================================================================
@@ -1779,77 +1841,127 @@
           <div class="marquee-wrapper-dark">
             <div class="marquee-track-dark">
               
-              <!-- 1. OKA FOREST LODGE (AUTHENTIC HIGH-RES WHITE MONOCHROME) -->
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge Logo" class="client-logo-img" style="height: 46px;">
-              </div>
-
-              <!-- 2. LYCÉE PRIVÉ MANJARY SOA (OFFICIAL CIRCULAR STAMP SEAL) -->
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa Seal" class="client-logo-img" style="height: 42px;">
-                <div class="client-label">
-                  <span class="client-label-title">LYCÉE PRIVÉ MANJARY SOA</span>
-                  <span class="client-label-sub">Scolarité, Notes &amp; Bulletins Déployés</span>
+              <!-- GROUPE 1 -->
+              <div class="marquee-group">
+                
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge" class="client-brand-logo" style="width: 66px;">
+                  <div class="client-brand-name">OKA LODGE</div>
+                  <div class="client-brand-sub">Hôtellerie · Nature</div>
                 </div>
-              </div>
 
-              <!-- 3. KANANA CAMP (MANTASOA LODGE & NATURE) -->
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/kanana_camp_white.svg" alt="Kanana Camp Logo" class="client-logo-img" style="height: 42px;">
-              </div>
-
-              <!-- 4. NY ANDRINI'NY SOA (AUTHENTIC MONOGRAM SEAL) -->
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa Logo" class="client-logo-img" style="height: 42px;">
-                <div class="client-label">
-                  <span class="client-label-title">NY ANDRIN'NY SOA</span>
-                  <span class="client-label-sub">Résidence, Hébergement &amp; Stocks</span>
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa" class="client-brand-logo">
+                  <div class="client-brand-name">MANJARY SOA</div>
+                  <div class="client-brand-sub">Lycée Privé</div>
                 </div>
-              </div>
 
-              <!-- 5. SUNSHINE MONTESSORI SCHOOL (CHRISTIAN MONTESSORI CREST) -->
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/sunshine_montessori_white.svg" alt="Sunshine Montessori School Logo" class="client-logo-img" style="height: 42px;">
-              </div>
-
-              <!-- 6. ANKA MADAGASCAR (DIGITAL ENERGY / AFD RURAL ELECTRIFICATION) -->
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/anka_white.svg" alt="ANKA Madagascar Logo" class="client-logo-img" style="height: 40px;">
-              </div>
-
-              <!-- ==========================================================
-                   DUPLICATA IDENTIQUE POUR DÉFILEMENT CONTINU INFINI (SANS SAUT)
-                   ========================================================== -->
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge Logo" class="client-logo-img" style="height: 46px;">
-              </div>
-
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa Seal" class="client-logo-img" style="height: 42px;">
-                <div class="client-label">
-                  <span class="client-label-title">LYCÉE PRIVÉ MANJARY SOA</span>
-                  <span class="client-label-sub">Scolarité, Notes &amp; Bulletins Déployés</span>
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/kanana_square_white.svg" alt="Kanana Camp" class="client-brand-logo">
+                  <div class="client-brand-name">KANANA CAMP</div>
+                  <div class="client-brand-sub">Lodge · Mantasoa</div>
                 </div>
-              </div>
 
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/kanana_camp_white.svg" alt="Kanana Camp Logo" class="client-logo-img" style="height: 42px;">
-              </div>
-
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa Logo" class="client-logo-img" style="height: 42px;">
-                <div class="client-label">
-                  <span class="client-label-title">NY ANDRIN'NY SOA</span>
-                  <span class="client-label-sub">Résidence, Hébergement &amp; Stocks</span>
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa" class="client-brand-logo">
+                  <div class="client-brand-name">ANDRIN'NY SOA</div>
+                  <div class="client-brand-sub">Résidence &amp; Resto</div>
                 </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School" class="client-brand-logo">
+                  <div class="client-brand-name">SUNSHINE</div>
+                  <div class="client-brand-sub">Montessori School</div>
+                </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar" class="client-brand-logo">
+                  <div class="client-brand-name">ANKA</div>
+                  <div class="client-brand-sub">Énergie &amp; ESG</div>
+                </div>
+
               </div>
 
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/sunshine_montessori_white.svg" alt="Sunshine Montessori School Logo" class="client-logo-img" style="height: 42px;">
+              <!-- GROUPE 2 (CLONE POUR DÉFILEMENT CONTINU INFINI) -->
+              <div class="marquee-group" aria-hidden="true">
+                
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge" class="client-brand-logo" style="width: 66px;">
+                  <div class="client-brand-name">OKA LODGE</div>
+                  <div class="client-brand-sub">Hôtellerie · Nature</div>
+                </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa" class="client-brand-logo">
+                  <div class="client-brand-name">MANJARY SOA</div>
+                  <div class="client-brand-sub">Lycée Privé</div>
+                </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/kanana_square_white.svg" alt="Kanana Camp" class="client-brand-logo">
+                  <div class="client-brand-name">KANANA CAMP</div>
+                  <div class="client-brand-sub">Lodge · Mantasoa</div>
+                </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa" class="client-brand-logo">
+                  <div class="client-brand-name">ANDRIN'NY SOA</div>
+                  <div class="client-brand-sub">Résidence &amp; Resto</div>
+                </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School" class="client-brand-logo">
+                  <div class="client-brand-name">SUNSHINE</div>
+                  <div class="client-brand-sub">Montessori School</div>
+                </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar" class="client-brand-logo">
+                  <div class="client-brand-name">ANKA</div>
+                  <div class="client-brand-sub">Énergie &amp; ESG</div>
+                </div>
+
               </div>
 
-              <div class="client-monochrome-card">
-                <img src="assets/img/clients/anka_white.svg" alt="ANKA Madagascar Logo" class="client-logo-img" style="height: 40px;">
+              <!-- GROUPE 3 (GARANTIE COUVERTURE ÉCRANS TRÈS LARGES ET ULTRA-WIDE) -->
+              <div class="marquee-group" aria-hidden="true">
+                
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge" class="client-brand-logo" style="width: 66px;">
+                  <div class="client-brand-name">OKA LODGE</div>
+                  <div class="client-brand-sub">Hôtellerie · Nature</div>
+                </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa" class="client-brand-logo">
+                  <div class="client-brand-name">MANJARY SOA</div>
+                  <div class="client-brand-sub">Lycée Privé</div>
+                </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/kanana_square_white.svg" alt="Kanana Camp" class="client-brand-logo">
+                  <div class="client-brand-name">KANANA CAMP</div>
+                  <div class="client-brand-sub">Lodge · Mantasoa</div>
+                </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa" class="client-brand-logo">
+                  <div class="client-brand-name">ANDRIN'NY SOA</div>
+                  <div class="client-brand-sub">Résidence &amp; Resto</div>
+                </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School" class="client-brand-logo">
+                  <div class="client-brand-name">SUNSHINE</div>
+                  <div class="client-brand-sub">Montessori School</div>
+                </div>
+
+                <div class="client-brand-card">
+                  <img src="assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar" class="client-brand-logo">
+                  <div class="client-brand-name">ANKA</div>
+                  <div class="client-brand-sub">Énergie &amp; ESG</div>
+                </div>
+
               </div>
 
             </div>

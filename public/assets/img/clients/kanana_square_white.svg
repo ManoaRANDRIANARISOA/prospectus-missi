@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" role="img" aria-label="Kanana Camp">
+  <!-- Double luxury circle -->
+  <circle cx="50" cy="50" r="46" stroke="#FFFFFF" stroke-width="2.2" opacity="0.35" stroke-dasharray="3 3"/>
+  <circle cx="50" cy="50" r="42" stroke="#FFFFFF" stroke-width="2.8"/>
+  
+  <!-- Safari Lodge Tent -->
+  <path d="M50 20 L27 62 L73 62 Z" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M50 20 L50 62" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M43 62 L50 46 L57 62" stroke="#FFFFFF" stroke-width="2.2" fill="#FFFFFF" fill-opacity="0.25"/>
+  
+  <!-- Lake Mantasoa Water Waves -->
+  <path d="M22 69 C32 66, 40 72, 50 69 C60 66, 68 72, 78 69" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M28 76 C36 74, 42 78, 50 76 C58 74, 64 78, 72 76" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  
+  <!-- Pine tree beside tent -->
+  <path d="M25 45 L20 54 L24 54 L17 62 L33 62 L26 54 L30 54 Z" fill="#FFFFFF"/>
+  <circle cx="68" cy="30" r="3.5" fill="#FFFFFF"/>
+</svg>
