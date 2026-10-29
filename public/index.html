@@ -47,7 +47,7 @@
         "logo": "https://missi-innovation.web.app/assets/img/missi_logo.svg",
         "image": "https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png",
         "description": "Entreprise d'ingénierie logicielle, prestataire informatique, cybersécurité et éditeur de progiciels métiers à Madagascar.",
-        "telephone": "+261386121473",
+        "telephone": "+261347151789",
         "priceRange": "39 000 Ar - 290 000 Ar",
         "currenciesAccepted": "MGA, EUR, USD",
         "paymentAccepted": "Cash, Bank Transfer, MVola, Orange Money, Airtel Money",
@@ -66,44 +66,6 @@
           "@type": "Country",
           "name": "Madagascar"
         }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://missi-innovation.web.app/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Vos logiciels continuent-ils de fonctionner en cas de coupure JIRAMA ou d'Internet ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Oui, à 100%. Nos progiciels intègrent un moteur local SQLite en mode WAL : vos équipes continuent d'encaisser, d'enregistrer et d'imprimer des tickets même sans aucune connexion Internet. Dès que le réseau est rétabli, la synchronisation avec le cloud Supabase s'exécute automatiquement en arrière-plan sans blocage."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Vos factures et documents sont-ils conformes à la législation fiscale malagasy ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Tout à fait. Toutes les factures, reçus et états financiers émis par nos progiciels intègrent automatiquement vos mentions légales obligatoires (NIF, STAT, RCS), le calcul de la TVA à 20% (ou franchise pour l'Impôt Synthétique), et la traçabilité des règlements par espèces (billetage physique), chèque, virement ou Mobile Money."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Comment bloquer Facebook et YouTube sur les ordinateurs des collaborateurs ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Notre kit de restriction réseau intervient directement sur les registres système et les stratégies de groupe (GPO) de Google Chrome et Microsoft Edge. Le blocage est hermétique et inviolable par les employés. Nous configurons également votre box fibre (Yas, Orange, Telma) pour interdire les connexions Wi-Fi non autorisées par filtrage d'adresses MAC."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quelles sont les formules d'acquisition disponibles ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Missi Innovation propose deux modes au choix du client : soit une formule d'abonnement mensuelle souple et sans engagement incluant maintenance et mises à jour, soit une acquisition en Licence Définitive perpétuelle, vous garantissant une indépendance totale sans rente logicielle mensuelle."
-            }
-          }
-        ]
       }
     ]
   }
@@ -116,13 +78,14 @@
 
   <style>
     /* ==========================================================================
-       SYSTÈME DE DESIGN V2 — MISSI INNOVATION (ÉDITION LIN, ARDOISE & CUIVRE)
+       SYSTÈME DE DESIGN V2.1 — LUXE TECHNIQUE, RESPIRANT & VECTORIEL
        ========================================================================== */
     :root {
       --canvas: #FAF8F5;
       --surface: #FFFFFF;
       --surface-warm: #F4EFE6;
       --surface-subtle: #FAF6EF;
+      --surface-dark: #1C1917;
       
       --border: #E8E2D8;
       --border-subtle: #F0ECE4;
@@ -181,6 +144,23 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    /* HALO LUMINEUX SUIVANT LE CURSEUR (SUBTIL & LUXUEUX) */
+    .cursor-ambient-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(194, 103, 43, 0.06) 0%, rgba(194, 103, 43, 0.015) 45%, transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      transition: transform 0.12s cubic-bezier(0.1, 0.8, 0.3, 1);
+      will-change: transform;
     }
 
     /* TYPOGRAPHIE & HIÉRARCHIE */
@@ -202,16 +182,17 @@
       display: inline-block;
     }
 
-    /* CONTENEUR GLOBAL */
     .container {
       width: 100%;
       max-width: 1240px;
       margin: 0 auto;
       padding: 0 1.5rem;
+      position: relative;
+      z-index: 2;
     }
 
     /* ==========================================================================
-       TOP NAVIGATION UNIFIÉE
+       HEADER STICKY ÉPURÉ & RESPIRANT (1 LIGNE STRICTE)
        ========================================================================== */
     .header-nav {
       position: sticky;
@@ -219,12 +200,11 @@
       z-index: 1000;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(250, 248, 245, 0.92);
+      background: rgba(250, 248, 245, 0.94);
       border-bottom: 1px solid var(--border);
-      height: 68px;
+      height: 64px;
       display: flex;
       align-items: center;
-      transition: background 0.2s ease, box-shadow 0.2s ease;
     }
 
     .nav-inner {
@@ -232,29 +212,28 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
     .brand-link {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
       text-decoration: none;
       color: var(--text);
       flex-shrink: 0;
     }
 
     .brand-logo-mark {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: var(--radius-sm);
       background: #1C1917;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 2px 8px rgba(28, 25, 23, 0.18);
+      box-shadow: 0 2px 8px rgba(28, 25, 23, 0.16);
       border: 1px solid #443E3A;
-      overflow: hidden;
       flex-shrink: 0;
     }
 
@@ -266,7 +245,7 @@
     .brand-name {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 1.18rem;
+      font-size: 1.15rem;
       line-height: 1.1;
       letter-spacing: -0.01em;
       color: var(--brand-primary);
@@ -277,33 +256,33 @@
 
     .brand-name-accent {
       font-weight: 700;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--brand-copper);
     }
 
     .brand-tagline {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--text-soft);
       font-weight: 500;
-      letter-spacing: 0.02em;
     }
 
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1.5rem;
       list-style: none;
+      white-space: nowrap;
     }
 
     .nav-menu a {
       text-decoration: none;
       color: var(--text-muted);
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       font-weight: 600;
       transition: color 0.15s ease;
-      padding: 0.4rem 0.2rem;
+      padding: 0.3rem 0;
     }
 
     .nav-menu a:hover {
@@ -313,7 +292,8 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
+      flex-shrink: 0;
     }
 
     /* BOUTONS SYSTEM */
@@ -321,10 +301,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      padding: 0.55rem 1.15rem;
+      gap: 0.45rem;
+      padding: 0.52rem 1.1rem;
       border-radius: var(--radius-sm);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -346,7 +326,7 @@
       background: var(--brand-copper);
       color: #FFFFFF;
       border-color: var(--brand-copper);
-      box-shadow: 0 2px 8px rgba(194, 103, 43, 0.28);
+      box-shadow: 0 2px 8px rgba(194, 103, 43, 0.25);
     }
 
     .btn-copper:hover {
@@ -396,10 +376,10 @@
     }
 
     /* ==========================================================================
-       HERO SECTION — ÉPURÉE, AÉRÉE, IMPACT INSTITUTIONNEL
+       HERO SECTION — ÉPURÉE, IMPACT MAGNETIQUE & INVITATION AU SCROLL
        ========================================================================== */
     .hero {
-      padding: 4.5rem 0 3.5rem;
+      padding: 4rem 0 3.25rem;
       position: relative;
     }
 
@@ -407,21 +387,21 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--brand-copper-dark);
       background: var(--brand-copper-light);
       border: 1px solid var(--brand-copper-border);
-      padding: 4px 12px;
+      padding: 3px 11px;
       border-radius: 999px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .pulsing-dot {
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--brand-copper);
       box-shadow: 0 0 0 0 rgba(194, 103, 43, 0.7);
@@ -435,40 +415,84 @@
     }
 
     .hero-title {
-      font-size: clamp(2.2rem, 4.2vw, 3.6rem);
-      line-height: 1.12;
+      font-size: clamp(2.1rem, 3.8vw, 3.4rem);
+      line-height: 1.15;
       color: var(--text);
-      max-width: 960px;
-      margin-bottom: 1.5rem;
+      max-width: 940px;
+      margin-bottom: 1.15rem;
     }
 
+    /* PARAGRAPHE COURT & PUNCHY (CORRECTION POINT 4) */
     .hero-desc {
-      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      font-size: clamp(0.95rem, 1.2vw, 1.1rem);
       color: var(--text-muted);
-      line-height: 1.65;
-      max-width: 820px;
-      margin-bottom: 2.25rem;
+      line-height: 1.6;
+      max-width: 760px;
+      margin-bottom: 2rem;
     }
 
     .hero-desc strong {
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .hero-actions {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.85rem;
       flex-wrap: wrap;
-      margin-bottom: 3rem;
+      margin-bottom: 2.75rem;
     }
 
-    /* RUBAN DES ENGAGEMENTS SOUVERAINS */
+    /* INVITATION SUBTILE AU SCROLL */
+    .scroll-invite {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .scroll-invite:hover {
+      color: var(--brand-copper);
+    }
+
+    .scroll-mouse {
+      width: 14px;
+      height: 22px;
+      border: 1.5px solid var(--border-warm);
+      border-radius: 999px;
+      position: relative;
+    }
+
+    .scroll-wheel {
+      width: 2.5px;
+      height: 4px;
+      background: var(--brand-copper);
+      border-radius: 999px;
+      position: absolute;
+      top: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: scroll-wheel-anim 1.6s infinite ease-in-out;
+    }
+
+    @keyframes scroll-wheel-anim {
+      0% { opacity: 1; transform: translate(-50%, 0); }
+      70% { opacity: 0; transform: translate(-50%, 8px); }
+      100% { opacity: 0; transform: translate(-50%, 0); }
+    }
+
+    /* RUBAN DES ENGAGEMENTS SOUVERAINS AVEC SVG */
     .hero-stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
-      padding: 1.5rem;
+      padding: 1.25rem 1.5rem;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
@@ -478,7 +502,7 @@
     .stat-card {
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: 0.2rem;
       padding: 0 0.5rem;
       border-right: 1px solid var(--border-subtle);
     }
@@ -491,148 +515,30 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 800;
       font-family: var(--font-display);
       color: var(--text);
     }
 
-    .stat-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--status-emerald);
-    }
-
     .stat-desc {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--text-soft);
       line-height: 1.4;
     }
 
     /* ==========================================================================
-       MARQUEE « ILS NOUS FONT CONFIANCE » (CLIENT TICKER INFINI)
-       ========================================================================== */
-    .trust-section {
-      padding: 2.25rem 0 3.25rem;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .trust-label {
-      text-align: center;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--text-soft);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .trust-label::before, .trust-label::after {
-      content: '';
-      height: 1px;
-      width: 50px;
-      background: var(--border);
-    }
-
-    .marquee-wrapper {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-      -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 1.25rem;
-      width: max-content;
-      animation: marquee-scroll 32s linear infinite;
-    }
-
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
-
-    @keyframes marquee-scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .client-badge-card {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 8px 18px 8px 10px;
-      box-shadow: var(--shadow-sm);
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-
-    .client-badge-card:hover {
-      border-color: var(--brand-copper-border);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .client-icon-circle {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--surface-warm);
-      border: 1px solid var(--border-warm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.95rem;
-      flex-shrink: 0;
-      color: var(--text);
-    }
-
-    .client-info {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .client-name {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 0.88rem;
-      color: var(--text);
-      line-height: 1.15;
-    }
-
-    .client-tag {
-      font-size: 0.68rem;
-      font-weight: 600;
-      color: var(--text-soft);
-      letter-spacing: 0.02em;
-    }
-
-    /* ==========================================================================
-       SECTION HUB DES SOLUTIONS MÉTIERS (ONGLETS INTERACTIFS V2)
+       SECTION HUB DES SOLUTIONS MÉTIERS (ONGLETS V2.1 AVEC VRAIS SVG)
        ========================================================================== */
     .hub-section {
-      padding: 4.5rem 0 5.5rem;
+      padding: 4.5rem 0 3.5rem;
       position: relative;
     }
 
     .section-header-center {
       text-align: center;
-      max-width: 780px;
-      margin: 0 auto 2.5rem;
+      max-width: 760px;
+      margin: 0 auto 2.25rem;
     }
 
     .sec-kicker {
@@ -642,45 +548,45 @@
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--brand-copper);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     .sec-title {
-      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
       line-height: 1.2;
       color: var(--text);
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
     }
 
     .sec-desc {
-      font-size: 1rem;
+      font-size: 0.96rem;
       color: var(--text-muted);
       line-height: 1.6;
     }
 
-    /* ONGLET SELECTEUR */
+    /* SÉLECTEUR D'ONGLETS SANS EMOJIS, 100% SVG VECTORIEL */
     .tabs-nav-bar {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
       background: var(--surface-warm);
-      padding: 6px;
+      padding: 5px;
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-warm);
-      max-width: 980px;
-      margin: 0 auto 2.75rem;
+      max-width: 940px;
+      margin: 0 auto 2.5rem;
     }
 
     .tab-btn {
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      padding: 0.65rem 1.15rem;
+      padding: 0.6rem 1.05rem;
       border-radius: var(--radius-md);
       font-family: var(--font-sans);
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       font-weight: 700;
       color: var(--text-muted);
       background: transparent;
@@ -688,6 +594,13 @@
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       white-space: nowrap;
+    }
+
+    .tab-btn svg {
+      width: 15px;
+      height: 15px;
+      stroke-width: 2;
+      flex-shrink: 0;
     }
 
     .tab-btn:hover {
@@ -702,11 +615,6 @@
       border: 1px solid var(--border-subtle);
     }
 
-    .tab-icon {
-      font-size: 1rem;
-    }
-
-    /* CONTENU DES ONGLETS */
     .tab-panel {
       display: none;
       opacity: 0;
@@ -720,7 +628,6 @@
       transform: translateY(0);
     }
 
-    /* VITRINE SOLUTION (2 COLONNES MAJESTUEUSES) */
     .showcase-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -736,14 +643,14 @@
     .showcase-content {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1.15rem;
     }
 
     .showcase-tagline {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -756,13 +663,13 @@
     }
 
     .showcase-title {
-      font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+      font-size: clamp(1.5rem, 2.2vw, 1.95rem);
       line-height: 1.25;
       color: var(--text);
     }
 
     .showcase-desc {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
       line-height: 1.65;
     }
@@ -771,22 +678,22 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
-      margin: 0.5rem 0;
+      gap: 0.6rem;
+      margin: 0.35rem 0;
     }
 
     .features-checklist li {
       display: flex;
       align-items: flex-start;
       gap: 8px;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--text);
       line-height: 1.45;
     }
 
     .check-icon {
-      width: 17px;
-      height: 17px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       background: var(--status-emerald-bg);
       color: var(--status-emerald);
@@ -794,7 +701,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 900;
       flex-shrink: 0;
       margin-top: 1px;
@@ -808,8 +715,8 @@
       background: var(--surface-warm);
       border: 1px solid var(--border-warm);
       border-radius: var(--radius-md);
-      padding: 0.75rem 1.25rem;
-      margin-top: 0.5rem;
+      padding: 0.7rem 1.15rem;
+      margin-top: 0.35rem;
     }
 
     .price-label-wrap {
@@ -818,7 +725,7 @@
     }
 
     .price-sub {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 600;
       color: var(--text-soft);
       text-transform: uppercase;
@@ -827,13 +734,13 @@
 
     .price-main {
       font-family: var(--font-display);
-      font-size: 1.2rem;
+      font-size: 1.18rem;
       font-weight: 800;
       color: var(--brand-copper-dark);
     }
 
     .price-badge-opt {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
       background: #FFFFFF;
       border: 1px solid var(--border);
@@ -845,12 +752,12 @@
     .showcase-actions {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.7rem;
       flex-wrap: wrap;
-      margin-top: 0.5rem;
+      margin-top: 0.35rem;
     }
 
-    /* CADRE ÉCRAN LOGICIEL (WINDOW FRAME ÉLÉGANTE) */
+    /* CADRE FENÊTRE ÉCRAN HD */
     .software-window {
       background: var(--surface);
       border: 1.5px solid var(--border);
@@ -895,7 +802,7 @@
     .dot-green { background: #10B981; }
 
     .window-title-text {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       color: var(--text-muted);
       font-family: var(--font-mono);
@@ -905,7 +812,7 @@
     }
 
     .window-badge-stat {
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 800;
       background: #FFFFFF;
       border: 1px solid var(--border);
@@ -940,9 +847,9 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       color: white;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      padding: 5px 10px;
+      padding: 4px 9px;
       border-radius: var(--radius-sm);
       border: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
@@ -953,193 +860,180 @@
     }
 
     /* ==========================================================================
-       SECTION 3 PILIERS D'INGÉNIERIE & PRESTATIONS SOUVERAINES
+       SECTION CLIENTS : MONOCHROME BLANC SOUS LES SUITES (CORRECTION POINT 1)
        ========================================================================== */
-    .engineering-section {
-      padding: 4.5rem 0;
+    .trust-ribbon-dark {
+      margin-top: 2.75rem;
+      background: linear-gradient(135deg, #1C1917 0%, #262320 100%);
+      border: 1px solid rgba(194, 103, 43, 0.28);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem 1.5rem 2rem;
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .trust-ribbon-dark::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 10%;
+      width: 300px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(194, 103, 43, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .trust-ribbon-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .trust-ribbon-kicker {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #E2DDD5;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-ribbon-kicker span {
+      color: var(--brand-copper);
+    }
+
+    .marquee-wrapper-dark {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .marquee-track-dark {
+      display: flex;
+      gap: 2rem;
+      width: max-content;
+      animation: marquee-scroll 28s linear infinite;
+      align-items: center;
+    }
+
+    .marquee-track-dark:hover {
+      animation-play-state: paused;
+    }
+
+    .client-monochrome-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 10px 18px;
+      color: #FFFFFF;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .client-monochrome-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(194, 103, 43, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .client-svg-wrap {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      color: #FFFFFF;
+    }
+
+    .client-svg-wrap svg {
+      height: 38px;
+      width: auto;
+      max-width: 220px;
+      display: block;
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       SECTION UNIFIÉE : GARANTIES SOUVERAINES & FAQ (CORRECTION POINT 7)
+       ========================================================================== */
+    .unified-authority-section {
+      padding: 4.5rem 0 5.5rem;
       background: var(--surface);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
 
-    .pillars-grid {
+    .authority-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: flex-start;
+      margin-top: 2rem;
     }
 
-    .pillar-card {
+    .guarantee-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .guarantee-card {
       background: var(--canvas);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 2rem;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 1.5rem;
+      gap: 0.6rem;
       transition: all 0.2s ease;
     }
 
-    .pillar-card:hover {
+    .guarantee-card:hover {
       border-color: var(--brand-copper-border);
+      background: #FFFFFF;
       transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      background: #FFFFFF;
+      box-shadow: var(--shadow-sm);
     }
 
-    .pillar-card.featured {
-      border-color: var(--brand-copper);
-      background: #FFFFFF;
-      box-shadow: var(--shadow-md);
-      position: relative;
-    }
-
-    .featured-ribbon {
-      position: absolute;
-      top: -10px;
-      right: 20px;
-      background: var(--brand-copper);
-      color: white;
-      font-size: 0.68rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 2px 9px;
-      border-radius: 999px;
-      box-shadow: 0 2px 6px rgba(194, 103, 43, 0.35);
-    }
-
-    .pillar-top {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .pillar-icon-box {
-      width: 44px;
-      height: 44px;
-      border-radius: var(--radius-md);
-      background: var(--surface-warm);
-      border: 1px solid var(--border-warm);
+    .guarantee-tag-row {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      font-weight: 800;
       color: var(--brand-copper);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .pillar-title {
-      font-size: 1.25rem;
+    .guarantee-title {
+      font-size: 1.15rem;
       color: var(--text);
       line-height: 1.3;
     }
 
-    .pillar-desc {
+    .guarantee-desc {
       font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.55;
     }
 
-    .pillar-list {
-      list-style: none;
+    /* ACCORDÉON FAQ ÉLÉGANT & INTÉGRÉ */
+    .faq-column {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      font-size: 0.84rem;
-      color: var(--text);
-    }
-
-    .pillar-list li {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .pillar-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 1rem;
-      margin-top: auto;
-    }
-
-    .pillar-price {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-
-    .pillar-price small {
-      font-size: 0.7rem;
-      color: var(--text-soft);
-      font-weight: 600;
-    }
-
-    /* ==========================================================================
-       SECTION MATRICE DES ENGAGEMENTS SOUVERAINS (POURQUOI MISSI)
-       ========================================================================== */
-    .why-section {
-      padding: 4.5rem 0;
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .why-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .why-badge {
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--brand-copper);
-    }
-
-    .why-title {
-      font-size: 1.3rem;
-      color: var(--text);
-      line-height: 1.25;
-    }
-
-    .why-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* ==========================================================================
-       SECTION FAQ INTERACTIVE (ACCORDÉON PUR ET ACCESSIBLE)
-       ========================================================================== */
-    .faq-section {
-      padding: 4.5rem 0 5.5rem;
-    }
-
-    .faq-accordion {
-      max-width: 860px;
-      margin: 2.5rem auto 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .faq-item {
-      background: var(--surface);
+      background: var(--canvas);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-sm);
@@ -1149,12 +1043,13 @@
 
     .faq-item[open] {
       border-color: var(--brand-copper-border);
+      background: #FFFFFF;
     }
 
     .faq-summary {
-      padding: 1.25rem 1.5rem;
+      padding: 1.15rem 1.35rem;
       font-family: var(--font-display);
-      font-size: 1.05rem;
+      font-size: 0.96rem;
       font-weight: 700;
       color: var(--text);
       cursor: pointer;
@@ -1182,32 +1077,32 @@
     }
 
     .faq-content {
-      padding: 0 1.5rem 1.35rem 1.5rem;
-      font-size: 0.92rem;
+      padding: 0 1.35rem 1.25rem 1.35rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
-      line-height: 1.65;
+      line-height: 1.6;
       border-top: 1px dashed var(--border-subtle);
-      margin-top: 0.25rem;
-      padding-top: 1rem;
+      margin-top: 0.2rem;
+      padding-top: 0.85rem;
     }
 
     /* ==========================================================================
-       BANNIÈRE EXÉCUTIVE FINALE (CTA ENGAGEMENT)
+       BANNIÈRE EXÉCUTIVE FINALE
        ========================================================================== */
     .cta-banner-wrap {
-      padding: 0 0 5rem;
+      padding: 4.5rem 0 5rem;
     }
 
     .cta-banner {
       background: linear-gradient(135deg, #1C1917 0%, #292524 100%);
       color: #FFFFFF;
       border-radius: var(--radius-xl);
-      padding: 3.5rem 2.5rem;
+      padding: 3rem 2.5rem;
       box-shadow: var(--shadow-xl);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2.5rem;
+      gap: 2rem;
       flex-wrap: wrap;
       position: relative;
       overflow: hidden;
@@ -1231,14 +1126,14 @@
     }
 
     .cta-title {
-      font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+      font-size: clamp(1.7rem, 2.6vw, 2.2rem);
       line-height: 1.2;
       color: #FFFFFF;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.75rem;
     }
 
     .cta-desc {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #D6D3D1;
       line-height: 1.6;
     }
@@ -1246,7 +1141,7 @@
     .cta-buttons-side {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.85rem;
       flex-wrap: wrap;
       position: relative;
       z-index: 1;
@@ -1258,7 +1153,7 @@
     .site-footer {
       background: var(--surface);
       border-top: 1px solid var(--border);
-      padding: 4rem 0 2.5rem;
+      padding: 3.5rem 0 2.25rem;
       font-size: 0.88rem;
     }
 
@@ -1266,17 +1161,17 @@
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 2.5rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
 
     .footer-col-brand {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .footer-desc {
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       color: var(--text-soft);
       line-height: 1.55;
       max-width: 340px;
@@ -1285,9 +1180,9 @@
     .footer-title {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       color: var(--text);
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
@@ -1296,13 +1191,13 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 0.55rem;
     }
 
     .footer-links a {
       text-decoration: none;
       color: var(--text-muted);
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       transition: color 0.15s ease;
     }
 
@@ -1312,13 +1207,13 @@
 
     .footer-bottom {
       border-top: 1px solid var(--border-subtle);
-      padding-top: 1.75rem;
+      padding-top: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
       flex-wrap: wrap;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--text-soft);
     }
 
@@ -1329,8 +1224,9 @@
         gap: 2rem;
         padding: 2rem;
       }
-      .pillars-grid, .why-grid {
+      .authority-grid {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
       }
       .footer-grid {
         grid-template-columns: 1fr 1fr;
@@ -1340,12 +1236,12 @@
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 860px) {
       .nav-menu {
         display: none;
       }
       .hero {
-        padding: 3rem 0 2rem;
+        padding: 2.75rem 0 2rem;
       }
       .hero-stats-grid {
         grid-template-columns: 1fr;
@@ -1353,7 +1249,7 @@
       .stat-card {
         border-right: none;
         border-bottom: 1px solid var(--border-subtle);
-        padding-bottom: 0.75rem;
+        padding-bottom: 0.65rem;
       }
       .stat-card:last-child {
         border-bottom: none;
@@ -1369,14 +1265,17 @@
 </head>
 <body>
 
+  <!-- HALO LUMINEUX SUIVANT LE CURSEUR -->
+  <div class="cursor-ambient-glow" aria-hidden="true"></div>
+
   <!-- ==========================================================================
-       EN-TÊTE OFFICIELLE (HEADER STICKY)
+       EN-TÊTE OFFICIELLE (HEADER STICKY 1 LIGNE STRICTE)
        ========================================================================== -->
   <header class="header-nav">
     <div class="container nav-inner">
       <a href="index.html" class="brand-link" title="Missi Innovation - Accueil">
         <div class="brand-logo-mark">
-          <img src="assets/img/missi_logo.svg" alt="Missi Innovation" width="24" height="24">
+          <img src="assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22">
         </div>
         <div class="brand-title-wrap">
           <div class="brand-name">
@@ -1388,11 +1287,10 @@
 
       <nav aria-label="Navigation principale">
         <ul class="nav-menu">
-          <li><a href="#solutions">Progiciels Métiers</a></li>
-          <li><a href="#prestations">Prestations IT & Sécurité</a></li>
-          <li><a href="#engagements">Garanties Hors-Ligne</a></li>
+          <li><a href="#solutions">Progiciels</a></li>
+          <li><a href="#solutions">Clients &amp; Références</a></li>
+          <li><a href="#garanties">Garanties &amp; FAQ</a></li>
           <li><a href="configurateur.html">Configurateur</a></li>
-          <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
 
@@ -1400,7 +1298,7 @@
         <a href="configurateur.html" class="btn btn-secondary" title="Estimer votre devis en ligne">
           🛠️ Devis Sur-Mesure
         </a>
-        <a href="https://wa.me/261386121473?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20une%20démonstration%20de%20vos%20solutions." target="_blank" rel="noopener" class="btn btn-whatsapp" title="Contact WhatsApp Direct">
+        <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20une%20démonstration%20de%20vos%20solutions." target="_blank" rel="noopener" class="btn btn-whatsapp" title="Contact WhatsApp Direct (+261 34 71 517 89)">
           💬 WhatsApp
         </a>
       </div>
@@ -1408,7 +1306,7 @@
   </header>
 
   <!-- ==========================================================================
-       HERO PRESTIGE INSTITUTIONNEL
+       HERO PRESTIGE INSTITUTIONNEL (MAGNETIQUE & COURT)
        ========================================================================== -->
   <main>
     <section class="hero">
@@ -1423,45 +1321,56 @@
           Des progiciels de haute précision, <span class="copper-word">taillés pour la réalité</span> du terrain malagasy.
         </h1>
 
+        <!-- PARAGRAPHE COURT, AIMANTANT & PERCUTANT -->
         <p class="hero-desc">
-          Facturation conforme <strong>NIF/STAT</strong>, clôture de caisse avec <strong>billetage physique scellé</strong> et fonctionnement <strong>100% hors-ligne (JIRAMA Proof)</strong>. Missi Innovation conçoit et déploie des systèmes robustes sans abonnement cloud forcé pour l'Éducation, l'Hôtellerie, les Entreprises et le Tourisme à Madagascar.
+          Systèmes de gestion tout-terrain : <strong>100% opérationnels hors-ligne</strong> (résilience JIRAMA), scellés conformes <strong>NIF/STAT</strong> et sans abonnement cloud forcé. Déployés clés en main sous 48h à Antananarivo et en provinces.
         </p>
 
         <div class="hero-actions">
-          <a href="#solutions" class="btn btn-copper" style="padding: 0.75rem 1.45rem; font-size: 0.92rem;">
+          <a href="#solutions" class="btn btn-copper" style="padding: 0.72rem 1.4rem; font-size: 0.9rem;">
             Explorer les Progiciels Métiers ↓
           </a>
-          <a href="configurateur.html" class="btn btn-secondary" style="padding: 0.75rem 1.35rem; font-size: 0.92rem;">
-            🛠️ Sélecteur de Modules & Devis
+          <a href="configurateur.html" class="btn btn-secondary" style="padding: 0.72rem 1.3rem; font-size: 0.9rem;">
+            🛠️ Devis Sur-Mesure
           </a>
-          <a href="https://wa.me/261386121473?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20échanger%20avec%20un%20ingénieur%20technique." target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.75rem 1.25rem; font-size: 0.92rem;">
+          <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20échanger%20avec%20un%20ingénieur%20technique." target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.72rem 1.2rem; font-size: 0.9rem;">
             💬 Échanger avec un Ingénieur
+          </a>
+
+          <!-- INVITATION SCROLL ÉLÉGANTE -->
+          <a href="#solutions" class="scroll-invite" style="margin-left: 0.5rem;" title="Faire défiler vers les suites logicielles">
+            <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+            <span>Découvrir</span>
           </a>
         </div>
 
-        <!-- STATS & ENGAGEMENTS CLÉS -->
+        <!-- STATS & ENGAGEMENTS CLÉS (AVEC VRAIES ICÔNES SVG) -->
         <div class="hero-stats-grid">
           <div class="stat-card">
             <div class="stat-header">
-              <span class="stat-dot"></span> 100% Hors-Ligne
+              <svg width="15" height="15" fill="none" stroke="var(--status-emerald)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              100% Hors-Ligne
             </div>
             <div class="stat-desc">Moteur SQLite local WAL. Encaissement et impression sans Internet.</div>
           </div>
           <div class="stat-card">
             <div class="stat-header">
-              <span class="stat-dot"></span> Zéro Écart Caisse
+              <svg width="15" height="15" fill="none" stroke="var(--brand-copper)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Zéro Écart Caisse
             </div>
             <div class="stat-desc">Billetage physique de 20 000 à 100 Ar scellé par Ticket Z irréversible.</div>
           </div>
           <div class="stat-card">
             <div class="stat-header">
-              <span class="stat-dot"></span> Licence ou Mensuel
+              <svg width="15" height="15" fill="none" stroke="var(--text-muted)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              Licence ou Mensuel
             </div>
-            <div class="stat-desc">Liberté totale d'acquisition : sans rente logicielle mensuelle obligatoire.</div>
+            <div class="stat-desc">Liberté d'acquisition : sans rente mensuelle logicielle obligatoire.</div>
           </div>
           <div class="stat-card">
             <div class="stat-header">
-              <span class="stat-dot"></span> Déploiement 48h
+              <svg width="15" height="15" fill="none" stroke="var(--status-emerald)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              Déploiement 48h
             </div>
             <div class="stat-desc">Installation technique réseau, paramétrage légal et formation sur site.</div>
           </div>
@@ -1471,110 +1380,7 @@
     </section>
 
     <!-- ==========================================================================
-         SECTION CLIENTS : « ILS NOUS FONT CONFIANCE » (MARQUEE INFINI SOBRE)
-         ========================================================================== -->
-    <section class="trust-section" aria-label="Clients et références">
-      <div class="container">
-        <div class="trust-label">
-          DÉPLOYÉ & ÉPROUVÉ CHEZ NOS CLIENTS DE RÉFÉRENCE À MADAGASCAR
-        </div>
-      </div>
-
-      <div class="marquee-wrapper">
-        <div class="marquee-track">
-          
-          <!-- ITEM 1 : LYCÉE PRIVÉ MANJARY SOA -->
-          <div class="client-badge-card">
-            <div class="client-icon-circle">🏫</div>
-            <div class="client-info">
-              <span class="client-name">Lycée Privé Manjary Soa</span>
-              <span class="client-tag">Complexe Scolaire &bull; LMS &bull; Tana</span>
-            </div>
-          </div>
-
-          <!-- ITEM 2 : OKA LODGE -->
-          <div class="client-badge-card">
-            <div class="client-icon-circle">🏨</div>
-            <div class="client-info">
-              <span class="client-name">Oka Lodge</span>
-              <span class="client-tag">Hôtellerie, Bar & Restauration &bull; Madagascar</span>
-            </div>
-          </div>
-
-          <!-- ITEM 3 : NY ANDRINI'NY SOA -->
-          <div class="client-badge-card">
-            <div class="client-icon-circle">🌿</div>
-            <div class="client-info">
-              <span class="client-name">Ny Andrini'ny Soa</span>
-              <span class="client-tag">Résidence & Accueil &bull; Antananarivo</span>
-            </div>
-          </div>
-
-          <!-- ITEM 4 : SUNSHINE MONTESSORI SCHOOL -->
-          <div class="client-badge-card">
-            <div class="client-icon-circle">🎒</div>
-            <div class="client-info">
-              <span class="client-name">Sunshine Montessori School</span>
-              <span class="client-tag">Enseignement Bilingue & Préscolaire</span>
-            </div>
-          </div>
-
-          <!-- ITEM 5 : KANANA -->
-          <div class="client-badge-card">
-            <div class="client-icon-circle">📦</div>
-            <div class="client-info">
-              <span class="client-name">Kanana</span>
-              <span class="client-tag">Commerce, Logistique & Stocks</span>
-            </div>
-          </div>
-
-          <!-- DUPLICATA POUR DÉFILEMENT CONTINU SANS COUPURE -->
-          <div class="client-badge-card">
-            <div class="client-icon-circle">🏫</div>
-            <div class="client-info">
-              <span class="client-name">Lycée Privé Manjary Soa</span>
-              <span class="client-tag">Complexe Scolaire &bull; LMS &bull; Tana</span>
-            </div>
-          </div>
-
-          <div class="client-badge-card">
-            <div class="client-icon-circle">🏨</div>
-            <div class="client-info">
-              <span class="client-name">Oka Lodge</span>
-              <span class="client-tag">Hôtellerie, Bar & Restauration &bull; Madagascar</span>
-            </div>
-          </div>
-
-          <div class="client-badge-card">
-            <div class="client-icon-circle">🌿</div>
-            <div class="client-info">
-              <span class="client-name">Ny Andrini'ny Soa</span>
-              <span class="client-tag">Résidence & Accueil &bull; Antananarivo</span>
-            </div>
-          </div>
-
-          <div class="client-badge-card">
-            <div class="client-icon-circle">🎒</div>
-            <div class="client-info">
-              <span class="client-name">Sunshine Montessori School</span>
-              <span class="client-tag">Enseignement Bilingue & Préscolaire</span>
-            </div>
-          </div>
-
-          <div class="client-badge-card">
-            <div class="client-icon-circle">📦</div>
-            <div class="client-info">
-              <span class="client-name">Kanana</span>
-              <span class="client-tag">Commerce, Logistique & Stocks</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         HUB INTERACTIF DES SOLUTIONS (ONGLETS V2 RESPIRANTS)
+         HUB INTERACTIF DES SOLUTIONS (ONGLETS V2.1 AVEC VRAIS SVG)
          ========================================================================== -->
     <section id="solutions" class="hub-section">
       <div class="container">
@@ -1587,22 +1393,27 @@
           </p>
         </div>
 
-        <!-- SÉLECTEUR D'ONGLETS SOUVERAIN -->
+        <!-- SÉLECTEUR D'ONGLETS 100% SVG -->
         <div class="tabs-nav-bar" role="tablist">
           <button class="tab-btn active" data-tab="tab-education" onclick="switchTab('tab-education')" role="tab" aria-selected="true">
-            <span class="tab-icon">🏫</span> Éducation & Scolarité
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            Éducation &amp; Scolarité
           </button>
           <button class="tab-btn" data-tab="tab-hotellerie" onclick="switchTab('tab-hotellerie')" role="tab" aria-selected="false">
-            <span class="tab-icon">🏨</span> Hôtellerie & Bar-Resto
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            Hôtellerie &amp; Bar-Resto
           </button>
           <button class="tab-btn" data-tab="tab-entreprises" onclick="switchTab('tab-entreprises')" role="tab" aria-selected="false">
-            <span class="tab-icon">💼</span> Entreprises & ERP
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Entreprises &amp; ERP
           </button>
           <button class="tab-btn" data-tab="tab-tourisme" onclick="switchTab('tab-tourisme')" role="tab" aria-selected="false">
-            <span class="tab-icon">🧭</span> Tourisme & Agences
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            Tourisme &amp; Agences
           </button>
           <button class="tab-btn" data-tab="tab-prestations" onclick="switchTab('tab-prestations')" role="tab" aria-selected="false">
-            <span class="tab-icon">🛡️</span> Réseau & Sur-Mesure
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            Réseau &amp; Sur-Mesure
           </button>
         </div>
 
@@ -1709,7 +1520,7 @@
                 <a href="hotellerie/resipro.html" class="btn btn-secondary">
                   📄 Dossier Commercial A4
                 </a>
-                <a href="https://wa.me/261386121473?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20une%20démonstration%20de%20ResiPro%20Suite." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20une%20démonstration%20de%20ResiPro%20Suite." target="_blank" rel="noopener" class="btn btn-whatsapp">
                   💬 Démo WhatsApp
                 </a>
               </div>
@@ -1777,7 +1588,7 @@
                 <a href="configurateur.html?secteur=entreprises" class="btn btn-secondary">
                   🛠️ Configurer mes Postes
                 </a>
-                <a href="https://wa.me/261386121473?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20un%20devis%20ERP%20Société." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20un%20devis%20ERP%20Société." target="_blank" rel="noopener" class="btn btn-whatsapp">
                   💬 Démo WhatsApp
                 </a>
               </div>
@@ -1839,7 +1650,7 @@
                 <a href="tourisme/tour-operator.html" class="btn btn-copper">
                   📄 Dossier Commercial A4
                 </a>
-                <a href="https://wa.me/261386121473?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20une%20démo%20de%20TourAgent%20Pro." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20une%20démo%20de%20TourAgent%20Pro." target="_blank" rel="noopener" class="btn btn-whatsapp">
                   💬 Démo WhatsApp
                 </a>
               </div>
@@ -1870,7 +1681,7 @@
         </div>
 
         <!-- ====================================================================
-             PANEL 5 : PRESTATIONS RÉSEAU & SUR-MESURE
+             PANEL 5 : PRESTATIONS RÉSEAU & SUR-MESURE (VRAI VISUEL ROUTEUR BOX FIBRE)
              ==================================================================== -->
         <div id="tab-prestations" class="tab-panel" role="tabpanel">
           <div class="showcase-card">
@@ -1901,13 +1712,13 @@
                 <a href="services/prestations-sur-mesure-et-securite.html" class="btn btn-copper">
                   🛡️ Consulter le Dossier Technique A4
                 </a>
-                <a href="https://wa.me/261386121473?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20un%20devis%20de%20sécurisation%20réseau%20ou%20prestation." target="_blank" rel="noopener" class="btn btn-whatsapp">
+                <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20un%20devis%20de%20sécurisation%20réseau%20ou%20prestation." target="_blank" rel="noopener" class="btn btn-whatsapp">
                   💬 Devis Réseau Immédiat
                 </a>
               </div>
             </div>
 
-            <!-- CADRE FENÊTRE ÉCRAN HD -->
+            <!-- CADRE FENÊTRE VRAI VISUEL ROUTEUR & BOX FIBRE (CORRECTION POINT 6) -->
             <div class="software-window">
               <div class="window-titlebar">
                 <div class="window-dots">
@@ -1916,14 +1727,17 @@
                   <span class="window-dot dot-green"></span>
                 </div>
                 <div class="window-title-text">
-                  <span>CYBERSECURITE // BOX FIBRE & RESTRICTIONS POSTES</span>
+                  <span>CYBERSECURITE // BOX FIBRE & ROUTEUR SECURISE</span>
                 </div>
                 <span class="window-badge-stat">+80% PRODUCTIVITÉ</span>
               </div>
-              <div class="window-viewport" style="display: flex; align-items: center; justify-content: center; background: #FAF6EF; padding: 2rem;">
-                <img src="assets/img/pack_imprimante_cutout.png" alt="Matériel réseau et imprimantes Missi Innovation" style="max-height: 85%; width: auto;" loading="lazy">
-                <div class="callout-overlay-badge" style="bottom: 12px; left: 12px;">
-                  <span>🔒 Zéro Squat Wi-Fi &bull; Restriction Chrome/Edge GPO</span>
+              <div class="window-viewport" style="background: #11100F;">
+                <img src="assets/img/box_fibre_securite.jpg" alt="Box Fibre et Routeur Réseau sécurisé Missi Innovation" loading="lazy" style="object-fit: cover;">
+                <div class="callout-overlay-badge" style="bottom: 12px; left: 12px; background: rgba(16, 185, 129, 0.9);">
+                  <span>🔒 Filtrage MAC Actif &bull; Zéro Squat Wi-Fi</span>
+                </div>
+                <div class="callout-overlay-badge" style="top: 12px; right: 12px;">
+                  <span>🛡️ GPO Chrome & Edge Inviolable</span>
                 </div>
               </div>
             </div>
@@ -1931,194 +1745,190 @@
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION 3 PILIERS D'INGÉNIERIE (ESN DE PRESTATIONS SOUVERAINES)
-         ========================================================================== -->
-    <section id="prestations" class="engineering-section">
-      <div class="container">
-        
-        <div class="section-header-center">
-          <span class="sec-kicker">SERVICES D'INGÉNIERIE & INFOGÉRANCE</span>
-          <h2 class="sec-title">Au-delà des progiciels, votre partenaire technologique durable</h2>
-          <p class="sec-desc">
-            Nous accompagnons les organisations dans leur modernisation informatique avec une approche pragmatique, ancrée dans la réalité des infrastructures malagasy.
-          </p>
-        </div>
-
-        <div class="pillars-grid">
-          
-          <!-- PILIER 1 -->
-          <div class="pillar-card">
-            <div class="pillar-top">
-              <div class="pillar-icon-box">💻</div>
-              <h3 class="pillar-title">Développement Logiciel Sur-Mesure</h3>
-              <p class="pillar-desc">
-                Conception d'outils métiers, web apps et applications mobiles PWA 100% utilisables hors-ligne adaptées à vos besoins spécifiques.
-              </p>
-              <ul class="pillar-list">
-                <li>✦ Web apps réactives & dashboards</li>
-                <li>✦ Applications mobiles PWA offline-first</li>
-                <li>✦ Intégration API Mobile Money (MVola/Orange)</li>
-                <li>✦ Synchronisation cloud chiffrée Supabase</li>
-              </ul>
-            </div>
-            <div class="pillar-footer">
-              <div class="pillar-price">Sur Devis <small>/ sprint</small></div>
-              <a href="services/prestations-sur-mesure-et-securite.html" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Dossier A4 →</a>
+        <!-- ====================================================================
+             SECTION CLIENTS : RUBAN SOMBRE & LOGOS MONOCHROME BLANC (CORRECTION POINT 1)
+             ==================================================================== -->
+        <div class="trust-ribbon-dark">
+          <div class="trust-ribbon-header">
+            <div class="trust-ribbon-kicker">
+              <span>✦</span> DÉPLOYÉ &amp; ÉPROUVÉ CHEZ NOS CLIENTS DE RÉFÉRENCE À MADAGASCAR <span>✦</span>
             </div>
           </div>
 
-          <!-- PILIER 2 (FEATURED) -->
-          <div class="pillar-card featured">
-            <span class="featured-ribbon">Recommandé</span>
-            <div class="pillar-top">
-              <div class="pillar-icon-box" style="background: var(--brand-copper-light); color: var(--brand-copper);">🛡️</div>
-              <h3 class="pillar-title">Sécurité Réseau & Filtrage Box Fibre</h3>
-              <p class="pillar-desc">
-                Kit de restriction pour bloquer les distractions (YouTube, Facebook) et sécuriser votre Box Fibre Yas, Orange ou Telma contre le squat Wi-Fi.
-              </p>
-              <ul class="pillar-list">
-                <li>✦ Blocage Chrome & Edge inviolable</li>
-                <li>✦ Filtrage MAC strict sur Box Fibre</li>
-                <li>✦ Gain immédiat de 80% de bande passante</li>
-                <li>✦ Script de contrôle exclusif direction</li>
-              </ul>
+          <div class="marquee-wrapper-dark">
+            <div class="marquee-track-dark">
+              
+              <!-- 1. OKA LODGE -->
+              <div class="client-monochrome-card">
+                <div class="client-svg-wrap">
+                  <img src="assets/img/clients/oka_lodge.svg" alt="Oka Forest Lodge Logo" height="36" style="filter: brightness(0) invert(1);">
+                </div>
+              </div>
+
+              <!-- 2. LYCÉE PRIVÉ MANJARY SOA -->
+              <div class="client-monochrome-card">
+                <div class="client-svg-wrap">
+                  <img src="assets/img/clients/manjary_soa.svg" alt="Lycée Privé Manjary Soa Logo" height="36" style="filter: brightness(0) invert(1);">
+                </div>
+              </div>
+
+              <!-- 3. KANANA CAMP -->
+              <div class="client-monochrome-card">
+                <div class="client-svg-wrap">
+                  <img src="assets/img/clients/kanana_camp.svg" alt="Kanana Camp Logo" height="36" style="filter: brightness(0) invert(1);">
+                </div>
+              </div>
+
+              <!-- 4. NY ANDRINI'NY SOA -->
+              <div class="client-monochrome-card">
+                <div class="client-svg-wrap">
+                  <img src="assets/img/clients/andrini_soa.svg" alt="Ny Andrini'ny Soa Logo" height="36" style="filter: brightness(0) invert(1);">
+                </div>
+              </div>
+
+              <!-- 5. SUNSHINE MONTESSORI SCHOOL -->
+              <div class="client-monochrome-card">
+                <div class="client-svg-wrap">
+                  <img src="assets/img/clients/sunshine_montessori.svg" alt="Sunshine Montessori School Logo" height="36" style="filter: brightness(0) invert(1);">
+                </div>
+              </div>
+
+              <!-- DUPLICATA POUR DÉFILEMENT CONTINU SANS COUPURE -->
+              <div class="client-monochrome-card">
+                <div class="client-svg-wrap">
+                  <img src="assets/img/clients/oka_lodge.svg" alt="Oka Forest Lodge Logo" height="36" style="filter: brightness(0) invert(1);">
+                </div>
+              </div>
+
+              <div class="client-monochrome-card">
+                <div class="client-svg-wrap">
+                  <img src="assets/img/clients/manjary_soa.svg" alt="Lycée Privé Manjary Soa Logo" height="36" style="filter: brightness(0) invert(1);">
+                </div>
+              </div>
+
+              <div class="client-monochrome-card">
+                <div class="client-svg-wrap">
+                  <img src="assets/img/clients/kanana_camp.svg" alt="Kanana Camp Logo" height="36" style="filter: brightness(0) invert(1);">
+                </div>
+              </div>
+
+              <div class="client-monochrome-card">
+                <div class="client-svg-wrap">
+                  <img src="assets/img/clients/andrini_soa.svg" alt="Ny Andrini'ny Soa Logo" height="36" style="filter: brightness(0) invert(1);">
+                </div>
+              </div>
+
+              <div class="client-monochrome-card">
+                <div class="client-svg-wrap">
+                  <img src="assets/img/clients/sunshine_montessori.svg" alt="Sunshine Montessori School Logo" height="36" style="filter: brightness(0) invert(1);">
+                </div>
+              </div>
+
             </div>
-            <div class="pillar-footer">
-              <div class="pillar-price">Dès 150 000 Ar <small>/ pack</small></div>
-              <a href="https://wa.me/261386121473?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20commander%20le%20Pack%20Sécurité%20Réseau." target="_blank" rel="noopener" class="btn btn-copper" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Commander →</a>
-            </div>
           </div>
-
-          <!-- PILIER 3 -->
-          <div class="pillar-card">
-            <div class="pillar-top">
-              <div class="pillar-icon-box">📊</div>
-              <h3 class="pillar-title">Conformité Fiscale & Réseau Local</h3>
-              <p class="pillar-desc">
-                Mise aux normes de vos factures (NIF, STAT, TVA), câblage réseau RJ45 multipostes et mise en place d'un plan de sauvegarde scellé.
-              </p>
-              <ul class="pillar-list">
-                <li>✦ Normalisation facturation DGI Madagascar</li>
-                <li>✦ Audit & câblage LAN local d'entreprise</li>
-                <li>✦ Sauvegardes automatisées 3-2-1</li>
-                <li>✦ Formation et assistance continue</li>
-              </ul>
-            </div>
-            <div class="pillar-footer">
-              <div class="pillar-price">Dès 60 000 Ar <small>/ poste</small></div>
-              <a href="services/prestations-sur-mesure-et-securite.html" class="btn btn-secondary" style="font-size: 0.78rem; padding: 0.4rem 0.8rem;">Détails →</a>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SECTION ENGAGEMENTS SOUVERAINS (POURQUOI MISSI INNOVATION)
-         ========================================================================== -->
-    <section id="engagements" class="why-section">
-      <div class="container">
-        
-        <div class="section-header-center">
-          <span class="sec-kicker">INGÉNIERIE SOUVERAINE & PÉRENNE</span>
-          <h2 class="sec-title">Pourquoi les décideurs malgaches choisissent Missi Innovation ?</h2>
-          <p class="sec-desc">
-            Trois principes non négociables qui guident le développement de chacun de nos logiciels.
-          </p>
-        </div>
-
-        <div class="why-grid">
-          
-          <div class="why-card">
-            <span class="why-badge">01 &bull; RÉSILIENCE OPÉRATIONNELLE</span>
-            <h3 class="why-title">L'Autonomie 100% Hors-Ligne (JIRAMA Proof)</h3>
-            <p class="why-desc">
-              Contrairement aux SaaS purement cloud qui paralysent vos caisses et vos secrétaires dès qu'Internet coupe ou que l'électricité saute, nos progiciels tournent sur moteur local SQLite WAL. Vos équipes continuent de travailler sans interruption.
-            </p>
-          </div>
-
-          <div class="why-card">
-            <span class="why-badge">02 &bull; MODÈLE ÉTHIQUE SANS PIÈGE</span>
-            <h3 class="why-title">Liberté d'Acquisition : Licence ou Mensuel</h3>
-            <p class="why-desc">
-              Nous refusons le modèle de la rente captive. Vous pouvez choisir un abonnement souple avec maintenance, ou acquérir la Licence Définitive perpétuelle. Les données restent stockées chez vous, sous votre contrôle exclusif.
-            </p>
-          </div>
-
-          <div class="why-card">
-            <span class="why-badge">03 &bull; RIGUEUR LOCALE D'ÉLITE</span>
-            <h3 class="why-title">Conformité Fiscale & Billetage en Ariary</h3>
-            <p class="why-desc">
-              Nos progiciels intègrent nativement le billetage physique de 20 000 Ar à 100 Ar, le Ticket Z scellé, les déclarations NIF/STAT et le code du travail malagasy. Zéro adaptation laborieuse de logiciels importés inadaptés.
-            </p>
-          </div>
-
         </div>
 
       </div>
     </section>
 
     <!-- ==========================================================================
-         SECTION FOIRE AUX QUESTIONS (ACCORDÉON INTERACTIF MODERNE)
+         SECTION UNIFIÉE : GARANTIES SOUVERAINES & FAQ (CORRECTION POINT 7)
          ========================================================================== -->
-    <section id="faq" class="faq-section">
+    <section id="garanties" class="unified-authority-section">
       <div class="container">
         
         <div class="section-header-center">
-          <span class="sec-kicker">QUESTIONS FRÉQUENTES & TRANSPARENCE</span>
-          <h2 class="sec-title">Tout ce que vous devez savoir avant de déployer</h2>
+          <span class="sec-kicker">INGÉNIERIE SOUVERAINE &amp; QUESTIONS FRÉQUENTES</span>
+          <h2 class="sec-title">Transparence totale avant votre déploiement</h2>
           <p class="sec-desc">
-            Des réponses claires et sans détour pour vous accompagner dans votre prise de décision.
+            Nos engagements techniques fondamentaux d'un côté, et les réponses directes à vos questions de l'autre.
           </p>
         </div>
 
-        <div class="faq-accordion">
+        <div class="authority-grid">
           
-          <details class="faq-item" open>
-            <summary class="faq-summary">
-              <span>✦ Vos logiciels continuent-ils de fonctionner en cas de coupure JIRAMA ou d'Internet ?</span>
-              <span class="faq-icon-cross">+</span>
-            </summary>
-            <div class="faq-content">
-              Oui, à 100%. Nos progiciels intègrent un moteur local (SQLite en mode WAL) : vos caissiers, secrétaires et réceptionnistes continuent d'encaisser, d'enregistrer et d'imprimer des tickets même sans aucune connexion Internet. Dès que le réseau est rétabli, la synchronisation avec le cloud Supabase s'exécute automatiquement en arrière-plan sans bloquer l'utilisateur.
+          <!-- COLONNE GAUCHE : LES 3 GARANTIES MISSI INNOVATION -->
+          <div class="guarantee-column">
+            
+            <div class="guarantee-card">
+              <div class="guarantee-tag-row">
+                <span>01 &bull; RÉSILIENCE OPÉRATIONNELLE</span>
+                <span style="color: var(--status-emerald);">✓ SQLite WAL</span>
+              </div>
+              <h3 class="guarantee-title">Autonomie 100% Hors-Ligne (JIRAMA Proof)</h3>
+              <p class="guarantee-desc">
+                Contrairement aux SaaS cloud qui paralysent vos opérations dès que la fibre coupe ou que le délestage survient, nos progiciels intègrent un moteur local autonome. Encaissements, impressions et saisies continuent sans aucune interruption.
+              </p>
             </div>
-          </details>
 
-          <details class="faq-item">
-            <summary class="faq-summary">
-              <span>✦ Vos documents et factures sont-ils conformes à la législation fiscale malagasy ?</span>
-              <span class="faq-icon-cross">+</span>
-            </summary>
-            <div class="faq-content">
-              Tout à fait. Toutes les factures, reçus et états financiers émis par nos progiciels intègrent automatiquement vos mentions légales obligatoires (NIF, STAT, RCS), le calcul de la TVA à 20% (ou franchise pour l'Impôt Synthétique), et la traçabilité des règlements par espèces (billetage physique), chèque, virement ou Mobile Money.
+            <div class="guarantee-card">
+              <div class="guarantee-tag-row">
+                <span>02 &bull; MODÈLE ÉTHIQUE SANS PIÈGE</span>
+                <span style="color: var(--brand-copper);">✓ Zéro Rente Captive</span>
+              </div>
+              <h3 class="guarantee-title">Liberté d'Acquisition : Licence ou Mensuel</h3>
+              <p class="guarantee-desc">
+                Vous avez le choix absolu : soit un abonnement souple avec assistance continue, soit l'achat de la Licence Définitive perpétuelle. Vos données restent hébergées chez vous, sans frais cachés ni menace de blocage d'accès.
+              </p>
             </div>
-          </details>
 
-          <details class="faq-item">
-            <summary class="faq-summary">
-              <span>✦ Comment bloquer Facebook et YouTube sur les ordinateurs du bureau ?</span>
-              <span class="faq-icon-cross">+</span>
-            </summary>
-            <div class="faq-content">
-              Notre kit de restriction intervient directement sur les registres système et les stratégies de groupe (GPO) de Google Chrome et Microsoft Edge. Le blocage est hermétique et inviolable par les employés. Nous configurons également votre box fibre (Yas, Orange, Telma) pour interdire les connexions Wi-Fi non autorisées par filtrage d'adresses MAC.
+            <div class="guarantee-card">
+              <div class="guarantee-tag-row">
+                <span>03 &bull; RIGUEUR LOCALE D'ÉLITE</span>
+                <span style="color: var(--status-emerald);">✓ DGI Madagascar</span>
+              </div>
+              <h3 class="guarantee-title">Conformité Fiscale & Billetage en Ariary</h3>
+              <p class="guarantee-desc">
+                Billetage physique scellé de 20 000 à 100 Ar, Ticket Z de clôture irréversible, conformité légale NIF/STAT et déclarations salariales CNaPS/IRSA. Conçu dès le premier jour pour les réalités administratives malagasy.
+              </p>
             </div>
-          </details>
 
-          <details class="faq-item">
-            <summary class="faq-summary">
-              <span>✦ Quelles sont les modalités de déploiement et de formation ?</span>
-              <span class="faq-icon-cross">+</span>
-            </summary>
-            <div class="faq-content">
-              Après validation de votre devis, nos ingénieurs interviennent sous 48 heures pour installer le logiciel sur vos postes en réseau local, paramétrer vos modèles d'impression (logos, en-têtes) et former vos équipes administratives et de caisse jusqu'à complète autonomie.
-            </div>
-          </details>
+          </div>
+
+          <!-- COLONNE DROITE : ACCORDÉON FAQ DIRECT & ACCESSIBLE -->
+          <div class="faq-column">
+            
+            <details class="faq-item" open>
+              <summary class="faq-summary">
+                <span>✦ Vos logiciels continuent-ils d'encaisser sans électricité ou sans Internet ?</span>
+                <span class="faq-icon-cross">+</span>
+              </summary>
+              <div class="faq-content">
+                Oui, à 100%. Grâce au moteur local SQLite WAL embarqué sur chaque poste ou serveur local d'établissement, vos caissiers, secrétaires et réceptionnistes continuent d'enregistrer et d'imprimer des tickets même sans connexion Internet. Dès le retour du réseau, la synchronisation Supabase s'exécute de façon transparente en tâche de fond.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>✦ Vos factures et reçus sont-ils conformes à la réglementation fiscale malagasy ?</span>
+                <span class="faq-icon-cross">+</span>
+              </summary>
+              <div class="faq-content">
+                Absolument. Toutes les factures et tickets émis intègrent vos mentions légales obligatoires (NIF, STAT, RCS), la gestion de la TVA à 20% (ou franchise légale pour l'Impôt Synthétique), et la traçabilité complète des règlements (espèces, chèque, virement ou Mobile Money MVola/Orange).
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>✦ Comment fonctionne le blocage Facebook et YouTube sur les postes ?</span>
+                <span class="faq-icon-cross">+</span>
+              </summary>
+              <div class="faq-content">
+                Notre kit de restriction intervient directement sur les registres système et les stratégies de groupe (GPO) de Google Chrome et Microsoft Edge. Le blocage est hermétique et inviolable par les employés. Nous configurons également votre box fibre (Yas, Orange, Telma) par filtrage d'adresses MAC strict pour interdire tout squat Wi-Fi.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>✦ Quels sont les délais d'installation et de formation de vos équipes ?</span>
+                <span class="faq-icon-cross">+</span>
+              </summary>
+              <div class="faq-content">
+                Après validation de votre devis, nos ingénieurs interviennent sous 48 heures pour installer le logiciel sur vos ordinateurs en réseau local, paramétrer vos modèles d'impression officiels et former vos collaborateurs jusqu'à maîtrise complète.
+              </div>
+            </details>
+
+          </div>
 
         </div>
 
@@ -2137,10 +1947,10 @@
           </p>
         </div>
         <div class="cta-buttons-side">
-          <a href="configurateur.html" class="btn btn-copper" style="padding: 0.85rem 1.6rem; font-size: 0.95rem;">
+          <a href="configurateur.html" class="btn btn-copper" style="padding: 0.82rem 1.55rem; font-size: 0.92rem;">
             🛠️ Lancer le Configurateur de Devis
           </a>
-          <a href="https://wa.me/261386121473?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20convenir%20d'un%20rendez-vous%20ou%20d'une%20démonstration." target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 0.85rem 1.4rem; font-size: 0.95rem;">
+          <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20convenir%20d'un%20rendez-vous%20ou%20d'une%20démonstration." target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 0.82rem 1.35rem; font-size: 0.92rem;">
             💬 WhatsApp Direct
           </a>
         </div>
@@ -2169,7 +1979,7 @@
           <p class="footer-desc">
             Société d'ingénierie logicielle & éditeur de progiciels métiers de haute précision à Madagascar. Systèmes résilients 100% hors-ligne pour l'Éducation, l'Hôtellerie, les Entreprises et le Tourisme.
           </p>
-          <div style="font-size: 0.82rem; color: var(--text-muted);">
+          <div style="font-size: 0.8rem; color: var(--text-muted);">
             📍 Antananarivo, Madagascar &bull; Déploiements sur tout le territoire national.
           </div>
         </div>
@@ -2179,30 +1989,30 @@
           <ul class="footer-links">
             <li><a href="education/presentation-visuelle.html">Study Agent Pro (Scolaire)</a></li>
             <li><a href="hotellerie/presentation-visuelle.html">ResiPro Suite (Hôtellerie)</a></li>
-            <li><a href="entreprises/erp-societe.html">ERP Société & Commerce</a></li>
+            <li><a href="entreprises/erp-societe.html">ERP Société &amp; Commerce</a></li>
             <li><a href="tourisme/tour-operator.html">TourAgent Pro (Tourisme)</a></li>
             <li><a href="education/homeschooling-pwa.html">Study Home PWA (Homeschooling)</a></li>
-            <li><a href="web/site-vitrine.html">Pôle Sites Vitrines & Web</a></li>
+            <li><a href="web/site-vitrine.html">Pôle Sites Vitrines &amp; Web</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-title">Ingénierie & Sécurité</h4>
+          <h4 class="footer-title">Ingénierie &amp; Sécurité</h4>
           <ul class="footer-links">
-            <li><a href="services/prestations-sur-mesure-et-securite.html">Kit Restriction Réseau & Box Fibre</a></li>
+            <li><a href="services/prestations-sur-mesure-et-securite.html">Kit Restriction Réseau &amp; Box Fibre</a></li>
             <li><a href="services/prestations-sur-mesure-et-securite.html">Développement Logiciel Sur-Mesure</a></li>
-            <li><a href="docs/guide-architecture-multi-tenant.html">Architecture & Sécurité SQLite</a></li>
+            <li><a href="docs/guide-architecture-multi-tenant.html">Architecture &amp; Sécurité SQLite</a></li>
             <li><a href="docs/guide-sauvegardes-multipostes.html">Plan de Sauvegardes Multipostes</a></li>
             <li><a href="docs/guide-utilisateur.html">Guide LMS Manjary Soa</a></li>
-            <li><a href="docs/guide-opencode-llm-gratuits.html">Guide IA & LLMs Locaux</a></li>
+            <li><a href="docs/guide-opencode-llm-gratuits.html">Guide IA &amp; LLMs Locaux</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-title">Contact & Devis</h4>
+          <h4 class="footer-title">Contact &amp; Devis</h4>
           <ul class="footer-links">
             <li><a href="configurateur.html">🛠️ Configurateur de Devis en Ligne</a></li>
-            <li><a href="https://wa.me/261386121473" target="_blank" rel="noopener">💬 WhatsApp : +261 38 61 214 73</a></li>
+            <li><a href="https://wa.me/261347151789" target="_blank" rel="noopener">💬 WhatsApp : +261 34 71 517 89</a></li>
             <li><a href="mailto:contact@missi-innovation.com">✉️ Assistance Direction</a></li>
             <li><a href="llms.txt">Documentation IA (llms.txt)</a></li>
             <li><a href="sitemap.xml">Plan du Site (Sitemap)</a></li>
@@ -2226,11 +2036,10 @@
   </footer>
 
   <!-- ==========================================================================
-       LOGIQUE INTERACTIVE ONGLET V2 (VANILLA JS ULTRA-LÉGER & ROBUSTE)
+       SCRIPTS : ONGLET INTERACTIF & AMBIENT CURSOR GLOW (LÉGER & 60FPS)
        ========================================================================== -->
   <script>
     function switchTab(tabId) {
-      // Activer le bon bouton
       const buttons = document.querySelectorAll('.tab-btn');
       buttons.forEach(btn => {
         const isActive = btn.getAttribute('data-tab') === tabId;
@@ -2238,13 +2047,11 @@
         btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
       });
 
-      // Afficher le bon panneau
       const panels = document.querySelectorAll('.tab-panel');
       panels.forEach(panel => {
         panel.classList.toggle('active', panel.id === tabId);
       });
 
-      // Mettre à jour l'URL sans recharger la page
       if (history.replaceState) {
         history.replaceState(null, '', '#' + tabId);
       }
@@ -2254,7 +2061,6 @@
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.replace('#', '');
       if (hash) {
-        // Mapping direct ou sectoriel
         const map = {
           'scolaire': 'tab-education',
           'education': 'tab-education',
@@ -2270,6 +2076,14 @@
         if (targetId && document.getElementById(targetId)) {
           switchTab(targetId);
         }
+      }
+
+      // HALO AMBIANT FLUIDE SUIVANT LE CURSEUR (LÉGER, SANS RALENTISSEMENT)
+      const glow = document.querySelector('.cursor-ambient-glow');
+      if (glow && window.matchMedia('(pointer: fine)').matches) {
+        window.addEventListener('pointermove', (e) => {
+          glow.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px) translate(-50%, -50%)';
+        }, { passive: true });
       }
     });
   </script>

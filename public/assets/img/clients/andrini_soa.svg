@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 70" fill="none" stroke="currentColor">
+  <!-- Botanical branch / Luxury crest -->
+  <g transform="translate(10, 8)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="27" cy="27" r="25" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <!-- Branch with leaves -->
+    <path d="M16 40 C20 30, 26 22, 38 14"/>
+    <path d="M22 34 C20 30, 22 26, 26 27 C26 31, 24 33, 22 34 Z" fill="currentColor"/>
+    <path d="M28 26 C26 22, 28 18, 32 19 C32 23, 30 25, 28 26 Z" fill="currentColor"/>
+    <path d="M34 18 C34 13, 38 12, 40 14 C39 18, 36 18, 34 18 Z" fill="currentColor"/>
+  </g>
+  <!-- Typography -->
+  <text x="72" y="30" font-family="'Outfit', sans-serif" font-size="15" font-weight="800" letter-spacing="1.5" fill="currentColor">NY ANDRINI'NY SOA</text>
+  <text x="72" y="46" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="600" letter-spacing="2" fill="currentColor" opacity="0.75">RÉSIDENCE, ACCUEIL &amp; ÉVÉNEMENTIEL</text>
+  <text x="72" y="57" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="500" letter-spacing="1" fill="currentColor" opacity="0.55">Antananarivo &bull; Madagascar</text>
+</svg>
