@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none" role="img" aria-label="ANKA">
+  <!-- ANKA Pinwheel / Petal Emblem in White -->
+  <g transform="translate(8, 6) scale(0.13)">
+    <g transform="translate(190, 190)">
+      <path d="M0 0C28-22 40-58 6-100C-22-66 -22-28 0 0Z" fill="#FFFFFF" transform="rotate(50) translate(0 -14)"/>
+      <path d="M0 0C28-22 40-58 6-100C-22-66 -22-28 0 0Z" fill="#FFFFFF" opacity="0.85" transform="rotate(8) translate(0 -14)"/>
+      <path d="M0 0C28-22 40-58 6-100C-22-66 -22-28 0 0Z" fill="#FFFFFF" opacity="0.7" transform="rotate(-34) translate(0 -14)"/>
+      <path d="M0 0C28-22 40-58 6-100C-22-66 -22-28 0 0Z" fill="#FFFFFF" opacity="0.85" transform="rotate(-76) translate(0 -14)"/>
+      <path d="M0 0C28-22 40-58 6-100C-22-66 -22-28 0 0Z" fill="#FFFFFF" transform="rotate(-118) translate(0 -14)"/>
+      <path d="M0 0C28-22 40-58 6-100C-22-66 -22-28 0 0Z" fill="#FFFFFF" opacity="0.9" transform="rotate(-160) translate(0 -14)"/>
+    </g>
+  </g>
+  <!-- Typography -->
+  <text x="66" y="32" font-family="'Outfit', sans-serif" font-size="19" font-weight="800" letter-spacing="3.5" fill="#FFFFFF">ANKA</text>
+  <text x="67" y="45" font-family="'Outfit', sans-serif" font-size="8.5" font-weight="600" letter-spacing="2" fill="#FFFFFF" opacity="0.75">ÉLECTRIFICATION RURALE · AFD</text>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 64" fill="none" role="img" aria-label="Sunshine Montessori School">
+  <!-- Sun & Montessori Knowledge Tree Crest -->
+  <g transform="translate(6, 4)">
+    <circle cx="28" cy="28" r="25" stroke="#FFFFFF" stroke-width="1.6"/>
+    <circle cx="28" cy="28" r="22" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="2 2" opacity="0.6"/>
+    
+    <!-- Radiant Rising Sun Rays -->
+    <path d="M28 9 L28 13 M20 12 L22 15 M36 12 L34 15 M15 19 L19 20 M41 19 L37 20" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round"/>
+    <!-- Sun disc -->
+    <circle cx="28" cy="22" r="6" stroke="#FFFFFF" stroke-width="1.4" fill="#FFFFFF" fill-opacity="0.25"/>
+    
+    <!-- Open Book / Foundation of Learning -->
+    <path d="M28 38 C23 35, 17 36, 14 38 L14 42 C17 40, 23 39, 28 42 C33 39, 39 40, 42 42 L42 38 C39 36, 33 35, 28 38 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="0.8"/>
+    <!-- Seedling / Growth Leaves sprouting from book -->
+    <path d="M28 35 C28 30, 22 28, 20 27 C22 31, 26 33, 28 35 Z" fill="#FFFFFF"/>
+    <path d="M28 35 C28 30, 34 28, 36 27 C34 31, 30 33, 28 35 Z" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- Typography -->
+  <text x="68" y="27" font-family="'Outfit', sans-serif" font-size="14.5" font-weight="800" letter-spacing="2" fill="#FFFFFF">SUNSHINE MONTESSORI</text>
+  <text x="69" y="42" font-family="'Outfit', sans-serif" font-size="9" font-weight="600" letter-spacing="3" fill="#FFFFFF" opacity="0.8">SCHOOL · ANTANANARIVO</text>
+</svg>
