@@ -1083,18 +1083,18 @@
       background: conic-gradient(
         from 0deg at 50% 50%,
         transparent 0deg,
-        transparent 190deg,
-        rgba(56, 189, 248, 0.2) 220deg,
-        #C2672B 245deg,
-        #38BDF8 265deg,
+        transparent 200deg,
+        rgba(194, 103, 43, 0.12) 225deg,
+        #C2672B 248deg,
+        #F6AD55 264deg,
         #FFFFFF 270deg,
         transparent 271deg,
         transparent 360deg
       );
-      animation: stream-flow-left 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation: stream-flow-left 4.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
-    /* Faisceau d'eau droite : part de 12h (centre haut) et descend le flanc droit jusqu'à 6h (bas) */
+    /* Faisceau d'eau droite : Blanc pur -> Or ambré -> Cuivre chaleureux (sans aucun bleu) */
     .water-stream-right {
       position: absolute;
       top: -300%;
@@ -1106,13 +1106,13 @@
         transparent 0deg,
         transparent 90deg,
         #FFFFFF 90.5deg,
-        #38BDF8 95deg,
-        #C2672B 115deg,
-        rgba(56, 189, 248, 0.2) 140deg,
-        transparent 170deg,
+        #F6AD55 96deg,
+        #C2672B 112deg,
+        rgba(194, 103, 43, 0.12) 135deg,
+        transparent 160deg,
         transparent 360deg
       );
-      animation: stream-flow-right 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      animation: stream-flow-right 4.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
     @keyframes stream-flow-left {
@@ -1120,10 +1120,10 @@
         transform: rotate(90deg);
         opacity: 0;
       }
-      15% {
+      12% {
         opacity: 1;
       }
-      85% {
+      88% {
         opacity: 1;
       }
       100% {
@@ -1137,10 +1137,10 @@
         transform: rotate(-90deg);
         opacity: 0;
       }
-      15% {
+      12% {
         opacity: 1;
       }
-      85% {
+      88% {
         opacity: 1;
       }
       100% {
@@ -1151,10 +1151,9 @@
 
     .discover-cascade-pill:hover .water-stream-left,
     .discover-cascade-pill:hover .water-stream-right {
-      animation-duration: 1.5s;
+      animation-duration: 2.8s;
     }
 
-    /* Masque intérieur blanc ivoire doux */
     .discover-inner-clean {
       position: relative;
       z-index: 2;
@@ -2392,9 +2391,9 @@
     });
 
     // ==========================================================================
-    // FOND AMBIANT 3D : SILLAGE FLUIDE AU SURVOL & DÉNIVELLATION 3D AU CLIC
+    // FOND AMBIANT 3D : PHYSIQUE FLUIDE CONCENTRIQUE & VRAIE ONDULATION D'EAU
     // ==========================================================================
-    (function initFluidCanvas() {
+    (function initPureWaterCanvas() {
       const canvas = document.getElementById('ambient-canvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
@@ -2412,205 +2411,126 @@
       resize();
       window.addEventListener('resize', resize, { passive: true });
 
-      // --- SILLAGE DU BATEAU / MAIN QUI POUSSE L'EAU (SURVOL CONTINU) ---
-      const wakeTrail = [];
-      let lastX = width / 2;
-      let lastY = height / 2;
-      let lastTime = performance.now();
+      // Tableau des ondes d'eau concentriques
+      const waves = [];
+
+      function addRipple(x, y, maxRadius, speed, intensity, ringCount) {
+        if (waves.length > 40) waves.shift();
+        waves.push({
+          x: x,
+          y: y,
+          radius: 0,
+          maxRadius: maxRadius || 140,
+          speed: speed || 1.25,
+          intensity: intensity || 0.35,
+          initialIntensity: intensity || 0.35,
+          ringCount: ringCount || 2,
+          wavelength: 20
+        });
+      }
+
+      // 1. SURVOL : comme une main / étrave de bateau fendant doucement l'eau calme
+      let lastMoveX = width / 2;
+      let lastMoveY = height / 2;
+      let lastMoveTime = performance.now();
 
       if (window.matchMedia('(pointer: fine)').matches) {
         window.addEventListener('pointermove', (e) => {
           const now = performance.now();
-          const dt = Math.max(16, now - lastTime);
-          const dx = e.clientX - lastX;
-          const dy = e.clientY - lastY;
-          const dist = Math.hypot(dx, dy);
-
-          if (dist > 4) {
-            const speed = dist / dt;
-            const angle = Math.atan2(dy, dx);
-
-            if (wakeTrail.length > 55) wakeTrail.shift();
-            wakeTrail.push({
-              x: e.clientX,
-              y: e.clientY,
-              angle: angle,
-              speed: Math.min(speed, 2.5),
-              age: 0,
-              maxLife: 60,
-              spread: 0
-            });
-
-            lastX = e.clientX;
-            lastY = e.clientY;
-            lastTime = now;
+          const dist = Math.hypot(e.clientX - lastMoveX, e.clientY - lastMoveY);
+          if (dist > 28 && (now - lastMoveTime > 60)) {
+            // Ondulation fluide de sillage (2 anneaux doux s'écartant)
+            addRipple(e.clientX, e.clientY, 100 + Math.random() * 35, 1.3, 0.30, 2);
+            lastMoveX = e.clientX;
+            lastMoveY = e.clientY;
+            lastMoveTime = now;
           }
         }, { passive: true });
       }
 
-      // --- ONDULATIONS EN DÉNIVELLATION 3D CONTINUE LORS DU CLIC (GOUTTE D'EAU) ---
-      const dropImpacts = [];
-
-      function createDropImpact(x, y) {
-        dropImpacts.push({
-          x: x,
-          y: y,
-          birthTime: performance.now(),
-          maxRadius: Math.max(width, height) * 0.65,
-          waveSpeed: 2.2,
-          amplitude: 1.0,
-          damping: 0.0035
-        });
-        if (dropImpacts.length > 6) dropImpacts.shift();
-      }
-
+      // 2. CLIC : impact d'une vraie goutte d'eau (4 anneaux en dénivellation 3D continue)
       window.addEventListener('pointerdown', (e) => {
-        createDropImpact(e.clientX, e.clientY);
+        addRipple(e.clientX, e.clientY, 340, 1.75, 0.55, 4);
       }, { passive: true });
 
-      // Gouttelette zen spontanée toutes les 7 secondes
-      let nextSpontaneous = performance.now() + 3500;
+      // 3. Gouttelette zen spontanée toutes les 7 secondes
+      let nextDropTime = performance.now() + 2500;
 
-      // Boucle d'animation à 60 FPS
       function render(now) {
         ctx.clearRect(0, 0, width, height);
 
-        // Gouttelette spontanée
-        if (now > nextSpontaneous) {
-          const rx = width * (0.2 + Math.random() * 0.6);
-          const ry = height * (0.2 + Math.random() * 0.6);
-          createDropImpact(rx, ry);
-          nextSpontaneous = now + 6000 + Math.random() * 4000;
+        // Goutte zen occasionnelle
+        if (now > nextDropTime) {
+          const rx = width * (0.15 + Math.random() * 0.7);
+          const ry = height * (0.15 + Math.random() * 0.7);
+          addRipple(rx, ry, 190 + Math.random() * 70, 1.15, 0.34, 3);
+          nextDropTime = now + 6500 + Math.random() * 3500;
         }
 
-        // 1. RENDU DU SILLAGE FLUIDE DE LA MAIN / BATEAU DANS L'EAU (SURVOL)
-        for (let i = wakeTrail.length - 1; i >= 0; i--) {
-          const p = wakeTrail[i];
-          p.age++;
-          if (p.age >= p.maxLife) {
-            wakeTrail.splice(i, 1);
+        // Rendu des ondes circulaires avec dénivellation physique 3D
+        for (let i = waves.length - 1; i >= 0; i--) {
+          const w = waves[i];
+          w.radius += w.speed;
+          const progress = w.radius / w.maxRadius;
+
+          if (progress >= 1) {
+            waves.splice(i, 1);
             continue;
           }
 
-          const progress = p.age / p.maxLife;
-          const alpha = (1 - progress) * 0.22;
-          p.spread += 0.85 + p.speed * 0.55;
-
-          const normAngleL = p.angle + Math.PI / 2;
-          const normAngleR = p.angle - Math.PI / 2;
-
-          const lx = p.x + Math.cos(normAngleL) * p.spread;
-          const ly = p.y + Math.sin(normAngleL) * p.spread;
-
-          const rx = p.x + Math.cos(normAngleR) * p.spread;
-          const ry = p.y + Math.sin(normAngleR) * p.spread;
-
-          const waveR = 8 + p.spread * 0.35;
-
-          // Crête fluide gauche (eau vive douce)
-          const gradL = ctx.createRadialGradient(lx, ly, 0, lx, ly, waveR);
-          gradL.addColorStop(0, 'rgba(56, 189, 248, ' + (alpha * 0.55) + ')');
-          gradL.addColorStop(0.5, 'rgba(194, 103, 43, ' + (alpha * 0.3) + ')');
-          gradL.addColorStop(1, 'transparent');
-          ctx.fillStyle = gradL;
-          ctx.beginPath();
-          ctx.arc(lx, ly, waveR, 0, Math.PI * 2);
-          ctx.fill();
-
-          // Crête fluide droite (cuivre chaud doux)
-          const gradR = ctx.createRadialGradient(rx, ry, 0, rx, ry, waveR);
-          gradR.addColorStop(0, 'rgba(194, 103, 43, ' + (alpha * 0.45) + ')');
-          gradR.addColorStop(0.5, 'rgba(56, 189, 248, ' + (alpha * 0.25) + ')');
-          gradR.addColorStop(1, 'transparent');
-          ctx.fillStyle = gradR;
-          ctx.beginPath();
-          ctx.arc(rx, ry, waveR, 0, Math.PI * 2);
-          ctx.fill();
-
-          // Filet d'eau liant la traînée continue
-          if (i > 0) {
-            const prev = wakeTrail[i - 1];
-            const prevNormL = prev.angle + Math.PI / 2;
-            const prevLx = prev.x + Math.cos(prevNormL) * prev.spread;
-            const prevLy = prev.y + Math.sin(prevNormL) * prev.spread;
-
-            ctx.beginPath();
-            ctx.moveTo(prevLx, prevLy);
-            ctx.lineTo(lx, ly);
-            ctx.strokeStyle = 'rgba(56, 189, 248, ' + (alpha * 0.35) + ')';
-            ctx.lineWidth = 1.6;
-            ctx.stroke();
-
-            const prevNormR = prev.angle - Math.PI / 2;
-            const prevRx = prev.x + Math.cos(prevNormR) * prev.spread;
-            const prevRy = prev.y + Math.sin(prevNormR) * prev.spread;
-
-            ctx.beginPath();
-            ctx.moveTo(prevRx, prevRy);
-            ctx.lineTo(rx, ry);
-            ctx.strokeStyle = 'rgba(194, 103, 43, ' + (alpha * 0.3) + ')';
-            ctx.lineWidth = 1.6;
-            ctx.stroke();
-          }
-        }
-
-        // 2. RENDU DE LA DÉNIVELLATION 3D CONTINUE DE LA GOUTTE D'EAU (CLIC)
-        for (let j = dropImpacts.length - 1; j >= 0; j--) {
-          const drop = dropImpacts[j];
-          const elapsed = (now - drop.birthTime) * 0.001;
-          const currentRadius = elapsed * 110;
-
-          if (currentRadius > drop.maxRadius) {
-            dropImpacts.splice(j, 1);
+          // Décroissance exponentielle douce de l'onde avec l'éloignement
+          const currentAlpha = w.initialIntensity * Math.pow(1 - progress, 1.4);
+          if (currentAlpha <= 0.005) {
+            waves.splice(i, 1);
             continue;
           }
 
-          const numRings = 4;
-          const wavelength = 28;
+          for (let r = 0; r < w.ringCount; r++) {
+            const ringR = w.radius - r * w.wavelength;
+            if (ringR <= 0) continue; // Sécurité absolue : pas de rayon négatif
 
-          for (let k = 0; k < numRings; k++) {
-            const ringR = currentRadius - k * wavelength;
-            if (ringR <= 0) continue;
+            const ringAlpha = currentAlpha * (1 - r * 0.22);
+            if (ringAlpha <= 0.005) continue;
 
-            const decay = Math.exp(-ringR * drop.damping - elapsed * 0.4);
-            const intensity = decay * drop.amplitude;
+            const crestR = Math.max(0.1, ringR);
 
-            if (intensity < 0.008) continue;
-
-            // Crête illuminée (relief 3D captant la lumière en haut-gauche)
+            // 1. Crête illuminée blanche (lumière réfléchie sur l'eau en haut-gauche)
             ctx.beginPath();
-            ctx.arc(drop.x - 1, drop.y - 1, ringR, 0, Math.PI * 2);
-            ctx.strokeStyle = 'rgba(255, 255, 255, ' + (intensity * 0.65) + ')';
-            ctx.lineWidth = 1.8;
+            ctx.arc(w.x - 0.9, w.y - 0.9, crestR, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(255, 255, 255, ' + (ringAlpha * 0.9) + ')';
+            ctx.lineWidth = 1.6;
             ctx.stroke();
 
-            // Corps d'onde principale (eau vive azur / cuivre)
+            // 2. Corps d'onde liquide cuivrée & ambrée chaleureuse (charte Missi)
             ctx.beginPath();
-            ctx.arc(drop.x, drop.y, ringR, 0, Math.PI * 2);
-            ctx.strokeStyle = k % 2 === 0
-              ? 'rgba(56, 189, 248, ' + (intensity * 0.45) + ')'
-              : 'rgba(194, 103, 43, ' + (intensity * 0.4) + ')';
-            ctx.lineWidth = 2.4;
+            ctx.arc(w.x, w.y, crestR, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(194, 103, 43, ' + (ringAlpha * 0.58) + ')';
+            ctx.lineWidth = 2.0;
             ctx.stroke();
 
-            // Creux d'ombre (dénivellation 3D : creux physique de l'eau)
+            // 3. Creux d'ombre sous la vague (dénivellation 3D : dépression physique de l'eau)
+            const troughR = Math.max(0.1, ringR - 2.2);
             ctx.beginPath();
-            ctx.arc(drop.x + 1.5, drop.y + 1.5, ringR - 3, 0, Math.PI * 2);
-            ctx.strokeStyle = 'rgba(44, 39, 36, ' + (intensity * 0.22) + ')';
-            ctx.lineWidth = 1.4;
+            ctx.arc(w.x + 1.2, w.y + 1.2, troughR, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(44, 39, 36, ' + (ringAlpha * 0.24) + ')';
+            ctx.lineWidth = 1.2;
             ctx.stroke();
           }
 
-          // Cœur de la goutte au premier instant
-          if (elapsed < 0.6) {
-            const coreAlpha = (1 - elapsed / 0.6) * 0.4;
-            const coreGrad = ctx.createRadialGradient(drop.x, drop.y, 0, drop.x, drop.y, 14);
-            coreGrad.addColorStop(0, 'rgba(56, 189, 248, ' + coreAlpha + ')');
-            coreGrad.addColorStop(0.5, 'rgba(194, 103, 43, ' + (coreAlpha * 0.6) + ')');
+          // Cœur de l'impact au moment du contact (premiers 25% de la vague)
+          if (progress < 0.25) {
+            const coreProgress = progress / 0.25;
+            const coreAlpha = (1 - coreProgress) * currentAlpha * 0.85;
+            const coreR = Math.max(0.1, (1 - coreProgress) * 7.5);
+
+            const coreGrad = ctx.createRadialGradient(w.x, w.y, 0, w.x, w.y, coreR);
+            coreGrad.addColorStop(0, 'rgba(255, 255, 255, ' + coreAlpha + ')');
+            coreGrad.addColorStop(0.6, 'rgba(194, 103, 43, ' + (coreAlpha * 0.6) + ')');
             coreGrad.addColorStop(1, 'transparent');
+
             ctx.fillStyle = coreGrad;
             ctx.beginPath();
-            ctx.arc(drop.x, drop.y, 14, 0, Math.PI * 2);
+            ctx.arc(w.x, w.y, coreR, 0, Math.PI * 2);
             ctx.fill();
           }
         }
