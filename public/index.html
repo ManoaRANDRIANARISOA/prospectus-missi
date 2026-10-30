@@ -1024,12 +1024,13 @@
     .hero-discover-row {
       display: flex;
       justify-content: center;
-      margin: 1.75rem 0 2.5rem;
+      margin: 1.75rem 0 2.75rem;
       position: relative;
       z-index: 2;
     }
 
-    .discover-innovative-pill {
+    /* BOUTON DÉCOUVRIR INNOVANT : CASCADE D'EAU FLUIDE (HAUT -> BAS) */
+    .discover-cascade-pill {
       position: relative;
       display: inline-flex;
       align-items: center;
@@ -1038,103 +1039,161 @@
       padding: 2px;
       overflow: hidden;
       cursor: pointer;
+      background: #E8E2D9;
       box-shadow: 0 4px 16px rgba(44, 39, 36, 0.06);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
     }
 
-    .discover-innovative-pill:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(194, 103, 43, 0.2), 0 2px 8px rgba(44, 39, 36, 0.08);
+    .discover-cascade-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(194, 103, 43, 0.18), 0 2px 6px rgba(44, 39, 36, 0.08);
     }
 
-    /* Faisceau lumineux tournant sur la bordure */
-    .beam-light-spinner {
+    /* Demi-cadre gauche */
+    .stream-half-left {
       position: absolute;
-      top: -150%;
-      left: -150%;
-      width: 400%;
-      height: 400%;
-      background: conic-gradient(
-        from 0deg,
-        transparent 0deg,
-        transparent 280deg,
-        rgba(194, 103, 43, 0.25) 310deg,
-        #C2672B 335deg,
-        #F3A96E 350deg,
-        #FFFFFF 360deg
-      );
-      animation: beam-spin 3.2s linear infinite;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
       pointer-events: none;
       z-index: 1;
     }
 
-    .discover-innovative-pill:hover .beam-light-spinner {
-      animation-duration: 2s;
+    /* Demi-cadre droite */
+    .stream-half-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    @keyframes beam-spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    /* Faisceau d'eau gauche : part de 12h (centre haut) et descend le flanc gauche jusqu'à 6h (bas) */
+    .water-stream-left {
+      position: absolute;
+      top: -300%;
+      left: -50%;
+      width: 300%;
+      height: 700%;
+      background: conic-gradient(
+        from 0deg at 50% 50%,
+        transparent 0deg,
+        transparent 190deg,
+        rgba(56, 189, 248, 0.2) 220deg,
+        #C2672B 245deg,
+        #38BDF8 265deg,
+        #FFFFFF 270deg,
+        transparent 271deg,
+        transparent 360deg
+      );
+      animation: stream-flow-left 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
-    .discover-inner {
+    /* Faisceau d'eau droite : part de 12h (centre haut) et descend le flanc droit jusqu'à 6h (bas) */
+    .water-stream-right {
+      position: absolute;
+      top: -300%;
+      right: -50%;
+      width: 300%;
+      height: 700%;
+      background: conic-gradient(
+        from 0deg at 50% 50%,
+        transparent 0deg,
+        transparent 90deg,
+        #FFFFFF 90.5deg,
+        #38BDF8 95deg,
+        #C2672B 115deg,
+        rgba(56, 189, 248, 0.2) 140deg,
+        transparent 170deg,
+        transparent 360deg
+      );
+      animation: stream-flow-right 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes stream-flow-left {
+      0% {
+        transform: rotate(90deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: 1;
+      }
+      85% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(-90deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes stream-flow-right {
+      0% {
+        transform: rotate(-90deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: 1;
+      }
+      85% {
+        opacity: 1;
+      }
+      100% {
+        transform: rotate(90deg);
+        opacity: 0;
+      }
+    }
+
+    .discover-cascade-pill:hover .water-stream-left,
+    .discover-cascade-pill:hover .water-stream-right {
+      animation-duration: 1.5s;
+    }
+
+    /* Masque intérieur blanc ivoire doux */
+    .discover-inner-clean {
       position: relative;
       z-index: 2;
       background: #FFFFFF;
       border-radius: 9999px;
-      padding: 9px 22px 9px 16px;
+      padding: 10px 22px 10px 24px;
       display: inline-flex;
       align-items: center;
-      gap: 11px;
-      color: var(--text-muted);
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.85rem;
+      gap: 10px;
+      color: var(--text, #2C2724);
+      font-size: 0.88rem;
       font-weight: 700;
-      letter-spacing: 0.03em;
-      transition: color 0.2s ease, background 0.2s ease;
+      letter-spacing: 0.02em;
+      transition: all 0.25s ease;
     }
 
-    .discover-innovative-pill:hover .discover-inner {
-      color: var(--brand-copper);
-      background: #FFFAF5;
+    .discover-cascade-pill:hover .discover-inner-clean {
+      color: #C2672B;
+      background: #FFFDFB;
     }
 
-    .discover-mouse-icon {
-      width: 14px;
-      height: 22px;
-      border: 1.8px solid var(--brand-copper);
-      border-radius: 9px;
-      display: flex;
+    /* Flèche délicate incitant à descendre vers les progiciels */
+    .discover-arrow-down {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      padding-top: 3px;
-      box-sizing: border-box;
-      flex-shrink: 0;
+      color: #C2672B;
+      animation: arrow-cascade 2s ease-in-out infinite;
     }
 
-    .discover-scroll-bead {
-      width: 3.5px;
-      height: 5px;
-      background: var(--brand-copper);
-      border-radius: 2px;
-      animation: bead-descend 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
-    }
-
-    @keyframes bead-descend {
-      0% { transform: translateY(0); opacity: 0; }
-      20% { opacity: 1; }
-      75% { transform: translateY(8px); opacity: 1; }
-      100% { transform: translateY(10px); opacity: 0; }
-    }
-
-    .discover-chevron {
-      color: var(--brand-copper);
-      animation: chevron-bob 1.8s ease-in-out infinite;
-      flex-shrink: 0;
-    }
-
-    @keyframes chevron-bob {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(3px); }
+    @keyframes arrow-cascade {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.7;
+      }
+      50% {
+        transform: translateY(3.5px);
+        opacity: 1;
+      }
     }
 
     /* ==========================================================================
@@ -1451,9 +1510,9 @@
       .client-free-meta {
         font-size: 0.68rem;
       }
-      .discover-innovative-pill .discover-inner {
-        font-size: 0.8rem;
-        padding: 8px 18px 8px 14px;
+      .discover-cascade-pill .discover-inner-clean {
+        font-size: 0.82rem;
+        padding: 9px 18px 9px 20px;
       }
       .hero-discover-row {
         margin: 1.25rem 0 2rem;
@@ -1536,18 +1595,22 @@
           </a>
         </div>
 
-        <!-- INVITATION SCROLL DÉCOUVRIR INNOVANTE & SÉPARÉE (LUMIÈRE QUI TOURNE & DESCEND SUR LA BORDURE) -->
+        <!-- INVITATION SCROLL : CASCADE D'EAU FLUIDE DEPUIS LE MILIEU HAUT VERS LE BAS -->
         <div class="hero-discover-row">
-          <a href="#solutions" class="discover-innovative-pill" title="Découvrir les suites logicielles spécialisées">
-            <span class="beam-light-spinner"></span>
-            <span class="discover-inner">
-              <span class="discover-mouse-icon">
-                <span class="discover-scroll-bead"></span>
-              </span>
+          <a href="#solutions" class="discover-cascade-pill" title="Découvrir les suites logicielles spécialisées">
+            <div class="stream-half-left">
+              <div class="water-stream-left"></div>
+            </div>
+            <div class="stream-half-right">
+              <div class="water-stream-right"></div>
+            </div>
+            <span class="discover-inner-clean">
               <span>Découvrir les Progiciels Métiers</span>
-              <svg class="discover-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9l6 6 6-6"/>
-              </svg>
+              <span class="discover-arrow-down">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </span>
             </span>
           </a>
         </div>
@@ -2329,15 +2392,15 @@
     });
 
     // ==========================================================================
-    // FOND AMBIANT 3D : ONDULATIONS D'EAU CALME, GOUTTES DE PLUIE & PARALLAXE
+    // FOND AMBIANT 3D : SILLAGE FLUIDE AU SURVOL & DÉNIVELLATION 3D AU CLIC
     // ==========================================================================
-    (function initWaterCanvas() {
+    (function initFluidCanvas() {
       const canvas = document.getElementById('ambient-canvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       let width = window.innerWidth;
       let height = window.innerHeight;
-      let dpr = Math.min(window.devicePixelRatio || 1, 2); // Cap at 2 for performance
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
       function resize() {
         width = window.innerWidth;
@@ -2349,152 +2412,213 @@
       resize();
       window.addEventListener('resize', resize, { passive: true });
 
-      // Ripples array
-      const ripples = [];
-      let mouseX = width / 2;
-      let mouseY = height / 2;
-      let targetMouseX = mouseX;
-      let targetMouseY = mouseY;
-      let lastMoveTime = 0;
-      let lastMoveX = mouseX;
-      let lastMoveY = mouseY;
+      // --- SILLAGE DU BATEAU / MAIN QUI POUSSE L'EAU (SURVOL CONTINU) ---
+      const wakeTrail = [];
+      let lastX = width / 2;
+      let lastY = height / 2;
+      let lastTime = performance.now();
 
-      function createRipple(x, y, maxR, speed, maxAlpha, colorType) {
-        if (ripples.length > 25) ripples.shift();
-        ripples.push({
-          x,
-          y,
-          r: 0,
-          maxR: maxR || 90,
-          speed: speed || 1.1,
-          alpha: maxAlpha || 0.16,
-          maxAlpha: maxAlpha || 0.16,
-          colorType: colorType || 'copper' // 'copper' ou 'water'
-        });
-      }
-
-      // Interaction fluide avec le pointeur (création d'ondes douces lors du déplacement)
       if (window.matchMedia('(pointer: fine)').matches) {
         window.addEventListener('pointermove', (e) => {
-          targetMouseX = e.clientX;
-          targetMouseY = e.clientY;
           const now = performance.now();
-          const dist = Math.hypot(e.clientX - lastMoveX, e.clientY - lastMoveY);
-          if (dist > 38 && now - lastMoveTime > 120) {
-            createRipple(e.clientX, e.clientY, 70 + Math.random() * 30, 1.25, 0.18, Math.random() > 0.4 ? 'copper' : 'water');
-            lastMoveX = e.clientX;
-            lastMoveY = e.clientY;
-            lastMoveTime = now;
+          const dt = Math.max(16, now - lastTime);
+          const dx = e.clientX - lastX;
+          const dy = e.clientY - lastY;
+          const dist = Math.hypot(dx, dy);
+
+          if (dist > 4) {
+            const speed = dist / dt;
+            const angle = Math.atan2(dy, dx);
+
+            if (wakeTrail.length > 55) wakeTrail.shift();
+            wakeTrail.push({
+              x: e.clientX,
+              y: e.clientY,
+              angle: angle,
+              speed: Math.min(speed, 2.5),
+              age: 0,
+              maxLife: 60,
+              spread: 0
+            });
+
+            lastX = e.clientX;
+            lastY = e.clientY;
+            lastTime = now;
           }
         }, { passive: true });
       }
 
-      // Ondulation douce lors du clic
-      window.addEventListener('pointerdown', (e) => {
-        createRipple(e.clientX, e.clientY, 110, 1.6, 0.24, 'copper');
-      }, { passive: true });
+      // --- ONDULATIONS EN DÉNIVELLATION 3D CONTINUE LORS DU CLIC (GOUTTE D'EAU) ---
+      const dropImpacts = [];
 
-      // Gouttes de pluie apaisantes et spontanées à intervalles zen
-      let nextDropTime = performance.now() + 1000;
-      function scheduleDrop(now) {
-        if (now > nextDropTime) {
-          const rx = Math.random() * width;
-          const ry = Math.random() * height;
-          createRipple(rx, ry, 90 + Math.random() * 50, 0.9 + Math.random() * 0.4, 0.14, Math.random() > 0.5 ? 'copper' : 'water');
-          nextDropTime = now + 1600 + Math.random() * 1900; // Cadence douce et calme
-        }
+      function createDropImpact(x, y) {
+        dropImpacts.push({
+          x: x,
+          y: y,
+          birthTime: performance.now(),
+          maxRadius: Math.max(width, height) * 0.65,
+          waveSpeed: 2.2,
+          amplitude: 1.0,
+          damping: 0.0035
+        });
+        if (dropImpacts.length > 6) dropImpacts.shift();
       }
 
-      // Éléments de profondeur 3D et caustiques aquatiques flottants
-      let orbAngle = 0;
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.addEventListener('pointerdown', (e) => {
+        createDropImpact(e.clientX, e.clientY);
+      }, { passive: true });
 
-      function animate(now) {
+      // Gouttelette zen spontanée toutes les 7 secondes
+      let nextSpontaneous = performance.now() + 3500;
+
+      // Boucle d'animation à 60 FPS
+      function render(now) {
         ctx.clearRect(0, 0, width, height);
 
-        if (!prefersReduced) {
-          // Lissage de la position souris pour un effet de parallaxe fluide et flottant
-          mouseX += (targetMouseX - mouseX) * 0.05;
-          mouseY += (targetMouseY - mouseY) * 0.05;
-
-          // Dérive angulaire des reflets aquatiques 3D
-          orbAngle += 0.003;
-          const pX = (mouseX / width - 0.5) * 40;
-          const pY = (mouseY / height - 0.5) * 40;
-
-          // Orbe 1 : Reflet cuivre chaud subtil
-          const g1 = ctx.createRadialGradient(
-            width * 0.25 + Math.cos(orbAngle) * 50 + pX,
-            height * 0.35 + Math.sin(orbAngle) * 40 + pY,
-            10,
-            width * 0.25 + pX,
-            height * 0.35 + pY,
-            340
-          );
-          g1.addColorStop(0, 'rgba(194, 103, 43, 0.045)');
-          g1.addColorStop(0.6, 'rgba(194, 103, 43, 0.012)');
-          g1.addColorStop(1, 'transparent');
-          ctx.fillStyle = g1;
-          ctx.fillRect(0, 0, width, height);
-
-          // Orbe 2 : Reflet bleu eau calme & brumeux
-          const g2 = ctx.createRadialGradient(
-            width * 0.75 + Math.sin(orbAngle * 0.8) * 60 - pX,
-            height * 0.55 + Math.cos(orbAngle * 0.8) * 50 - pY,
-            10,
-            width * 0.75 - pX,
-            height * 0.55 - pY,
-            380
-          );
-          g2.addColorStop(0, 'rgba(70, 110, 140, 0.04)');
-          g2.addColorStop(0.55, 'rgba(70, 110, 140, 0.01)');
-          g2.addColorStop(1, 'transparent');
-          ctx.fillStyle = g2;
-          ctx.fillRect(0, 0, width, height);
-
-          // Génération des gouttes de pluie douces
-          scheduleDrop(now);
+        // Gouttelette spontanée
+        if (now > nextSpontaneous) {
+          const rx = width * (0.2 + Math.random() * 0.6);
+          const ry = height * (0.2 + Math.random() * 0.6);
+          createDropImpact(rx, ry);
+          nextSpontaneous = now + 6000 + Math.random() * 4000;
         }
 
-        // Rendu des ondulations concentriques
-        for (let i = ripples.length - 1; i >= 0; i--) {
-          const rip = ripples[i];
-          rip.r += rip.speed;
-          const progress = rip.r / rip.maxR;
-          rip.alpha = rip.maxAlpha * (1 - progress);
-
-          if (progress >= 1 || rip.alpha <= 0.005) {
-            ripples.splice(i, 1);
+        // 1. RENDU DU SILLAGE FLUIDE DE LA MAIN / BATEAU DANS L'EAU (SURVOL)
+        for (let i = wakeTrail.length - 1; i >= 0; i--) {
+          const p = wakeTrail[i];
+          p.age++;
+          if (p.age >= p.maxLife) {
+            wakeTrail.splice(i, 1);
             continue;
           }
 
-          const strokeColor = rip.colorType === 'copper'
-            ? 'rgba(194, 103, 43, ' + rip.alpha + ')'
-            : 'rgba(60, 105, 140, ' + (rip.alpha * 0.85) + ')';
+          const progress = p.age / p.maxLife;
+          const alpha = (1 - progress) * 0.22;
+          p.spread += 0.85 + p.speed * 0.55;
 
-          // Anneau extérieur d'ondulation
+          const normAngleL = p.angle + Math.PI / 2;
+          const normAngleR = p.angle - Math.PI / 2;
+
+          const lx = p.x + Math.cos(normAngleL) * p.spread;
+          const ly = p.y + Math.sin(normAngleL) * p.spread;
+
+          const rx = p.x + Math.cos(normAngleR) * p.spread;
+          const ry = p.y + Math.sin(normAngleR) * p.spread;
+
+          const waveR = 8 + p.spread * 0.35;
+
+          // Crête fluide gauche (eau vive douce)
+          const gradL = ctx.createRadialGradient(lx, ly, 0, lx, ly, waveR);
+          gradL.addColorStop(0, 'rgba(56, 189, 248, ' + (alpha * 0.55) + ')');
+          gradL.addColorStop(0.5, 'rgba(194, 103, 43, ' + (alpha * 0.3) + ')');
+          gradL.addColorStop(1, 'transparent');
+          ctx.fillStyle = gradL;
           ctx.beginPath();
-          ctx.arc(rip.x, rip.y, rip.r, 0, Math.PI * 2);
-          ctx.strokeStyle = strokeColor;
-          ctx.lineWidth = 1.3;
-          ctx.stroke();
+          ctx.arc(lx, ly, waveR, 0, Math.PI * 2);
+          ctx.fill();
 
-          // Anneau intérieur (effet de profondeur de résonance aquatique)
-          if (rip.r > 16) {
+          // Crête fluide droite (cuivre chaud doux)
+          const gradR = ctx.createRadialGradient(rx, ry, 0, rx, ry, waveR);
+          gradR.addColorStop(0, 'rgba(194, 103, 43, ' + (alpha * 0.45) + ')');
+          gradR.addColorStop(0.5, 'rgba(56, 189, 248, ' + (alpha * 0.25) + ')');
+          gradR.addColorStop(1, 'transparent');
+          ctx.fillStyle = gradR;
+          ctx.beginPath();
+          ctx.arc(rx, ry, waveR, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Filet d'eau liant la traînée continue
+          if (i > 0) {
+            const prev = wakeTrail[i - 1];
+            const prevNormL = prev.angle + Math.PI / 2;
+            const prevLx = prev.x + Math.cos(prevNormL) * prev.spread;
+            const prevLy = prev.y + Math.sin(prevNormL) * prev.spread;
+
             ctx.beginPath();
-            ctx.arc(rip.x, rip.y, rip.r * 0.62, 0, Math.PI * 2);
-            ctx.strokeStyle = rip.colorType === 'copper'
-              ? 'rgba(194, 103, 43, ' + (rip.alpha * 0.45) + ')'
-              : 'rgba(60, 105, 140, ' + (rip.alpha * 0.4) + ')';
-            ctx.lineWidth = 0.9;
+            ctx.moveTo(prevLx, prevLy);
+            ctx.lineTo(lx, ly);
+            ctx.strokeStyle = 'rgba(56, 189, 248, ' + (alpha * 0.35) + ')';
+            ctx.lineWidth = 1.6;
+            ctx.stroke();
+
+            const prevNormR = prev.angle - Math.PI / 2;
+            const prevRx = prev.x + Math.cos(prevNormR) * prev.spread;
+            const prevRy = prev.y + Math.sin(prevNormR) * prev.spread;
+
+            ctx.beginPath();
+            ctx.moveTo(prevRx, prevRy);
+            ctx.lineTo(rx, ry);
+            ctx.strokeStyle = 'rgba(194, 103, 43, ' + (alpha * 0.3) + ')';
+            ctx.lineWidth = 1.6;
             ctx.stroke();
           }
         }
 
-        requestAnimationFrame(animate);
+        // 2. RENDU DE LA DÉNIVELLATION 3D CONTINUE DE LA GOUTTE D'EAU (CLIC)
+        for (let j = dropImpacts.length - 1; j >= 0; j--) {
+          const drop = dropImpacts[j];
+          const elapsed = (now - drop.birthTime) * 0.001;
+          const currentRadius = elapsed * 110;
+
+          if (currentRadius > drop.maxRadius) {
+            dropImpacts.splice(j, 1);
+            continue;
+          }
+
+          const numRings = 4;
+          const wavelength = 28;
+
+          for (let k = 0; k < numRings; k++) {
+            const ringR = currentRadius - k * wavelength;
+            if (ringR <= 0) continue;
+
+            const decay = Math.exp(-ringR * drop.damping - elapsed * 0.4);
+            const intensity = decay * drop.amplitude;
+
+            if (intensity < 0.008) continue;
+
+            // Crête illuminée (relief 3D captant la lumière en haut-gauche)
+            ctx.beginPath();
+            ctx.arc(drop.x - 1, drop.y - 1, ringR, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(255, 255, 255, ' + (intensity * 0.65) + ')';
+            ctx.lineWidth = 1.8;
+            ctx.stroke();
+
+            // Corps d'onde principale (eau vive azur / cuivre)
+            ctx.beginPath();
+            ctx.arc(drop.x, drop.y, ringR, 0, Math.PI * 2);
+            ctx.strokeStyle = k % 2 === 0
+              ? 'rgba(56, 189, 248, ' + (intensity * 0.45) + ')'
+              : 'rgba(194, 103, 43, ' + (intensity * 0.4) + ')';
+            ctx.lineWidth = 2.4;
+            ctx.stroke();
+
+            // Creux d'ombre (dénivellation 3D : creux physique de l'eau)
+            ctx.beginPath();
+            ctx.arc(drop.x + 1.5, drop.y + 1.5, ringR - 3, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(44, 39, 36, ' + (intensity * 0.22) + ')';
+            ctx.lineWidth = 1.4;
+            ctx.stroke();
+          }
+
+          // Cœur de la goutte au premier instant
+          if (elapsed < 0.6) {
+            const coreAlpha = (1 - elapsed / 0.6) * 0.4;
+            const coreGrad = ctx.createRadialGradient(drop.x, drop.y, 0, drop.x, drop.y, 14);
+            coreGrad.addColorStop(0, 'rgba(56, 189, 248, ' + coreAlpha + ')');
+            coreGrad.addColorStop(0.5, 'rgba(194, 103, 43, ' + (coreAlpha * 0.6) + ')');
+            coreGrad.addColorStop(1, 'transparent');
+            ctx.fillStyle = coreGrad;
+            ctx.beginPath();
+            ctx.arc(drop.x, drop.y, 14, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        requestAnimationFrame(render);
       }
 
-      requestAnimationFrame(animate);
+      requestAnimationFrame(render);
     })();
   </script>
 
