@@ -2391,261 +2391,437 @@
     });
 
     // ==========================================================================
-    // FOND AMBIANT : SILLAGE D'ÉTRAVE EN V & SIMPLE GOUTTELETTE CLAIRE ET PURE
-    // Survol : Vrai sillage d'eau qui s'écarte en deux vagues latérales (ZÉRO CERCLE)
-    // Clic : Simple gouttelette d'eau pure, lumineuse et cristalline (ZÉRO NOIR)
+    // SIMULATION PHYSIQUE D'EAU FLUIDE EXACTE MADEBYEVAN (WEBGL TOP-VIEW)
+    // Conforme à Evan Wallace WebGL Water (https://madebyevan.com/webgl-water/)
+    // - Survol : Vrai sillage d'étrave en V (water displacement / Kelvin wake)
+    // - Clic : Gouttelette unique pure avec onde circulaire cristalline
+    // - Rendu : Eau pure transparente, reflets spéculaires purs et caustiques 3D
     // ==========================================================================
-    (function initNaturalWaterSurface() {
+    (function initEvanWater() {
       const canvas = document.getElementById('ambient-canvas');
       if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
+
+      // 1. Contexte WebGL 2 (préféré pour textures float FBO natives) ou WebGL 1
+      let gl = canvas.getContext('webgl2', { alpha: true, premultipliedAlpha: true, antialias: false });
+      let isWebGL2 = !!gl;
+
+      if (!gl) {
+        gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: false }) ||
+             canvas.getContext('experimental-webgl', { alpha: true, premultipliedAlpha: true, antialias: false });
+      }
+
+      if (!gl) {
+        console.warn('WebGL non supporté sur ce navigateur.');
+        return;
+      }
+
+      let internalFormat, format, type, filter;
+
+      if (isWebGL2) {
+        gl.getExtension('EXT_color_buffer_float');
+        const hasFloatLinear = !!gl.getExtension('OES_texture_float_linear');
+        internalFormat = gl.RGBA32F;
+        format = gl.RGBA;
+        type = gl.FLOAT;
+        filter = hasFloatLinear ? gl.LINEAR : gl.NEAREST;
+      } else {
+        const hasFloat = !!gl.getExtension('OES_texture_float');
+        const hasFloatLinear = !!gl.getExtension('OES_texture_float_linear');
+        gl.getExtension('WEBGL_color_buffer_float');
+        internalFormat = gl.RGBA;
+        format = gl.RGBA;
+        type = hasFloat ? gl.FLOAT : gl.UNSIGNED_BYTE;
+        filter = (hasFloat && hasFloatLinear) ? gl.LINEAR : gl.NEAREST;
+      }
+
+      const SIZE = 256;
 
       let width = window.innerWidth;
       let height = window.innerHeight;
-      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+      let aspect = width / height;
 
       function resize() {
         width = window.innerWidth;
         height = window.innerHeight;
-        canvas.width = Math.floor(width * dpr);
-        canvas.height = Math.floor(height * dpr);
-        ctx.scale(dpr, dpr);
+        aspect = width / height;
+        canvas.width = width;
+        canvas.height = height;
       }
       resize();
       window.addEventListener('resize', resize, { passive: true });
 
-      // 1. SILLAGE D'ÉTRAVE CONTINU EN V (SURVOL SOURIS : AUCUN CERCLE)
-      const wakePoints = [];
-      let lastX = width / 2;
-      let lastY = height / 2;
-      let lastTime = performance.now();
+      // Quad plein écran
+      const quadBuffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
+        -1, -1,
+         1, -1,
+        -1,  1,
+        -1,  1,
+         1, -1,
+         1,  1
+      ]), gl.STATIC_DRAW);
+
+      function createProgram(vs, fs) {
+        const p = gl.createProgram();
+        const v = gl.createShader(gl.VERTEX_SHADER);
+        gl.shaderSource(v, vs);
+        gl.compileShader(v);
+        if (!gl.getShaderParameter(v, gl.COMPILE_STATUS)) {
+          console.error('VS Error:', gl.getShaderInfoLog(v));
+        }
+        const f = gl.createShader(gl.FRAGMENT_SHADER);
+        gl.shaderSource(f, fs);
+        gl.compileShader(f);
+        if (!gl.getShaderParameter(f, gl.COMPILE_STATUS)) {
+          console.error('FS Error:', gl.getShaderInfoLog(f));
+        }
+        gl.attachShader(p, v);
+        gl.attachShader(p, f);
+        gl.linkProgram(p);
+        if (!gl.getProgramParameter(p, gl.LINK_STATUS)) {
+          console.error('Link Error:', gl.getProgramInfoLog(p));
+        }
+        return p;
+      }
+
+      const vertexShader = `
+        attribute vec2 a_pos;
+        varying vec2 coord;
+        void main() {
+          coord = (a_pos + 1.0) * 0.5;
+          gl_Position = vec4(a_pos, 0.0, 1.0);
+        }
+      `;
+
+      // 1. DROP SHADER (Gouttelette pure - Onde circulaire isotrope)
+      const dropShader = createProgram(vertexShader, `
+        precision highp float;
+        uniform sampler2D texture;
+        uniform vec2 center;
+        uniform float radius;
+        uniform float strength;
+        uniform float aspect;
+        varying vec2 coord;
+        void main() {
+          vec4 info = texture2D(texture, coord);
+          vec2 diff = coord - center;
+          diff.x *= aspect;
+          float dist = length(diff);
+          if (dist < radius) {
+            float drop = 1.0 - dist / radius;
+            drop = 0.5 - cos(drop * 3.14159265) * 0.5;
+            info.r += drop * strength;
+          }
+          gl_FragColor = info;
+        }
+      `);
+
+      // 2. MOVE WAKE SHADER (Sillage d'étrave continu en V)
+      const wakeShader = createProgram(vertexShader, `
+        precision highp float;
+        uniform sampler2D texture;
+        uniform vec2 oldCenter;
+        uniform vec2 newCenter;
+        uniform float radius;
+        uniform float aspect;
+        varying vec2 coord;
+        void main() {
+          vec4 info = texture2D(texture, coord);
+          vec2 p = coord;
+          p.x *= aspect;
+          vec2 a = oldCenter;
+          a.x *= aspect;
+          vec2 b = newCenter;
+          b.x *= aspect;
+
+          vec2 pa = p - a;
+          vec2 ba = b - a;
+          float lenSq = dot(ba, ba);
+          float h = lenSq > 0.000001 ? clamp(dot(pa, ba) / lenSq, 0.0, 1.0) : 0.0;
+          float d = length(pa - ba * h);
+
+          if (d < radius) {
+            float factor = 1.0 - d / radius;
+            factor = 0.5 - cos(factor * 3.14159265) * 0.5;
+            // Dépression physique de l'eau le long de la trajectoire
+            info.r -= factor * 0.16;
+            info.g -= factor * 0.05;
+          }
+          gl_FragColor = info;
+        }
+      `);
+
+      // 3. UPDATE SHADER (Équation d'onde 2D MadeByEvan avec propagation isotrope)
+      const updateShader = createProgram(vertexShader, `
+        precision highp float;
+        uniform sampler2D texture;
+        uniform vec2 delta;
+        uniform float aspect;
+        varying vec2 coord;
+        void main() {
+          vec4 info = texture2D(texture, coord);
+          vec2 dx = vec2(delta.x, 0.0);
+          vec2 dy = vec2(0.0, delta.y * aspect);
+
+          float average = (
+            texture2D(texture, coord - dx).r +
+            texture2D(texture, coord + dx).r +
+            texture2D(texture, coord - dy).r +
+            texture2D(texture, coord + dy).r
+          ) * 0.25;
+
+          info.g += (average - info.r) * 2.0;
+          info.g *= 0.994; // Amortissement fluide très doux et zen
+          info.r += info.g;
+          gl_FragColor = info;
+        }
+      `);
+
+      // 4. NORMAL SHADER (Calcul de pente physique)
+      const normalShader = createProgram(vertexShader, `
+        precision highp float;
+        uniform sampler2D texture;
+        uniform vec2 delta;
+        uniform float aspect;
+        varying vec2 coord;
+        void main() {
+          vec4 info = texture2D(texture, coord);
+          vec2 dx = vec2(delta.x, 0.0);
+          vec2 dy = vec2(0.0, delta.y * aspect);
+
+          float left  = texture2D(texture, coord - dx).r;
+          float right = texture2D(texture, coord + dx).r;
+          float down  = texture2D(texture, coord - dy).r;
+          float up    = texture2D(texture, coord + dy).r;
+
+          float dHx = (right - left) * 10.0;
+          float dHy = (up - down) * 10.0;
+
+          vec3 normal = normalize(vec3(-dHx, -dHy, 1.0));
+          gl_FragColor = vec4(normal * 0.5 + 0.5, info.r);
+        }
+      `);
+
+      // 5. RENDER SHADER (Rendu eau pure transparente, reflets spéculaires et caustiques)
+      const renderShader = createProgram(vertexShader, `
+        precision highp float;
+        uniform sampler2D normalTexture;
+        varying vec2 coord;
+        void main() {
+          vec4 normData = texture2D(normalTexture, coord);
+          vec3 normal = normData.rgb * 2.0 - 1.0;
+          float height = normData.a;
+
+          float slope = length(normal.xy);
+          if (slope < 0.0004 && abs(height) < 0.0004) {
+            gl_FragColor = vec4(0.0);
+            return;
+          }
+
+          // Éclairage zénithal doux
+          vec3 light = normalize(vec3(-0.35, 0.55, 0.75));
+          vec3 eye = vec3(0.0, 0.0, 1.0);
+          vec3 halfVec = normalize(light + eye);
+
+          // Reflet spéculaire pur et étincelant sur les crêtes de vague
+          float spec = pow(max(0.0, dot(normal, halfVec)), 26.0);
+
+          // Concentration caustique sur la crête de vague
+          float crest = max(0.0, height);
+          float caustic = crest * 1.8;
+
+          // Éclat pur de l'eau
+          vec3 specColor = vec3(1.0, 1.0, 1.0) * spec * 2.2;
+
+          // Teinte liquide cristalline très subtile
+          vec3 waterTint = vec3(0.88, 0.94, 0.98) * (slope * 0.45 + caustic * 0.35);
+
+          // Ombre très légère dans le creux de la vague pour relief 3D
+          float trough = max(0.0, -height);
+          vec3 troughTint = vec3(0.35, 0.30, 0.25) * (trough * 0.15);
+
+          vec3 finalColor = specColor + waterTint - troughTint;
+          float alpha = clamp(spec * 1.4 + slope * 0.75 + caustic * 0.6 + trough * 0.2, 0.0, 0.85);
+
+          // Premultiplied alpha
+          gl_FragColor = vec4(finalColor * alpha, alpha);
+        }
+      `);
+
+      // FBO Ping-Pong
+      function createFBO() {
+        const tex = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, tex);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, filter);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, filter);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+
+        const zeroData = (type === gl.FLOAT) ? new Float32Array(SIZE * SIZE * 4) : new Uint8Array(SIZE * SIZE * 4);
+        gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, SIZE, SIZE, 0, format, type, zeroData);
+
+        const fbo = gl.createFramebuffer();
+        gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
+        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
+
+        return { tex, fbo };
+      }
+
+      let textureA = createFBO();
+      let textureB = createFBO();
+      let textureNormals = createFBO();
+
+      function swapWater() {
+        const temp = textureA;
+        textureA = textureB;
+        textureB = temp;
+      }
+
+      function drawQuad(prog) {
+        gl.useProgram(prog);
+        gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
+        const aPos = gl.getAttribLocation(prog, 'a_pos');
+        gl.enableVertexAttribArray(aPos);
+        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+      }
+
+      function addDrop(x, y, radius, strength) {
+        gl.bindFramebuffer(gl.FRAMEBUFFER, textureB.fbo);
+        gl.viewport(0, 0, SIZE, SIZE);
+
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D, textureA.tex);
+
+        gl.useProgram(dropShader);
+        gl.uniform1i(gl.getUniformLocation(dropShader, 'texture'), 0);
+        gl.uniform2f(gl.getUniformLocation(dropShader, 'center'), x, 1.0 - y);
+        gl.uniform1f(gl.getUniformLocation(dropShader, 'radius'), radius);
+        gl.uniform1f(gl.getUniformLocation(dropShader, 'strength'), strength);
+        gl.uniform1f(gl.getUniformLocation(dropShader, 'aspect'), aspect);
+
+        drawQuad(dropShader);
+        swapWater();
+      }
+
+      function moveWake(ox, oy, nx, ny, radius) {
+        gl.bindFramebuffer(gl.FRAMEBUFFER, textureB.fbo);
+        gl.viewport(0, 0, SIZE, SIZE);
+
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D, textureA.tex);
+
+        gl.useProgram(wakeShader);
+        gl.uniform1i(gl.getUniformLocation(wakeShader, 'texture'), 0);
+        gl.uniform2f(gl.getUniformLocation(wakeShader, 'oldCenter'), ox, 1.0 - oy);
+        gl.uniform2f(gl.getUniformLocation(wakeShader, 'newCenter'), nx, 1.0 - ny);
+        gl.uniform1f(gl.getUniformLocation(wakeShader, 'radius'), radius);
+        gl.uniform1f(gl.getUniformLocation(wakeShader, 'aspect'), aspect);
+
+        drawQuad(wakeShader);
+        swapWater();
+      }
+
+      function stepSimulation() {
+        gl.bindFramebuffer(gl.FRAMEBUFFER, textureB.fbo);
+        gl.viewport(0, 0, SIZE, SIZE);
+
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D, textureA.tex);
+
+        gl.useProgram(updateShader);
+        gl.uniform1i(gl.getUniformLocation(updateShader, 'texture'), 0);
+        gl.uniform2f(gl.getUniformLocation(updateShader, 'delta'), 1.0 / SIZE, 1.0 / SIZE);
+        gl.uniform1f(gl.getUniformLocation(updateShader, 'aspect'), aspect);
+
+        drawQuad(updateShader);
+        swapWater();
+      }
+
+      function updateNormals() {
+        gl.bindFramebuffer(gl.FRAMEBUFFER, textureNormals.fbo);
+        gl.viewport(0, 0, SIZE, SIZE);
+
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D, textureA.tex);
+
+        gl.useProgram(normalShader);
+        gl.uniform1i(gl.getUniformLocation(normalShader, 'texture'), 0);
+        gl.uniform2f(gl.getUniformLocation(normalShader, 'delta'), 1.0 / SIZE, 1.0 / SIZE);
+        gl.uniform1f(gl.getUniformLocation(normalShader, 'aspect'), aspect);
+
+        drawQuad(normalShader);
+      }
+
+      function renderToScreen() {
+        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+        gl.viewport(0, 0, canvas.width, canvas.height);
+
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D, textureNormals.tex);
+
+        gl.useProgram(renderShader);
+        gl.uniform1i(gl.getUniformLocation(renderShader, 'normalTexture'), 0);
+
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+
+        drawQuad(renderShader);
+      }
+
+      // Événements utilisateur avec capture pour traverser tous les éléments DOM
+      let lastX = 0.5, lastY = 0.5;
+      let hasInitPos = false;
 
       window.addEventListener('pointermove', (e) => {
-        const now = performance.now();
-        const dt = Math.max(16, now - lastTime);
-        const dx = e.clientX - lastX;
-        const dy = e.clientY - lastY;
-        const dist = Math.hypot(dx, dy);
-
-        // Si la souris avance, on ajoute un point de sillage
-        if (dist > 4) {
-          const speed = Math.min(dist / dt, 2.5);
-          const angle = Math.atan2(dy, dx);
-
-          wakePoints.push({
-            x: e.clientX,
-            y: e.clientY,
-            angle: angle,
-            speed: speed,
-            age: 0,
-            maxAge: 48, // Durée de vie du sillage (~800ms)
-            spread: 2.5 // Écartement initial de la vague d'étrave
-          });
-
-          if (wakePoints.length > 70) wakePoints.shift();
-
-          lastX = e.clientX;
-          lastY = e.clientY;
-          lastTime = now;
+        const nx = e.clientX / width;
+        const ny = e.clientY / height;
+        if (!hasInitPos) {
+          lastX = nx;
+          lastY = ny;
+          hasInitPos = true;
+          return;
+        }
+        const dist = Math.hypot((nx - lastX) * aspect, ny - lastY);
+        if (dist > 0.003) {
+          moveWake(lastX, lastY, nx, ny, 0.038);
+          lastX = nx;
+          lastY = ny;
         }
       }, { capture: true, passive: true });
-
-      // 2. GOUTTELETTE PURE UNIQUE (CLIC : UNE SEULE ONDE NATURELLE, ZÉRO NOIR)
-      const droplets = [];
-
-      function addSingleDroplet(x, y) {
-        droplets.push({
-          x: x,
-          y: y,
-          r: 0,
-          maxR: 250,
-          speed: 2.1,
-          alpha: 0.65
-        });
-        if (droplets.length > 8) droplets.shift();
-      }
 
       window.addEventListener('pointerdown', (e) => {
-        addSingleDroplet(e.clientX, e.clientY);
+        const nx = e.clientX / width;
+        const ny = e.clientY / height;
+        addDrop(nx, ny, 0.045, 0.28);
+        lastX = nx;
+        lastY = ny;
+        hasInitPos = true;
       }, { capture: true, passive: true });
 
-      // Gouttelette spontanée zen toutes les 10 secondes
-      let nextSpontaneous = performance.now() + 3500;
+      // Gouttelette d'eau spontanée zen
+      let nextSpontaneous = performance.now() + 2500;
 
-      function render(now) {
-        ctx.clearRect(0, 0, width, height);
-
-        // Gouttelette zen spontanée
+      function loop(now) {
         if (now > nextSpontaneous) {
-          addSingleDroplet(width * (0.2 + Math.random() * 0.6), height * (0.2 + Math.random() * 0.6));
-          nextSpontaneous = now + 9500 + Math.random() * 4500;
+          const rx = 0.2 + Math.random() * 0.6;
+          const ry = 0.2 + Math.random() * 0.6;
+          addDrop(rx, ry, 0.04, 0.22);
+          nextSpontaneous = now + 9000 + Math.random() * 5000;
         }
 
-        // A. RENDU DU SILLAGE LATÉRAL (VAGUES D'ÉTRAVE QUI S'OUVRENT À GAUCHE & DROITE)
-        const leftPoints = [];
-        const rightPoints = [];
+        // 2 itérations physiques par frame pour une stabilité et fluidité parfaite
+        stepSimulation();
+        stepSimulation();
 
-        for (let i = wakePoints.length - 1; i >= 0; i--) {
-          const p = wakePoints[i];
-          p.age++;
+        updateNormals();
+        renderToScreen();
 
-          if (p.age >= p.maxAge) {
-            wakePoints.splice(i, 1);
-            continue;
-          }
-
-          const progress = p.age / p.maxAge;
-          const alpha = Math.pow(1.0 - progress, 1.3) * (0.24 + p.speed * 0.16);
-
-          // L'écartement latéral augmente avec le temps (la vague en V s'ouvre vers l'extérieur)
-          p.spread += 0.95 + p.speed * 0.7;
-
-          // Normales perpendiculaires à la direction (+90° gauche et -90° droite)
-          const normL = p.angle + Math.PI / 2;
-          const normR = p.angle - Math.PI / 2;
-
-          leftPoints.unshift({
-            x: p.x + Math.cos(normL) * p.spread,
-            y: p.y + Math.sin(normL) * p.spread,
-            alpha: alpha,
-            width: 3.5 + p.spread * 0.08
-          });
-
-          rightPoints.unshift({
-            x: p.x + Math.cos(normR) * p.spread,
-            y: p.y + Math.sin(normR) * p.spread,
-            alpha: alpha,
-            width: 3.5 + p.spread * 0.08
-          });
-        }
-
-        // Tracer la crête de vague d'étrave gauche
-        if (leftPoints.length > 1) {
-          for (let i = 1; i < leftPoints.length; i++) {
-            const p1 = leftPoints[i - 1];
-            const p2 = leftPoints[i];
-            const segAlpha = (p1.alpha + p2.alpha) * 0.5;
-
-            // Corps liquide doré/cuivré très doux
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = 'rgba(194, 103, 43, ' + (segAlpha * 0.45) + ')';
-            ctx.lineWidth = p2.width;
-            ctx.lineCap = 'round';
-            ctx.stroke();
-
-            // Crête spéculaire blanche brillante
-            ctx.beginPath();
-            ctx.moveTo(p1.x - 0.8, p1.y - 0.8);
-            ctx.lineTo(p2.x - 0.8, p2.y - 0.8);
-            ctx.strokeStyle = 'rgba(255, 255, 255, ' + (segAlpha * 0.85) + ')';
-            ctx.lineWidth = Math.max(1.0, p2.width * 0.55);
-            ctx.lineCap = 'round';
-            ctx.stroke();
-          }
-        }
-
-        // Tracer la crête de vague d'étrave droite
-        if (rightPoints.length > 1) {
-          for (let i = 1; i < rightPoints.length; i++) {
-            const p1 = rightPoints[i - 1];
-            const p2 = rightPoints[i];
-            const segAlpha = (p1.alpha + p2.alpha) * 0.5;
-
-            // Corps liquide doré/cuivré très doux
-            ctx.beginPath();
-            ctx.moveTo(p1.x, p1.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = 'rgba(194, 103, 43, ' + (segAlpha * 0.45) + ')';
-            ctx.lineWidth = p2.width;
-            ctx.lineCap = 'round';
-            ctx.stroke();
-
-            // Crête spéculaire blanche brillante
-            ctx.beginPath();
-            ctx.moveTo(p1.x - 0.8, p1.y - 0.8);
-            ctx.lineTo(p2.x - 0.8, p2.y - 0.8);
-            ctx.strokeStyle = 'rgba(255, 255, 255, ' + (segAlpha * 0.85) + ')';
-            ctx.lineWidth = Math.max(1.0, p2.width * 0.55);
-            ctx.lineCap = 'round';
-            ctx.stroke();
-          }
-        }
-
-        // B. RENDU DE LA SIMPLE GOUTTELETTE PURE (CLIC : ONDULATION CLAIRE & NATURELLE)
-        for (let j = droplets.length - 1; j >= 0; j--) {
-          const d = droplets[j];
-          d.r += d.speed;
-
-          const progress = d.r / d.maxR;
-          if (progress >= 1.0) {
-            droplets.splice(j, 1);
-            continue;
-          }
-
-          // Décroissance exponentielle douce
-          const currentAlpha = d.alpha * Math.pow(1.0 - progress, 1.4);
-          if (currentAlpha <= 0.005) {
-            droplets.splice(j, 1);
-            continue;
-          }
-
-          // 1. Corps d'onde liquide clair (zéro noirceur)
-          ctx.beginPath();
-          ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(194, 103, 43, ' + (currentAlpha * 0.40) + ')';
-          ctx.lineWidth = 2.4;
-          ctx.stroke();
-
-          // 2. Crête spéculaire blanche éclatante
-          ctx.beginPath();
-          ctx.arc(d.x - 0.8, d.y - 0.8, d.r, 0, Math.PI * 2);
-          ctx.strokeStyle = 'rgba(255, 255, 255, ' + Math.min(1.0, currentAlpha * 0.95) + ')';
-          ctx.lineWidth = 1.8;
-          ctx.stroke();
-
-          // Onde secondaire douce (légère résonance naturelle discrète)
-          if (d.r > 28) {
-            const echoR = d.r - 20;
-            const echoAlpha = currentAlpha * 0.40;
-
-            ctx.beginPath();
-            ctx.arc(d.x, d.y, echoR, 0, Math.PI * 2);
-            ctx.strokeStyle = 'rgba(194, 103, 43, ' + (echoAlpha * 0.35) + ')';
-            ctx.lineWidth = 1.8;
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.arc(d.x - 0.8, d.y - 0.8, echoR, 0, Math.PI * 2);
-            ctx.strokeStyle = 'rgba(255, 255, 255, ' + (echoAlpha * 0.75) + ')';
-            ctx.lineWidth = 1.4;
-            ctx.stroke();
-          }
-
-          // Impact initial délicat de la gouttelette
-          if (progress < 0.15) {
-            const beadProgress = progress / 0.15;
-            const beadAlpha = (1.0 - beadProgress) * currentAlpha * 0.85;
-            const beadSize = Math.max(0.5, (1.0 - beadProgress) * 6.5);
-
-            const grad = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, beadSize);
-            grad.addColorStop(0, 'rgba(255, 255, 255, ' + beadAlpha + ')');
-            grad.addColorStop(0.6, 'rgba(194, 103, 43, ' + (beadAlpha * 0.45) + ')');
-            grad.addColorStop(1, 'transparent');
-
-            ctx.fillStyle = grad;
-            ctx.beginPath();
-            ctx.arc(d.x, d.y, beadSize, 0, Math.PI * 2);
-            ctx.fill();
-          }
-        }
-
-        requestAnimationFrame(render);
+        requestAnimationFrame(loop);
       }
 
-      requestAnimationFrame(render);
+      requestAnimationFrame(loop);
     })();
     </script>
 
