@@ -2391,317 +2391,153 @@
     });
 
     // ==========================================================================
-    // FOND AMBIANT : MOTEUR PHYSIQUE WEBGL D'EAU PURE TOP-VIEW
-    // Références : Shallow Water 2D (MadeByEvan) + Ondulations Réelles (Adobe Stock)
-    // Résout l'équation différentielle d'onde sur GPU (Ping-Pong FBO 60 FPS)
+    // FOND AMBIANT : PHYSIQUE FLUIDE D'EAU PURE (VUE DU DESSUS / TOP-VIEW)
+    // Références : Ondulations Adobe Stock + Shallow Water Physics
+    // Réfraction optique haute visibilité sur fond lin (Crêtes spéculaires + Ombres 3D)
     // ==========================================================================
-    (function initWebGLWater() {
+    (function initPureWaterEngine() {
       const canvas = document.getElementById('ambient-canvas');
       if (!canvas) return;
-
-      const gl = canvas.getContext('webgl', { alpha: true, antialias: true, premultipliedAlpha: false }) ||
-                 canvas.getContext('experimental-webgl', { alpha: true });
-      if (!gl) {
-        console.warn('WebGL non disponible, arrière-plan statique conservé.');
-        return;
-      }
-
-      // Support des textures flottantes pour haute précision des vagues
-      const extFloat = gl.getExtension('OES_texture_float');
-      const extHalfFloat = gl.getExtension('OES_texture_half_float');
-      const textureType = extFloat ? gl.FLOAT : (extHalfFloat ? extHalfFloat.HALF_FLOAT_OES : gl.UNSIGNED_BYTE);
-
-      // Résolution de la grille physique (256x256 donne une onde très dense, soyeuse et légère)
-      const SIM_SIZE = 256;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
 
       let width = window.innerWidth;
       let height = window.innerHeight;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
 
       function resize() {
         width = window.innerWidth;
         height = window.innerHeight;
-        canvas.width = width;
-        canvas.height = height;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        ctx.scale(dpr, dpr);
       }
       resize();
       window.addEventListener('resize', resize, { passive: true });
 
-      // Quad plein écran
-      const quadBuffer = gl.createBuffer();
-      gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-        -1, -1,
-         1, -1,
-        -1,  1,
-        -1,  1,
-         1, -1,
-         1,  1
-      ]), gl.STATIC_DRAW);
+      // File des ondes d'eau concentriques actives
+      const activeRipples = [];
 
-      // Helper compilation shaders
-      function createProgram(vertSrc, fragSrc) {
-        const p = gl.createProgram();
-        const v = gl.createShader(gl.VERTEX_SHADER);
-        gl.shaderSource(v, vertSrc);
-        gl.compileShader(v);
-        const f = gl.createShader(gl.FRAGMENT_SHADER);
-        gl.shaderSource(f, fragSrc);
-        gl.compileShader(f);
-        gl.attachShader(p, v);
-        gl.attachShader(p, f);
-        gl.linkProgram(p);
-        return p;
+      function triggerRipple(x, y, maxR, speed, strength, waveCount) {
+        if (activeRipples.length > 25) activeRipples.shift();
+        activeRipples.push({
+          x: x,
+          y: y,
+          r: 0,
+          maxR: maxR || 280,
+          speed: speed || 2.2,
+          strength: strength || 1.0,
+          waveCount: waveCount || 3,
+          wavelength: 24,
+          age: 0
+        });
       }
 
-      const baseVert = `
-        attribute vec2 a_pos;
-        varying vec2 v_uv;
-        void main() {
-          v_uv = (a_pos + 1.0) * 0.5;
-          gl_Position = vec4(a_pos, 0.0, 1.0);
+      // SURVOL : Sillage fluide de la main / bateau (rides naturelles douces)
+      let lastX = width / 2;
+      let lastY = height / 2;
+      let lastTime = performance.now();
+
+      window.addEventListener('pointermove', (e) => {
+        const now = performance.now();
+        const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+        if (dist > 18 && (now - lastTime > 40)) {
+          // Onde de sillage douce
+          triggerRipple(e.clientX, e.clientY, 120 + Math.random() * 40, 1.85, 0.60, 2);
+          lastX = e.clientX;
+          lastY = e.clientY;
+          lastTime = now;
         }
-      `;
+      }, { capture: true, passive: true });
 
-      // 1. SHADER D'INJECTION DE GOUTTE / SILLAGE (Perturbation cosinusoïdale douce)
-      const dropFrag = `
-        precision highp float;
-        varying vec2 v_uv;
-        uniform sampler2D u_water;
-        uniform vec2 u_center;
-        uniform float u_radius;
-        uniform float u_strength;
-        uniform float u_aspect;
-
-        void main() {
-          vec4 info = texture2D(u_water, v_uv);
-          vec2 d = (v_uv - u_center);
-          d.x *= u_aspect; // Maintient les cercles parfaits quelle que soit la résolution
-          float dist = length(d);
-          if (dist < u_radius) {
-            float drop = 0.5 + 0.5 * cos(3.14159265 * dist / u_radius);
-            info.r += drop * u_strength;
-          }
-          gl_FragColor = info;
-        }
-      `;
-
-      // 2. SHADER DE PROPAGATION D'ONDES PHYSIQUES (Shallow Water Wave Equation)
-      const simFrag = `
-        precision highp float;
-        varying vec2 v_uv;
-        uniform sampler2D u_water;
-        uniform vec2 u_delta;
-
-        void main() {
-          vec4 info = texture2D(u_water, v_uv);
-
-          // Voisins immédiats (Laplacien 2D)
-          float left   = texture2D(u_water, v_uv - vec2(u_delta.x, 0.0)).r;
-          float right  = texture2D(u_water, v_uv + vec2(u_delta.x, 0.0)).r;
-          float top    = texture2D(u_water, v_uv + vec2(0.0, u_delta.y)).r;
-          float bottom = texture2D(u_water, v_uv - vec2(0.0, u_delta.y)).r;
-
-          float average = (left + right + top + bottom) * 0.25;
-
-          // Intégration Verlet : info.g = vitesse, info.r = hauteur d'eau
-          info.g += (average - info.r) * 1.95;
-          info.g *= 0.988; // Viscosité de l'eau : amortissement calme et majestueux
-          info.r += info.g;
-
-          gl_FragColor = info;
-        }
-      `;
-
-      // 3. SHADER DE RENDU OPTIQUE : EAU PURE, RÉFRACTION, NORMALES & REFLETS SPÉCULAIRES
-      const renderFrag = `
-        precision highp float;
-        varying vec2 v_uv;
-        uniform sampler2D u_water;
-        uniform vec2 u_delta;
-        uniform float u_aspect;
-
-        void main() {
-          float left   = texture2D(u_water, v_uv - vec2(u_delta.x, 0.0)).r;
-          float right  = texture2D(u_water, v_uv + vec2(u_delta.x, 0.0)).r;
-          float bottom = texture2D(u_water, v_uv - vec2(0.0, u_delta.y)).r;
-          float top    = texture2D(u_water, v_uv + vec2(0.0, u_delta.y)).r;
-
-          vec2 slope = vec2(right - left, top - bottom) * 2.8;
-          float waveHeight = texture2D(u_water, v_uv).r;
-
-          // Vecteur normal de la surface liquide
-          vec3 normal = normalize(vec3(-slope.x, -slope.y, 1.0));
-
-          // Éclairage zénithal doux orienté haut-gauche
-          vec3 lightDir = normalize(vec3(-0.35, 0.55, 0.75));
-          vec3 viewDir  = vec3(0.0, 0.0, 1.0);
-          vec3 halfVec  = normalize(lightDir + viewDir);
-
-          // Éclat spéculaire blanc cristallin sur les crêtes
-          float spec = pow(max(0.0, dot(normal, halfVec)), 28.0);
-          float waveStrength = length(slope);
-
-          // Surface calme : transparence absolue
-          if (waveStrength < 0.0008 && abs(waveHeight) < 0.0008 && spec < 0.0008) {
-            gl_FragColor = vec4(0.0);
-            return;
-          }
-
-          // Rendu de l'eau claire :
-          // 1. Éclat spéculaire blanc pur
-          float diffuse = dot(normal, lightDir);
-          float crestHighlight = max(0.0, diffuse - 0.7) * 1.5;
-          vec3 specColor = vec3(1.0, 1.0, 1.0) * (spec * 1.45 + crestHighlight * 0.4);
-
-          // 2. Caustique liquide subtile cuivrée (charte Missi)
-          vec3 waterTint = vec3(0.76, 0.40, 0.17) * waveStrength * 0.52;
-
-          // 3. Ombre de dépression 3D dans les creux
-          float troughShadow = max(0.0, -waveHeight * 2.5);
-          vec3 shadowColor = vec3(0.17, 0.15, 0.14) * troughShadow * 0.25;
-
-          vec3 finalColor = specColor + waterTint - shadowColor;
-          float alpha = clamp(spec * 1.25 + waveStrength * 0.88 + troughShadow * 0.4, 0.0, 0.78);
-
-          gl_FragColor = vec4(finalColor, alpha);
-        }
-      `;
-
-      const dropProg = createProgram(baseVert, dropFrag);
-      const simProg = createProgram(baseVert, simFrag);
-      const renderProg = createProgram(baseVert, renderFrag);
-
-      // Création des Textures Ping-Pong & FBOs
-      function createFBOTexture() {
-        const tex = gl.createTexture();
-        gl.bindTexture(gl.TEXTURE_2D, tex);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, SIM_SIZE, SIM_SIZE, 0, gl.RGBA, textureType, null);
-
-        const fbo = gl.createFramebuffer();
-        gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
-        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
-
-        return { texture: tex, fbo: fbo };
-      }
-
-      let readFBO = createFBOTexture();
-      let writeFBO = createFBOTexture();
-
-      function swapFBOs() {
-        const temp = readFBO;
-        readFBO = writeFBO;
-        writeFBO = temp;
-      }
-
-      function addDrop(normX, normY, radius, strength) {
-        gl.useProgram(dropProg);
-        gl.bindFramebuffer(gl.FRAMEBUFFER, writeFBO.fbo);
-        gl.viewport(0, 0, SIM_SIZE, SIM_SIZE);
-
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, readFBO.texture);
-        gl.uniform1i(gl.getUniformLocation(dropProg, 'u_water'), 0);
-
-        gl.uniform2f(gl.getUniformLocation(dropProg, 'u_center'), normX, 1.0 - normY);
-        gl.uniform1f(gl.getUniformLocation(dropProg, 'u_radius'), radius);
-        gl.uniform1f(gl.getUniformLocation(dropProg, 'u_strength'), strength);
-        gl.uniform1f(gl.getUniformLocation(dropProg, 'u_aspect'), width / height);
-
-        gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
-        const aPos = gl.getAttribLocation(dropProg, 'a_pos');
-        gl.enableVertexAttribArray(aPos);
-        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
-
-        gl.drawArrays(gl.TRIANGLES, 0, 6);
-        swapFBOs();
-      }
-
-      // SURVOL : Sillage fluide de la main traçant dans l'eau
-      let lastX = 0.5, lastY = 0.5;
-      let lastMoveTime = performance.now();
-
-      if (window.matchMedia('(pointer: fine)').matches) {
-        window.addEventListener('pointermove', (e) => {
-          const normX = e.clientX / width;
-          const normY = e.clientY / height;
-          const now = performance.now();
-          const dist = Math.hypot(normX - lastX, (normY - lastY) * (height / width));
-
-          if (dist > 0.008 && (now - lastMoveTime > 30)) {
-            // Interpolation pour un sillage d'eau parfaitement continu et soyeux
-            const steps = Math.min(4, Math.max(1, Math.floor(dist / 0.01)));
-            for (let s = 1; s <= steps; s++) {
-              const t = s / steps;
-              const ix = lastX + (normX - lastX) * t;
-              const iy = lastY + (normY - lastY) * t;
-              addDrop(ix, iy, 0.024, 0.07 / steps);
-            }
-            lastX = normX;
-            lastY = normY;
-            lastMoveTime = now;
-          }
-        }, { passive: true });
-      }
-
-      // CLIC : Impact majestueux de goutte d'eau (onde concentrique façon Adobe Stock)
+      // CLIC : Impact majestueux de goutte d'eau (vague concentrique façon Adobe Stock)
       window.addEventListener('pointerdown', (e) => {
-        const normX = e.clientX / width;
-        const normY = e.clientY / height;
-        addDrop(normX, normY, 0.048, 0.35);
-      }, { passive: true });
+        triggerRipple(e.clientX, e.clientY, 390, 2.5, 1.35, 4);
+      }, { capture: true, passive: true });
 
-      // Gouttelette zen spontanée occasionnelle (toutes les 9 à 14 secondes)
-      let nextDrop = performance.now() + 2500;
+      // Gouttelette zen spontanée occasionnelle (toutes les 8 à 12 secondes)
+      let nextDrop = performance.now() + 2000;
 
       function render(now) {
+        ctx.clearRect(0, 0, width, height);
+
+        // Gouttelette naturelle spontanée
         if (now > nextDrop) {
-          const rx = 0.15 + Math.random() * 0.7;
-          const ry = 0.15 + Math.random() * 0.7;
-          addDrop(rx, ry, 0.038, 0.22);
-          nextDrop = now + 9000 + Math.random() * 5000;
+          const rx = width * (0.15 + Math.random() * 0.7);
+          const ry = height * (0.15 + Math.random() * 0.7);
+          triggerRipple(rx, ry, 280, 2.0, 0.90, 3);
+          nextDrop = now + 8000 + Math.random() * 4500;
         }
 
-        // 1. Simulation physique (calcul de l'équation d'onde sur GPU)
-        gl.useProgram(simProg);
-        gl.bindFramebuffer(gl.FRAMEBUFFER, writeFBO.fbo);
-        gl.viewport(0, 0, SIM_SIZE, SIM_SIZE);
+        // Rendu physique des ondes d'eau concentriques avec réfraction haute visibilité
+        for (let i = activeRipples.length - 1; i >= 0; i--) {
+          const rip = activeRipples[i];
+          rip.r += rip.speed;
+          rip.age++;
 
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, readFBO.texture);
-        gl.uniform1i(gl.getUniformLocation(simProg, 'u_water'), 0);
-        gl.uniform2f(gl.getUniformLocation(simProg, 'u_delta'), 1.0 / SIM_SIZE, 1.0 / SIM_SIZE);
+          const progress = rip.r / rip.maxR;
+          if (progress >= 1.0) {
+            activeRipples.splice(i, 1);
+            continue;
+          }
 
-        gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
-        let aPos = gl.getAttribLocation(simProg, 'a_pos');
-        gl.enableVertexAttribArray(aPos);
-        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+          // Amortissement fluide de viscosité : l'onde s'atténue avec la distance
+          const decay = Math.pow(1.0 - progress, 1.5) * rip.strength;
+          if (decay < 0.008) {
+            activeRipples.splice(i, 1);
+            continue;
+          }
 
-        gl.drawArrays(gl.TRIANGLES, 0, 6);
-        swapFBOs();
+          for (let w = 0; w < rip.waveCount; w++) {
+            const ringRadius = rip.r - w * rip.wavelength;
+            if (ringRadius <= 0.5) continue; // Sécurité stricte : rayon toujours positif
 
-        // 2. Rendu optique de l'eau pure vers l'écran
-        gl.useProgram(renderProg);
-        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
-        gl.viewport(0, 0, canvas.width, canvas.height);
+            const waveAlpha = decay * (1.0 - w * 0.22);
+            if (waveAlpha <= 0.008) continue;
 
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, readFBO.texture);
-        gl.uniform1i(gl.getUniformLocation(renderProg, 'u_water'), 0);
-        gl.uniform2f(gl.getUniformLocation(renderProg, 'u_delta'), 1.0 / SIM_SIZE, 1.0 / SIM_SIZE);
-        gl.uniform1f(gl.getUniformLocation(renderProg, 'u_aspect'), width / height);
+            // 1. OMBRE DE DÉPRESSION 3D (Creux physique de la vague d'eau sous la crête)
+            // Donne le contraste et le relief indispensable sur le fond clair lin/crème
+            const shadowR = Math.max(0.5, ringRadius + 2.0);
+            ctx.beginPath();
+            ctx.arc(rip.x + 1.4, rip.y + 1.8, shadowR, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(44, 39, 36, ' + (waveAlpha * 0.35) + ')';
+            ctx.lineWidth = 2.4;
+            ctx.stroke();
 
-        gl.enable(gl.BLEND);
-        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+            // 2. CORPS DE L'ONDE LIQUIDE (Réfraction de l'eau claire avec caustique cuivrée douce)
+            ctx.beginPath();
+            ctx.arc(rip.x, rip.y, ringRadius, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(194, 103, 43, ' + (waveAlpha * 0.48) + ')';
+            ctx.lineWidth = 2.8;
+            ctx.stroke();
 
-        aPos = gl.getAttribLocation(renderProg, 'a_pos');
-        gl.enableVertexAttribArray(aPos);
-        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+            // 3. CRÊTE SPÉCULAIRE BLANCHE ÉCLATANTE (Reflet de lumière zénithale façon Adobe Stock)
+            // Décalée de -1.2px vers le haut-gauche pour l'éclairage de surface
+            const crestR = Math.max(0.5, ringRadius - 1.2);
+            ctx.beginPath();
+            ctx.arc(rip.x - 1.0, rip.y - 1.2, crestR, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(255, 255, 255, ' + Math.min(1.0, waveAlpha * 0.98) + ')';
+            ctx.lineWidth = 2.0;
+            ctx.stroke();
+          }
 
-        gl.drawArrays(gl.TRIANGLES, 0, 6);
+          // Éclat d'impact de la goutte au centre (premiers 20% de la durée de vie)
+          if (progress < 0.2) {
+            const dropProgress = progress / 0.2;
+            const dropAlpha = (1.0 - dropProgress) * rip.strength * 0.75;
+            const dropSize = Math.max(0.5, (1.0 - dropProgress) * 9.5);
+
+            const grad = ctx.createRadialGradient(rip.x, rip.y, 0, rip.x, rip.y, dropSize);
+            grad.addColorStop(0, 'rgba(255, 255, 255, ' + dropAlpha + ')');
+            grad.addColorStop(0.5, 'rgba(194, 103, 43, ' + (dropAlpha * 0.55) + ')');
+            grad.addColorStop(1, 'transparent');
+
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(rip.x, rip.y, dropSize, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
 
         requestAnimationFrame(render);
       }
