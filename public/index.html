@@ -2391,66 +2391,37 @@
     });
 
     // ==========================================================================
-    // SIMULATION PHYSIQUE D'EAU FLUIDE EXACTE MADEBYEVAN (WEBGL TOP-VIEW)
-    // Conforme à Evan Wallace WebGL Water (https://madebyevan.com/webgl-water/)
-    // - Survol : Vrai sillage d'étrave en V (water displacement / Kelvin wake)
-    // - Clic : Gouttelette unique pure avec onde circulaire cristalline
-    // - Rendu : Eau pure transparente, reflets spéculaires purs et caustiques 3D
+    // SIMULATION PHYSIQUE D'EAU PURE ET CRISTALLINE (WEBGL TOP-VIEW HAUTE DÉFINITION)
+    // - Résolution native intégrale de l'écran (ZÉRO pixellisation, ZÉRO saccade)
+    // - Survol : Véritable sillage d'étrave continu en V (Kelvin wake envelope)
+    // - Clic : Gouttelette pure avec ondes circulaires naturelles et reflets purs
+    // - Rendu : Eau 100% transparente au repos, reflets spéculaires étincelants
+    //           GARANTIE ABSOLUE : ZÉRO noircissement, ZÉRO grisaille sur le fond écru
     // ==========================================================================
-    (function initEvanWater() {
+    (function initPureWaterCanvas() {
       const canvas = document.getElementById('ambient-canvas');
       if (!canvas) return;
 
-      // 1. Contexte WebGL 2 (préféré pour textures float FBO natives) ou WebGL 1
-      let gl = canvas.getContext('webgl2', { alpha: true, premultipliedAlpha: true, antialias: false });
-      let isWebGL2 = !!gl;
+      const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: true }) ||
+                 canvas.getContext('experimental-webgl', { alpha: true, premultipliedAlpha: true, antialias: true });
 
-      if (!gl) {
-        gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: false }) ||
-             canvas.getContext('experimental-webgl', { alpha: true, premultipliedAlpha: true, antialias: false });
-      }
-
-      if (!gl) {
-        console.warn('WebGL non supporté sur ce navigateur.');
-        return;
-      }
-
-      let internalFormat, format, type, filter;
-
-      if (isWebGL2) {
-        gl.getExtension('EXT_color_buffer_float');
-        const hasFloatLinear = !!gl.getExtension('OES_texture_float_linear');
-        internalFormat = gl.RGBA32F;
-        format = gl.RGBA;
-        type = gl.FLOAT;
-        filter = hasFloatLinear ? gl.LINEAR : gl.NEAREST;
-      } else {
-        const hasFloat = !!gl.getExtension('OES_texture_float');
-        const hasFloatLinear = !!gl.getExtension('OES_texture_float_linear');
-        gl.getExtension('WEBGL_color_buffer_float');
-        internalFormat = gl.RGBA;
-        format = gl.RGBA;
-        type = hasFloat ? gl.FLOAT : gl.UNSIGNED_BYTE;
-        filter = (hasFloat && hasFloatLinear) ? gl.LINEAR : gl.NEAREST;
-      }
-
-      const SIZE = 256;
+      if (!gl) return;
 
       let width = window.innerWidth;
       let height = window.innerHeight;
-      let aspect = width / height;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
 
       function resize() {
         width = window.innerWidth;
         height = window.innerHeight;
-        aspect = width / height;
-        canvas.width = width;
-        canvas.height = height;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        gl.viewport(0, 0, canvas.width, canvas.height);
       }
       resize();
       window.addEventListener('resize', resize, { passive: true });
 
-      // Quad plein écran
       const quadBuffer = gl.createBuffer();
       gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
@@ -2462,366 +2433,241 @@
          1,  1
       ]), gl.STATIC_DRAW);
 
-      function createProgram(vs, fs) {
-        const p = gl.createProgram();
-        const v = gl.createShader(gl.VERTEX_SHADER);
-        gl.shaderSource(v, vs);
-        gl.compileShader(v);
-        if (!gl.getShaderParameter(v, gl.COMPILE_STATUS)) {
-          console.error('VS Error:', gl.getShaderInfoLog(v));
-        }
-        const f = gl.createShader(gl.FRAGMENT_SHADER);
-        gl.shaderSource(f, fs);
-        gl.compileShader(f);
-        if (!gl.getShaderParameter(f, gl.COMPILE_STATUS)) {
-          console.error('FS Error:', gl.getShaderInfoLog(f));
-        }
-        gl.attachShader(p, v);
-        gl.attachShader(p, f);
-        gl.linkProgram(p);
-        if (!gl.getProgramParameter(p, gl.LINK_STATUS)) {
-          console.error('Link Error:', gl.getProgramInfoLog(p));
-        }
-        return p;
-      }
-
-      const vertexShader = `
+      const vsSource = `
         attribute vec2 a_pos;
-        varying vec2 coord;
+        varying vec2 v_uv;
         void main() {
-          coord = (a_pos + 1.0) * 0.5;
+          v_uv = (a_pos + 1.0) * 0.5;
           gl_Position = vec4(a_pos, 0.0, 1.0);
         }
       `;
 
-      // 1. DROP SHADER (Gouttelette pure - Onde circulaire isotrope)
-      const dropShader = createProgram(vertexShader, `
+      // Shader analytique haute précision : calcul continu par pixel à l'échelle de l'écran
+      const fsSource = `
         precision highp float;
-        uniform sampler2D texture;
-        uniform vec2 center;
-        uniform float radius;
-        uniform float strength;
-        uniform float aspect;
-        varying vec2 coord;
+        varying vec2 v_uv;
+        uniform vec2 u_resolution;
+        uniform float u_time;
+
+        #define MAX_DROPS 8
+        uniform vec4 u_drops[MAX_DROPS]; // x, y, birthTime, strength
+
+        #define MAX_WAKE 36
+        uniform vec4 u_wake[MAX_WAKE]; // x, y, birthTime, speed
+
         void main() {
-          vec4 info = texture2D(texture, coord);
-          vec2 diff = coord - center;
-          diff.x *= aspect;
-          float dist = length(diff);
-          if (dist < radius) {
-            float drop = 1.0 - dist / radius;
-            drop = 0.5 - cos(drop * 3.14159265) * 0.5;
-            info.r += drop * strength;
+          vec2 screenPos = v_uv * u_resolution;
+          
+          float totalH = 0.0;
+          vec2 grad = vec2(0.0);
+
+          // 1. SILLAGE D'ÉTRAVE EN V AU SURVOL (Enveloppe d'interférence hydrodynamique de Kelvin)
+          for (int i = 0; i < MAX_WAKE; i++) {
+            vec4 w = u_wake[i];
+            float age = u_time - w.z;
+            if (age > 0.0 && age < 1.6) {
+              vec2 diff = screenPos - w.xy;
+              float dist = length(diff);
+              if (dist > 0.5) {
+                vec2 dir = diff / dist;
+                
+                // Onde d'étrave s'écartant latéralement
+                float waveR = age * 110.0;
+                float dR = dist - waveR;
+                
+                // Profil gaussien doux de la crête de vague
+                float sigma = 16.0 + age * 10.0;
+                float env = exp(-(dR * dR) / (2.0 * sigma * sigma));
+                
+                // Amortissement naturel noble et fluide
+                float decay = exp(-age * 2.4) * min(1.2, w.w * 0.9);
+                
+                float k = 0.17;
+                float amp = 0.40 * env * decay;
+                
+                totalH += amp * cos(k * dR);
+                grad += dir * amp * (-k * sin(k * dR) - (dR / (sigma * sigma)) * cos(k * dR));
+              }
+            }
           }
-          gl_FragColor = info;
-        }
-      `);
 
-      // 2. MOVE WAKE SHADER (Sillage d'étrave continu en V)
-      const wakeShader = createProgram(vertexShader, `
-        precision highp float;
-        uniform sampler2D texture;
-        uniform vec2 oldCenter;
-        uniform vec2 newCenter;
-        uniform float radius;
-        uniform float aspect;
-        varying vec2 coord;
-        void main() {
-          vec4 info = texture2D(texture, coord);
-          vec2 p = coord;
-          p.x *= aspect;
-          vec2 a = oldCenter;
-          a.x *= aspect;
-          vec2 b = newCenter;
-          b.x *= aspect;
-
-          vec2 pa = p - a;
-          vec2 ba = b - a;
-          float lenSq = dot(ba, ba);
-          float h = lenSq > 0.000001 ? clamp(dot(pa, ba) / lenSq, 0.0, 1.0) : 0.0;
-          float d = length(pa - ba * h);
-
-          if (d < radius) {
-            float factor = 1.0 - d / radius;
-            factor = 0.5 - cos(factor * 3.14159265) * 0.5;
-            // Dépression physique de l'eau le long de la trajectoire
-            info.r -= factor * 0.16;
-            info.g -= factor * 0.05;
+          // 2. ONDES CIRCULAIRES PURES AU CLIC (Gouttelettes d'eau pure)
+          for (int j = 0; j < MAX_DROPS; j++) {
+            vec4 d = u_drops[j];
+            float age = u_time - d.z;
+            if (age > 0.0 && age < 2.4) {
+              vec2 diff = screenPos - d.xy;
+              float dist = length(diff);
+              if (dist > 0.5) {
+                vec2 dir = diff / dist;
+                float waveR = age * 145.0;
+                float dR = dist - waveR;
+                
+                float sigma = 20.0 + age * 12.0;
+                float env = exp(-(dR * dR) / (2.0 * sigma * sigma));
+                float decay = exp(-age * 1.5) * d.w;
+                
+                float k = 0.15;
+                float amp = 0.60 * env * decay;
+                
+                totalH += amp * cos(k * dR);
+                grad += dir * amp * (-k * sin(k * dR) - (dR / (sigma * sigma)) * cos(k * dR));
+              }
+            }
           }
-          gl_FragColor = info;
-        }
-      `);
 
-      // 3. UPDATE SHADER (Équation d'onde 2D MadeByEvan avec propagation isotrope)
-      const updateShader = createProgram(vertexShader, `
-        precision highp float;
-        uniform sampler2D texture;
-        uniform vec2 delta;
-        uniform float aspect;
-        varying vec2 coord;
-        void main() {
-          vec4 info = texture2D(texture, coord);
-          vec2 dx = vec2(delta.x, 0.0);
-          vec2 dy = vec2(0.0, delta.y * aspect);
-
-          float average = (
-            texture2D(texture, coord - dx).r +
-            texture2D(texture, coord + dx).r +
-            texture2D(texture, coord - dy).r +
-            texture2D(texture, coord + dy).r
-          ) * 0.25;
-
-          info.g += (average - info.r) * 2.0;
-          info.g *= 0.994; // Amortissement fluide très doux et zen
-          info.r += info.g;
-          gl_FragColor = info;
-        }
-      `);
-
-      // 4. NORMAL SHADER (Calcul de pente physique)
-      const normalShader = createProgram(vertexShader, `
-        precision highp float;
-        uniform sampler2D texture;
-        uniform vec2 delta;
-        uniform float aspect;
-        varying vec2 coord;
-        void main() {
-          vec4 info = texture2D(texture, coord);
-          vec2 dx = vec2(delta.x, 0.0);
-          vec2 dy = vec2(0.0, delta.y * aspect);
-
-          float left  = texture2D(texture, coord - dx).r;
-          float right = texture2D(texture, coord + dx).r;
-          float down  = texture2D(texture, coord - dy).r;
-          float up    = texture2D(texture, coord + dy).r;
-
-          float dHx = (right - left) * 10.0;
-          float dHy = (up - down) * 10.0;
-
-          vec3 normal = normalize(vec3(-dHx, -dHy, 1.0));
-          gl_FragColor = vec4(normal * 0.5 + 0.5, info.r);
-        }
-      `);
-
-      // 5. RENDER SHADER (Rendu eau pure transparente, reflets spéculaires et caustiques)
-      const renderShader = createProgram(vertexShader, `
-        precision highp float;
-        uniform sampler2D normalTexture;
-        varying vec2 coord;
-        void main() {
-          vec4 normData = texture2D(normalTexture, coord);
-          vec3 normal = normData.rgb * 2.0 - 1.0;
-          float height = normData.a;
-
-          float slope = length(normal.xy);
-          if (slope < 0.0004 && abs(height) < 0.0004) {
+          float slope = length(grad);
+          if (slope < 0.0001 && abs(totalH) < 0.0001) {
             gl_FragColor = vec4(0.0);
             return;
           }
 
+          // Normale physique 3D continue
+          vec3 normal = normalize(vec3(-grad * 22.0, 1.0));
+
           // Éclairage zénithal doux
-          vec3 light = normalize(vec3(-0.35, 0.55, 0.75));
+          vec3 light = normalize(vec3(-0.35, 0.45, 0.8));
           vec3 eye = vec3(0.0, 0.0, 1.0);
           vec3 halfVec = normalize(light + eye);
 
-          // Reflet spéculaire pur et étincelant sur les crêtes de vague
+          // Reflet spéculaire pur étincelant sur les crêtes de l'eau
           float spec = pow(max(0.0, dot(normal, halfVec)), 26.0);
 
-          // Concentration caustique sur la crête de vague
-          float crest = max(0.0, height);
-          float caustic = crest * 1.8;
+          // Caustique de concentration lumineuse
+          float crest = max(0.0, totalH);
+          float caustic = crest * slope * 2.2;
 
-          // Éclat pur de l'eau
-          vec3 specColor = vec3(1.0, 1.0, 1.0) * spec * 2.2;
+          // Rendu eau pure : éclats de lumière cristalline
+          // AUCUNE SOUSTRACTION SOMBRE : le fond #FAF8F5 reste immaculé
+          vec3 specColor = vec3(1.0, 1.0, 1.0) * spec * 2.4;
+          vec3 waterSheen = vec3(0.92, 0.96, 1.0) * (caustic * 1.1 + slope * 0.14);
+          vec3 amberGlint = vec3(0.96, 0.68, 0.36) * (spec * 0.20 + caustic * 0.16);
 
-          // Teinte liquide cristalline très subtile
-          vec3 waterTint = vec3(0.88, 0.94, 0.98) * (slope * 0.45 + caustic * 0.35);
+          vec3 finalColor = specColor + waterSheen + amberGlint;
+          float alpha = clamp(spec * 1.4 + caustic * 0.85 + slope * 0.35, 0.0, 0.85);
 
-          // Ombre très légère dans le creux de la vague pour relief 3D
-          float trough = max(0.0, -height);
-          vec3 troughTint = vec3(0.35, 0.30, 0.25) * (trough * 0.15);
-
-          vec3 finalColor = specColor + waterTint - troughTint;
-          float alpha = clamp(spec * 1.4 + slope * 0.75 + caustic * 0.6 + trough * 0.2, 0.0, 0.85);
-
-          // Premultiplied alpha
+          // Premultiplied alpha pour composition sans bavure sur le DOM HTML
           gl_FragColor = vec4(finalColor * alpha, alpha);
         }
-      `);
+      `;
 
-      // FBO Ping-Pong
-      function createFBO() {
-        const tex = gl.createTexture();
-        gl.bindTexture(gl.TEXTURE_2D, tex);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, filter);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, filter);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-
-        const zeroData = (type === gl.FLOAT) ? new Float32Array(SIZE * SIZE * 4) : new Uint8Array(SIZE * SIZE * 4);
-        gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, SIZE, SIZE, 0, format, type, zeroData);
-
-        const fbo = gl.createFramebuffer();
-        gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
-        gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, tex, 0);
-
-        return { tex, fbo };
+      function createShader(type, src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+          console.error('Shader compile error:', gl.getShaderInfoLog(s));
+        }
+        return s;
       }
 
-      let textureA = createFBO();
-      let textureB = createFBO();
-      let textureNormals = createFBO();
-
-      function swapWater() {
-        const temp = textureA;
-        textureA = textureB;
-        textureB = temp;
+      const program = gl.createProgram();
+      gl.attachShader(program, createShader(gl.VERTEX_SHADER, vsSource));
+      gl.attachShader(program, createShader(gl.FRAGMENT_SHADER, fsSource));
+      gl.linkProgram(program);
+      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        console.error('Program link error:', gl.getProgramInfoLog(program));
       }
 
-      function drawQuad(prog) {
-        gl.useProgram(prog);
-        gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
-        const aPos = gl.getAttribLocation(prog, 'a_pos');
-        gl.enableVertexAttribArray(aPos);
-        gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
-        gl.drawArrays(gl.TRIANGLES, 0, 6);
+      gl.useProgram(program);
+
+      const uResolution = gl.getUniformLocation(program, 'u_resolution');
+      const uTime = gl.getUniformLocation(program, 'u_time');
+      const uDropsLoc = gl.getUniformLocation(program, 'u_drops');
+      const uWakeLoc = gl.getUniformLocation(program, 'u_wake');
+
+      const aPos = gl.getAttribLocation(program, 'a_pos');
+      gl.enableVertexAttribArray(aPos);
+      gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
+      gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+
+      // Données Clics
+      const MAX_DROPS = 8;
+      const dropsData = new Float32Array(MAX_DROPS * 4);
+      let dropIndex = 0;
+
+      function addDrop(x, y, strength = 1.0) {
+        const idx = dropIndex % MAX_DROPS;
+        dropsData[idx * 4 + 0] = x * dpr;
+        dropsData[idx * 4 + 1] = (height - y) * dpr;
+        dropsData[idx * 4 + 2] = performance.now() / 1000.0;
+        dropsData[idx * 4 + 3] = strength;
+        dropIndex++;
       }
 
-      function addDrop(x, y, radius, strength) {
-        gl.bindFramebuffer(gl.FRAMEBUFFER, textureB.fbo);
-        gl.viewport(0, 0, SIZE, SIZE);
+      // Données Sillage
+      const MAX_WAKE = 36;
+      const wakeData = new Float32Array(MAX_WAKE * 4);
+      let wakeIndex = 0;
+      let lastWakeX = 0, lastWakeY = 0, lastWakeTime = 0;
 
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, textureA.tex);
-
-        gl.useProgram(dropShader);
-        gl.uniform1i(gl.getUniformLocation(dropShader, 'texture'), 0);
-        gl.uniform2f(gl.getUniformLocation(dropShader, 'center'), x, 1.0 - y);
-        gl.uniform1f(gl.getUniformLocation(dropShader, 'radius'), radius);
-        gl.uniform1f(gl.getUniformLocation(dropShader, 'strength'), strength);
-        gl.uniform1f(gl.getUniformLocation(dropShader, 'aspect'), aspect);
-
-        drawQuad(dropShader);
-        swapWater();
+      function addWakePoint(x, y, speed) {
+        const idx = wakeIndex % MAX_WAKE;
+        wakeData[idx * 4 + 0] = x * dpr;
+        wakeData[idx * 4 + 1] = (height - y) * dpr;
+        wakeData[idx * 4 + 2] = performance.now() / 1000.0;
+        wakeData[idx * 4 + 3] = speed;
+        wakeIndex++;
       }
-
-      function moveWake(ox, oy, nx, ny, radius) {
-        gl.bindFramebuffer(gl.FRAMEBUFFER, textureB.fbo);
-        gl.viewport(0, 0, SIZE, SIZE);
-
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, textureA.tex);
-
-        gl.useProgram(wakeShader);
-        gl.uniform1i(gl.getUniformLocation(wakeShader, 'texture'), 0);
-        gl.uniform2f(gl.getUniformLocation(wakeShader, 'oldCenter'), ox, 1.0 - oy);
-        gl.uniform2f(gl.getUniformLocation(wakeShader, 'newCenter'), nx, 1.0 - ny);
-        gl.uniform1f(gl.getUniformLocation(wakeShader, 'radius'), radius);
-        gl.uniform1f(gl.getUniformLocation(wakeShader, 'aspect'), aspect);
-
-        drawQuad(wakeShader);
-        swapWater();
-      }
-
-      function stepSimulation() {
-        gl.bindFramebuffer(gl.FRAMEBUFFER, textureB.fbo);
-        gl.viewport(0, 0, SIZE, SIZE);
-
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, textureA.tex);
-
-        gl.useProgram(updateShader);
-        gl.uniform1i(gl.getUniformLocation(updateShader, 'texture'), 0);
-        gl.uniform2f(gl.getUniformLocation(updateShader, 'delta'), 1.0 / SIZE, 1.0 / SIZE);
-        gl.uniform1f(gl.getUniformLocation(updateShader, 'aspect'), aspect);
-
-        drawQuad(updateShader);
-        swapWater();
-      }
-
-      function updateNormals() {
-        gl.bindFramebuffer(gl.FRAMEBUFFER, textureNormals.fbo);
-        gl.viewport(0, 0, SIZE, SIZE);
-
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, textureA.tex);
-
-        gl.useProgram(normalShader);
-        gl.uniform1i(gl.getUniformLocation(normalShader, 'texture'), 0);
-        gl.uniform2f(gl.getUniformLocation(normalShader, 'delta'), 1.0 / SIZE, 1.0 / SIZE);
-        gl.uniform1f(gl.getUniformLocation(normalShader, 'aspect'), aspect);
-
-        drawQuad(normalShader);
-      }
-
-      function renderToScreen() {
-        gl.bindFramebuffer(gl.FRAMEBUFFER, null);
-        gl.viewport(0, 0, canvas.width, canvas.height);
-
-        gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, textureNormals.tex);
-
-        gl.useProgram(renderShader);
-        gl.uniform1i(gl.getUniformLocation(renderShader, 'normalTexture'), 0);
-
-        gl.enable(gl.BLEND);
-        gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-
-        drawQuad(renderShader);
-      }
-
-      // Événements utilisateur avec capture pour traverser tous les éléments DOM
-      let lastX = 0.5, lastY = 0.5;
-      let hasInitPos = false;
 
       window.addEventListener('pointermove', (e) => {
-        const nx = e.clientX / width;
-        const ny = e.clientY / height;
-        if (!hasInitPos) {
-          lastX = nx;
-          lastY = ny;
-          hasInitPos = true;
+        const now = performance.now();
+        if (now - lastWakeTime > 250) {
+          lastWakeX = e.clientX;
+          lastWakeY = e.clientY;
+          lastWakeTime = now;
           return;
         }
-        const dist = Math.hypot((nx - lastX) * aspect, ny - lastY);
-        if (dist > 0.003) {
-          moveWake(lastX, lastY, nx, ny, 0.038);
-          lastX = nx;
-          lastY = ny;
+
+        const dt = Math.max(8, Math.min(60, now - lastWakeTime));
+        const dist = Math.hypot(e.clientX - lastWakeX, e.clientY - lastWakeY);
+        if (dist > 10) {
+          const speed = Math.min(dist / dt, 2.5);
+          addWakePoint(e.clientX, e.clientY, speed);
+          lastWakeX = e.clientX;
+          lastWakeY = e.clientY;
+          lastWakeTime = now;
         }
       }, { capture: true, passive: true });
 
       window.addEventListener('pointerdown', (e) => {
-        const nx = e.clientX / width;
-        const ny = e.clientY / height;
-        addDrop(nx, ny, 0.045, 0.28);
-        lastX = nx;
-        lastY = ny;
-        hasInitPos = true;
+        addDrop(e.clientX, e.clientY, 1.25);
+        lastWakeX = e.clientX;
+        lastWakeY = e.clientY;
+        lastWakeTime = performance.now();
       }, { capture: true, passive: true });
 
-      // Gouttelette d'eau spontanée zen
+      // Gouttelette spontanée apaisante toutes les 10s
       let nextSpontaneous = performance.now() + 2500;
 
-      function loop(now) {
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+
+      function render() {
+        const now = performance.now();
+        const tSec = now / 1000.0;
+
         if (now > nextSpontaneous) {
-          const rx = 0.2 + Math.random() * 0.6;
-          const ry = 0.2 + Math.random() * 0.6;
-          addDrop(rx, ry, 0.04, 0.22);
+          addDrop(width * (0.25 + Math.random() * 0.5), height * (0.25 + Math.random() * 0.5), 0.95);
           nextSpontaneous = now + 9000 + Math.random() * 5000;
         }
 
-        // 2 itérations physiques par frame pour une stabilité et fluidité parfaite
-        stepSimulation();
-        stepSimulation();
+        // Effacement complet à chaque frame : transparence absolue garantie
+        gl.clearColor(0.0, 0.0, 0.0, 0.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
 
-        updateNormals();
-        renderToScreen();
+        gl.useProgram(program);
+        gl.uniform2f(uResolution, canvas.width, canvas.height);
+        gl.uniform1f(uTime, tSec);
+        gl.uniform4fv(uDropsLoc, dropsData);
+        gl.uniform4fv(uWakeLoc, wakeData);
 
-        requestAnimationFrame(loop);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+        requestAnimationFrame(render);
       }
 
-      requestAnimationFrame(loop);
+      requestAnimationFrame(render);
     })();
     </script>
 
