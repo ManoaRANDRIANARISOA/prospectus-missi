@@ -2391,11 +2391,12 @@
     });
 
     // ==========================================================================
-    // SIMULATION PHYSIQUE D'EAU PURE ET CRISTALLINE (WEBGL TOP-VIEW HAUTE DÉFINITION)
+    // SIMULATION PHYSIQUE D'EAU PURE ET CRISTALLINE (DISSIPATION ASYMPTOTIQUE NATURELLE)
     // - Résolution native intégrale de l'écran (ZÉRO pixellisation, ZÉRO saccade)
-    // - Survol : Véritable sillage d'étrave continu en V (Kelvin wake envelope)
-    // - Clic : Gouttelette pure avec ondes circulaires naturelles et reflets purs
-    // - Rendu : Eau 100% transparente au repos, reflets spéculaires étincelants
+    // - Survol : Véritable sillage d'étrave continu en V (apaisement doux sur ~3,2s)
+    // - Clic : Gouttelette pure s'élargissant majestueusement sur ~3,8s avec décroissance
+    //          spatiale 1/sqrt(R) et aplanissement continu (ZÉRO coupure brusque / countdown)
+    // - Rendu : Eau 100% transparente au repos, reflets spéculaires purs et caustiques
     //           GARANTIE ABSOLUE : ZÉRO noircissement, ZÉRO grisaille sur le fond écru
     // ==========================================================================
     (function initPureWaterCanvas() {
@@ -2442,7 +2443,7 @@
         }
       `;
 
-      // Shader analytique haute précision : calcul continu par pixel à l'échelle de l'écran
+      // Fragment Shader haute définition : dissipation physique continue (zéro coupure brusque)
       const fsSource = `
         precision highp float;
         varying vec2 v_uv;
@@ -2452,7 +2453,7 @@
         #define MAX_DROPS 8
         uniform vec4 u_drops[MAX_DROPS]; // x, y, birthTime, strength
 
-        #define MAX_WAKE 36
+        #define MAX_WAKE 56
         uniform vec4 u_wake[MAX_WAKE]; // x, y, birthTime, speed
 
         void main() {
@@ -2461,29 +2462,35 @@
           float totalH = 0.0;
           vec2 grad = vec2(0.0);
 
-          // 1. SILLAGE D'ÉTRAVE EN V AU SURVOL (Enveloppe d'interférence hydrodynamique de Kelvin)
+          // 1. SILLAGE D'ÉTRAVE EN V AU SURVOL (3.2s de dissipation progressive & noble)
           for (int i = 0; i < MAX_WAKE; i++) {
             vec4 w = u_wake[i];
             float age = u_time - w.z;
-            if (age > 0.0 && age < 1.6) {
+            if (age > 0.0 && age < 3.2) {
               vec2 diff = screenPos - w.xy;
               float dist = length(diff);
               if (dist > 0.5) {
                 vec2 dir = diff / dist;
                 
-                // Onde d'étrave s'écartant latéralement
-                float waveR = age * 110.0;
+                // Onde d'étrave transversale s'écartant latéralement
+                float waveR = age * 95.0;
                 float dR = dist - waveR;
                 
-                // Profil gaussien doux de la crête de vague
-                float sigma = 16.0 + age * 10.0;
+                // Dispersion spatiale : la crête s'élargit et s'adoucit avec le temps
+                float sigma = 15.0 + age * 12.0;
                 float env = exp(-(dR * dR) / (2.0 * sigma * sigma));
                 
-                // Amortissement naturel noble et fluide
-                float decay = exp(-age * 2.4) * min(1.2, w.w * 0.9);
+                // Amortissement visqueux fluide naturel
+                float damping = exp(-age * 1.35);
                 
-                float k = 0.17;
-                float amp = 0.40 * env * decay;
+                // Atténuation progressive avec la distance
+                float dispersion = 1.0 / sqrt(1.0 + dist * 0.006);
+                
+                // Fenêtre C1 hermitienne sans rupture abrupte
+                float window = smoothstep(3.2, 2.0, age);
+                
+                float k = 0.16;
+                float amp = 0.45 * env * damping * dispersion * window * min(1.2, w.w * 0.9);
                 
                 totalH += amp * cos(k * dR);
                 grad += dir * amp * (-k * sin(k * dR) - (dR / (sigma * sigma)) * cos(k * dR));
@@ -2491,24 +2498,35 @@
             }
           }
 
-          // 2. ONDES CIRCULAIRES PURES AU CLIC (Gouttelettes d'eau pure)
+          // 2. ONDES CIRCULAIRES AU CLIC (3.8s d'élargissement majestueux et aplanissement)
           for (int j = 0; j < MAX_DROPS; j++) {
             vec4 d = u_drops[j];
             float age = u_time - d.z;
-            if (age > 0.0 && age < 2.4) {
+            if (age > 0.0 && age < 3.8) {
               vec2 diff = screenPos - d.xy;
               float dist = length(diff);
               if (dist > 0.5) {
                 vec2 dir = diff / dist;
-                float waveR = age * 145.0;
+                
+                // Vitesse d'expansion naturelle d'une onde d'eau
+                float waveR = age * 135.0;
                 float dR = dist - waveR;
                 
-                float sigma = 20.0 + age * 12.0;
+                // La crête de l'onde s'élargit au fur et à mesure qu'elle voyage
+                float sigma = 18.0 + age * 11.0;
                 float env = exp(-(dR * dR) / (2.0 * sigma * sigma));
-                float decay = exp(-age * 1.5) * d.w;
                 
-                float k = 0.15;
-                float amp = 0.60 * env * decay;
+                // Amortissement visqueux continu
+                float damping = exp(-age * 1.05);
+                
+                // Atténuation d'énergie circulaire 1/sqrt(R)
+                float dispersion = 1.0 / sqrt(1.0 + waveR * 0.008);
+                
+                // Fenêtre de transition C1 ultra-douce (zéro compte à rebours brusque)
+                float window = smoothstep(3.8, 2.5, age);
+                
+                float k = 0.14;
+                float amp = 0.65 * env * damping * dispersion * window * d.w;
                 
                 totalH += amp * cos(k * dR);
                 grad += dir * amp * (-k * sin(k * dR) - (dR / (sigma * sigma)) * cos(k * dR));
@@ -2530,7 +2548,7 @@
           vec3 eye = vec3(0.0, 0.0, 1.0);
           vec3 halfVec = normalize(light + eye);
 
-          // Reflet spéculaire pur étincelant sur les crêtes de l'eau
+          // Reflet spéculaire étincelant sur les crêtes de l'eau
           float spec = pow(max(0.0, dot(normal, halfVec)), 26.0);
 
           // Caustique de concentration lumineuse
@@ -2538,7 +2556,6 @@
           float caustic = crest * slope * 2.2;
 
           // Rendu eau pure : éclats de lumière cristalline
-          // AUCUNE SOUSTRACTION SOMBRE : le fond #FAF8F5 reste immaculé
           vec3 specColor = vec3(1.0, 1.0, 1.0) * spec * 2.4;
           vec3 waterSheen = vec3(0.92, 0.96, 1.0) * (caustic * 1.1 + slope * 0.14);
           vec3 amberGlint = vec3(0.96, 0.68, 0.36) * (spec * 0.20 + caustic * 0.16);
@@ -2595,8 +2612,8 @@
         dropIndex++;
       }
 
-      // Données Sillage
-      const MAX_WAKE = 36;
+      // Données Sillage (56 points pour 3.2s de mémoire continue)
+      const MAX_WAKE = 56;
       const wakeData = new Float32Array(MAX_WAKE * 4);
       let wakeIndex = 0;
       let lastWakeX = 0, lastWakeY = 0, lastWakeTime = 0;
@@ -2637,8 +2654,8 @@
         lastWakeTime = performance.now();
       }, { capture: true, passive: true });
 
-      // Gouttelette spontanée apaisante toutes les 10s
-      let nextSpontaneous = performance.now() + 2500;
+      // Gouttelette d'eau spontanée zen toutes les 12s
+      let nextSpontaneous = performance.now() + 3000;
 
       gl.enable(gl.BLEND);
       gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
@@ -2649,10 +2666,9 @@
 
         if (now > nextSpontaneous) {
           addDrop(width * (0.25 + Math.random() * 0.5), height * (0.25 + Math.random() * 0.5), 0.95);
-          nextSpontaneous = now + 9000 + Math.random() * 5000;
+          nextSpontaneous = now + 10000 + Math.random() * 6000;
         }
 
-        // Effacement complet à chaque frame : transparence absolue garantie
         gl.clearColor(0.0, 0.0, 0.0, 0.0);
         gl.clear(gl.COLOR_BUFFER_BIT);
 
