@@ -2401,11 +2401,15 @@
     //           Conforme aux spécifications WebGL strictes (zéro alerte console / driver)
     // ==========================================================================
     (function initPureWaterCanvas() {
-      const canvas = document.getElementById('ambient-canvas');
-      if (!canvas) return;
+      /** @type {HTMLCanvasElement} */
+      const canvas = /** @type {HTMLCanvasElement} */ (document.getElementById('ambient-canvas'));
+      if (!(canvas instanceof HTMLCanvasElement)) return;
 
-      const gl = canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: true }) ||
-                 canvas.getContext('experimental-webgl', { alpha: true, premultipliedAlpha: true, antialias: true });
+      /** @type {WebGLRenderingContext | null} */
+      const gl = /** @type {WebGLRenderingContext | null} */ (
+        canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: true }) ||
+        canvas.getContext('experimental-webgl', { alpha: true, premultipliedAlpha: true, antialias: true })
+      );
 
       if (!gl) return;
 
