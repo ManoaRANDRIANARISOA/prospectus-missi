@@ -2398,6 +2398,7 @@
     //          spatiale 1/sqrt(R) et aplanissement continu (ZÉRO coupure brusque / countdown)
     // - Rendu : Eau 100% transparente au repos, reflets spéculaires purs et caustiques
     //           GARANTIE ABSOLUE : ZÉRO noircissement, ZÉRO grisaille sur le fond écru
+    //           Conforme aux spécifications WebGL strictes (zéro alerte console / driver)
     // ==========================================================================
     (function initPureWaterCanvas() {
       const canvas = document.getElementById('ambient-canvas');
@@ -2407,6 +2408,8 @@
                  canvas.getContext('experimental-webgl', { alpha: true, premultipliedAlpha: true, antialias: true });
 
       if (!gl) return;
+
+      canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); }, false);
 
       let width = window.innerWidth;
       let height = window.innerHeight;
@@ -2443,17 +2446,18 @@
         }
       `;
 
-      // Fragment Shader haute définition : dissipation physique continue (zéro coupure brusque)
+      // Fragment Shader haute définition : dissipation physique continue
+      // Vecteurs d'uniforms optimisés (44 vecteurs <= limite matérielle stricte de 64)
       const fsSource = `
         precision highp float;
         varying vec2 v_uv;
         uniform vec2 u_resolution;
         uniform float u_time;
 
-        #define MAX_DROPS 8
+        #define MAX_DROPS 6
         uniform vec4 u_drops[MAX_DROPS]; // x, y, birthTime, strength
 
-        #define MAX_WAKE 56
+        #define MAX_WAKE 36
         uniform vec4 u_wake[MAX_WAKE]; // x, y, birthTime, speed
 
         void main() {
@@ -2590,8 +2594,9 @@
 
       const uResolution = gl.getUniformLocation(program, 'u_resolution');
       const uTime = gl.getUniformLocation(program, 'u_time');
-      const uDropsLoc = gl.getUniformLocation(program, 'u_drops');
-      const uWakeLoc = gl.getUniformLocation(program, 'u_wake');
+      // Conforme à la spécification WebGL : les tableaux de uniforms se requêtent avec [0]
+      const uDropsLoc = gl.getUniformLocation(program, 'u_drops[0]');
+      const uWakeLoc = gl.getUniformLocation(program, 'u_wake[0]');
 
       const aPos = gl.getAttribLocation(program, 'a_pos');
       gl.enableVertexAttribArray(aPos);
@@ -2599,21 +2604,22 @@
       gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
 
       // Données Clics
-      const MAX_DROPS = 8;
+      const MAX_DROPS = 6;
       const dropsData = new Float32Array(MAX_DROPS * 4);
       let dropIndex = 0;
 
-      function addDrop(x, y, strength = 1.0) {
+      function addDrop(x, y, strength) {
+        const str = strength !== undefined ? strength : 1.0;
         const idx = dropIndex % MAX_DROPS;
         dropsData[idx * 4 + 0] = x * dpr;
         dropsData[idx * 4 + 1] = (height - y) * dpr;
         dropsData[idx * 4 + 2] = performance.now() / 1000.0;
-        dropsData[idx * 4 + 3] = strength;
+        dropsData[idx * 4 + 3] = str;
         dropIndex++;
       }
 
-      // Données Sillage (56 points pour 3.2s de mémoire continue)
-      const MAX_WAKE = 56;
+      // Données Sillage (36 points pour 3.2s de mémoire continue haute performance)
+      const MAX_WAKE = 36;
       const wakeData = new Float32Array(MAX_WAKE * 4);
       let wakeIndex = 0;
       let lastWakeX = 0, lastWakeY = 0, lastWakeTime = 0;
@@ -2638,7 +2644,7 @@
 
         const dt = Math.max(8, Math.min(60, now - lastWakeTime));
         const dist = Math.hypot(e.clientX - lastWakeX, e.clientY - lastWakeY);
-        if (dist > 10) {
+        if (dist > 14) {
           const speed = Math.min(dist / dt, 2.5);
           addWakePoint(e.clientX, e.clientY, speed);
           lastWakeX = e.clientX;
@@ -2675,8 +2681,8 @@
         gl.useProgram(program);
         gl.uniform2f(uResolution, canvas.width, canvas.height);
         gl.uniform1f(uTime, tSec);
-        gl.uniform4fv(uDropsLoc, dropsData);
-        gl.uniform4fv(uWakeLoc, wakeData);
+        if (uDropsLoc) gl.uniform4fv(uDropsLoc, dropsData);
+        if (uWakeLoc) gl.uniform4fv(uWakeLoc, wakeData);
 
         gl.drawArrays(gl.TRIANGLES, 0, 6);
 
