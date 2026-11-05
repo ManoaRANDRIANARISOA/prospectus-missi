@@ -560,55 +560,89 @@
       line-height: 1.6;
     }
 
-    /* SÉLECTEUR D'ONGLETS SANS EMOJIS, 100% SVG VECTORIEL */
-    .tabs-nav-bar {
+    /* SÉLECTEUR D'ONGLETS SANS EMOJIS, 100% SVG VECTORIEL — STYLE PILL HAUTE PRÉCISION */
+    .tabs-nav-wrapper {
       display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 6px;
-      flex-wrap: wrap;
-      background: var(--surface-warm);
-      padding: 5px;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-warm);
-      max-width: 940px;
+      width: 100%;
       margin: 0 auto 2.5rem;
+    }
+
+    .tabs-nav-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      flex-wrap: nowrap;
+      background: var(--surface-warm);
+      padding: 4px;
+      border-radius: 9999px;
+      border: 1px solid var(--border-warm);
+      box-shadow: inset 0 1px 2px rgba(28, 25, 23, 0.04), 0 2px 8px rgba(28, 25, 23, 0.03);
     }
 
     .tab-btn {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 0.6rem 1.05rem;
-      border-radius: var(--radius-md);
+      gap: 6px;
+      padding: 0.52rem 0.95rem;
+      border-radius: 9999px;
       font-family: var(--font-sans);
-      font-size: 0.84rem;
+      font-size: 0.81rem;
       font-weight: 700;
       color: var(--text-muted);
       background: transparent;
-      border: none;
+      border: 1px solid transparent;
       cursor: pointer;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       white-space: nowrap;
+      flex-shrink: 0;
+      line-height: 1.2;
     }
 
     .tab-btn svg {
-      width: 15px;
-      height: 15px;
-      stroke-width: 2;
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.1;
       flex-shrink: 0;
     }
 
     .tab-btn:hover {
       color: var(--text);
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.65);
     }
 
     .tab-btn.active {
       background: var(--surface);
       color: var(--brand-copper-dark);
-      box-shadow: 0 2px 8px rgba(28, 25, 23, 0.08);
+      box-shadow: 0 2px 8px rgba(28, 25, 23, 0.08), 0 1px 2px rgba(28, 25, 23, 0.04);
       border: 1px solid var(--border-subtle);
+    }
+
+    @media (max-width: 940px) {
+      .tabs-nav-wrapper {
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 0.25rem 0.5rem 0.5rem;
+        margin-bottom: 2rem;
+      }
+      .tabs-nav-wrapper::-webkit-scrollbar {
+        display: none;
+      }
+      .tabs-nav-bar {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .tabs-nav-bar {
+        margin: 0;
+      }
+      .tab-btn {
+        padding: 0.46rem 0.82rem;
+        font-size: 0.77rem;
+      }
     }
 
     .tab-panel {
@@ -1663,28 +1697,30 @@
           </p>
         </div>
 
-        <!-- SÉLECTEUR D'ONGLETS 100% SVG -->
-        <div class="tabs-nav-bar" role="tablist">
-          <button class="tab-btn active" data-tab="tab-education" onclick="switchTab('tab-education')" role="tab" aria-selected="true">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
-            Éducation &amp; Scolarité
-          </button>
-          <button class="tab-btn" data-tab="tab-hotellerie" onclick="switchTab('tab-hotellerie')" role="tab" aria-selected="false">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-            Hôtellerie &amp; Bar-Resto
-          </button>
-          <button class="tab-btn" data-tab="tab-entreprises" onclick="switchTab('tab-entreprises')" role="tab" aria-selected="false">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            Entreprises &amp; ERP
-          </button>
-          <button class="tab-btn" data-tab="tab-tourisme" onclick="switchTab('tab-tourisme')" role="tab" aria-selected="false">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-            Tourisme &amp; Agences
-          </button>
-          <button class="tab-btn" data-tab="tab-prestations" onclick="switchTab('tab-prestations')" role="tab" aria-selected="false">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            Réseau &amp; Sur-Mesure
-          </button>
+        <!-- SÉLECTEUR D'ONGLETS 100% SVG — STYLE PILL HAUTE PRÉCISION -->
+        <div class="tabs-nav-wrapper">
+          <div class="tabs-nav-bar" role="tablist">
+            <button class="tab-btn active" data-tab="tab-education" onclick="switchTab('tab-education')" role="tab" aria-selected="true">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+              Éducation &amp; Scolarité
+            </button>
+            <button class="tab-btn" data-tab="tab-hotellerie" onclick="switchTab('tab-hotellerie')" role="tab" aria-selected="false">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              Hôtellerie &amp; Bar-Resto
+            </button>
+            <button class="tab-btn" data-tab="tab-entreprises" onclick="switchTab('tab-entreprises')" role="tab" aria-selected="false">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              Entreprises &amp; ERP
+            </button>
+            <button class="tab-btn" data-tab="tab-tourisme" onclick="switchTab('tab-tourisme')" role="tab" aria-selected="false">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+              Tourisme &amp; Agences
+            </button>
+            <button class="tab-btn" data-tab="tab-prestations" onclick="switchTab('tab-prestations')" role="tab" aria-selected="false">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              Réseau &amp; Sur-Mesure
+            </button>
+          </div>
         </div>
 
         <!-- ====================================================================
