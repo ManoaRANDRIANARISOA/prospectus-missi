@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npx serve public -p 5000",
     "dev": "npx serve public -p 5000",
-    "deploy": "firebase deploy --only hosting",
-    "deploy:firebase": "firebase deploy --only hosting",
+    "deploy": "npx -y firebase-tools deploy --only hosting",
+    "deploy:firebase": "npx -y firebase-tools deploy --only hosting",
     "deploy:supabase": "node scripts/deploy-supabase.mjs"
   },
   "keywords": [

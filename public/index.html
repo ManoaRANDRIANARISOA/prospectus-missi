@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Missi Innovation | Entreprise d'Ingénierie Logicielle & Progiciels Métiers Madagascar</title>
+  <title>Missi Innovation | Ingénierie Logicielle, Infogérance & Transformation Digitale</title>
 
   <!-- RÉFÉRENCEMENT NATUREL (SEO), AIO & GÉOLOCALISATION -->
-  <meta name="description" content="Missi Innovation est une société d'ingénierie logicielle et éditeur de progiciels métiers à Madagascar. Solutions 100% hors-ligne (JIRAMA Proof) pour l'Éducation, l'Hôtellerie, les Entreprises et le Tourisme. Sécurité réseau et restriction d'accès.">
-  <meta name="keywords" content="esn madagascar, prestataire informatique madagascar, developpement logiciel sur mesure madagascar, societe informatique antananarivo, securite reseau madagascar, erp madagascar, logiciel ecole madagascar, logiciel hotel madagascar, pms hotelier nosy be, lms scolaire tana, missi innovation">
+  <meta name="description" content="Missi Innovation est une entreprise d'ingénierie logicielle, prestataire informatique 360° et éditeur de solutions haute résilience. Maintenance de parcs informatiques, accompagnement au passage au digital, développement sur-mesure (local & offshore) et progiciels métiers autonomes hors-ligne.">
+  <meta name="keywords" content="esn madagascar, prestataire informatique madagascar, infogerance tma madagascar, maintenance informatique antananarivo, transformation digitale madagascar, developpement offshore madagascar, developpement logiciel sur mesure, societe informatique antananarivo, securite reseau entreprise, erp madagascar, logiciel ecole madagascar, pms hotelier nosy be, missi innovation">
   <meta name="author" content="Missi Innovation Madagascar">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://missi-innovation.web.app/">
@@ -1551,6 +1551,58 @@
         margin: 1.25rem 0 2rem;
       }
     }
+
+    /* ==========================================================================
+       SÉLECTEUR DE LANGUE MULTILINGUE (FR / EN / MG)
+       ========================================================================== */
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: var(--surface-warm);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 2px;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.22rem 0.52rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+
+    .lang-btn:hover {
+      color: var(--text);
+    }
+
+    .lang-btn.active {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      box-shadow: 0 1px 4px rgba(28, 25, 23, 0.18);
+    }
+
+    @media (max-width: 640px) {
+      .nav-actions .btn-secondary {
+        display: none !important;
+      }
+      .brand-tagline {
+        display: none !important;
+      }
+      .lang-btn {
+        padding: 0.2rem 0.42rem;
+        font-size: 0.68rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1571,21 +1623,28 @@
           <div class="brand-name">
             MISSI <span class="brand-name-accent">INNOVATION</span>
           </div>
-          <div class="brand-tagline">Ingénierie Logicielle &bull; Madagascar</div>
+          <div class="brand-tagline" data-i18n-html="brand_tagline">Ingénierie Logicielle &bull; Solutions Haute Résilience</div>
         </div>
       </a>
 
       <nav aria-label="Navigation principale">
         <ul class="nav-menu">
-          <li><a href="#solutions">Progiciels</a></li>
-          <li><a href="#solutions">Clients &amp; Références</a></li>
-          <li><a href="#garanties">Garanties &amp; FAQ</a></li>
-          <li><a href="configurateur.html">Configurateur</a></li>
+          <li><a href="#solutions" data-i18n="nav_suites">Progiciels</a></li>
+          <li><a href="#tab-prestations" onclick="switchTab('tab-prestations')" data-i18n="nav_services">Services IT &amp; Maintenance</a></li>
+          <li><a href="#garanties" data-i18n="nav_garanties">Garanties &amp; FAQ</a></li>
+          <li><a href="configurateur.html" data-i18n="nav_configurateur">Configurateur</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <a href="configurateur.html" class="btn btn-secondary" title="Estimer votre devis en ligne">
+        <!-- SÉLECTEUR DE CONTEXTE & LANGUE (MG LOCAL / FR INT / EN INT) -->
+        <div class="lang-switcher" role="group" aria-label="Choix du marché & de la langue">
+          <button type="button" class="lang-btn active" data-lang="mg" onclick="setLanguage('mg')" title="Madagascar : Solutions & Tarifs Locaux (Ariary, JIRAMA Proof)">🇲🇬 MG</button>
+          <button type="button" class="lang-btn" data-lang="fr" onclick="setLanguage('fr')" title="International Francophone : Pôle Offshore & Solutions Haute Résilience">FR</button>
+          <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')" title="Global International : Offshore Engineering & Managed IT">EN</button>
+        </div>
+
+        <a href="configurateur.html" class="btn btn-secondary" title="Estimer votre devis en ligne" data-i18n="nav_quote">
           🛠️ Devis Sur-Mesure
         </a>
         <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20une%20démonstration%20de%20vos%20solutions." target="_blank" rel="noopener" class="btn btn-whatsapp" title="Contact WhatsApp Direct (+261 34 71 517 89)">
@@ -1602,35 +1661,35 @@
     <section class="hero">
       <div class="container">
         
-        <div class="hero-badge-pill">
+        <div class="hero-badge-pill" data-i18n-html="hero_badge">
           <span class="pulsing-dot"></span>
-          Société d'Ingénierie Logicielle &bull; Éditeur de Progiciels Métiers
+          Ingénierie Logicielle &bull; Infogérance &amp; Transformation Digitale
         </div>
 
-        <h1 class="hero-title">
-          Des progiciels de haute précision, <span class="copper-word">taillés pour la réalité</span> du terrain malagasy.
+        <h1 class="hero-title" data-i18n-html="hero_title">
+          Ingénierie logicielle &amp; transformation digitale : l'excellence technologique, <span class="copper-word">taillée pour les réalités de terrain</span> les plus exigeantes.
         </h1>
 
         <!-- PARAGRAPHE COURT, AIMANTANT & PERCUTANT -->
-        <p class="hero-desc">
-          Systèmes de gestion tout-terrain : <strong>100% opérationnels hors-ligne</strong> (résilience JIRAMA), scellés conformes <strong>NIF/STAT</strong> et sans abonnement cloud forcé. Déployés clés en main sous 48h à Antananarivo et en provinces.
+        <p class="hero-desc" data-i18n-html="hero_desc">
+          Partenaire informatique 360° : développement sur-mesure (international &amp; local), maintenance continue de parc, infogérance et progiciels métiers autonomes (<strong>100% opérationnels hors-ligne</strong>, résilience délestages). Du passage au digital jusqu'au support long terme.
         </p>
 
         <div class="hero-actions">
-          <a href="#solutions" class="btn btn-copper" style="padding: 0.72rem 1.4rem; font-size: 0.9rem;">
+          <a href="#solutions" class="btn btn-copper" style="padding: 0.72rem 1.4rem; font-size: 0.9rem;" data-i18n="hero_btn_explore">
             Explorer les Progiciels Métiers ↓
           </a>
-          <a href="configurateur.html" class="btn btn-secondary" style="padding: 0.72rem 1.3rem; font-size: 0.9rem;">
-            🛠️ Devis Sur-Mesure
+          <a href="#tab-prestations" onclick="switchTab('tab-prestations')" class="btn btn-secondary" style="padding: 0.72rem 1.3rem; font-size: 0.9rem;" data-i18n="hero_btn_quote">
+            🛠️ Services IT &amp; Devis
           </a>
-          <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20échanger%20avec%20un%20ingénieur%20technique." target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.72rem 1.2rem; font-size: 0.9rem;">
+          <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20échanger%20avec%20un%20ingénieur%20technique." target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.72rem 1.2rem; font-size: 0.9rem;" data-i18n="hero_btn_engineer">
             💬 Échanger avec un Ingénieur
           </a>
         </div>
 
         <!-- INVITATION SCROLL : CASCADE D'EAU FLUIDE DEPUIS LE MILIEU HAUT VERS LE BAS -->
         <div class="hero-discover-row">
-          <a href="#solutions" class="discover-cascade-pill" title="Découvrir les suites logicielles spécialisées">
+          <a href="#solutions" class="discover-cascade-pill" title="Découvrir les suites logicielles et services IT">
             <div class="stream-half-left">
               <div class="water-stream-left"></div>
             </div>
@@ -1638,7 +1697,7 @@
               <div class="water-stream-right"></div>
             </div>
             <span class="discover-inner-clean">
-              <span>Découvrir les Progiciels Métiers</span>
+              <span data-i18n="hero_discover">Découvrir les Progiciels &amp; Services IT</span>
               <span class="discover-arrow-down">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M6 9l6 6 6-6"/>
@@ -1653,30 +1712,30 @@
           <div class="stat-card">
             <div class="stat-header">
               <svg width="15" height="15" fill="none" stroke="var(--status-emerald)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-              100% Hors-Ligne
+              <span data-i18n="stat1_header">100% Hors-Ligne &amp; Résilience</span>
             </div>
-            <div class="stat-desc">Moteur SQLite local WAL. Encaissement et impression sans Internet.</div>
+            <div class="stat-desc" data-i18n="stat1_desc">Moteur SQLite local WAL. Encaissements et opérations sans coupure réseau ni cloud forcé.</div>
           </div>
           <div class="stat-card">
             <div class="stat-header">
-              <svg width="15" height="15" fill="none" stroke="var(--brand-copper)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              Zéro Écart Caisse
+              <svg width="15" height="15" fill="none" stroke="var(--brand-copper)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span data-i18n="stat2_header">Prestataire IT 360° &amp; Maintenance</span>
             </div>
-            <div class="stat-desc">Billetage physique de 20 000 à 100 Ar scellé par Ticket Z irréversible.</div>
+            <div class="stat-desc" data-i18n="stat2_desc">Infogérance de parc, support continu, maintenance logicielle et transition numérique.</div>
           </div>
           <div class="stat-card">
             <div class="stat-header">
-              <svg width="15" height="15" fill="none" stroke="var(--text-muted)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-              Licence ou Mensuel
+              <svg width="15" height="15" fill="none" stroke="var(--text-muted)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span data-i18n="stat3_header">Excellence &amp; Standard Mondial</span>
             </div>
-            <div class="stat-desc">Liberté d'acquisition : sans rente mensuelle logicielle obligatoire.</div>
+            <div class="stat-desc" data-i18n="stat3_desc">Projets sur-mesure web, mobile &amp; cloud aux standards internationaux d'ingénierie.</div>
           </div>
           <div class="stat-card">
             <div class="stat-header">
               <svg width="15" height="15" fill="none" stroke="var(--status-emerald)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              Déploiement 48h
+              <span data-i18n="stat4_header">Déploiement Clé en Main &amp; SLA</span>
             </div>
-            <div class="stat-desc">Installation technique réseau, paramétrage légal et formation sur site.</div>
+            <div class="stat-desc" data-i18n="stat4_desc">Installation sur site sous 48h, formation ou télémaintenance internationale réactive.</div>
           </div>
         </div>
 
@@ -1690,10 +1749,10 @@
       <div class="container">
         
         <div class="section-header-center">
-          <span class="sec-kicker">SUITES LOGICIELLES MÉTIERS SPÉCIALISÉES</span>
-          <h2 class="sec-title">Une solution d'ingénierie taillée pour chaque secteur</h2>
-          <p class="sec-desc">
-            Sélectionnez votre domaine d'activité pour découvrir l'architecture logicielle, les captures d'écrans réelles et les formules de déploiement en Ariary.
+          <span class="sec-kicker" data-i18n="hub_kicker">SUITES LOGICIELLES MÉTIERS &amp; PRESTATIONS INFORMATIQUES 360°</span>
+          <h2 class="sec-title" data-i18n="hub_title">Une expertise technologique pour chaque défi opérationnel</h2>
+          <p class="sec-desc" data-i18n="hub_desc">
+            Sélectionnez votre domaine d'activité pour découvrir nos progiciels autonomes ou notre offre globale de prestations informatiques (maintenance, passage au digital, cybersécurité).
           </p>
         </div>
 
@@ -1702,23 +1761,23 @@
           <div class="tabs-nav-bar" role="tablist">
             <button class="tab-btn active" data-tab="tab-education" onclick="switchTab('tab-education')" role="tab" aria-selected="true">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
-              Éducation &amp; Scolarité
+              <span data-i18n="tab_edu">Éducation &amp; Scolarité</span>
             </button>
             <button class="tab-btn" data-tab="tab-hotellerie" onclick="switchTab('tab-hotellerie')" role="tab" aria-selected="false">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-              Hôtellerie &amp; Bar-Resto
+              <span data-i18n="tab_hotel">Hôtellerie &amp; Bar-Resto</span>
             </button>
             <button class="tab-btn" data-tab="tab-entreprises" onclick="switchTab('tab-entreprises')" role="tab" aria-selected="false">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              Entreprises &amp; ERP
+              <span data-i18n="tab_erp">Entreprises &amp; ERP</span>
             </button>
             <button class="tab-btn" data-tab="tab-tourisme" onclick="switchTab('tab-tourisme')" role="tab" aria-selected="false">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-              Tourisme &amp; Agences
+              <span data-i18n="tab_tour">Tourisme &amp; Agences</span>
             </button>
             <button class="tab-btn" data-tab="tab-prestations" onclick="switchTab('tab-prestations')" role="tab" aria-selected="false">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-              Réseau &amp; Sur-Mesure
+              <span data-i18n="tab_services">Services IT, Maintenance &amp; Réseau</span>
             </button>
           </div>
         </div>
@@ -1987,44 +2046,44 @@
         </div>
 
         <!-- ====================================================================
-             PANEL 5 : PRESTATIONS RÉSEAU & SUR-MESURE (VRAI VISUEL ROUTEUR BOX FIBRE)
+             PANEL 5 : SERVICES IT 360°, MAINTENANCE & TRANSFORMATION DIGITALE
              ==================================================================== -->
         <div id="tab-prestations" class="tab-panel" role="tabpanel">
           <div class="showcase-card">
             
             <div class="showcase-content">
-              <span class="showcase-tagline" style="color: #B91C1C; background: #FEF2F2; border-color: #FECACA;">✦ Cybersécurité & Ingénierie Réseau</span>
-              <h3 class="showcase-title">Sécurisation Box Fibre, Filtrage MAC & Restriction Réseau</h3>
-              <p class="showcase-desc">
-                Éliminez jusqu'à 80% des pertes de productivité et de bande passante dans votre entreprise. Verrouillage hermétique des réseaux sociaux distrayants et protection hermétique de votre connexion fibre optique.
+              <span class="showcase-tagline" style="color: #0369A1; background: #F0F9FF; border-color: #BAE6FD;" data-i18n="tab5_tagline">✦ Infogérance, Maintenance Continue &amp; Transformation Digitale</span>
+              <h3 class="showcase-title" data-i18n="tab5_title">Prestataire Informatique 360° — Maintenance, Passage au Digital &amp; Sur-Mesure</h3>
+              <p class="showcase-desc" data-i18n="tab5_desc">
+                Un interlocuteur unique pour l'ensemble de votre écosystème technologique. Nous prenons en charge la maintenance préventive et corrective de votre parc, propulsons votre transition numérique zéro-papier et concevons des logiciels sur-mesure pour les entreprises locales et internationales.
               </p>
 
               <ul class="features-checklist">
-                <li><span class="check-icon">✓</span> <strong>Blocage hermétique YouTube & Facebook :</strong> Verrouillage inviolable sur Google Chrome et Edge par registre système et GPO.</li>
-                <li><span class="check-icon">✓</span> <strong>Sécurisation Box Fibre (Yas / Orange / Telma) :</strong> Filtrage MAC strict anti-squat Wi-Fi avec script exclusif pour la direction.</li>
-                <li><span class="check-icon">✓</span> <strong>Câblage & Réseau Local d'Entreprise :</strong> Interconnexion sécurisée de vos postes de travail, imprimantes et serveurs locaux.</li>
-                <li><span class="check-icon">✓</span> <strong>Développement Applicatif Sur-Mesure :</strong> Création d'outils métiers, web apps et applications PWA adaptées à vos flux.</li>
+                <li><span class="check-icon">✓</span> <span data-i18n-html="tab5_feat1"><strong>Maintenance &amp; Infogérance de Parc (TMA) :</strong> Entretien préventif/curatif de vos PC et serveurs, sauvegardes automatiques chiffrées, support réactif garanti par contrat SLA.</span></li>
+                <li><span class="check-icon">✓</span> <span data-i18n-html="tab5_feat2"><strong>Passage au Digital &amp; Modernisation :</strong> Abandon des registres papier et tableurs dispersés, automatisation des flux métiers et tableaux de bord de pilotage.</span></li>
+                <li><span class="check-icon">✓</span> <span data-i18n-html="tab5_feat3"><strong>Développement Sur-Mesure &amp; Pôle Offshore :</strong> Conception d'applications Web, Mobiles PWA offline-first, API, connecteurs de paiement et renfort d'ingénierie internationale.</span></li>
+                <li><span class="check-icon">✓</span> <span data-i18n-html="tab5_feat4"><strong>Cybersécurité, Réseaux &amp; Restriction Box Fibre :</strong> Filtrage MAC anti-squat Wi-Fi sur box Yas/Orange/Telma, blocage hermétique des distractions (GPO Chrome/Edge) et câblage.</span></li>
               </ul>
 
               <div class="price-pill-banner">
                 <div class="price-label-wrap">
-                  <span class="price-sub">Pack Restriction & Sécurité Box</span>
-                  <span class="price-main">150 000 Ar <small style="font-size: 0.78rem; color: var(--text-soft);">/ intervention</small></span>
+                  <span class="price-sub" data-i18n="tab5_price_sub">Formules Sur-Mesure &amp; Contrats d'Infogérance</span>
+                  <span class="price-main" data-i18n-html="tab5_price_main">Dès 150 000 Ar <small style="font-size: 0.78rem; color: var(--text-soft);">/ intervention ou forfait</small></span>
                 </div>
-                <span class="price-badge-opt">Intervention sur site à Antananarivo</span>
+                <span class="price-badge-opt" data-i18n="tab5_price_opt">Intervention sur site à Antananarivo &amp; Télémaintenance internationale</span>
               </div>
 
               <div class="showcase-actions">
-                <a href="services/prestations-sur-mesure-et-securite.html" class="btn btn-copper">
-                  🛡️ Consulter le Dossier Technique A4
+                <a href="services/prestations-sur-mesure-et-securite.html" class="btn btn-copper" data-i18n="tab5_btn_catalog">
+                  🛡️ Catalogue Complet des Services IT
                 </a>
-                <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20un%20devis%20de%20sécurisation%20réseau%20ou%20prestation." target="_blank" rel="noopener" class="btn btn-whatsapp">
-                  💬 Devis Réseau Immédiat
+                <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20un%20contrat%20de%20maintenance%20ou%20un%20devis%20de%20prestation." target="_blank" rel="noopener" class="btn btn-whatsapp" data-i18n="tab5_btn_contact">
+                  💬 Échanger sur un Contrat de Maintenance
                 </a>
               </div>
             </div>
 
-            <!-- CADRE FENÊTRE VRAI VISUEL ROUTEUR & BOX FIBRE (CORRECTION POINT 6) -->
+            <!-- CADRE FENÊTRE VISUEL ROUTEUR & BOX FIBRE / SUPERVISION IT -->
             <div class="software-window">
               <div class="window-titlebar">
                 <div class="window-dots">
@@ -2033,17 +2092,17 @@
                   <span class="window-dot dot-green"></span>
                 </div>
                 <div class="window-title-text">
-                  <span>CYBERSECURITE // BOX FIBRE & ROUTEUR SECURISE</span>
+                  <span data-i18n="tab5_window_title">MISSI // INFOGÉRANCE, MAINTENANCE &amp; DÉVELOPPEMENT SUR-MESURE</span>
                 </div>
-                <span class="window-badge-stat">+80% PRODUCTIVITÉ</span>
+                <span class="window-badge-stat">SLA 99.9%</span>
               </div>
               <div class="window-viewport" style="background: #11100F;">
-                <img src="assets/img/box_fibre_securite.jpg" alt="Box Fibre et Routeur Réseau sécurisé Missi Innovation" loading="lazy" style="object-fit: cover;">
+                <img src="assets/img/box_fibre_securite.jpg" alt="Supervision réseau, maintenance informatique et infrastructure Missi Innovation" loading="lazy" style="object-fit: cover;">
                 <div class="callout-overlay-badge" style="bottom: 12px; left: 12px; background: rgba(16, 185, 129, 0.9);">
-                  <span>🔒 Filtrage MAC Actif &bull; Zéro Squat Wi-Fi</span>
+                  <span data-i18n="tab5_badge_bottom">🛠️ Maintenance &amp; Infogérance Continue</span>
                 </div>
                 <div class="callout-overlay-badge" style="top: 12px; right: 12px;">
-                  <span>🛡️ GPO Chrome & Edge Inviolable</span>
+                  <span data-i18n="tab5_badge_top">🚀 Transition Digitale &amp; Cloud Hybride</span>
                 </div>
               </div>
             </div>
@@ -2057,7 +2116,7 @@
         <div class="trust-ribbon-dark">
           <div class="trust-ribbon-header">
             <div class="trust-ribbon-kicker">
-              <span>✦</span> DÉPLOYÉ &amp; ÉPROUVÉ CHEZ NOS CLIENTS DE RÉFÉRENCE À MADAGASCAR <span>✦</span>
+              <span>✦</span> <span data-i18n="ribbon_kicker">DÉPLOYÉ &amp; ÉPROUVÉ CHEZ NOS CLIENTS DE RÉFÉRENCE</span> <span>✦</span>
             </div>
           </div>
 
@@ -2184,9 +2243,9 @@
       <div class="container">
         
         <div class="section-header-center">
-          <span class="sec-kicker">INGÉNIERIE SOUVERAINE &amp; QUESTIONS FRÉQUENTES</span>
-          <h2 class="sec-title">Transparence totale avant votre déploiement</h2>
-          <p class="sec-desc">
+          <span class="sec-kicker" data-i18n="guar_kicker">INGÉNIERIE SOUVERAINE &amp; QUESTIONS FRÉQUENTES</span>
+          <h2 class="sec-title" data-i18n="guar_title">Transparence totale avant votre déploiement</h2>
+          <p class="sec-desc" data-i18n="guar_desc">
             Nos engagements techniques fondamentaux d'un côté, et les réponses directes à vos questions de l'autre.
           </p>
         </div>
@@ -2198,34 +2257,34 @@
             
             <div class="guarantee-card">
               <div class="guarantee-tag-row">
-                <span>01 &bull; RÉSILIENCE OPÉRATIONNELLE</span>
+                <span data-i18n="guar1_tag">01 &bull; RÉSILIENCE OPÉRATIONNELLE</span>
                 <span style="color: var(--status-emerald);">✓ SQLite WAL</span>
               </div>
-              <h3 class="guarantee-title">Autonomie 100% Hors-Ligne (JIRAMA Proof)</h3>
-              <p class="guarantee-desc">
-                Contrairement aux SaaS cloud qui paralysent vos opérations dès que la fibre coupe ou que le délestage survient, nos progiciels intègrent un moteur local autonome. Encaissements, impressions et saisies continuent sans aucune interruption.
+              <h3 class="guarantee-title" data-i18n="guar1_title">Autonomie 100% Hors-Ligne (Field-Tested)</h3>
+              <p class="guarantee-desc" data-i18n="guar1_desc">
+                Contrairement aux SaaS cloud qui paralysent vos opérations dès que la fibre coupe ou que le délestage survient, nos progiciels intègrent un moteur local autonome SQLite WAL. Encaissements, impressions et saisies continuent sans aucune interruption.
               </p>
             </div>
 
             <div class="guarantee-card">
               <div class="guarantee-tag-row">
-                <span>02 &bull; MODÈLE ÉTHIQUE SANS PIÈGE</span>
+                <span data-i18n="guar2_tag">02 &bull; MODÈLE ÉTHIQUE SANS PIÈGE</span>
                 <span style="color: var(--brand-copper);">✓ Zéro Rente Captive</span>
               </div>
-              <h3 class="guarantee-title">Liberté d'Acquisition : Licence ou Mensuel</h3>
-              <p class="guarantee-desc">
+              <h3 class="guarantee-title" data-i18n="guar2_title">Liberté d'Acquisition : Licence ou Mensuel</h3>
+              <p class="guarantee-desc" data-i18n="guar2_desc">
                 Vous avez le choix absolu : soit un abonnement souple avec assistance continue, soit l'achat de la Licence Définitive perpétuelle. Vos données restent hébergées chez vous, sans frais cachés ni menace de blocage d'accès.
               </p>
             </div>
 
             <div class="guarantee-card">
               <div class="guarantee-tag-row">
-                <span>03 &bull; RIGUEUR LOCALE D'ÉLITE</span>
-                <span style="color: var(--status-emerald);">✓ DGI Madagascar</span>
+                <span data-i18n="guar3_tag">03 &bull; RIGUEUR LOCALE &amp; INTERNATIONALE</span>
+                <span style="color: var(--status-emerald);">✓ Multi-Devises &amp; DGI</span>
               </div>
-              <h3 class="guarantee-title">Conformité Fiscale & Billetage en Ariary</h3>
-              <p class="guarantee-desc">
-                Billetage physique scellé de 20 000 à 100 Ar, Ticket Z de clôture irréversible, conformité légale NIF/STAT et déclarations salariales CNaPS/IRSA. Conçu dès le premier jour pour les réalités administratives malagasy.
+              <h3 class="guarantee-title" data-i18n="guar3_title">Conformité Fiscale &amp; Multi-Devises (EUR/USD/MGA)</h3>
+              <p class="guarantee-desc" data-i18n="guar3_desc">
+                Billetage physique scellé, Ticket Z irréversible, conformité légale NIF/STAT et gestion multi-devises fluide pour les clients locaux comme internationaux.
               </p>
             </div>
 
@@ -2287,16 +2346,16 @@
     <div class="container cta-banner-wrap">
       <div class="cta-banner">
         <div class="cta-text-side">
-          <h2 class="cta-title">Modernisez vos opérations avec un partenaire d'ingénierie fiable.</h2>
-          <p class="cta-desc">
-            Simulez votre devis personnalisé en moins de 2 minutes avec notre configurateur interactif, ou convenez d'une démonstration sur site avec un ingénieur Missi Innovation.
+          <h2 class="cta-title" data-i18n="cta_title">Modernisez vos opérations avec un partenaire d'ingénierie fiable.</h2>
+          <p class="cta-desc" data-i18n="cta_desc">
+            Que vous cherchiez un prestataire pour maintenir votre parc informatique, réussir votre passage au digital ou concevoir un logiciel de haute précision, échangeons dès aujourd'hui.
           </p>
         </div>
         <div class="cta-buttons-side">
-          <a href="configurateur.html" class="btn btn-copper" style="padding: 0.82rem 1.55rem; font-size: 0.92rem;">
+          <a href="configurateur.html" class="btn btn-copper" style="padding: 0.82rem 1.55rem; font-size: 0.92rem;" data-i18n="cta_btn_config">
             🛠️ Lancer le Configurateur de Devis
           </a>
-          <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20convenir%20d'un%20rendez-vous%20ou%20d'une%20démonstration." target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 0.82rem 1.35rem; font-size: 0.92rem;">
+          <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20convenir%20d'un%20rendez-vous%20ou%20d'une%20démonstration." target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 0.82rem 1.35rem; font-size: 0.92rem;" data-i18n="cta_btn_wa">
             💬 WhatsApp Direct
           </a>
         </div>
@@ -2322,8 +2381,8 @@
               MISSI <span class="brand-name-accent">INNOVATION</span>
             </div>
           </div>
-          <p class="footer-desc">
-            Société d'ingénierie logicielle & éditeur de progiciels métiers de haute précision à Madagascar. Systèmes résilients 100% hors-ligne pour l'Éducation, l'Hôtellerie, les Entreprises et le Tourisme.
+          <p class="footer-desc" data-i18n-html="footer_desc">
+            Société d'ingénierie logicielle, prestataire informatique 360° &amp; éditeur de progiciels métiers de haute précision. Systèmes résilients 100% hors-ligne, maintenance de parcs informatiques et transformation digitale à Madagascar et à l'International.
           </p>
           <div style="font-size: 0.8rem; color: var(--text-muted);">
             📍 Antananarivo, Madagascar &bull; Déploiements sur tout le territoire national.
@@ -2385,6 +2444,270 @@
        SCRIPTS : ONGLET INTERACTIF & AMBIENT CURSOR GLOW (LÉGER & 60FPS)
        ========================================================================== -->
   <script>
+
+    // ==========================================================================
+    // MOTEUR D'EXPÉRIENCE MARCHÉ & INTERNATIONALISATION (MG LOCAL / FR INT / EN INT)
+    // ==========================================================================
+    window.MISSI_I18N = {
+      // ------------------------------------------------------------------------
+      // 1. MG : EXPÉRIENCE LOCALE MADAGASCAR (En Français, Réalités de Terrain, Ariary, JIRAMA)
+      // ------------------------------------------------------------------------
+      mg: {
+        page_title: "Missi Innovation Madagascar | Progiciels Métiers & Prestataire Informatique Terrain",
+        brand_tagline: "Ingénierie Logicielle &bull; Madagascar (100% Hors-Ligne)",
+        nav_suites: "Progiciels",
+        nav_services: "Services IT & Maintenance",
+        nav_garanties: "Garanties & FAQ",
+        nav_configurateur: "Configurateur",
+        nav_quote: "🛠️ Devis Sur-Mesure",
+        hero_badge: '<span class="pulsing-dot"></span> Société d\'Ingénierie Logicielle &bull; Éditeur de Progiciels Métiers Madagascar',
+        hero_title: 'Des progiciels de haute précision, <span class="copper-word">taillés pour la réalité</span> du terrain malagasy.',
+        hero_desc: 'Systèmes de gestion tout-terrain : <strong>100% opérationnels hors-ligne (résilience JIRAMA)</strong>, scellés conformes <strong>NIF/STAT</strong> et sans abonnement cloud forcé. Déployés clés en main sous 48h à Antananarivo et en provinces.',
+        hero_btn_explore: "Explorer les Progiciels Métiers ↓",
+        hero_btn_quote: "🛠️ Services Réseau & Devis",
+        hero_btn_engineer: "💬 Échanger avec un Ingénieur",
+        hero_discover: "Découvrir les Progiciels &amp; Services Locaux",
+        stat1_header: "100% Hors-Ligne (JIRAMA Proof)",
+        stat1_desc: "Moteur SQLite local WAL. Encaissements et impressions sans Internet ni coupures de courant.",
+        stat2_header: "Zéro Écart Caisse &amp; Billetage",
+        stat2_desc: "Billetage physique de 20 000 à 100 Ar scellé par Ticket Z de caisse non falsifiable.",
+        stat3_header: "Licence Définitive ou Mensuel",
+        stat3_desc: "Liberté d\'acquisition : achetez votre licence perpétuelle ou optez pour l\'abonnement souple.",
+        stat4_header: "Déploiement Sur Site 48h",
+        stat4_desc: "Installation technique réseau, paramétrage légal et formation sur site à Madagascar.",
+        hub_kicker: "SUITES LOGICIELLES MÉTIERS SPÉCIALISÉES MADAGASCAR",
+        hub_title: "Une solution d\'ingénierie taillée pour chaque secteur",
+        hub_desc: "Sélectionnez votre domaine d\'activité pour découvrir l\'architecture logicielle, les captures d\'écrans réelles et les formules de déploiement en Ariary.",
+        tab_edu: "Éducation &amp; Scolarité",
+        tab_hotel: "Hôtellerie &amp; Bar-Resto",
+        tab_erp: "Entreprises &amp; ERP",
+        tab_tour: "Tourisme &amp; Agences",
+        tab_services: "Sécurité Box &amp; Maintenance",
+        tab5_tagline: "✦ Cybersécurité, Restriction Réseau &amp; Maintenance Locale",
+        tab5_title: "Sécurisation Box Fibre, Filtrage MAC &amp; Maintenance de Parc",
+        tab5_desc: "Éliminez jusqu\'à 80% des pertes de productivité et de bande passante dans votre entreprise à Madagascar. Verrouillage hermétique des réseaux sociaux distrayants, sécurisation root de vos box Yas/Orange/Telma et maintenance de vos ordinateurs.",
+        tab5_feat1: "<strong>Maintenance &amp; Dépannage de Parc Informatique :</strong> Entretien préventif de vos PC et serveurs locaux, sauvegardes régulières et interventions rapides à Antananarivo.",
+        tab5_feat2: "<strong>Blocage hermétique YouTube &amp; Facebook :</strong> Verrouillage inviolable sur Google Chrome et Edge par registre système et stratégies de groupe (GPO).",
+        tab5_feat3: "<strong>Sécurisation Box Fibre (Yas / Orange / Telma) :</strong> Filtrage MAC strict anti-squat Wi-Fi avec script exclusif réservé à la direction.",
+        tab5_feat4: "<strong>Développement Applicatif Sur-Mesure :</strong> Création d\'outils métiers, web apps et applications PWA adaptées aux contraintes de connectivité locales.",
+        tab5_price_sub: "Pack Restriction &amp; Sécurité Box",
+        tab5_price_main: '150 000 Ar <small style="font-size: 0.78rem; color: var(--text-soft);">/ intervention sur site</small>',
+        tab5_price_opt: "Intervention rapide sur site à Antananarivo &amp; assistance provinces",
+        tab5_btn_catalog: "🛡️ Consulter le Dossier Technique A4",
+        tab5_btn_contact: "💬 Devis Réseau &amp; Maintenance Immédiat",
+        tab5_window_title: "CYBERSECURITE // BOX FIBRE &amp; ROUTEUR SECURISE",
+        tab5_badge_bottom: "🔒 Filtrage MAC Actif &bull; Zéro Squat Wi-Fi",
+        tab5_badge_top: "🛡️ GPO Chrome &amp; Edge Inviolable",
+        ribbon_kicker: "DÉPLOYÉ &amp; ÉPROUVÉ CHEZ NOS CLIENTS DE RÉFÉRENCE À MADAGASCAR",
+        guar_kicker: "INGÉNIERIE SOUVERAINE &amp; QUESTIONS FRÉQUENTES",
+        guar_title: "Transparence totale avant votre déploiement",
+        guar_desc: "Nos engagements techniques fondamentaux d\'un côté, et les réponses directes à vos questions de l\'autre.",
+        guar1_tag: "01 &bull; RÉSILIENCE OPÉRATIONNELLE",
+        guar1_title: "Autonomie 100% Hors-Ligne (JIRAMA Proof)",
+        guar1_desc: "Contrairement aux SaaS cloud qui paralysent vos opérations dès que la fibre coupe ou que le délestage survient, nos progiciels intègrent un moteur local autonome SQLite WAL. Encaissements, impressions et saisies continuent sans aucune interruption.",
+        guar2_tag: "02 &bull; MODÈLE ÉTHIQUE SANS PIÈGE",
+        guar2_title: "Liberté d\'Acquisition : Licence ou Mensuel",
+        guar2_desc: "Vous avez le choix absolu : soit un abonnement souple avec assistance continue, soit l\'achat de la Licence Définitive perpétuelle. Vos données restent hébergées chez vous, sans frais cachés ni menace de blocage d\'accès.",
+        guar3_tag: "03 &bull; RIGUEUR LOCALE D\'ÉLITE",
+        guar3_title: "Conformité Fiscale &amp; Billetage en Ariary",
+        guar3_desc: "Billetage physique scellé de 20 000 à 100 Ar, Ticket Z de clôture irréversible, conformité légale NIF/STAT et déclarations salariales CNaPS/IRSA.",
+        cta_title: "Modernisez vos opérations avec un partenaire d\'ingénierie fiable.",
+        cta_desc: "Simulez votre devis personnalisé en moins de 2 minutes avec notre configurateur interactif, ou convenez d\'une démonstration sur site avec un ingénieur Missi Innovation.",
+        cta_btn_config: "🛠️ Lancer le Configurateur de Devis",
+        cta_btn_wa: "💬 WhatsApp Direct (+261 34 71 517 89)",
+        footer_desc: "Société d\'ingénierie logicielle &amp; éditeur de progiciels métiers de haute précision à Madagascar. Systèmes résilients 100% hors-ligne pour l\'Éducation, l\'Hôtellerie, les Entreprises et le Tourisme."
+      },
+
+      // ------------------------------------------------------------------------
+      // 2. FR : EXPÉRIENCE INTERNATIONALE FRANCOPHONE (Europe, Océan Indien, Afrique)
+      // ------------------------------------------------------------------------
+      fr: {
+        page_title: "Missi Innovation | Ingénierie Logicielle, Infogérance & Transformation Digitale",
+        brand_tagline: "Ingénierie Logicielle &bull; Solutions Haute Résilience (International)",
+        nav_suites: "Progiciels Métiers",
+        nav_services: "Services IT & Infogérance",
+        nav_garanties: "Garanties & FAQ",
+        nav_configurateur: "Devis & Estimation",
+        nav_quote: "🛠️ Devis Sur-Mesure",
+        hero_badge: '<span class="pulsing-dot"></span> Ingénierie Logicielle &bull; Infogérance &amp; Pôle Offshore International',
+        hero_title: 'Ingénierie logicielle &amp; infogérance : l\'excellence technologique, <span class="copper-word">éprouvée sur les terrains les plus exigeants</span>.',
+        hero_desc: 'Votre partenaire informatique 360° : <strong>développement logiciel sur-mesure (forfait ou régie offshore)</strong>, maintenance continue de parc, infogérance et progiciels à <strong>haute tolérance aux pannes</strong> (architectures offline-first résilientes).',
+        hero_btn_explore: "Explorer les Progiciels Métiers ↓",
+        hero_btn_quote: "🛠️ Services IT &amp; Devis",
+        hero_btn_engineer: "💬 Échanger avec un Ingénieur",
+        hero_discover: "Découvrir nos Solutions &amp; Pôle Offshore",
+        stat1_header: "Haute Résilience &amp; Offline-First",
+        stat1_desc: "Moteur local SQLite WAL + synchro cloud. Zéro interruption de service même en cas de panne réseau critique.",
+        stat2_header: "Infogérance &amp; Maintenance TMA",
+        stat2_desc: "Prise en charge complète du parc, maintenance corrective/évolutive, sauvegardes chiffrées et support réactif.",
+        stat3_header: "Pôle Offshore &amp; Compétitivité",
+        stat3_desc: "Développeurs seniors francophones aux normes internationales (TypeScript, Node, Python, Cloud GCP/AWS).",
+        stat4_header: "SLA Garanti &amp; Télémaintenance",
+        stat4_desc: "Support réactif sous 24h-48h, télé-assistance sécurisée et reporting technique hebdomadaire transparent.",
+        hub_kicker: "SUITES LOGICIELLES MÉTIERS &amp; PRESTATIONS INFORMATIQUES 360°",
+        hub_title: "Une expertise technologique pour chaque défi opérationnel",
+        hub_desc: "Découvrez nos progiciels métiers résilients prêts à l\'emploi et notre offre globale de prestations informatiques (infogérance, passage au digital, développement sur-mesure).",
+        tab_edu: "Éducation &amp; Scolarité",
+        tab_hotel: "Hôtellerie &amp; Bar-Resto",
+        tab_erp: "Entreprises &amp; ERP",
+        tab_tour: "Tourisme &amp; Agences",
+        tab_services: "Services IT, Maintenance &amp; Cloud",
+        tab5_tagline: "✦ Infogérance, Maintenance Continue &amp; Transformation Digitale",
+        tab5_title: "Prestataire Informatique 360° — Maintenance, Cloud &amp; Dév Sur-Mesure",
+        tab5_desc: "Un interlocuteur unique pour l\'ensemble de votre écosystème technologique. Nous assurons la maintenance préventive et corrective de vos outils, menons votre transition numérique zéro-papier et réalisons vos développements logiciels en sous-traitance offshore ou régie agile.",
+        tab5_feat1: "<strong>Maintenance &amp; Infogérance de Parc (TMA) :</strong> Maintien en condition opérationnelle, dépannage express, sauvegardes automatiques chiffrées et suivi SLA rigoureux.",
+        tab5_feat2: "<strong>Accompagnement Passage au Digital :</strong> Dématérialisation zéro papier, automatisation des flux métiers et tableaux de bord de pilotage en direct.",
+        tab5_feat3: "<strong>Ingénierie Logicielle &amp; Pôle Offshore :</strong> Web apps, mobiles PWA offline-first, API, connecteurs de paiement (Stripe, PayPal) et renfort d\'ingénierie.",
+        tab5_feat4: "<strong>Cybersécurité, VPN &amp; Réseaux :</strong> Sécurisation des postes de travail, audit d\'étanchéité, interconnexion réseau et politique de restriction d\'accès.",
+        tab5_price_sub: "Contrats TMA &amp; Forfaits d\'Ingénierie",
+        tab5_price_main: 'Dès 35 € / heure <small style="font-size: 0.78rem; color: var(--text-soft);">ou forfait projet sur devis</small>',
+        tab5_price_opt: "Télémaintenance internationale réactive &amp; convention de service SLA",
+        tab5_btn_catalog: "🛡️ Dossier Complet des Services IT",
+        tab5_btn_contact: "💬 Échanger sur un Contrat de Maintenance / Projet",
+        tab5_window_title: "MISSI // INFOGÉRANCE, MAINTENANCE &amp; DÉVELOPPEMENT OFFSHORE",
+        tab5_badge_bottom: "🛠️ Maintenance Préventive &amp; Curative SLA",
+        tab5_badge_top: "🚀 Transition Digitale &amp; Cloud Hybride",
+        ribbon_kicker: "DÉPLOYÉ &amp; ÉPROUVÉ CHEZ NOS CLIENTS DE RÉFÉRENCE",
+        guar_kicker: "INGÉNIERIE SOUVERAINE &amp; QUESTIONS FRÉQUENTES",
+        guar_title: "Transparence totale avant votre collaboration",
+        guar_desc: "Nos engagements techniques fondamentaux d\'un côté, et les réponses directes à vos questions de l\'autre.",
+        guar1_tag: "01 &bull; RÉSILIENCE OPÉRATIONNELLE",
+        guar1_title: "Tolérance Absolue aux Pannes (Zero Downtime)",
+        guar1_desc: "Nos architectures logicielles intègrent un moteur local autonome SQLite WAL couplé à une synchronisation Cloud hybride. Vos opérations continuent sans interruption, même en cas de coupure réseau inattendue.",
+        guar2_tag: "02 &bull; MODÈLE ÉTHIQUE SANS PIÈGE",
+        guar2_title: "Transparence Budgétaire : Forfait, Régie ou Licence",
+        guar2_desc: "Vous avez le choix absolu : forfait clé en main, régie agile au sprint, ou achat de Licence Définitive perpétuelle. Zéro frais cachés, code propre et transférabilité assurée.",
+        guar3_tag: "03 &bull; STANDARDS EUROPÉENS",
+        guar3_title: "Multi-Devises (EUR/USD) &amp; Souveraineté des Données",
+        guar3_desc: "Facturation en devises internationales, conformité aux exigences de sécurité RGPD, et hébergement souverain de vos bases de données.",
+        cta_title: "Externalisez vos développements et sécurisez vos opérations IT.",
+        cta_desc: "Que vous cherchiez un prestataire pour maintenir vos systèmes ou une équipe d\'ingénieurs rigoureuse et rentable pour concevoir vos logiciels, échangeons dès aujourd\'hui.",
+        cta_btn_config: "🛠️ Lancer le Simulateur de Devis",
+        cta_btn_wa: "💬 WhatsApp Direct (+261 34 71 517 89)",
+        footer_desc: "Entreprise d\'ingénierie logicielle, prestataire informatique 360° &amp; éditeur de progiciels haute résilience. Maintenance de parcs informatiques, transition digitale et développement offshore à Madagascar et à l\'International."
+      },
+
+      // ------------------------------------------------------------------------
+      // 3. EN : GLOBAL INTERNATIONAL EXPERIENCE (US, UK, Diaspora, Global Partners)
+      // ------------------------------------------------------------------------
+      en: {
+        page_title: "Missi Innovation | Software Engineering, Managed IT & Offshore Hub",
+        brand_tagline: "Software Engineering &bull; High-Resilience Systems (Global)",
+        nav_suites: "Business Suites",
+        nav_services: "Managed IT & Maintenance",
+        nav_garanties: "Guarantees & FAQ",
+        nav_configurateur: "Estimator",
+        nav_quote: "🛠️ Custom Quote",
+        hero_badge: '<span class="pulsing-dot"></span> Software Engineering &bull; Managed IT Services &amp; Global Offshore Hub',
+        hero_title: 'Software engineering &amp; digital transformation: high-caliber technology, <span class="copper-word">battle-tested for mission-critical</span> environments.',
+        hero_desc: '360° Full-spectrum IT Partner: <strong>bespoke software engineering (international &amp; offshore)</strong>, continuous fleet maintenance, managed services, and <strong>100% offline-operational</strong> resilient business suites. From digital transition to 24/7 reliability.',
+        hero_btn_explore: "Explore Business Suites ↓",
+        hero_btn_quote: "🛠️ IT Services &amp; Quote",
+        hero_btn_engineer: "💬 Talk to an Engineer",
+        hero_discover: "Discover Suites &amp; Offshore Engineering",
+        stat1_header: "100% Offline &amp; Resilient",
+        stat1_desc: "Local SQLite WAL engine. Uninterrupted operations with zero forced cloud dependence.",
+        stat2_header: "Full IT Lifecycle &amp; Maintenance",
+        stat2_desc: "Fleet management, ongoing software maintenance, encrypted backups & digital shift.",
+        stat3_header: "Global Engineering Standards",
+        stat3_desc: "Custom web, mobile & cloud engineering delivered to international specs at competitive rates.",
+        stat4_header: "Turnkey Rollout &amp; Rapid SLA",
+        stat4_desc: "Fast deployment, comprehensive user training, and instant global remote support.",
+        hub_kicker: "ENTERPRISE SOFTWARE SUITES &amp; 360° MANAGED IT SERVICES",
+        hub_title: "High-caliber technology engineered for real-world operations",
+        hub_desc: "Choose your industry to discover our autonomous offline-first suites or our full IT managed services (maintenance, digital transition, custom dev & security).",
+        tab_edu: "Education &amp; Schools",
+        tab_hotel: "Hospitality &amp; Dining",
+        tab_erp: "Enterprise &amp; ERP",
+        tab_tour: "Tourism &amp; Travel",
+        tab_services: "Managed IT, Maintenance &amp; Cloud",
+        tab5_tagline: "✦ Managed IT Services, Fleet Maintenance &amp; Custom Software",
+        tab5_title: "360° Full IT Provider — Fleet Maintenance, Digital Shift &amp; Bespoke Software",
+        tab5_desc: "A single strategic partner for your entire technology ecosystem. We manage preventive and corrective maintenance for your computer fleet, drive your paperless digital transformation, and engineer bespoke software for global organizations.",
+        tab5_feat1: "<strong>IT Fleet Maintenance &amp; Managed Support (MSP) :</strong> Preventive and corrective care for PCs and local servers, encrypted automated backups, SLA-guaranteed support.",
+        tab5_feat2: "<strong>Digital Transformation &amp; Modernization :</strong> Transition from paper registers and scattered spreadsheets to automated cloud-synchronized management dashboards.",
+        tab5_feat3: "<strong>Custom Software &amp; Offshore Engineering Hub :</strong> Web platforms, offline-first mobile PWAs, APIs, payment gateways (Stripe, PayPal), and high-productivity offshore development.",
+        tab5_feat4: "<strong>Cybersecurity, Fiber Routers &amp; Access Control :</strong> MAC address whitelisting, anti-squat Wi-Fi protection, strict Chrome/Edge distraction locking, and structured cabling.",
+        tab5_price_sub: "Custom Plans &amp; Managed IT Maintenance",
+        tab5_price_main: 'From $35 / hr <small style="font-size: 0.78rem; color: var(--text-soft);">or milestone-based pricing</small>',
+        tab5_price_opt: "Dedicated English-speaking engineering team &amp; global remote support",
+        tab5_btn_catalog: "🛡️ Complete IT Services Dossier",
+        tab5_btn_contact: "💬 Discuss an IT Maintenance Agreement",
+        tab5_window_title: "MISSI // MANAGED IT SERVICES &amp; BESPOKE ENGINEERING",
+        tab5_badge_bottom: "🛠️ Preventive &amp; Corrective Fleet Maintenance",
+        tab5_badge_top: "🚀 Digital Shift &amp; Hybrid Cloud Sync",
+        ribbon_kicker: "FIELD-TESTED &amp; TRUSTED BY INDUSTRY LEADERS",
+        guar_kicker: "SOVEREIGN ENGINEERING &amp; FREQUENT QUESTIONS",
+        guar_title: "Complete transparency before your deployment",
+        guar_desc: "Our core engineering commitments on one side, direct answers to your questions on the other.",
+        guar1_tag: "01 &bull; OPERATIONAL RESILIENCE",
+        guar1_title: "100% Operational Resilience (Field-Tested)",
+        guar1_desc: "Unlike brittle cloud-only SaaS that halts when network cuts or power drops, our systems feature an autonomous local SQLite WAL engine. Billing, receipt printing, and logging keep running with zero downtime.",
+        guar2_tag: "02 &bull; ZERO VENDOR LOCK-IN",
+        guar2_title: "Ownership Freedom: Perpetual License or Monthly",
+        guar2_desc: "Complete freedom: choose between an agile subscription with continuous support, or purchase a perpetual lifetime license. Your data stays on your premises, with zero hidden lock-in fees.",
+        guar3_tag: "03 &bull; GLOBAL STANDARDS",
+        guar3_title: "Multi-Currency (USD/EUR) &amp; Data Sovereignty",
+        guar3_desc: "Multi-currency invoicing, GDPR-compliant security practices, and sovereign hosting options for your sensitive business data.",
+        cta_title: "Upgrade your operations with a battle-tested engineering partner.",
+        cta_desc: "Whether you need continuous IT fleet maintenance, a seamless digital transition, or high-precision bespoke software development, let's talk today.",
+        cta_btn_config: "🛠️ Launch Online Quote Estimator",
+        cta_btn_wa: "💬 WhatsApp Direct (+261 34 71 517 89)",
+        footer_desc: "Software engineering company, 360° IT managed service provider &amp; publisher of high-precision business suites. 100% offline-resilient systems, fleet maintenance, and digital transformation in Madagascar and internationally."
+      }
+    };
+
+    function setLanguage(lang) {
+      if (!window.MISSI_I18N[lang]) lang = 'fr';
+      const dict = window.MISSI_I18N[lang];
+
+      document.documentElement.lang = lang;
+
+      // Update switcher buttons
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const isCurrent = btn.getAttribute('data-lang') === lang;
+        btn.classList.toggle('active', isCurrent);
+        btn.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+      });
+
+      // Update text nodes
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          el.textContent = dict[key];
+        }
+      });
+
+      // Update HTML nodes
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      if (dict.page_title) {
+        document.title = dict.page_title;
+      }
+
+      try {
+        localStorage.setItem('missi_preferred_lang', lang);
+      } catch (e) {}
+    }
+
+    // Initialize Language from preference (Default: MG Local Market)
+    try {
+      const savedLang = localStorage.getItem('missi_preferred_lang');
+      if (savedLang && window.MISSI_I18N[savedLang]) {
+        setLanguage(savedLang);
+      } else {
+        const navLang = (navigator.language || navigator.userLanguage || '').slice(0, 2).toLowerCase();
+        if (navLang === 'en') setLanguage('en');
+        else if (navLang === 'fr') setLanguage('mg'); // Default for Francophone/Madagascar is MG local
+        else setLanguage('mg');
+      }
+    } catch (e) {}
+
     function switchTab(tabId) {
       const buttons = document.querySelectorAll('.tab-btn');
       buttons.forEach(btn => {

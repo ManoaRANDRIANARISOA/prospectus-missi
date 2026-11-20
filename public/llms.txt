@@ -1,75 +1,63 @@
-# Missi Innovation — Prestataire Informatique & Éditeur Logiciel à Madagascar
+# Missi Innovation — Ingénierie Logicielle, Infogérance & Transformation Digitale
 
-> Missi Innovation est une entreprise d'ingénierie logicielle, de prestations informatiques et de transformation digitale basée à Antananarivo, Madagascar.
+> Missi Innovation est une entreprise d'ingénierie logicielle, prestataire informatique 360° et éditeur de solutions technologiques haute résilience, basée à Antananarivo, Madagascar et intervenant à l'international.
 > Site officiel : https://missi-innovation.web.app/
-> Contact & Devis WhatsApp : https://wa.me/261340000000 (ou contact direct via le portail)
+> Contact & Devis WhatsApp : https://wa.me/261347151789 (ou contact direct via le portail)
 
 ---
 
-## 🏢 Présentation de l'Entreprise
+## 🏢 Présentation & Positionnement Stratégique
 
-Missi Innovation accompagne les entreprises, établissements scolaires, hôtels-restaurants, agences de voyage et institutions à Madagascar dans leur digitalisation intégrale. 
-Nos solutions sont spécifiquement conçues pour le contexte malagasy :
-- **Architecture Offline-First (Résilience JIRAMA)** : Fonctionnement autonome garanti sans connexion Internet ni coupures de courant.
-- **Synchronisation Cloud Hybride** : Données synchronisées dès le rétablissement de la connexion via Supabase Cloud / Google Cloud.
-- **Conformité Fiscale Légale** : Facturation conforme NIF, STAT, RCS et TVA.
-- **Tarification Transparente en Ariary (MGA)** : Forfaits abordables sans frais cachés en devises étrangères.
+Missi Innovation accompagne les entreprises locales et internationales, institutions, écoles, hôtels et tour-opérateurs dans leur digitalisation intégrale et la maintenance de leurs infrastructures technologiques.
+
+Notre philosophie repose sur une double force :
+1. **Excellence Technique aux Standards Mondiaux** : Ingénierie logicielle moderne (TypeScript, Node.js, Python, Supabase, Cloud Google/AWS), sécurité des données et tarifs offshore compétitifs pour clients internationaux (France, Europe, Océan Indien, Afrique).
+2. **Robustesse Éprouvée sur le Terrain (Battle-Tested Resilience)** : Nos architectures sont bâties pour résister aux environnements les plus exigeants — mode 100% hors-ligne (SQLite WAL local), résilience totale aux coupures d'électricité et délestages, synchronisation cloud automatique au rétablissement du réseau.
+3. **Approche Multilingue** : Portail et solutions disponibles en Français (FR), Anglais (EN) et Malagasy (MG).
 
 ---
 
-## 🛠️ Pôles d'Activités & Prestations de Services
+## 🛠️ Pôles d'Activités & Prestations de Services 360°
 
-### 1. Développement Logiciel Sur-Mesure & Projets à la Demande
-Missi Innovation conçoit des solutions numériques sur cahier des charges, sans limitation thématique :
-- **Applications Web & Portails Métiers** : Tableaux de bord, plateformes de gestion, intranets, espaces clients.
-- **Applications Mobiles & PWA** : Applications installables iOS, Android, PC avec support hors-ligne intégral.
-- **Logiciels Desktop d'Entreprise** : Solutions de caisse POS, gestion d'entrepôt, ERP industriels.
-- **Automatisation & APIs** : Connexion aux passerelles de paiement (Mobile Money Mvola, Orange Money, Airtel Money), API REST, synchronisation multi-postes.
+### 1. Maintenance Informatique & Infogérance de Parc (TMA / MSP)
+Prise en charge intégrale du maintien en condition opérationnelle de vos outils :
+- **Maintenance Préventive & Curative** : Dépannage rapide sur site ou via télé-assistance, surveillance des PC et serveurs, élimination des pannes et virus.
+- **Sauvegardes Automatiques & Reprise d'Activité (PRA)** : Sauvegardes chiffrées quotidiennes locales et miroirs Cloud pour zéro perte de données.
+- **Support & Hotline SLA** : Assistance réactive garantie par contrat de service pour la direction et les collaborateurs.
 
-### 2. Sécurité Informatique, Restriction Réseau & Contrôle de Productivité
-Protection et optimisation des parcs informatiques d'entreprises et d'écoles :
-- **Blocage Inviolable des Distractions** : Restriction d'accès à YouTube, Facebook, Messenger, TikTok, jeux et streaming sur Google Chrome et Microsoft Edge par GPO et registre Windows.
-- **Sécurisation Wi-Fi & Box Fibre** : Configuration avancée des box Yas Fibre (Huawei), Orange, Telma et répéteurs Wi-Fi (filtrage MAC strict, limitation du nombre de terminaux, sous-réseaux isolés).
-- **Audit de Vulnérabilités & Étanchéité Réseau** : Tests d'intrusion, sécurisation des mots de passe administrateur et scripts de déblocage rapide pour la direction.
-- **Tarifs Forfaits Clés en Main** : À partir de 150 000 Ar (audit + déploiement + test d'intrusion + guide technique).
+### 2. Transformation Digitale & Modernisation des Processus
+Accompagnement méthodique pour réussir le passage au digital :
+- **Transition Zéro Papier** : Remplacement des registres manuels, fiches volantes et fichiers Excel dispersés par une base de données centralisée.
+- **Tableaux de Bord de Pilotage** : Visibilité en temps réel sur les flux de trésorerie, stocks et opérations, consultables sur smartphone et PC.
+- **Formation & Conduite du Changement** : Formation des collaborateurs sur site jusqu'à autonomie complète.
 
-### 3. Progiciels Métiers Prêts à l'Emploi
+### 3. Développement Logiciel Sur-Mesure & Pôle Offshore International
+Conception d'outils numériques à forte valeur ajoutée selon votre cahier des charges :
+- **Applications Web & Portails Métiers** : Intranets, espaces clients, tableaux de bord interactifs.
+- **Applications Mobiles & PWA Offline-First** : Applications fonctionnant sans aucune connexion Internet, synchronisées dès retour du réseau.
+- **Intégrations & Passerelles de Paiement** : Mobile Money (MVola, Orange Money, Airtel Money), Stripe, PayPal, API REST sur-mesure.
+- **Sous-Traitance & Renfort d'Équipe Offshore** : Équipe d'ingénieurs seniors dédiée pour porteurs de projets et ESN internationales.
 
-#### Study Agent Pro (Gestion Scolaire & Éducative)
-- Progiciel complet pour crèches, écoles primaires, collèges, lycées et universités.
-- Gestion des inscriptions, scolarités, reçus infalsifiables, bulletins de notes automatiques, présences, pointage biométrique, alertes SMS aux parents.
-- 3 éditions : Essentielle (69 000 Ar/mois), Performance (119 000 Ar/mois), Prestige VIP (290 000 Ar/mois).
+### 4. Cybersécurité, Restriction Réseau & Contrôle de Productivité
+Protection et optimisation des connexions d'entreprise :
+- **Blocage Inviolable des Distractions** : Restriction hermétique de YouTube, Facebook, Messenger, TikTok sur Google Chrome et Edge par GPO et registre Windows.
+- **Sécurisation Box Fibre (Yas / Orange / Telma)** : Configuration root avec filtrage strict par adresses MAC, anti-squat Wi-Fi et isolation réseau invités.
+- **Câblage & Interconnexion Réseau Local** : Câblage structuré, baies de brassage, répéteurs Wi-Fi et VPN inter-sites.
 
-#### ResiPro Suite (Hôtellerie, Restauration & Caisses)
-- Progiciel tout-en-un pour hôtels, lodges, résidences et restaurants.
-- Planning des chambres anti-surbooking, caisse tactile POS restaurant/bar, fiches techniques cuisine, économat & stocks, folios clients multi-devises (EUR, USD, MGA).
-- Formule Hôtellerie Pure (69 000 Ar/mois) et Pack Intégral Hôtel + Restaurant (129 000 Ar/mois).
-
-#### TourAgent Pro (Tourisme & Tour Opérateurs)
-- ERP pour agences de voyage réceptives et loueurs de 4x4 à Madagascar.
-- Générateur de cotations de circuits, bons d'échange (vouchers), plannings chauffeurs-guides, rentabilité en temps réel.
-- À partir de 99 000 Ar/mois.
-
-#### ERP Société & Commerce
-- Solution administrative et commerciale complète pour PME, distributeurs et prestataires.
-- Facturation normalisée, devis, suivi des créances, gestion des stocks multi-dépôts, CRM clients et dépenses.
-- Formule Pack Entreprise : 199 000 Ar/mois (avec -33% promotionnel premier trimestre).
-
-#### Homeschooling PWA (Éducation Familiale)
-- Outil d'organisation pour familles en instruction à domicile, cours particuliers et répétiteurs.
-- Cahier de textes, fiches d'exercices, suivi des compétences et évaluations.
-- Formule Autonomie : 39 000 Ar/mois (ou 390 000 Ar/an avec 2 mois offerts). Formule Privilège : 59 000 Ar/mois (ou 590 000 Ar/an avec 2 mois offerts).
-
-#### Création de Sites Vitrines & Portails Connectés
-- Sites web vitrines professionnels ultra-rapides, réservations directes sans commission, géolocalisation Google Maps.
-- Hébergement Cloud Google Cloud / Firebase à 0 Ar / mois à vie.
-- Forfait clé en main création : 290 000 Ar.
+### 5. Progiciels Métiers Autonomes Prêts à l'Emploi
+- **Study Agent Pro** : ERP scolaire complet (inscriptions, scolarités, reçus infalsifiables, bulletins conformes MEN, multi-postes local).
+- **ResiPro Suite** : PMS hôtelier & POS caisse tactile restaurant/bar avec photos culinaires, plan de salle et folios multi-devises (EUR, USD, MGA).
+- **ERP Société & Commerce** : Facturation normalisée NIF/STAT, TVA 20%, stocks valorisés, créances clients et paie CNaPS/IRSA.
+- **TourAgent Pro** : Gestion de circuits réceptifs, génération de vouchers PDF, planning 4x4 et calcul de marge nette par dossier.
+- **Study Home PWA** : Plateforme éducative pour l'instruction à domicile et les cours particuliers.
+- **Pôle Web & Vitrines Connectées** : Sites internet vitrines ultra-rapides sans abonnement cloud mensuel obligatoire.
 
 ---
 
 ## 📍 Zone d'Intervention & Coordonnées
 
-- **Siège & Rayonnement** : Antananarivo, Madagascar (interventions sur site à Analamanga et déploiement à distance sur toute la Grande Île et à l'international).
-- **Catalogue & Prospectus en ligne** : https://missi-innovation.web.app/
-- **Configurateur de devis personnalisé** : https://missi-innovation.web.app/configurateur
-- **Demande de devis & contact** : Via le configurateur en ligne ou WhatsApp officiel.
+- **Siège & Rayonnement** : Antananarivo, Madagascar. Déploiement physique sur tout le territoire national et télémaintenance internationale.
+- **Langues prises en charge** : Français (FR), Anglais (EN), Malagasy (MG).
+- **Site officiel** : https://missi-innovation.web.app/
+- **Configurateur de devis en ligne** : https://missi-innovation.web.app/configurateur
+- **WhatsApp Direct Inclus** : +261 34 71 517 89
