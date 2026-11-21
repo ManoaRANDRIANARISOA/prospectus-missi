@@ -1671,8 +1671,8 @@
           <a href="#solutions" class="btn btn-copper" style="padding: 0.72rem 1.4rem; font-size: 0.9rem;" data-i18n="hero_btn_explore">
             Explorer les Progiciels Métiers ↓
           </a>
-          <a href="#tab-prestations" onclick="switchTab('tab-prestations')" class="btn btn-secondary" style="padding: 0.72rem 1.3rem; font-size: 0.9rem;" data-i18n="hero_btn_quote">
-            🛠️ Services IT & Devis
+          <a href="configurateur.html" class="btn btn-secondary" style="padding: 0.72rem 1.3rem; font-size: 0.9rem;" data-i18n="hero_btn_quote">
+            🛠️ Catalogue par Besoin & Devis
           </a>
           <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20échanger%20avec%20un%20ingénieur%20technique." target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.72rem 1.2rem; font-size: 0.9rem;" data-i18n="hero_btn_engineer">
             💬 Échanger avec un Ingénieur
@@ -2456,7 +2456,7 @@
         hero_title: 'Des progiciels de haute précision, <span class="copper-word">taillés pour la réalité</span> du terrain malagasy.',
         hero_desc: 'Systèmes de gestion tout-terrain : <strong>100% opérationnels hors-ligne (résilience JIRAMA)</strong>, scellés conformes <strong>NIF/STAT</strong> et sans abonnement cloud forcé. Déployés clés en main sous 48h à Antananarivo et en provinces.',
         hero_btn_explore: "Explorer les Progiciels Métiers ↓",
-        hero_btn_quote: "🛠️ Services Réseau & Devis",
+        hero_btn_quote: "🛠️ Catalogue par Besoin & Devis",
         hero_btn_engineer: "💬 Échanger avec un Ingénieur",
         hero_discover: "Découvrir les Progiciels &amp; Services Locaux",
         stat1_header: "100% Hors-Ligne (JIRAMA Proof)",
@@ -2525,7 +2525,7 @@
         hero_title: 'Ingénierie logicielle &amp; infogérance : l\'excellence technologique, <span class="copper-word">éprouvée sur les terrains les plus exigeants</span>.',
         hero_desc: 'Votre partenaire informatique 360° : <strong>développement logiciel sur-mesure (forfait ou régie offshore)</strong>, maintenance continue de parc, infogérance et progiciels à <strong>haute tolérance aux pannes</strong> (architectures offline-first résilientes).',
         hero_btn_explore: "Explorer les Progiciels Métiers ↓",
-        hero_btn_quote: "🛠️ Services IT & Devis",
+        hero_btn_quote: "🛠️ Catalogue par Besoin & Devis",
         hero_btn_engineer: "💬 Échanger avec un Ingénieur",
         hero_discover: "Découvrir nos Solutions &amp; Pôle Offshore",
         stat1_header: "Haute Résilience &amp; Offline-First",
@@ -2594,7 +2594,7 @@
         hero_title: 'Software engineering &amp; digital transformation: high-caliber technology, <span class="copper-word">battle-tested for mission-critical</span> environments.',
         hero_desc: '360° Full-spectrum IT Partner: <strong>bespoke software engineering (international &amp; offshore)</strong>, continuous fleet maintenance, managed services, and <strong>100% offline-operational</strong> resilient business suites. From digital transition to 24/7 reliability.',
         hero_btn_explore: "Explore Business Suites ↓",
-        hero_btn_quote: "🛠️ IT Services & Quote",
+        hero_btn_quote: "🛠️ Configure by Need & Quote",
         hero_btn_engineer: "💬 Talk to an Engineer",
         hero_discover: "Discover Suites &amp; Offshore Engineering",
         stat1_header: "100% Offline &amp; Resilient",
@@ -2801,8 +2801,8 @@
         }
       `;
 
-      // Fragment Shader haute définition : ondulation fluide expansive, douce et soyeuse
-      // L'onde parcourt l'intégralité de l'écran et s'estompe naturellement hors-champ
+      // Fragment Shader haute définition : dissipation physique continue
+      // Vecteurs d'uniforms optimisés (44 vecteurs <= limite matérielle stricte de 64)
       const fsSource = `
         precision highp float;
         varying vec2 v_uv;
@@ -2821,31 +2821,35 @@
           float totalH = 0.0;
           vec2 grad = vec2(0.0);
 
-          // 1. SILLAGE D'ÉTRAVE EN V AU SURVOL (4.8s de mémoire fluide douce)
+          // 1. SILLAGE D'ÉTRAVE EN V AU SURVOL (3.2s de dissipation progressive & noble)
           for (int i = 0; i < MAX_WAKE; i++) {
             vec4 w = u_wake[i];
             float age = u_time - w.z;
-            if (age > 0.0 && age < 4.8) {
+            if (age > 0.0 && age < 3.2) {
               vec2 diff = screenPos - w.xy;
               float dist = length(diff);
               if (dist > 0.5) {
                 vec2 dir = diff / dist;
                 
-                // Expansion ample et progressive
-                float waveR = age * 115.0;
+                // Onde d'étrave transversale s'écartant latéralement
+                float waveR = age * 95.0;
                 float dR = dist - waveR;
                 
-                // Crête large et caressante
-                float sigma = 20.0 + age * 16.0;
+                // Dispersion spatiale : la crête s'élargit et s'adoucit avec le temps
+                float sigma = 15.0 + age * 12.0;
                 float env = exp(-(dR * dR) / (2.0 * sigma * sigma));
                 
-                // Amortissement très progressif
-                float damping = exp(-age * 0.75);
-                float dispersion = 1.0 / sqrt(1.0 + dist * 0.0035);
-                float window = smoothstep(4.8, 3.2, age);
+                // Amortissement visqueux fluide naturel
+                float damping = exp(-age * 1.35);
                 
-                float k = 0.10;
-                float amp = 0.28 * env * damping * dispersion * window * min(1.0, w.w * 0.8);
+                // Atténuation progressive avec la distance
+                float dispersion = 1.0 / sqrt(1.0 + dist * 0.006);
+                
+                // Fenêtre C1 hermitienne sans rupture abrupte
+                float window = smoothstep(3.2, 2.0, age);
+                
+                float k = 0.16;
+                float amp = 0.45 * env * damping * dispersion * window * min(1.2, w.w * 0.9);
                 
                 totalH += amp * cos(k * dR);
                 grad += dir * amp * (-k * sin(k * dR) - (dR / (sigma * sigma)) * cos(k * dR));
@@ -2853,32 +2857,35 @@
             }
           }
 
-          // 2. ONDES CIRCULAIRES AU CLIC (7.2s : traverse majestueusement tout l'écran)
+          // 2. ONDES CIRCULAIRES AU CLIC (3.8s d'élargissement majestueux et aplanissement)
           for (int j = 0; j < MAX_DROPS; j++) {
             vec4 d = u_drops[j];
             float age = u_time - d.z;
-            if (age > 0.0 && age < 7.2) {
+            if (age > 0.0 && age < 3.8) {
               vec2 diff = screenPos - d.xy;
               float dist = length(diff);
               if (dist > 0.5) {
                 vec2 dir = diff / dist;
                 
-                // Vitesse d'expansion ample permettant de dépasser hors de l'écran
-                float waveR = age * 175.0;
+                // Vitesse d'expansion naturelle d'une onde d'eau
+                float waveR = age * 135.0;
                 float dR = dist - waveR;
                 
-                // L'onde s'adoucit et s'élargit progressivement avec la distance
-                float sigma = 26.0 + age * 18.0;
+                // La crête de l'onde s'élargit au fur et à mesure qu'elle voyage
+                float sigma = 18.0 + age * 11.0;
                 float env = exp(-(dR * dR) / (2.0 * sigma * sigma));
                 
-                // Décroissance exponentielle très douce, sans rupture
-                float damping = exp(-age * 0.45);
-                float dispersion = 1.0 / sqrt(1.0 + waveR * 0.003);
-                float window = smoothstep(7.2, 5.0, age);
+                // Amortissement visqueux continu
+                float damping = exp(-age * 1.05);
                 
-                // Longueur d'onde apaisante et soyeuse
-                float k = 0.085;
-                float amp = 0.38 * env * damping * dispersion * window * d.w;
+                // Atténuation d'énergie circulaire 1/sqrt(R)
+                float dispersion = 1.0 / sqrt(1.0 + waveR * 0.008);
+                
+                // Fenêtre de transition C1 ultra-douce (zéro compte à rebours brusque)
+                float window = smoothstep(3.8, 2.5, age);
+                
+                float k = 0.14;
+                float amp = 0.65 * env * damping * dispersion * window * d.w;
                 
                 totalH += amp * cos(k * dR);
                 grad += dir * amp * (-k * sin(k * dR) - (dR / (sigma * sigma)) * cos(k * dR));
@@ -2892,31 +2899,30 @@
             return;
           }
 
-          // Normale physique 3D douce
-          vec3 normal = normalize(vec3(-grad * 14.0, 1.0));
+          // Normale physique 3D continue
+          vec3 normal = normalize(vec3(-grad * 22.0, 1.0));
 
           // Éclairage zénithal doux
           vec3 light = normalize(vec3(-0.35, 0.45, 0.8));
           vec3 eye = vec3(0.0, 0.0, 1.0);
           vec3 halfVec = normalize(light + eye);
 
-          // Reflet soyeux doux (sans surbrillance blanche agressive)
-          float spec = pow(max(0.0, dot(normal, halfVec)), 32.0);
+          // Reflet spéculaire étincelant sur les crêtes de l'eau
+          float spec = pow(max(0.0, dot(normal, halfVec)), 26.0);
 
-          // Caustique fluide très aérée
+          // Caustique de concentration lumineuse
           float crest = max(0.0, totalH);
-          float caustic = crest * slope * 1.1;
+          float caustic = crest * slope * 2.2;
 
-          // Rendu soyeux : tons nacrés discrets respectant la lisibilité des textes
-          vec3 specColor = vec3(1.0, 1.0, 1.0) * spec * 0.95;
-          vec3 waterSheen = vec3(0.95, 0.97, 1.0) * (caustic * 0.65 + slope * 0.07);
-          vec3 amberGlint = vec3(0.96, 0.75, 0.45) * (spec * 0.12 + caustic * 0.08);
+          // Rendu eau pure : éclats de lumière cristalline
+          vec3 specColor = vec3(1.0, 1.0, 1.0) * spec * 2.4;
+          vec3 waterSheen = vec3(0.92, 0.96, 1.0) * (caustic * 1.1 + slope * 0.14);
+          vec3 amberGlint = vec3(0.96, 0.68, 0.36) * (spec * 0.20 + caustic * 0.16);
 
           vec3 finalColor = specColor + waterSheen + amberGlint;
-          // Opacité maximale calibrée à 0.38 (zéro éblouissement, zéro gène de lecture)
-          float alpha = clamp(spec * 0.65 + caustic * 0.45 + slope * 0.22, 0.0, 0.38);
+          float alpha = clamp(spec * 1.4 + caustic * 0.85 + slope * 0.35, 0.0, 0.85);
 
-          // Premultiplied alpha pour composition ultra-propre
+          // Premultiplied alpha pour composition sans bavure sur le DOM HTML
           gl_FragColor = vec4(finalColor * alpha, alpha);
         }
       `;
@@ -3020,8 +3026,8 @@
         const tSec = now / 1000.0;
 
         if (now > nextSpontaneous) {
-          addDrop(width * (0.25 + Math.random() * 0.5), height * (0.25 + Math.random() * 0.5), 0.75);
-          nextSpontaneous = now + 18000 + Math.random() * 10000;
+          addDrop(width * (0.25 + Math.random() * 0.5), height * (0.25 + Math.random() * 0.5), 0.95);
+          nextSpontaneous = now + 10000 + Math.random() * 6000;
         }
 
         gl.clearColor(0.0, 0.0, 0.0, 0.0);
