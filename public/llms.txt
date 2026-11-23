@@ -46,6 +46,7 @@ Protection et optimisation des connexions d'entreprise :
 
 ### 5. Progiciels Métiers Autonomes Prêts à l'Emploi
 - **Study Agent Pro** : ERP scolaire complet (inscriptions, scolarités, reçus infalsifiables, bulletins conformes MEN, multi-postes local).
+- **Study Agent (Édition Freinet & Familles)** : Gestion scolaire adaptée aux pédagogies actives/Freinet (ceintures de compétences, pilotage mobile hors-ligne, espace parents photos sécurisé et messagerie WhatsApp).
 - **ResiPro Suite** : PMS hôtelier & POS caisse tactile restaurant/bar avec photos culinaires, plan de salle et folios multi-devises (EUR, USD, MGA).
 - **ERP Société & Commerce** : Facturation normalisée NIF/STAT, TVA 20%, stocks valorisés, créances clients et paie CNaPS/IRSA.
 - **TourAgent Pro** : Gestion de circuits réceptifs, génération de vouchers PDF, planning 4x4 et calcul de marge nette par dossier.

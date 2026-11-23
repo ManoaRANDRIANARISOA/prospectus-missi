@@ -23,6 +23,8 @@
         { "source": "/guide_utilisateur_et_avantages_pro.html", "destination": "/docs/guide-utilisateur", "type": 301 },
         { "source": "/guide_sauvegardes_et_topologie_multipostes.html", "destination": "/docs/guide-sauvegardes-multipostes", "type": 301 },
         { "source": "/multi-tenant-guide.html", "destination": "/docs/guide-architecture-multi-tenant", "type": 301 },
+        { "source": "/education/freinet", "destination": "/education/study-agent-freinet", "type": 301 },
+        { "source": "/freinet", "destination": "/education/study-agent-freinet", "type": 301 },
         { "source": "/img/:path*", "destination": "/assets/img/:path*", "type": 301 }
       ],
       "headers": [
@@ -69,6 +71,8 @@
         { "source": "/guide_utilisateur_et_avantages_pro.html", "destination": "/docs/guide-utilisateur", "type": 301 },
         { "source": "/guide_sauvegardes_et_topologie_multipostes.html", "destination": "/docs/guide-sauvegardes-multipostes", "type": 301 },
         { "source": "/multi-tenant-guide.html", "destination": "/docs/guide-architecture-multi-tenant", "type": 301 },
+        { "source": "/education/freinet", "destination": "/education/study-agent-freinet", "type": 301 },
+        { "source": "/freinet", "destination": "/education/study-agent-freinet", "type": 301 },
         { "source": "/img/:path*", "destination": "/assets/img/:path*", "type": 301 }
       ],
       "headers": [
