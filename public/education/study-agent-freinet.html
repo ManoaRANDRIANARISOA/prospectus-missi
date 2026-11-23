@@ -427,13 +427,33 @@
     .features-2col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 9px 28px;
+      gap: 12px 32px;
       list-style: none;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
-    .features-2col li { display: flex; align-items: flex-start; gap: 9px; font-size: 13.5px; color: var(--ink-2); line-height: 1.44; }
-    .features-2col li svg { width: 16px; height: 16px; color: var(--sage); flex-shrink: 0; margin-top: 2px; }
-    .features-2col li strong { color: var(--ink); }
+    .features-2col li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      align-items: start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--ink-2);
+      line-height: 1.5;
+    }
+    .features-2col li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--sage);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .features-2col li span {
+      display: block;
+      min-width: 0;
+    }
+    .features-2col li strong {
+      color: var(--ink);
+    }
 
     .offer-footer-bar {
       display: flex;
@@ -1039,16 +1059,16 @@
             </div>
 
             <ul class="features-2col">
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Application Mobile Direction hors-ligne</strong> (consultation à distance + synchro auto)</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Journal de caisse complet</strong>, reçus groupés &amp; règle comptable inaltérable (contre-passation)</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Licence 1 à 2 postes Secrétariat / Caisse — <strong>100 % hors-ligne (tolérance JIRAMA)</strong></li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Moteur d'<strong>alertes impayés dynamiques</strong> &amp; reliquats au jour le jour</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Dossiers élèves (matricule auto), <strong>gestion des fratries</strong> &amp; affectations de classes</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Grand Livre financier paginé</strong>, rapports comptables &amp; exports Excel / CSV / PDF A4</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Pointage quotidien d'assiduité (<strong>Présence, Bus, Cantine</strong>) &amp; gestion des matières</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Carnet de notes, moyennes, rangs &amp; <strong>certificats de scolarité PDF en 1 clic</strong></li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Import gratuit</strong> de vos listes élèves Excel existantes</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Sauvegarde cloud sécurisée, mises à jour incluses &amp; support WhatsApp 6j/7</li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Application Mobile Direction hors-ligne</strong> (consultation à distance + synchro auto)</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Journal de caisse complet</strong>, reçus groupés &amp; règle comptable inaltérable (contre-passation)</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Licence 1 à 2 postes Secrétariat / Caisse — <strong>100 % hors-ligne (tolérance JIRAMA)</strong></span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Moteur d'<strong>alertes impayés dynamiques</strong> &amp; reliquats au jour le jour</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Dossiers élèves (matricule auto), <strong>gestion des fratries</strong> &amp; affectations de classes</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Grand Livre financier paginé</strong>, rapports comptables &amp; exports Excel / CSV / PDF A4</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Pointage quotidien d'assiduité (<strong>Présence, Bus, Cantine</strong>) &amp; gestion des matières</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Carnet de notes, moyennes, rangs &amp; <strong>certificats de scolarité PDF en 1 clic</strong></span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Import gratuit</strong> de vos listes élèves Excel existantes</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Sauvegarde cloud sécurisée, mises à jour incluses &amp; support WhatsApp 6j/7</span></li>
             </ul>
 
             <div class="offer-footer-bar">
@@ -1110,17 +1130,17 @@
             </div>
 
             <ul class="features-2col">
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Portail Parent Sécurisé &amp; Fil Photos d'ateliers</strong> (cloisonné strictement par enfant)</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Tout le contenu Formule 1</strong> + <strong>Multi-Postes Réseau Local (jusqu'à 5 postes)</strong></li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Circuit de validation Direction</strong> avant publication &amp; gestion du droit à l'image</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Clôture de caisse &amp; billetage physique (20 000 à 100 Ar)</strong> + calcul auto des écarts</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Suivi pédagogique hybride Freinet</strong> : plans de travail, ceintures/compétences + bulletins collège-lycée</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Guichets de caisse isolés anti-collision</strong>, tickets 80 mm POS, Ticket Z scellé &amp; <strong>tampon DUPLICATA anti-fraude</strong></li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Gestion complète du personnel &amp; Paie légale Malagasy</strong> (absences, CNaPS, IRSA &amp; bulletins de salaire PDF)</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Bilan quotidien de caisse automatique à 18h00</strong> &amp; alertes financières Direction</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Stockage cloud sécurisé des photos inclus</strong> &amp; personnalisation complète (logo, reçus, bulletins)</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Synchronisation réseau multi-postes haute résilience :</strong> travail simultané jusqu'à 5 postes en temps réel, insensible aux micro-coupures Wi-Fi et sans conflit d'écriture</li>
-              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><strong>Assistance prioritaire Direction &amp; Caisse 7j/7</strong> (disponibilité WhatsApp dédiée même le week-end en période d'inscriptions et de rentrée)</li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Portail Parent Sécurisé &amp; Fil Photos d'ateliers</strong> (cloisonné strictement par enfant)</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Tout le contenu Formule 1</strong> + <strong>Multi-Postes Réseau Local (jusqu'à 5 postes)</strong></span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Circuit de validation Direction</strong> avant publication &amp; gestion du droit à l'image</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Clôture de caisse &amp; billetage physique (20 000 à 100 Ar)</strong> + calcul auto des écarts</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Suivi pédagogique hybride Freinet</strong> : plans de travail, ceintures/compétences + bulletins collège-lycée</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Guichets de caisse isolés anti-collision</strong>, tickets 80 mm POS, Ticket Z scellé &amp; <strong>tampon DUPLICATA anti-fraude</strong></span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Gestion complète du personnel &amp; Paie légale Malagasy</strong> (absences, CNaPS, IRSA &amp; bulletins de salaire PDF)</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Bilan quotidien de caisse automatique à 18h00</strong> &amp; alertes financières Direction</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Stockage cloud sécurisé des photos inclus</strong> &amp; personnalisation complète (logo, reçus, bulletins)</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Synchronisation réseau multi-postes haute résilience :</strong> travail simultané jusqu'à 5 postes en temps réel, insensible aux micro-coupures Wi-Fi et sans conflit d'écriture</span></li>
+              <li><svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong>Assistance prioritaire Direction &amp; Caisse 7j/7</strong> (disponibilité WhatsApp dédiée même le week-end en période d'inscriptions et de rentrée)</span></li>
             </ul>
 
             <div class="offer-footer-bar">
