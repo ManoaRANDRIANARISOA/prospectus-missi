@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +9,21 @@
   <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/admin.css">
   <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script defer src="/assets/js/site-config.js"></script>
   <script defer src="/assets/js/admin.js"></script>
 </head>
+
 <body>
   <header class="admin-topbar">
     <div class="admin-container admin-topbar-inner">
       <div class="admin-brand">
-        <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="109" height="38">
+        <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal"
+          width="109" height="38">
         <div>
           <div class="admin-sub">ADMIN // RÉSERVATIONS (Supabase Auth + RLS)</div>
         </div>
@@ -35,11 +40,13 @@
     <!-- VUE CONNEXION (AUTH SUPABASE) -->
     <section id="auth-view" class="auth-card">
       <h1>Connexion Administrateur</h1>
-      <p class="auth-desc">Connectez-vous avec votre compte administrateur Supabase Auth (aucune clé secrète ni mot de passe n'est stocké dans le navigateur).</p>
+      <p class="auth-desc">Connectez-vous avec votre compte administrateur Supabase Auth (aucune clé secrète ni mot de
+        passe n'est stocké dans le navigateur).</p>
       <form id="login-form" class="auth-form" method="post" novalidate>
         <div class="field">
           <label for="login-email">Email administrateur</label>
-          <input id="login-email" name="email" type="email" autocomplete="username" autocorrect="off" autocapitalize="none" spellcheck="false" required>
+          <input id="login-email" name="email" type="email" autocomplete="username" autocorrect="off"
+            autocapitalize="none" spellcheck="false" required>
         </div>
         <div class="field">
           <label for="login-password">Mot de passe</label>
@@ -134,4 +141,5 @@
     </section>
   </main>
 </body>
+
 </html>

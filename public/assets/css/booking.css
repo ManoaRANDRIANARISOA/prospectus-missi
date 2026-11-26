@@ -258,6 +258,7 @@ dialog::backdrop {
   .booking-row-2 {
     grid-template-columns: 1fr;
   }
+
   .trust-clients-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

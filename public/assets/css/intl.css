@@ -36,7 +36,9 @@
   --shadow-lg: 0 16px 36px -8px rgba(43, 28, 21, 0.12);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -63,7 +65,10 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -520,6 +525,7 @@ summary:focus-visible {
 }
 
 @container (width < 640px) {
+
   .profiles-table,
   .profiles-table thead,
   .profiles-table tbody,
@@ -754,10 +760,12 @@ summary:focus-visible {
 }
 
 @media (max-width: 1024px) {
+
   .poles-grid-3,
   .cases-grid {
     grid-template-columns: 1fr;
   }
+
   .steps-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -767,9 +775,11 @@ summary:focus-visible {
   .menu-button {
     display: inline-flex;
   }
+
   .nav-menu {
     display: none;
   }
+
   .nav-menu.is-open {
     display: flex;
     flex-direction: column;
@@ -785,16 +795,19 @@ summary:focus-visible {
     padding: 1rem 1.25rem;
     box-shadow: var(--shadow-lg);
   }
+
   .proofs-grid,
   .steps-grid,
   .footer-grid {
     grid-template-columns: 1fr;
   }
+
   .proof-card {
     border-right: none;
     border-bottom: 1px solid var(--border-subtle);
     padding-bottom: 0.75rem;
   }
+
   .proof-card:last-child {
     border-bottom: none;
     padding-bottom: 0;

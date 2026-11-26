@@ -48,7 +48,9 @@
   --shadow-xl: 0 20px 48px -8px rgba(43, 28, 21, 0.14), 0 8px 20px -4px rgba(43, 28, 21, 0.06);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -86,13 +88,19 @@ body {
   opacity: 0.9;
 }
 
-@media (max-width: 768px), (pointer: coarse), (prefers-reduced-motion: reduce) {
+@media (max-width: 768px),
+(pointer: coarse),
+(prefers-reduced-motion: reduce) {
   #ambient-canvas {
     display: none;
   }
 }
 
-h1, h2, h3, h4, .font-display {
+h1,
+h2,
+h3,
+h4,
+.font-display {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
   font-weight: 800;
@@ -692,9 +700,17 @@ summary:focus-visible {
   border-radius: 50%;
 }
 
-.dot-red { background: #EF4444; }
-.dot-yellow { background: #F59E0B; }
-.dot-green { background: #10B981; }
+.dot-red {
+  background: #EF4444;
+}
+
+.dot-yellow {
+  background: #F59E0B;
+}
+
+.dot-green {
+  background: #10B981;
+}
 
 .window-title-text {
   font-size: 0.72rem;
@@ -875,6 +891,7 @@ summary:focus-visible {
 }
 
 @container (width < 640px) {
+
   .profiles-table,
   .profiles-table thead,
   .profiles-table tbody,
@@ -1210,17 +1227,21 @@ summary:focus-visible {
    RESPONSIVE BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
+
   .showcase-card,
   .it-grid,
   .authority-grid {
     grid-template-columns: 1fr;
   }
+
   .steps-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .cases-grid {
     grid-template-columns: 1fr;
   }
+
   .tabs-nav-wrapper {
     justify-content: flex-start;
     overflow-x: auto;

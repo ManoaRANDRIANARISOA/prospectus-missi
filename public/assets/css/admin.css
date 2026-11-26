@@ -18,7 +18,9 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -340,12 +342,14 @@ body {
   .kpis-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .filters-grid {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @container (width < 720px) {
+
   .bookings-table,
   .bookings-table thead,
   .bookings-table tbody,
@@ -353,13 +357,16 @@ body {
   .bookings-table td {
     display: block;
   }
+
   .bookings-table thead {
     display: none;
   }
+
   .bookings-table tbody tr {
     border-bottom: 2px solid var(--border);
     padding: 0.6rem 0;
   }
+
   .bookings-table tbody td {
     border-bottom: none;
     padding: 0.45rem 0.9rem;
@@ -367,6 +374,7 @@ body {
 }
 
 @media (max-width: 560px) {
+
   .kpis-grid,
   .filters-grid {
     grid-template-columns: 1fr;
