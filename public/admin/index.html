@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Back-Office Réservations &amp; Prospects | Missi Innovation Admin</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/admin.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="/assets/js/site-config.js"></script>
+  <script defer src="/assets/js/admin.js"></script>
+</head>
+<body>
+  <header class="admin-topbar">
+    <div class="admin-container admin-topbar-inner">
+      <div class="admin-brand">
+        <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="109" height="38">
+        <div>
+          <div class="admin-sub">ADMIN // RÉSERVATIONS (Supabase Auth + RLS)</div>
+        </div>
+      </div>
+      <div class="admin-top-actions">
+        <a href="/" class="btn btn-secondary btn-sm">International (/)</a>
+        <a href="/mg" class="btn btn-secondary btn-sm">Local (/mg)</a>
+        <button id="btn-logout" type="button" class="btn btn-outline btn-sm" hidden>Déconnexion</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-container">
+    <!-- VUE CONNEXION (AUTH SUPABASE) -->
+    <section id="auth-view" class="auth-card">
+      <h1>Connexion Administrateur</h1>
+      <p class="auth-desc">Connectez-vous avec votre compte administrateur Supabase Auth (aucune clé secrète ni mot de passe n'est stocké dans le navigateur).</p>
+      <form id="login-form" class="auth-form" method="post" novalidate>
+        <div class="field">
+          <label for="login-email">Email administrateur</label>
+          <input id="login-email" name="email" type="email" autocomplete="username" autocorrect="off" autocapitalize="none" spellcheck="false" required>
+        </div>
+        <div class="field">
+          <label for="login-password">Mot de passe</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <div id="auth-error" class="alert-error" role="alert" hidden></div>
+        <button id="btn-login" type="submit" class="btn btn-primary">Se connecter</button>
+      </form>
+    </section>
+
+    <!-- VUE TABLEAU DE BORD ADMIN -->
+    <section id="dashboard-view" hidden>
+      <!-- KPIs -->
+      <div class="kpis-grid" aria-label="Indicateurs clés">
+        <div class="kpi-card">
+          <span class="kpi-label">Nouvelles demandes</span>
+          <strong id="kpi-new" class="kpi-val">0</strong>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Démos / Appels à venir</span>
+          <strong id="kpi-upcoming" class="kpi-val">0</strong>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Total réservations</span>
+          <strong id="kpi-total" class="kpi-val">0</strong>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Taux de conversion (Signé)</span>
+          <strong id="kpi-rate" class="kpi-val">0 %</strong>
+        </div>
+      </div>
+
+      <!-- BARRE DE FILTRES -->
+      <search class="filters-bar" aria-label="Filtrer les réservations">
+        <div class="filters-grid">
+          <div class="field">
+            <label for="filter-search">Recherche (nom, entreprise, contact)</label>
+            <input id="filter-search" type="search" placeholder="Filtrer...">
+          </div>
+          <div class="field">
+            <label for="filter-market">Marché</label>
+            <select id="filter-market">
+              <option value="all">Tous les marchés</option>
+              <option value="intl-fr">International FR (/)</option>
+              <option value="intl-en">International EN (/en)</option>
+              <option value="local-mg">Local Madagascar (/mg)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filter-pole">Pôle / Besoin</label>
+            <select id="filter-pole">
+              <option value="all">Tous les pôles</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="filter-status">Statut</label>
+            <select id="filter-status">
+              <option value="all">Tous les statuts</option>
+              <option value="Nouveau">Nouveau</option>
+              <option value="Confirmé">Confirmé</option>
+              <option value="Démo effectuée">Démo effectuée</option>
+              <option value="Devis envoyé">Devis envoyé</option>
+              <option value="Signé">Signé</option>
+              <option value="Archivé">Archivé</option>
+            </select>
+          </div>
+        </div>
+        <div class="filters-actions">
+          <button id="btn-refresh" type="button" class="btn btn-secondary btn-sm">Actualiser</button>
+          <button id="btn-export-csv" type="button" class="btn btn-primary btn-sm">Exporter CSV (CRM)</button>
+        </div>
+      </search>
+
+      <div id="dash-status" class="dash-status" role="status" aria-live="polite"></div>
+
+      <!-- TABLEAU RESPONSIVE -->
+      <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="bookings-table-caption">
+        <table class="bookings-table">
+          <caption id="bookings-table-caption">Liste des réservations et demandes de démonstration</caption>
+          <thead>
+            <tr>
+              <th scope="col">Date &amp; Créneau</th>
+              <th scope="col">Prospect</th>
+              <th scope="col">Marché &amp; Pôle</th>
+              <th scope="col">Statut &amp; Notes internes</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bookings-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,3048 +1,555 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Missi Innovation | Ingénierie Logicielle, Infogérance & Transformation Digitale</title>
+  <title>Missi Innovation | Ingénierie Logicielle, Automatisation IA &amp; SAV E-commerce B2B</title>
 
-  <!-- RÉFÉRENCEMENT NATUREL (SEO), AIO & GÉOLOCALISATION -->
-  <meta name="description" content="Missi Innovation est une entreprise d'ingénierie logicielle, prestataire informatique 360° et éditeur de solutions haute résilience. Maintenance de parcs informatiques, accompagnement au passage au digital, développement sur-mesure (local & offshore) et progiciels métiers autonomes hors-ligne.">
-  <meta name="keywords" content="esn madagascar, prestataire informatique madagascar, infogerance tma madagascar, maintenance informatique antananarivo, transformation digitale madagascar, developpement offshore madagascar, developpement logiciel sur mesure, societe informatique antananarivo, securite reseau entreprise, erp madagascar, logiciel ecole madagascar, pms hotelier nosy be, missi innovation">
-  <meta name="author" content="Missi Innovation Madagascar">
+  <meta name="description" content="ESN et studio d'ingénierie logicielle B2B pour l'Europe et la francophonie : applications web/mobile offline-first, automatisation &amp; intégration IA, et service client externalisé e-commerce.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://missi-innovation.web.app/">
+  <link rel="alternate" hreflang="fr" href="https://missi-innovation.web.app/">
+  <link rel="alternate" hreflang="en" href="https://missi-innovation.web.app/en">
+  <link rel="alternate" hreflang="x-default" href="https://missi-innovation.web.app/">
 
-  <!-- GÉOLOCALISATION MADAGASCAR -->
-  <meta name="geo.region" content="MG">
-  <meta name="geo.placename" content="Antananarivo, Madagascar">
-  <meta name="geo.position" content="-18.8792;47.5079">
-  <meta name="ICBM" content="-18.8792, 47.5079">
-
-  <!-- OPEN GRAPH / SOCIAL -->
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_MG">
-  <meta property="og:title" content="Missi Innovation | Ingénierie Logicielle & Progiciels Métiers Madagascar">
-  <meta property="og:description" content="Progiciels de gestion 100% hors-ligne, résilients aux pannes JIRAMA, certifiés conformes NIF/STAT et déployés clés en main à Madagascar.">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Missi Innovation | Ingénierie Logicielle, Automatisation IA &amp; SAV E-commerce">
+  <meta property="og:description" content="Partenaire B2B pour PME, startups, e-commerçants et agences : développement sur-mesure offline-first, workflows IA et support client externalisé.">
   <meta property="og:url" content="https://missi-innovation.web.app/">
   <meta property="og:site_name" content="Missi Innovation">
-  <meta property="og:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png">
+  <meta property="og:image" content="https://missi-innovation.web.app/assets/img/erp_01_facturation_crm.webp">
 
-  <!-- TWITTER CARDS -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Missi Innovation | Ingénierie Logicielle & Progiciels Métiers Madagascar">
-  <meta name="twitter:description" content="Progiciels métiers autonomes hors-ligne, cybersécurité réseau et développement d'applications sur-mesure à Madagascar.">
-  <meta name="twitter:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png">
+  <meta name="twitter:title" content="Missi Innovation | Ingénierie Logicielle, IA &amp; SAV E-commerce">
+  <meta name="twitter:description" content="Applications web/mobile, architectures offline-first, automatisation IA et service client externalisé.">
+  <meta name="twitter:image" content="https://missi-innovation.web.app/assets/img/erp_01_facturation_crm.webp">
   <link rel="alternate" type="text/plain" href="https://missi-innovation.web.app/llms.txt" title="LLMs Specification">
 
-  <!-- SCHEMA.ORG STRUCTURED DATA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
+        "@type": "ProfessionalService",
         "@id": "https://missi-innovation.web.app/#organization",
         "name": "Missi Innovation",
         "url": "https://missi-innovation.web.app/",
-        "logo": "https://missi-innovation.web.app/assets/img/missi_logo.svg",
-        "image": "https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png",
-        "description": "Entreprise d'ingénierie logicielle, prestataire informatique, cybersécurité et éditeur de progiciels métiers à Madagascar.",
-        "telephone": "+261347151789",
-        "priceRange": "39 000 Ar - 290 000 Ar",
-        "currenciesAccepted": "MGA, EUR, USD",
-        "paymentAccepted": "Cash, Bank Transfer, MVola, Orange Money, Airtel Money",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Antananarivo",
-          "addressRegion": "Analamanga",
-          "addressCountry": "MG"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -18.8792,
-          "longitude": 47.5079
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Madagascar"
-        }
+        "logo": "https://missi-innovation.web.app/assets/img/missi_favicon.svg",
+        "description": "Studio d'ingénierie logicielle B2B : applications web/mobile offline-first, automatisation de processus & IA, et service client e-commerce externalisé.",
+        "currenciesAccepted": "EUR, USD",
+        "priceRange": "Dès 35 EUR/h ou forfait sur devis",
+        "areaServed": ["Europe", "Worldwide"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment gérez-vous le décalage horaire avec la France et l'Europe ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nos équipes travaillent sur le fuseau UTC+3 (+1h par rapport à Paris en été, +2h en hiver), offrant un recouvrement complet sur vos heures ouvrées."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Le code source appartient-il à 100 % au client ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Chaque projet est développé sur votre dépôt Git privé avec cession intégrale de propriété intellectuelle dès le règlement des jalons."
+            }
+          }
+        ]
       }
     ]
   }
   </script>
 
-  <link rel="icon" type="image/svg+xml" href="assets/img/missi_logo.svg">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ==========================================================================
-       SYSTÈME DE DESIGN V2.1 — LUXE TECHNIQUE, RESPIRANT & VECTORIEL
-       ========================================================================== */
-    :root {
-      --canvas: #FAF8F5;
-      --surface: #FFFFFF;
-      --surface-warm: #F4EFE6;
-      --surface-subtle: #FAF6EF;
-      --surface-dark: #1C1917;
-      
-      --border: #E8E2D8;
-      --border-subtle: #F0ECE4;
-      --border-warm: #E2DDD5;
-      --border-accent: #E8D3BF;
-      
-      --text: #1C1917;
-      --text-muted: #57534E;
-      --text-soft: #78716C;
-      --text-light: #A8A29E;
-      
-      --brand-primary: #1C1917;
-      --brand-copper: #C2672B;
-      --brand-copper-dark: #9A4C1B;
-      --brand-copper-light: #FDF6F0;
-      --brand-copper-border: #F5D6C1;
-      --brand-copper-glow: rgba(194, 103, 43, 0.12);
-      
-      --status-emerald: #059669;
-      --status-emerald-dark: #047857;
-      --status-emerald-bg: #ECFDF5;
-      --status-emerald-border: #A7F3D0;
-      
-      --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-      
-      --shadow-sm: 0 1px 3px rgba(28, 25, 23, 0.04), 0 1px 2px rgba(28, 25, 23, 0.02);
-      --shadow-md: 0 4px 14px -2px rgba(28, 25, 23, 0.06), 0 2px 6px -1px rgba(28, 25, 23, 0.03);
-      --shadow-lg: 0 12px 32px -4px rgba(28, 25, 23, 0.08), 0 4px 12px -2px rgba(28, 25, 23, 0.04);
-      --shadow-xl: 0 20px 48px -8px rgba(28, 25, 23, 0.12), 0 8px 20px -4px rgba(28, 25, 23, 0.05);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      background-color: var(--canvas);
-      color: var(--text);
-    }
-
-    body {
-      font-family: var(--font-sans);
-      background-color: var(--canvas);
-      color: var(--text);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* FOND AMBIANT 3D : ONDULATIONS D'EAU CALME & PLUIE APAISANTE */
-    #ambient-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.95;
-    }
-
-    /* TYPOGRAPHIE & HIÉRARCHIE */
-    h1, h2, h3, h4, .font-display {
-      font-family: var(--font-display);
-      letter-spacing: -0.02em;
-      font-weight: 800;
-    }
-
-    .mono {
-      font-family: var(--font-mono);
-    }
-
-    .copper-word {
-      color: var(--brand-copper);
-      background: linear-gradient(135deg, #C2672B 0%, #9A4C1B 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* ==========================================================================
-       HEADER STICKY ÉPURÉ & RESPIRANT (1 LIGNE STRICTE)
-       ========================================================================== */
-    .header-nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      background: rgba(250, 248, 245, 0.94);
-      border-bottom: 1px solid var(--border);
-      height: 64px;
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      gap: 1.25rem;
-    }
-
-    .brand-link {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      text-decoration: none;
-      color: var(--text);
-      flex-shrink: 0;
-    }
-
-    .brand-logo-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: var(--radius-sm);
-      background: #1C1917;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(28, 25, 23, 0.16);
-      border: 1px solid #443E3A;
-      flex-shrink: 0;
-    }
-
-    .brand-title-wrap {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-name {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.15rem;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      color: var(--brand-primary);
-      display: flex;
-      align-items: baseline;
-      gap: 5px;
-    }
-
-    .brand-name-accent {
-      font-weight: 700;
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--brand-copper);
-    }
-
-    .brand-tagline {
-      font-size: 0.68rem;
-      color: var(--text-soft);
-      font-weight: 500;
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      list-style: none;
-      white-space: nowrap;
-    }
-
-    .nav-menu a {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      font-weight: 600;
-      transition: color 0.15s ease;
-      padding: 0.3rem 0;
-    }
-
-    .nav-menu a:hover {
-      color: var(--brand-copper);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      flex-shrink: 0;
-    }
-
-    /* BOUTONS SYSTEM */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.45rem;
-      padding: 0.52rem 1.1rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.84rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: pointer;
-      border: 1px solid transparent;
-      white-space: nowrap;
-      font-family: var(--font-sans);
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn:active {
-      transform: translateY(0);
-    }
-
-    .btn-copper {
-      background: var(--brand-copper);
-      color: #FFFFFF;
-      border-color: var(--brand-copper);
-      box-shadow: 0 2px 8px rgba(194, 103, 43, 0.25);
-    }
-
-    .btn-copper:hover {
-      background: var(--brand-copper-dark);
-      border-color: var(--brand-copper-dark);
-      box-shadow: 0 4px 14px rgba(194, 103, 43, 0.35);
-      color: #FFFFFF;
-    }
-
-    .btn-secondary {
-      background: var(--surface);
-      color: var(--text);
-      border-color: var(--border);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--brand-copper-border);
-      background: var(--surface-subtle);
-      color: var(--brand-copper);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text-muted);
-      border-color: var(--border);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--text);
-      color: var(--text);
-      background: rgba(28, 25, 23, 0.03);
-    }
-
-    .btn-whatsapp {
-      background: #059669;
-      color: white;
-      border-color: #059669;
-      box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
-    }
-
-    .btn-whatsapp:hover {
-      background: #047857;
-      border-color: #047857;
-      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
-      color: white;
-    }
-
-    /* ==========================================================================
-       HERO SECTION — ÉPURÉE, IMPACT MAGNETIQUE & INVITATION AU SCROLL
-       ========================================================================== */
-    .hero {
-      padding: 4rem 0 3.25rem;
-      position: relative;
-    }
-
-    .hero-badge-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--brand-copper-dark);
-      background: var(--brand-copper-light);
-      border: 1px solid var(--brand-copper-border);
-      padding: 3px 11px;
-      border-radius: 999px;
-      margin-bottom: 1.25rem;
-    }
-
-    .pulsing-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--brand-copper);
-      box-shadow: 0 0 0 0 rgba(194, 103, 43, 0.7);
-      animation: pulse-ring 2s infinite cubic-bezier(0.66, 0, 0, 1);
-    }
-
-    @keyframes pulse-ring {
-      to {
-        box-shadow: 0 0 0 7px rgba(194, 103, 43, 0);
-      }
-    }
-
-    .hero-title {
-      font-size: clamp(2.1rem, 3.8vw, 3.4rem);
-      line-height: 1.15;
-      color: var(--text);
-      max-width: 940px;
-      margin-bottom: 1.15rem;
-    }
-
-    /* PARAGRAPHE COURT & PUNCHY (CORRECTION POINT 4) */
-    .hero-desc {
-      font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-      color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 760px;
-      margin-bottom: 2rem;
-    }
-
-    .hero-desc strong {
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.75rem;
-    }
-
-    /* INVITATION SUBTILE AU SCROLL */
-    .scroll-invite {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-soft);
-      text-decoration: none;
-      transition: color 0.15s ease;
-      cursor: pointer;
-    }
-
-    .scroll-invite:hover {
-      color: var(--brand-copper);
-    }
-
-    .scroll-mouse {
-      width: 14px;
-      height: 22px;
-      border: 1.5px solid var(--border-warm);
-      border-radius: 999px;
-      position: relative;
-    }
-
-    .scroll-wheel {
-      width: 2.5px;
-      height: 4px;
-      background: var(--brand-copper);
-      border-radius: 999px;
-      position: absolute;
-      top: 3px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: scroll-wheel-anim 1.6s infinite ease-in-out;
-    }
-
-    @keyframes scroll-wheel-anim {
-      0% { opacity: 1; transform: translate(-50%, 0); }
-      70% { opacity: 0; transform: translate(-50%, 8px); }
-      100% { opacity: 0; transform: translate(-50%, 0); }
-    }
-
-    /* RUBAN DES ENGAGEMENTS SOUVERAINS AVEC SVG */
-    .hero-stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      padding: 1.25rem 1.5rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .stat-card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      padding: 0 0.5rem;
-      border-right: 1px solid var(--border-subtle);
-    }
-
-    .stat-card:last-child {
-      border-right: none;
-    }
-
-    .stat-header {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.92rem;
-      font-weight: 800;
-      font-family: var(--font-display);
-      color: var(--text);
-    }
-
-    .stat-desc {
-      font-size: 0.76rem;
-      color: var(--text-soft);
-      line-height: 1.4;
-    }
-
-    /* ==========================================================================
-       SECTION HUB DES SOLUTIONS MÉTIERS (ONGLETS V2.1 AVEC VRAIS SVG)
-       ========================================================================== */
-    .hub-section {
-      padding: 4.5rem 0 3.5rem;
-      position: relative;
-    }
-
-    .section-header-center {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 2.25rem;
-    }
-
-    .sec-kicker {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--brand-copper);
-      margin-bottom: 0.5rem;
-    }
-
-    .sec-title {
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
-      line-height: 1.2;
-      color: var(--text);
-      margin-bottom: 0.85rem;
-    }
-
-    .sec-desc {
-      font-size: 0.96rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* SÉLECTEUR D'ONGLETS SANS EMOJIS, 100% SVG VECTORIEL — STYLE PILL HAUTE PRÉCISION */
-    .tabs-nav-wrapper {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      margin: 0 auto 2.5rem;
-    }
-
-    .tabs-nav-bar {
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      flex-wrap: nowrap;
-      background: var(--surface-warm);
-      padding: 4px;
-      border-radius: 9999px;
-      border: 1px solid var(--border-warm);
-      box-shadow: inset 0 1px 2px rgba(28, 25, 23, 0.04), 0 2px 8px rgba(28, 25, 23, 0.03);
-    }
-
-    .tab-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 0.52rem 0.95rem;
-      border-radius: 9999px;
-      font-family: var(--font-sans);
-      font-size: 0.81rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      background: transparent;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      white-space: nowrap;
-      flex-shrink: 0;
-      line-height: 1.2;
-    }
-
-    .tab-btn svg {
-      width: 14px;
-      height: 14px;
-      stroke-width: 2.1;
-      flex-shrink: 0;
-    }
-
-    .tab-btn:hover {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.65);
-    }
-
-    .tab-btn.active {
-      background: var(--surface);
-      color: var(--brand-copper-dark);
-      box-shadow: 0 2px 8px rgba(28, 25, 23, 0.08), 0 1px 2px rgba(28, 25, 23, 0.04);
-      border: 1px solid var(--border-subtle);
-    }
-
-    @media (max-width: 940px) {
-      .tabs-nav-wrapper {
-        justify-content: flex-start;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding: 0.25rem 0.5rem 0.5rem;
-        margin-bottom: 2rem;
-      }
-      .tabs-nav-wrapper::-webkit-scrollbar {
-        display: none;
-      }
-      .tabs-nav-bar {
-        margin: 0 auto;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .tabs-nav-bar {
-        margin: 0;
-      }
-      .tab-btn {
-        padding: 0.46rem 0.82rem;
-        font-size: 0.77rem;
-      }
-    }
-
-    .tab-panel {
-      display: none;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .tab-panel.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .showcase-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 2.75rem;
-      box-shadow: var(--shadow-lg);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .showcase-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.15rem;
-    }
-
-    .showcase-tagline {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--brand-copper);
-      background: var(--brand-copper-light);
-      border: 1px solid var(--brand-copper-border);
-      padding: 3px 10px;
-      border-radius: 999px;
-      width: fit-content;
-    }
-
-    .showcase-title {
-      font-size: clamp(1.5rem, 2.2vw, 1.95rem);
-      line-height: 1.25;
-      color: var(--text);
-    }
-
-    .showcase-desc {
-      font-size: 0.92rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    .features-checklist {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      margin: 0.35rem 0;
-    }
-
-    .features-checklist li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 0.86rem;
-      color: var(--text);
-      line-height: 1.45;
-    }
-
-    .check-icon {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: var(--status-emerald-bg);
-      color: var(--status-emerald);
-      border: 1px solid var(--status-emerald-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 10px;
-      font-weight: 900;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .price-pill-banner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      background: var(--surface-warm);
-      border: 1px solid var(--border-warm);
-      border-radius: var(--radius-md);
-      padding: 0.7rem 1.15rem;
-      margin-top: 0.35rem;
-    }
-
-    .price-label-wrap {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .price-sub {
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--text-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .price-main {
-      font-family: var(--font-display);
-      font-size: 1.18rem;
-      font-weight: 800;
-      color: var(--brand-copper-dark);
-    }
-
-    .price-badge-opt {
-      font-size: 0.7rem;
-      font-weight: 700;
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      padding: 3px 8px;
-      border-radius: var(--radius-sm);
-      color: var(--text-muted);
-    }
-
-    .showcase-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      flex-wrap: wrap;
-      margin-top: 0.35rem;
-    }
-
-    /* CADRE FENÊTRE ÉCRAN HD */
-    .software-window {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-xl);
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .software-window:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 24px 60px -10px rgba(28, 25, 23, 0.16);
-    }
-
-    .window-titlebar {
-      background: #F4EFE6;
-      border-bottom: 1px solid var(--border);
-      padding: 8px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .window-dots {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .window-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-    }
-
-    .dot-red { background: #EF4444; }
-    .dot-yellow { background: #F59E0B; }
-    .dot-green { background: #10B981; }
-
-    .window-title-text {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .window-badge-stat {
-      font-size: 0.65rem;
-      font-weight: 800;
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      color: var(--status-emerald-dark);
-      padding: 1px 6px;
-      border-radius: 4px;
-    }
-
-    .window-viewport {
-      position: relative;
-      overflow: hidden;
-      background: #FAF8F5;
-      aspect-ratio: 16 / 10;
-    }
-
-    .window-viewport img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
-    .software-window:hover .window-viewport img {
-      transform: scale(1.02);
-    }
-
-    .callout-overlay-badge {
-      position: absolute;
-      background: rgba(28, 25, 23, 0.88);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 4px 9px;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      pointer-events: none;
-    }
-
-    /* ==========================================================================
-       SECTION CLIENTS : MONOCHROME BLANC SOUS LES SUITES (CORRECTION POINT 1)
-       ========================================================================== */
-    .trust-ribbon-dark {
-      margin-top: 2.75rem;
-      background: linear-gradient(135deg, #1C1917 0%, #262320 100%);
-      border: 1px solid rgba(194, 103, 43, 0.28);
-      border-radius: var(--radius-xl);
-      padding: 2.25rem 1.5rem 2rem;
-      box-shadow: var(--shadow-xl);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .trust-ribbon-dark::before {
-      content: '';
-      position: absolute;
-      top: -40%;
-      left: 10%;
-      width: 300px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(194, 103, 43, 0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .trust-ribbon-dark {
-      background: #141210;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius-lg);
-      padding: 2rem 0 2.25rem;
-      margin-top: 2rem;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 20px 40px rgba(0, 0, 0, 0.45);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .trust-ribbon-dark::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 10%;
-      right: 10%;
-      height: 1px;
-      background: radial-gradient(circle, rgba(194, 103, 43, 0.8), transparent 70%);
-      pointer-events: none;
-    }
-
-    .trust-ribbon-header {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .trust-ribbon-kicker {
-      font-size: 0.74rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #E2DDD5;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .trust-ribbon-kicker span {
-      color: var(--brand-copper);
-    }
-
-    .marquee-wrapper-dark {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-      padding: 6px 0;
-    }
-
-    .marquee-track-dark {
-      display: flex;
-      width: max-content;
-      user-select: none;
-    }
-
-    .marquee-group {
-      display: flex;
-      align-items: center;
-      gap: 5.5rem;
-      padding-right: 5.5rem;
-      flex-shrink: 0;
-      animation: marquee-scroll 34s linear infinite;
-    }
-
-    .marquee-wrapper-dark:hover .marquee-group {
-      animation-play-state: paused;
-    }
-
-    @keyframes marquee-scroll {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-100%);
-      }
-    }
-
-    /* ENTITÉ CLIENT SANS BORDURES : LOGOS ÉLARGIS À 74PX, TEXTE À DROITE, ULTRA AÉRÉ */
-    .client-free-entity {
-      display: inline-flex;
-      align-items: center;
-      gap: 1.25rem;
-      color: #FFFFFF;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: pointer;
-      opacity: 0.88;
-      text-decoration: none;
-    }
-
-    .client-free-entity:hover {
-      opacity: 1;
-      transform: translateY(-2px);
-    }
-
-    .client-free-logo {
-      height: 74px;
-      width: auto;
-      max-width: 110px;
-      object-fit: contain;
-      display: block;
-      filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.5));
-      transition: all 0.3s ease;
-    }
-
-    .client-free-entity:hover .client-free-logo {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.28));
-    }
-
-    .client-free-info {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      text-align: left;
-    }
-
-    .client-free-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: #FFFFFF;
-      line-height: 1.2;
-      white-space: nowrap;
-    }
-
-    .client-free-meta {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      color: rgba(255, 255, 255, 0.52);
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    /* INVITATION SCROLL DÉCOUVRIR INNOVANTE (LUMIÈRE QUI TOURNE ET DESCEND SUR LA BORDURE) */
-    .hero-discover-row {
-      display: flex;
-      justify-content: center;
-      margin: 1.75rem 0 2.75rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* BOUTON DÉCOUVRIR INNOVANT : CASCADE D'EAU FLUIDE (HAUT -> BAS) */
-    .discover-cascade-pill {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      border-radius: 9999px;
-      padding: 2px;
-      overflow: hidden;
-      cursor: pointer;
-      background: #E8E2D9;
-      box-shadow: 0 4px 16px rgba(44, 39, 36, 0.06);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
-    }
-
-    .discover-cascade-pill:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(194, 103, 43, 0.18), 0 2px 6px rgba(44, 39, 36, 0.08);
-    }
-
-    /* Demi-cadre gauche */
-    .stream-half-left {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Demi-cadre droite */
-    .stream-half-right {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    /* Faisceau d'eau gauche : part de 12h (centre haut) et descend le flanc gauche jusqu'à 6h (bas) */
-    .water-stream-left {
-      position: absolute;
-      top: -300%;
-      left: -50%;
-      width: 300%;
-      height: 700%;
-      background: conic-gradient(
-        from 0deg at 50% 50%,
-        transparent 0deg,
-        transparent 200deg,
-        rgba(194, 103, 43, 0.12) 225deg,
-        #C2672B 248deg,
-        #F6AD55 264deg,
-        #FFFFFF 270deg,
-        transparent 271deg,
-        transparent 360deg
-      );
-      animation: stream-flow-left 4.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    }
-
-    /* Faisceau d'eau droite : Blanc pur -> Or ambré -> Cuivre chaleureux (sans aucun bleu) */
-    .water-stream-right {
-      position: absolute;
-      top: -300%;
-      right: -50%;
-      width: 300%;
-      height: 700%;
-      background: conic-gradient(
-        from 0deg at 50% 50%,
-        transparent 0deg,
-        transparent 90deg,
-        #FFFFFF 90.5deg,
-        #F6AD55 96deg,
-        #C2672B 112deg,
-        rgba(194, 103, 43, 0.12) 135deg,
-        transparent 160deg,
-        transparent 360deg
-      );
-      animation: stream-flow-right 4.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    }
-
-    @keyframes stream-flow-left {
-      0% {
-        transform: rotate(90deg);
-        opacity: 0;
-      }
-      12% {
-        opacity: 1;
-      }
-      88% {
-        opacity: 1;
-      }
-      100% {
-        transform: rotate(-90deg);
-        opacity: 0;
-      }
-    }
-
-    @keyframes stream-flow-right {
-      0% {
-        transform: rotate(-90deg);
-        opacity: 0;
-      }
-      12% {
-        opacity: 1;
-      }
-      88% {
-        opacity: 1;
-      }
-      100% {
-        transform: rotate(90deg);
-        opacity: 0;
-      }
-    }
-
-    .discover-cascade-pill:hover .water-stream-left,
-    .discover-cascade-pill:hover .water-stream-right {
-      animation-duration: 2.8s;
-    }
-
-    .discover-inner-clean {
-      position: relative;
-      z-index: 2;
-      background: #FFFFFF;
-      border-radius: 9999px;
-      padding: 10px 22px 10px 24px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text, #2C2724);
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      transition: all 0.25s ease;
-    }
-
-    .discover-cascade-pill:hover .discover-inner-clean {
-      color: #C2672B;
-      background: #FFFDFB;
-    }
-
-    /* Flèche délicate incitant à descendre vers les progiciels */
-    .discover-arrow-down {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #C2672B;
-      animation: arrow-cascade 2s ease-in-out infinite;
-    }
-
-    @keyframes arrow-cascade {
-      0%, 100% {
-        transform: translateY(0);
-        opacity: 0.7;
-      }
-      50% {
-        transform: translateY(3.5px);
-        opacity: 1;
-      }
-    }
-
-    /* ==========================================================================
-       SECTION UNIFIÉE : GARANTIES SOUVERAINES & FAQ (CORRECTION POINT 7)
-       ========================================================================== */
-    .unified-authority-section {
-      padding: 4.5rem 0 5.5rem;
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .authority-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3.5rem;
-      align-items: flex-start;
-      margin-top: 2rem;
-    }
-
-    .guarantee-column {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .guarantee-card {
-      background: var(--canvas);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      transition: all 0.2s ease;
-    }
-
-    .guarantee-card:hover {
-      border-color: var(--brand-copper-border);
-      background: #FFFFFF;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .guarantee-tag-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.7rem;
-      font-weight: 800;
-      color: var(--brand-copper);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .guarantee-title {
-      font-size: 1.15rem;
-      color: var(--text);
-      line-height: 1.3;
-    }
-
-    .guarantee-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-    }
-
-    /* ACCORDÉON FAQ ÉLÉGANT & INTÉGRÉ */
-    .faq-column {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .faq-item {
-      background: var(--canvas);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
-      transition: border-color 0.2s ease;
-    }
-
-    .faq-item[open] {
-      border-color: var(--brand-copper-border);
-      background: #FFFFFF;
-    }
-
-    .faq-summary {
-      padding: 1.15rem 1.35rem;
-      font-family: var(--font-display);
-      font-size: 0.96rem;
-      font-weight: 700;
-      color: var(--text);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      list-style: none;
-      user-select: none;
-    }
-
-    .faq-summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-icon-cross {
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: var(--brand-copper);
-      transition: transform 0.2s ease;
-    }
-
-    .faq-item[open] .faq-icon-cross {
-      transform: rotate(45deg);
-    }
-
-    .faq-content {
-      padding: 0 1.35rem 1.25rem 1.35rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      border-top: 1px dashed var(--border-subtle);
-      margin-top: 0.2rem;
-      padding-top: 0.85rem;
-    }
-
-    /* ==========================================================================
-       BANNIÈRE EXÉCUTIVE FINALE
-       ========================================================================== */
-    .cta-banner-wrap {
-      padding: 4.5rem 0 5rem;
-    }
-
-    .cta-banner {
-      background: linear-gradient(135deg, #1C1917 0%, #292524 100%);
-      color: #FFFFFF;
-      border-radius: var(--radius-xl);
-      padding: 3rem 2.5rem;
-      box-shadow: var(--shadow-xl);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-banner::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(194, 103, 43, 0.25) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .cta-text-side {
-      max-width: 620px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-title {
-      font-size: clamp(1.7rem, 2.6vw, 2.2rem);
-      line-height: 1.2;
-      color: #FFFFFF;
-      margin-bottom: 0.75rem;
-    }
-
-    .cta-desc {
-      font-size: 0.95rem;
-      color: #D6D3D1;
-      line-height: 1.6;
-    }
-
-    .cta-buttons-side {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ==========================================================================
-       FOOTER INSTITUTIONNEL COMPLET
-       ========================================================================== */
-    .site-footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 3.5rem 0 2.25rem;
-      font-size: 0.88rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 2.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .footer-col-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .footer-desc {
-      font-size: 0.82rem;
-      color: var(--text-soft);
-      line-height: 1.55;
-      max-width: 340px;
-    }
-
-    .footer-title {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 0.92rem;
-      color: var(--text);
-      margin-bottom: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-
-    .footer-links a {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 0.82rem;
-      transition: color 0.15s ease;
-    }
-
-    .footer-links a:hover {
-      color: var(--brand-copper);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      font-size: 0.76rem;
-      color: var(--text-soft);
-    }
-
-    /* RESPONSIVE DESIGN */
-    @media (max-width: 1024px) {
-      .showcase-card {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 2rem;
-      }
-      .authority-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .hero-stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 860px) {
-      .nav-menu {
-        display: none;
-      }
-      .hero {
-        padding: 2.75rem 0 2rem;
-      }
-      .hero-stats-grid {
-        grid-template-columns: 1fr;
-      }
-      .stat-card {
-        border-right: none;
-        border-bottom: 1px solid var(--border-subtle);
-        padding-bottom: 0.65rem;
-      }
-      .stat-card:last-child {
-        border-bottom: none;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      .cta-banner {
-        padding: 2.25rem 1.5rem;
-      }
-      .marquee-group {
-        gap: 3.5rem;
-        padding-right: 3.5rem;
-      }
-      .client-free-logo {
-        height: 58px;
-        max-width: 85px;
-      }
-      .client-free-title {
-        font-size: 0.8rem;
-      }
-      .client-free-meta {
-        font-size: 0.68rem;
-      }
-      .discover-cascade-pill .discover-inner-clean {
-        font-size: 0.82rem;
-        padding: 9px 18px 9px 20px;
-      }
-      .hero-discover-row {
-        margin: 1.25rem 0 2rem;
-      }
-    }
-
-    /* ==========================================================================
-       SÉLECTEUR DE LANGUE MULTILINGUE (FR / EN / MG)
-       ========================================================================== */
-    .lang-switcher {
-      display: inline-flex;
-      align-items: center;
-      background: var(--surface-warm);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 2px;
-      gap: 2px;
-      flex-shrink: 0;
-    }
-
-    .lang-btn {
-      border: none;
-      background: transparent;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.22rem 0.52rem;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.18s ease;
-      line-height: 1;
-      letter-spacing: 0.04em;
-    }
-
-    .lang-btn:hover {
-      color: var(--text);
-    }
-
-    .lang-btn.active {
-      background: var(--brand-primary);
-      color: #FFFFFF;
-      box-shadow: 0 1px 4px rgba(28, 25, 23, 0.18);
-    }
-
-    @media (max-width: 640px) {
-      .nav-actions .btn-secondary {
-        display: none !important;
-      }
-      .brand-tagline {
-        display: none !important;
-      }
-      .lang-btn {
-        padding: 0.2rem 0.42rem;
-        font-size: 0.68rem;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/intl.css">
+  <link rel="stylesheet" href="/assets/css/booking.css">
+  <script defer src="/assets/js/site-config.js"></script>
+  <script defer src="/assets/js/intl.js"></script>
+  <script defer src="/assets/js/booking.js"></script>
 </head>
 <body>
-
-  <!-- FOND AMBIANT 3D : ONDULATIONS D'EAU CALME & PLUIE APAISANTE -->
-  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
-
-  <!-- ==========================================================================
-       EN-TÊTE OFFICIELLE (HEADER STICKY 1 LIGNE STRICTE)
-       ========================================================================== -->
   <header class="header-nav">
     <div class="container nav-inner">
-      <a href="index.html" class="brand-link" title="Missi Innovation - Accueil">
-        <div class="brand-logo-mark">
-          <img src="assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22">
-        </div>
-        <div class="brand-title-wrap">
-          <div class="brand-name">
-            MISSI <span class="brand-name-accent">INNOVATION</span>
-          </div>
-          <div class="brand-tagline" data-i18n-html="brand_tagline">Ingénierie Logicielle &bull; Solutions Haute Résilience</div>
-        </div>
+      <a href="/" class="brand-link" title="Missi Innovation - Accueil">
+        <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="115" height="40">
       </a>
 
-      <nav aria-label="Navigation principale">
-        <ul class="nav-menu">
-          <li><a href="#solutions" data-i18n="nav_suites">Progiciels</a></li>
-          <li><a href="#tab-prestations" onclick="switchTab('tab-prestations')" data-i18n="nav_services">Services IT &amp; Maintenance</a></li>
-          <li><a href="#garanties" data-i18n="nav_garanties">Garanties &amp; FAQ</a></li>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <button id="mobile-menu-btn" class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+        <ul id="site-menu" class="nav-menu">
+          <li><a href="#poles">Pôles</a></li>
+          <li><a href="#profils">Profils Clients</a></li>
+          <li><a href="#methodologie">Méthodologie</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <!-- SÉLECTEUR DE CONTEXTE MARCHÉ (MG LOCAL / FR INT / EN INT) -->
-        <div class="lang-switcher" role="group" aria-label="Choix du marché & de la langue">
-          <button type="button" class="lang-btn active" data-lang="mg" onclick="setLanguage('mg')" title="Madagascar : Solutions & Tarifs Locaux (Ariary, JIRAMA Proof)">MG</button>
-          <button type="button" class="lang-btn" data-lang="fr" onclick="setLanguage('fr')" title="International Francophone : Pôle Offshore & Solutions Haute Résilience">FR</button>
-          <button type="button" class="lang-btn" data-lang="en" onclick="setLanguage('en')" title="Global International : Offshore Engineering & Managed IT">EN</button>
+        <div class="lang-links" aria-label="Choix de langue ou marché">
+          <a href="/" aria-current="page" hreflang="fr">FR</a>
+          <a href="/en" hreflang="en">EN</a>
+          <a href="/mg" title="Portail Local Madagascar">MG</a>
         </div>
+        <button type="button" class="btn btn-primary" data-open-booking>Planifier un appel 20 min</button>
       </div>
     </div>
   </header>
 
-  <!-- ==========================================================================
-       HERO PRESTIGE INSTITUTIONNEL (MAGNETIQUE & COURT)
-       ========================================================================== -->
   <main>
     <section class="hero">
       <div class="container">
-        
-        <div class="hero-badge-pill" data-i18n-html="hero_badge">
-          <span class="pulsing-dot"></span>
-          Ingénierie Logicielle &bull; Infogérance &amp; Transformation Digitale
-        </div>
-
-        <h1 class="hero-title" data-i18n-html="hero_title">
-          Ingénierie logicielle &amp; transformation digitale : l'excellence technologique, <span class="copper-word">taillée pour les réalités de terrain</span> les plus exigeantes.
+        <div class="hero-kicker">ESN B2B Europe &amp; International &bull; Ingénierie, IA &amp; Opérations E-commerce</div>
+        <h1 class="hero-title">
+          Accélérez vos produits logiciels, automatisez vos flux et structurez votre <span>relation client</span>.
         </h1>
-
-        <!-- PARAGRAPHE COURT, AIMANTANT & PERCUTANT -->
-        <p class="hero-desc" data-i18n-html="hero_desc">
-          Partenaire informatique 360° : développement sur-mesure (international &amp; local), maintenance continue de parc, infogérance et progiciels métiers autonomes (<strong>100% opérationnels hors-ligne</strong>, résilience délestages). Du passage au digital jusqu'au support long terme.
+        <p class="hero-desc">
+          Missi Innovation accompagne les PME, startups, marques e-commerce et agences sur trois pôles complémentaires : développement applicatif sur-mesure (web, mobile, offline-first), automatisation &amp; intégration IA, et service client externalisé.
         </p>
-
         <div class="hero-actions">
-          <a href="#solutions" class="btn btn-copper" style="padding: 0.72rem 1.4rem; font-size: 0.9rem;" data-i18n="hero_btn_explore">
-            Explorer les Progiciels Métiers ↓
-          </a>
-          <a href="configurateur.html" class="btn btn-secondary" style="padding: 0.72rem 1.3rem; font-size: 0.9rem;" data-i18n="hero_btn_quote">
-            🛠️ Catalogue par Besoin & Devis
-          </a>
-          <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20échanger%20avec%20un%20ingénieur%20technique." target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.72rem 1.2rem; font-size: 0.9rem;" data-i18n="hero_btn_engineer">
-            💬 Échanger avec un Ingénieur
-          </a>
+          <a href="#poles" class="btn btn-primary btn-lg">Découvrir nos 3 pôles d'expertise</a>
+          <button type="button" class="btn btn-secondary btn-lg" data-open-booking>Planifier un appel découverte (20 min)</button>
         </div>
 
-        <!-- INVITATION SCROLL : CASCADE D'EAU FLUIDE DEPUIS LE MILIEU HAUT VERS LE BAS -->
-        <div class="hero-discover-row">
-          <a href="#solutions" class="discover-cascade-pill" title="Découvrir les suites logicielles et services IT">
-            <div class="stream-half-left">
-              <div class="water-stream-left"></div>
-            </div>
-            <div class="stream-half-right">
-              <div class="water-stream-right"></div>
-            </div>
-            <span class="discover-inner-clean">
-              <span data-i18n="hero_discover">Découvrir les Progiciels &amp; Services IT</span>
-              <span class="discover-arrow-down">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M6 9l6 6 6-6"/>
-                </svg>
-              </span>
-            </span>
-          </a>
-        </div>
-
-        <!-- STATS & ENGAGEMENTS CLÉS (AVEC VRAIES ICÔNES SVG) -->
-        <div class="hero-stats-grid">
-          <div class="stat-card">
-            <div class="stat-header">
-              <svg width="15" height="15" fill="none" stroke="var(--status-emerald)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-              <span data-i18n="stat1_header">100% Hors-Ligne &amp; Résilience</span>
-            </div>
-            <div class="stat-desc" data-i18n="stat1_desc">Moteur SQLite local WAL. Encaissements et opérations sans coupure réseau ni cloud forcé.</div>
+        <div class="proofs-grid">
+          <div class="proof-card">
+            <h2>Alignement horaire Europe (UTC+3)</h2>
+            <p>Seulement +1h à +2h d'écart avec l'Europe centrale : collaboration fluide en français ou en anglais sur vos heures ouvrées.</p>
           </div>
-          <div class="stat-card">
-            <div class="stat-header">
-              <svg width="15" height="15" fill="none" stroke="var(--brand-copper)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              <span data-i18n="stat2_header">Prestataire IT 360° &amp; Maintenance</span>
-            </div>
-            <div class="stat-desc" data-i18n="stat2_desc">Infogérance de parc, support continu, maintenance logicielle et transition numérique.</div>
+          <div class="proof-card">
+            <h2>Code Source 100 % Cédé</h2>
+            <p>Développement sur votre dépôt Git privé (TypeScript, React, Node.js, Python, SQL), revue de code et propriété intellectuelle totale.</p>
           </div>
-          <div class="stat-card">
-            <div class="stat-header">
-              <svg width="15" height="15" fill="none" stroke="var(--text-muted)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              <span data-i18n="stat3_header">Excellence &amp; Standard Mondial</span>
-            </div>
-            <div class="stat-desc" data-i18n="stat3_desc">Projets sur-mesure web, mobile &amp; cloud aux standards internationaux d'ingénierie.</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-header">
-              <svg width="15" height="15" fill="none" stroke="var(--status-emerald)" viewBox="0 0 24 24" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-              <span data-i18n="stat4_header">Déploiement Clé en Main &amp; SLA</span>
-            </div>
-            <div class="stat-desc" data-i18n="stat4_desc">Installation sur site sous 48h, formation ou télémaintenance internationale réactive.</div>
+          <div class="proof-card">
+            <h2>Architectures Résilientes &amp; Opérations</h2>
+            <p>Expérience terrain éprouvée sur des logiciels critiques offline-first et des opérations back-office / support multi-outils.</p>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- ==========================================================================
-         HUB INTERACTIF DES SOLUTIONS (ONGLETS V2.1 AVEC VRAIS SVG)
-         ========================================================================== -->
-    <section id="solutions" class="hub-section">
+    <!-- 3 PÔLES D'EXPERTISE -->
+    <section id="poles" class="section-block section-surface">
       <div class="container">
-        
         <div class="section-header-center">
-          <span class="sec-kicker" data-i18n="hub_kicker">SUITES LOGICIELLES MÉTIERS &amp; PRESTATIONS INFORMATIQUES 360°</span>
-          <h2 class="sec-title" data-i18n="hub_title">Une expertise technologique pour chaque défi opérationnel</h2>
-          <p class="sec-desc" data-i18n="hub_desc">
-            Sélectionnez votre domaine d'activité pour découvrir nos progiciels autonomes ou notre offre globale de prestations informatiques (maintenance, passage au digital, cybersécurité).
-          </p>
+          <span class="sec-kicker">Nos 3 Pôles d'Expertise</span>
+          <h2 class="sec-title">Un partenaire technique et opérationnel orienté ROI</h2>
+          <p class="sec-desc">Intervention au forfait jalonné ou en régie dédiée selon votre feuille de route.</p>
         </div>
 
-        <!-- SÉLECTEUR D'ONGLETS 100% SVG — STYLE PILL HAUTE PRÉCISION -->
-        <div class="tabs-nav-wrapper">
-          <div class="tabs-nav-bar" role="tablist">
-            <button class="tab-btn active" data-tab="tab-education" onclick="switchTab('tab-education')" role="tab" aria-selected="true">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
-              <span data-i18n="tab_edu">Éducation &amp; Scolarité</span>
-            </button>
-            <button class="tab-btn" data-tab="tab-hotellerie" onclick="switchTab('tab-hotellerie')" role="tab" aria-selected="false">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-              <span data-i18n="tab_hotel">Hôtellerie &amp; Bar-Resto</span>
-            </button>
-            <button class="tab-btn" data-tab="tab-entreprises" onclick="switchTab('tab-entreprises')" role="tab" aria-selected="false">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-              <span data-i18n="tab_erp">Entreprises &amp; ERP</span>
-            </button>
-            <button class="tab-btn" data-tab="tab-tourisme" onclick="switchTab('tab-tourisme')" role="tab" aria-selected="false">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-              <span data-i18n="tab_tour">Tourisme &amp; Agences</span>
-            </button>
-            <button class="tab-btn" data-tab="tab-prestations" onclick="switchTab('tab-prestations')" role="tab" aria-selected="false">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-              <span data-i18n="tab_services">Services IT, Maintenance &amp; Réseau</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- ====================================================================
-             PANEL 1 : ÉDUCATION & SCOLARITÉ (STUDY AGENT PRO)
-             ==================================================================== -->
-        <div id="tab-education" class="tab-panel active" role="tabpanel">
-          <div class="showcase-card">
-            
-            <div class="showcase-content">
-              <span class="showcase-tagline">✦ Progiciel de Référence Écoles & Lycées</span>
-              <h3 class="showcase-title">Study Agent Pro — ERP Scolaire & Forteresse Financière</h3>
-              <p class="showcase-desc">
-                Conçu pour les collèges, lycées et écoles privées de 100 à plus de 1 500 élèves. Sécurisation intégrale des encaissements de scolarité, traque active des impayés et gestion pédagogique sans coupure réseau.
-              </p>
-
-              <ul class="features-checklist">
-                <li><span class="check-icon">✓</span> <strong>Traque active des impayés :</strong> Détection automatique, échéanciers modulables et relances parents sans contestation.</li>
-                <li><span class="check-icon">✓</span> <strong>Billetage physique scellé :</strong> Décompte exact des coupures de 20 000 à 100 Ar avec Ticket Z de caisse non falsifiable.</li>
-                <li><span class="check-icon">✓</span> <strong>Bulletins & Notes conformes MEN :</strong> Calcul automatique des moyennes, classements et fiches d'assiduité imprimables.</li>
-                <li><span class="check-icon">✓</span> <strong>Multi-postes en réseau local :</strong> Sécrétariat, caisse et direction synchronisés sans connexion Internet externe.</li>
+        <div class="poles-grid-3">
+          <article class="pole-card">
+            <div>
+              <span class="pole-badge">Pôle 1 &bull; Software Engineering</span>
+              <h3>Ingénierie Logicielle, Web/Mobile &amp; Offline-First</h3>
+              <p>Conception, refonte et tierce maintenance applicative (TMA) d'outils métiers et SaaS conçus pour durer.</p>
+              <ul class="check-list">
+                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Applications métiers &amp; SaaS :</strong> TypeScript, React, Next.js, Node.js, Python, PostgreSQL.</span></li>
+                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>PWA &amp; Systèmes Offline-First :</strong> moteurs locaux SQLite synchronisés tolérant les coupures réseau.</span></li>
+                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Refonte, API &amp; TMA :</strong> stabilisation de code existant, Stripe, webhooks et connecteurs ERP/CRM.</span></li>
               </ul>
-
-              <div class="price-pill-banner">
-                <div class="price-label-wrap">
-                  <span class="price-sub">Formule Écoles &amp; Lycées • Selon Effectif</span>
-                  <span class="price-main">À partir de 119 000 Ar <small style="font-size: 0.78rem; color: var(--text-soft);">/ mois</small></span>
-                </div>
-                <span class="price-badge-opt">Tarif ajusté selon la taille &amp; Option Licence Définitive</span>
-              </div>
-
-              <div class="showcase-actions">
-                <a href="education/presentation-visuelle.html" class="btn btn-copper">
-                  🔍 Démo Visuelle (12 Écrans HD)
-                </a>
-                <a href="configurateur.html" class="btn btn-secondary">
-                  🛠️ Calculer mon Tarif Établissement
-                </a>
-                <a href="education/homeschooling-pwa.html" class="btn btn-outline" title="Application école à domicile">
-                  📱 Option Study Home PWA
-                </a>
-              </div>
             </div>
-
-            <!-- CADRE FENÊTRE ÉCRAN HD -->
-            <div class="software-window">
-              <div class="window-titlebar">
-                <div class="window-dots">
-                  <span class="window-dot dot-red"></span>
-                  <span class="window-dot dot-yellow"></span>
-                  <span class="window-dot dot-green"></span>
-                </div>
-                <div class="window-title-text">
-                  <span>STUDY-AGENT // TABLEAU DE BORD DIRECTION</span>
-                </div>
-                <span class="window-badge-stat">100% HORS-LIGNE</span>
-              </div>
-              <div class="window-viewport">
-                <img src="assets/img/02_tableau_de_bord_directeur.png" alt="Tableau de bord directeur Study Agent Pro" loading="lazy">
-                <div class="callout-overlay-badge" style="bottom: 12px; left: 12px;">
-                  <span>🔒 Ticket Z Scellé &bull; Billetage 20k à 100 Ar</span>
-                </div>
-                <div class="callout-overlay-badge" style="top: 12px; right: 12px; background: rgba(5, 150, 105, 0.9);">
-                  <span>✓ 12 Écrans Opérationnels</span>
-                </div>
-              </div>
+            <div class="pole-footer-meta">
+              <span class="pole-rate">Dès 35 € / heure (régie) ou forfait jalonné</span>
+              <button type="button" class="btn btn-primary" data-open-booking data-pole="Ingénierie Web/Mobile & Offline-First">Cadrer un projet</button>
             </div>
+          </article>
 
-          </div>
-        </div>
-
-        <!-- ====================================================================
-             PANEL 2 : HÔTELLERIE & RESTAURATION (RESIPRO SUITE)
-             ==================================================================== -->
-        <div id="tab-hotellerie" class="tab-panel" role="tabpanel">
-          <div class="showcase-card">
-            
-            <div class="showcase-content">
-              <span class="showcase-tagline" style="color: #B45309; background: #FEF3C7; border-color: #FDE68A;">✦ Suite Tout-En-Un Hôtels, Bar & Resto</span>
-              <h3 class="showcase-title">ResiPro Suite — PMS Hôtelier & Caisse Tactile Restaurant</h3>
-              <p class="showcase-desc">
-                Le logiciel de gestion de référence pour hôtels, lodges, terrasses et restaurants à Nosy Be, Sainte-Marie et Antananarivo. Maîtrisez vos réservations sans surbooking et optimisez vos marges cuisine.
-              </p>
-
-              <ul class="features-checklist">
-                <li><span class="check-icon">✓</span> <strong>Planning visuel sans surbooking :</strong> Gestion en direct des disponibilités, check-in, check-out et transferts de chambres.</li>
-                <li><span class="check-icon">✓</span> <strong>POS Restaurant avec vraies photos :</strong> Interface tactile ultra-rapide, envoi en cuisine et transfert direct sur la note de chambre.</li>
-                <li><span class="check-icon">✓</span> <strong>Plan de salle interactif & Tables :</strong> Suivi des tables libres, occupées et réservées pour fluidifier le second service.</li>
-                <li><span class="check-icon">✓</span> <strong>Tarifs saisonniers & Multi-devises :</strong> Bascule automatique Haute/Basse Saison et folios en Ariary ou Euros (taux du jour).</li>
+          <article class="pole-card">
+            <div>
+              <span class="pole-badge">Pôle 2 &bull; AI &amp; Automation</span>
+              <h3>Automatisation de Processus &amp; Intégration IA</h3>
+              <p>Suppression des tâches manuelles répétitives et connexion de vos outils internes avec contrôle humain dans la boucle.</p>
+              <ul class="check-list">
+                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Workflows &amp; Orchestration :</strong> synchronisation CRM, facturation, reporting et alertes temps réel.</span></li>
+                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Back-offices &amp; Outils Internes :</strong> consoles d'administration sur-mesure pour vos équipes.</span></li>
+                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Agents IA &amp; Extraction :</strong> traitement documentaire, qualification et assistants métier auditables.</span></li>
               </ul>
-
-              <div class="price-pill-banner">
-                <div class="price-label-wrap">
-                  <span class="price-sub">Formule Hôtellerie Intégrale</span>
-                  <span class="price-main">129 000 Ar <small style="font-size: 0.78rem; color: var(--text-soft);">/ mois</small></span>
-                </div>
-                <span class="price-badge-opt">Amorti dès la 1ère nuitée louée</span>
-              </div>
-
-              <div class="showcase-actions">
-                <a href="hotellerie/presentation-visuelle.html" class="btn btn-copper">
-                  🔍 Présentation Visuelle (10 Écrans HD)
-                </a>
-                <a href="hotellerie/resipro.html" class="btn btn-secondary">
-                  📄 Dossier Commercial A4
-                </a>
-                <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20une%20démonstration%20de%20ResiPro%20Suite." target="_blank" rel="noopener" class="btn btn-whatsapp">
-                  💬 Démo WhatsApp
-                </a>
-              </div>
             </div>
-
-            <!-- CADRE FENÊTRE ÉCRAN HD -->
-            <div class="software-window">
-              <div class="window-titlebar">
-                <div class="window-dots">
-                  <span class="window-dot dot-red"></span>
-                  <span class="window-dot dot-yellow"></span>
-                  <span class="window-dot dot-green"></span>
-                </div>
-                <div class="window-title-text">
-                  <span>RESIPRO // CAISSE TACTILE RESTAURANT & BAR</span>
-                </div>
-                <span class="window-badge-stat">PHOTOS HD CULINAIRES</span>
-              </div>
-              <div class="window-viewport">
-                <img src="assets/img/resipro_03_restaurant_pos.png" alt="Caisse tactile restaurant ResiPro Suite" loading="lazy">
-                <div class="callout-overlay-badge" style="bottom: 12px; left: 12px;">
-                  <span>🍽️ Filet de Zébu &bull; Salade Nosy Be &bull; Vins & Cocktails</span>
-                </div>
-                <div class="callout-overlay-badge" style="top: 12px; right: 12px; background: rgba(194, 103, 43, 0.9);">
-                  <span>✓ 10 Écrans Réels Hôtellerie</span>
-                </div>
-              </div>
+            <div class="pole-footer-meta">
+              <span class="pole-rate">Audit automatisation &amp; devis en 48h</span>
+              <button type="button" class="btn btn-secondary" data-open-booking data-pole="Automatisation & Intégration IA">Discuter d'un workflow</button>
             </div>
+          </article>
 
-          </div>
-        </div>
-
-        <!-- ====================================================================
-             PANEL 3 : ENTREPRISES & PME (ERP SOCIÉTÉ)
-             ==================================================================== -->
-        <div id="tab-entreprises" class="tab-panel" role="tabpanel">
-          <div class="showcase-card">
-            
-            <div class="showcase-content">
-              <span class="showcase-tagline" style="color: #4338CA; background: #EEF2FF; border-color: #C7D2FE;">✦ Gestion Commerciale & Conformité DGI</span>
-              <h3 class="showcase-title">ERP Société & Commerce — Facturation NIF/STAT & Stocks</h3>
-              <p class="showcase-desc">
-                Le progiciel tout-en-un pour entreprises commerciales, grossistes et prestataires de services à Madagascar. Suivi en temps réel de votre trésorerie, gestion des stocks et conformité fiscale irréprochable.
-              </p>
-
-              <ul class="features-checklist">
-                <li><span class="check-icon">✓</span> <strong>Facturation normalisée conforme :</strong> Mentions légales obligatoires NIF, STAT, RCS, calcul automatique de la TVA à 20%.</li>
-                <li><span class="check-icon">✓</span> <strong>Gestion rigoureuse des stocks :</strong> Inventaire valorisé en temps réel, alertes de seuil bas et réapprovisionnement automatique.</li>
-                <li><span class="check-icon">✓</span> <strong>Suivi des créances clients :</strong> Échéanciers clairs, traçabilité des acomptes et réconciliations Mobile Money Pro.</li>
-                <li><span class="check-icon">✓</span> <strong>Paie légale Malagasy :</strong> Fiches de paie PDF conformes au code du travail avec retenues CNaPS, IRSA et OSTIE.</li>
+          <article class="pole-card">
+            <div>
+              <span class="pole-badge">Pôle 3 &bull; Customer Ops &amp; BPO</span>
+              <h3>Service Client Externalisé &amp; Opérations E-commerce</h3>
+              <p>Support dédié, réactif et aligné sur votre charte de marque, avec un SLA défini sur-mesure selon vos volumes.</p>
+              <ul class="check-list">
+                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>SAV Multicanal :</strong> gestion structurée email, live chat et messages réseaux sociaux.</span></li>
+                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Suivi Commandes &amp; Retours :</strong> intégration directe Shopify, WooCommerce, Zendesk et Freshdesk.</span></li>
+                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Modération &amp; Communauté :</strong> modération commentaires, réponses pré-vente et remontée d'incidents.</span></li>
               </ul>
-
-              <div class="price-pill-banner">
-                <div class="price-label-wrap">
-                  <span class="price-sub">Formule Entreprise & Commerce</span>
-                  <span class="price-main">199 000 Ar <small style="font-size: 0.78rem; color: var(--text-soft);">/ mois</small></span>
-                </div>
-                <span class="price-badge-opt">Déploiement réseau multi-postes inclus</span>
-              </div>
-
-              <div class="showcase-actions">
-                <a href="entreprises/erp-societe.html" class="btn btn-copper">
-                  📄 Dossier Commercial A4
-                </a>
-                <a href="configurateur.html?secteur=entreprises" class="btn btn-secondary">
-                  🛠️ Configurer mes Postes
-                </a>
-                <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20un%20devis%20ERP%20Société." target="_blank" rel="noopener" class="btn btn-whatsapp">
-                  💬 Démo WhatsApp
-                </a>
-              </div>
             </div>
-
-            <!-- CADRE FENÊTRE ÉCRAN HD -->
-            <div class="software-window">
-              <div class="window-titlebar">
-                <div class="window-dots">
-                  <span class="window-dot dot-red"></span>
-                  <span class="window-dot dot-yellow"></span>
-                  <span class="window-dot dot-green"></span>
-                </div>
-                <div class="window-title-text">
-                  <span>ERP SOCIETE // FACTURATION & CRÉANCES</span>
-                </div>
-                <span class="window-badge-stat">NIF & STAT CONFORME</span>
-              </div>
-              <div class="window-viewport">
-                <img src="assets/img/erp_01_facturation_crm.png" alt="ERP Société Facturation et CRM" loading="lazy">
-                <div class="callout-overlay-badge" style="bottom: 12px; left: 12px;">
-                  <span>📊 Journal Financier &bull; TVA 20% &bull; Billetage Net</span>
-                </div>
-              </div>
+            <div class="pole-footer-meta">
+              <span class="pole-rate">Forfait mensuel calibré sur vos tickets</span>
+              <button type="button" class="btn btn-secondary" data-open-booking data-pole="SAV E-commerce & Relation Client">Évaluer vos besoins SAV</button>
             </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-          </div>
+    <!-- PROFILS CLIENTS -->
+    <section id="profils" class="section-block">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Profils Clients</span>
+          <h2 class="sec-title">Comment nous collaborons avec chaque organisation</h2>
         </div>
 
-        <!-- ====================================================================
-             PANEL 4 : TOURISME & TOUROPERATEURS (TOURAGENT PRO)
-             ==================================================================== -->
-        <div id="tab-tourisme" class="tab-panel" role="tabpanel">
-          <div class="showcase-card">
-            
-            <div class="showcase-content">
-              <span class="showcase-tagline" style="color: #047857; background: #ECFDF5; border-color: #A7F3D0;">✦ Spécial Agences Réceptives & Circuits</span>
-              <h3 class="showcase-title">TourAgent Pro — Gestion de Circuits, Vouchers & Flotte</h3>
-              <p class="showcase-desc">
-                Conçu pour les agences réceptives et tour-opérateurs de Madagascar. Automatisez l'émission de vos devis de circuits, la génération de vouchers hôtels et l'affectation de vos 4x4 et chauffeurs-guides.
-              </p>
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="intl-profiles-caption">
+          <table class="profiles-table">
+            <caption id="intl-profiles-caption">Profils clients internationaux, objectifs et mode d'intervention</caption>
+            <thead>
+              <tr>
+                <th scope="col">Profil Client</th>
+                <th scope="col">Objectif Principal</th>
+                <th scope="col">Action Missi Innovation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">PME &amp; ETI</th>
+                <td data-label="Objectif Principal">Remplacer des processus manuels ou des tableurs critiques par un outil métier fiable et automatisé.</td>
+                <td data-label="Action Missi Innovation">Cadrage fonctionnel, développement au forfait jalonné, déploiement sécurisé et contrat TMA évolutif.</td>
+              </tr>
+              <tr>
+                <th scope="row">Startups &amp; Scale-ups</th>
+                <td data-label="Objectif Principal">Livrer un MVP robuste ou accélérer la roadmap produit sans alourdir la masse salariale fixe.</td>
+                <td data-label="Action Missi Innovation">Équipe ingénierie dédiée en sprints agiles, intégration directe à votre Git/CI et revues hebdomadaires.</td>
+              </tr>
+              <tr>
+                <th scope="row">E-commerçants &amp; Agences</th>
+                <td data-label="Objectif Principal">Fluidifier le SAV boutique (Shopify/WooCommerce), absorber les pics de charge ou renforcer les équipes tech.</td>
+                <td data-label="Action Missi Innovation">Équipe SAV multicanale alignée sur votre charte + renfort technique en marque blanche ou co-traitance.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-              <ul class="features-checklist">
-                <li><span class="check-icon">✓</span> <strong>Cotations d'itinéraires sur-mesure :</strong> Tarification multi-devises (EUR, USD, Ariary) selon la saison et le nombre de pax.</li>
-                <li><span class="check-icon">✓</span> <strong>Émission automatique des Vouchers :</strong> Génération PDF des bons d'échange hôtels, parcs nationaux et prestataires locaux.</li>
-                <li><span class="check-icon">✓</span> <strong>Planning de la flotte 4x4 :</strong> Affectation des véhicules, suivi du kilométrage, vidanges et planning des guides.</li>
-                <li><span class="check-icon">✓</span> <strong>Marge nette par dossier :</strong> Calcul en temps réel de votre rentabilité nette après déduction de tous les coûts directs.</li>
-              </ul>
-
-              <div class="price-pill-banner">
-                <div class="price-label-wrap">
-                  <span class="price-sub">Formule Tour-Opérateur Pro</span>
-                  <span class="price-main">249 000 Ar <small style="font-size: 0.78rem; color: var(--text-soft);">/ mois</small></span>
-                </div>
-                <span class="price-badge-opt">Devis circuits illimités</span>
-              </div>
-
-              <div class="showcase-actions">
-                <a href="tourisme/tour-operator.html" class="btn btn-copper">
-                  📄 Dossier Commercial A4
-                </a>
-                <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20une%20démo%20de%20TourAgent%20Pro." target="_blank" rel="noopener" class="btn btn-whatsapp">
-                  💬 Démo WhatsApp
-                </a>
-              </div>
-            </div>
-
-            <!-- CADRE FENÊTRE ÉCRAN HD -->
-            <div class="software-window">
-              <div class="window-titlebar">
-                <div class="window-dots">
-                  <span class="window-dot dot-red"></span>
-                  <span class="window-dot dot-yellow"></span>
-                  <span class="window-dot dot-green"></span>
-                </div>
-                <div class="window-title-text">
-                  <span>TOURAGENT // GESTION DES CIRCUITS & FLOTTE</span>
-                </div>
-                <span class="window-badge-stat">EUR / USD / MGA</span>
-              </div>
-              <div class="window-viewport">
-                <img src="assets/img/touragent_01_circuits_vouchers.png" alt="TourAgent Pro circuits et vouchers" loading="lazy">
-                <div class="callout-overlay-badge" style="bottom: 12px; left: 12px;">
-                  <span>🗺️ Circuits RN7 &bull; Sainte-Marie &bull; Vouchers PDF</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
+    <!-- MÉTHODOLOGIE -->
+    <section id="methodologie" class="section-block section-surface">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Méthodologie</span>
+          <h2 class="sec-title">Un cycle de livraison clair et sans boîte noire</h2>
         </div>
 
-        <!-- ====================================================================
-             PANEL 5 : SERVICES IT 360°, MAINTENANCE & TRANSFORMATION DIGITALE
-             ==================================================================== -->
-        <div id="tab-prestations" class="tab-panel" role="tabpanel">
-          <div class="showcase-card">
-            
-            <div class="showcase-content">
-              <span class="showcase-tagline" style="color: #0369A1; background: #F0F9FF; border-color: #BAE6FD;" data-i18n="tab5_tagline">✦ Infogérance, Maintenance Continue &amp; Transformation Digitale</span>
-              <h3 class="showcase-title" data-i18n="tab5_title">Prestataire Informatique 360° — Maintenance, Passage au Digital &amp; Sur-Mesure</h3>
-              <p class="showcase-desc" data-i18n="tab5_desc">
-                Un interlocuteur unique pour l'ensemble de votre écosystème technologique. Nous prenons en charge la maintenance préventive et corrective de votre parc, propulsons votre transition numérique zéro-papier et concevons des logiciels sur-mesure pour les entreprises locales et internationales.
-              </p>
-
-              <ul class="features-checklist">
-                <li><span class="check-icon">✓</span> <span data-i18n-html="tab5_feat1"><strong>Maintenance &amp; Infogérance de Parc (TMA) :</strong> Entretien préventif/curatif de vos PC et serveurs, sauvegardes automatiques chiffrées, support réactif garanti par contrat SLA.</span></li>
-                <li><span class="check-icon">✓</span> <span data-i18n-html="tab5_feat2"><strong>Passage au Digital &amp; Modernisation :</strong> Abandon des registres papier et tableurs dispersés, automatisation des flux métiers et tableaux de bord de pilotage.</span></li>
-                <li><span class="check-icon">✓</span> <span data-i18n-html="tab5_feat3"><strong>Développement Sur-Mesure &amp; Pôle Offshore :</strong> Conception d'applications Web, Mobiles PWA offline-first, API, connecteurs de paiement et renfort d'ingénierie internationale.</span></li>
-                <li><span class="check-icon">✓</span> <span data-i18n-html="tab5_feat4"><strong>Cybersécurité, Réseaux &amp; Restriction Box Fibre :</strong> Filtrage MAC anti-squat Wi-Fi sur box Yas/Orange/Telma, blocage hermétique des distractions (GPO Chrome/Edge) et câblage.</span></li>
-              </ul>
-
-              <div class="price-pill-banner">
-                <div class="price-label-wrap">
-                  <span class="price-sub" data-i18n="tab5_price_sub">Formules Sur-Mesure &amp; Contrats d'Infogérance</span>
-                  <span class="price-main" data-i18n-html="tab5_price_main">Dès 150 000 Ar <small style="font-size: 0.78rem; color: var(--text-soft);">/ intervention ou forfait</small></span>
-                </div>
-                <span class="price-badge-opt" data-i18n="tab5_price_opt">Intervention sur site à Antananarivo &amp; Télémaintenance internationale</span>
-              </div>
-
-              <div class="showcase-actions">
-                <a href="services/prestations-sur-mesure-et-securite.html" class="btn btn-copper" data-i18n="tab5_btn_catalog">
-                  🛡️ Catalogue Complet des Services IT
-                </a>
-                <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20un%20contrat%20de%20maintenance%20ou%20un%20devis%20de%20prestation." target="_blank" rel="noopener" class="btn btn-whatsapp" data-i18n="tab5_btn_contact">
-                  💬 Échanger sur un Contrat de Maintenance
-                </a>
-              </div>
-            </div>
-
-            <!-- CADRE FENÊTRE VISUEL ROUTEUR & BOX FIBRE / SUPERVISION IT -->
-            <div class="software-window">
-              <div class="window-titlebar">
-                <div class="window-dots">
-                  <span class="window-dot dot-red"></span>
-                  <span class="window-dot dot-yellow"></span>
-                  <span class="window-dot dot-green"></span>
-                </div>
-                <div class="window-title-text">
-                  <span data-i18n="tab5_window_title">MISSI // INFOGÉRANCE, MAINTENANCE &amp; DÉVELOPPEMENT SUR-MESURE</span>
-                </div>
-                <span class="window-badge-stat">SLA 99.9%</span>
-              </div>
-              <div class="window-viewport" style="background: #11100F;">
-                <img src="assets/img/box_fibre_securite.jpg" alt="Supervision réseau, maintenance informatique et infrastructure Missi Innovation" loading="lazy" style="object-fit: cover;">
-                <div class="callout-overlay-badge" style="bottom: 12px; left: 12px; background: rgba(16, 185, 129, 0.9);">
-                  <span data-i18n="tab5_badge_bottom">🛠️ Maintenance &amp; Infogérance Continue</span>
-                </div>
-                <div class="callout-overlay-badge" style="top: 12px; right: 12px;">
-                  <span data-i18n="tab5_badge_top">🚀 Transition Digitale &amp; Cloud Hybride</span>
-                </div>
-              </div>
-            </div>
-
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <h3>Cadrage &amp; Architecture</h3>
+            <p>Analyse de vos objectifs métier, choix technique ou SLA SAV, et estimation chiffrée en EUR/USD sous 48h.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <h3>Prototype &amp; Onboarding</h3>
+            <p>Validation des parcours écrans / procédures de réponses, accès Git, Zendesk/Shopify et environnement de test.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <h3>Livraison Itérative</h3>
+            <p>Sprints courts avec démos hebdomadaires ou suivi de tickets mesuré sur des indicateurs clairs.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">04</span>
+            <h3>Suivi &amp; Évolution</h3>
+            <p>Documentation complète, transfert de propriété du code, TMA continue et ajustement de capacité selon votre croissance.</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- ====================================================================
-             SECTION CLIENTS : RUBAN SOMBRE & LOGOS MONOCHROME BLANC (CORRECTION POINT 1)
-             ==================================================================== -->
-        <div class="trust-ribbon-dark">
+    <!-- ÉTUDES DE CAS & RUBAN CLIENTS SOBER -->
+    <section id="etudes-de-cas" class="section-block">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Déploiements &amp; Collaborations</span>
+          <h2 class="sec-title">Cas d'usage livrés &amp; structures accompagnées</h2>
+          <p class="sec-desc">Systèmes en production et collaborations actives sur le terrain et en environnement cloud.</p>
+        </div>
+
+        <div class="cases-grid">
+          <article class="case-card">
+            <span class="case-tag">Offline-First &amp; Multi-Postes</span>
+            <h3>Progiciel financier &amp; gestion multi-guichets</h3>
+            <p class="case-line"><strong>Problème :</strong> Blocage des opérations lors des coupures réseau et risques de conflits de saisie entre postes.</p>
+            <p class="case-line"><strong>Solution :</strong> Architecture TypeScript/React + moteur local SQLite WAL avec réconciliation automatique vers PostgreSQL.</p>
+            <p class="case-line"><strong>Impact :</strong> Zéro interruption hors-ligne et journal d'audit horodaté cohérent sur tous les postes.</p>
+          </article>
+
+          <article class="case-card">
+            <span class="case-tag">Automatisation &amp; Back-Office</span>
+            <h3>Plateforme de cotation, facturation &amp; documents PDF</h3>
+            <p class="case-line"><strong>Problème :</strong> Saisies manuelles répétées entre devis multi-devises, suivi logistique et bons fournisseurs.</p>
+            <p class="case-line"><strong>Solution :</strong> Back-office web unifié générant automatiquement devis, factures, vouchers PDF et exports comptables.</p>
+            <p class="case-line"><strong>Impact :</strong> Réduction des erreurs de marge et centralisation temps réel des dossiers.</p>
+          </article>
+
+          <article class="case-card">
+            <span class="case-tag">Collecte Terrain &amp; Cloud</span>
+            <h3>Application PWA de suivi opérationnel &amp; reporting</h3>
+            <p class="case-line"><strong>Problème :</strong> Remontée lente d'informations terrain depuis des zones isolées avec fichiers hétérogènes.</p>
+            <p class="case-line"><strong>Solution :</strong> Application mobile/web PWA avec cache local structuré et synchronisation sécurisée vers API Cloud.</p>
+            <p class="case-line"><strong>Impact :</strong> Données consolidées dès la reconnexion et tableaux de bord exploitables par la direction.</p>
+          </article>
+        </div>
+
+        <div class="trust-ribbon-dark" aria-label="Collaborations et déploiements">
           <div class="trust-ribbon-header">
-            <div class="trust-ribbon-kicker">
-              <span>✦</span> <span data-i18n="ribbon_kicker">DÉPLOYÉ &amp; ÉPROUVÉ CHEZ NOS CLIENTS DE RÉFÉRENCE</span> <span>✦</span>
-            </div>
+            <div class="trust-ribbon-kicker">Ils nous ont fait confiance &bull; Déploiements &amp; Collaborations</div>
           </div>
-
-          <div class="marquee-wrapper-dark">
-            <div class="marquee-track-dark">
-              
-              <!-- GROUPE 1 (AÉRÉ, SANS BORDURES, LOGOS 74PX, TEXTE À DROITE) -->
-              <div class="marquee-group">
-                
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge Logo" class="client-free-logo" style="height: 76px;">
-                  <div class="client-free-info">
-                    <span class="client-free-title">OKA FOREST LODGE</span>
-                    <span class="client-free-meta">Hôtellerie Éco-Luxe &bull; Nature</span>
-                  </div>
-                </div>
-
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa Sceau" class="client-free-logo">
-                  <div class="client-free-info">
-                    <span class="client-free-title">LYCÉE MANJARY SOA</span>
-                    <span class="client-free-meta">Scolarité, Notes &bull; Antananarivo</span>
-                  </div>
-                </div>
-
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/kanana_square_white.svg" alt="Kanana Camp Logo" class="client-free-logo">
-                  <div class="client-free-info">
-                    <span class="client-free-title">KANANA CAMP</span>
-                    <span class="client-free-meta">Lodge &bull; Lac Mantasoa</span>
-                  </div>
-                </div>
-
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa Logo" class="client-free-logo">
-                  <div class="client-free-info">
-                    <span class="client-free-title">NY ANDRIN'NY SOA</span>
-                    <span class="client-free-meta">Résidence &amp; Restauration</span>
-                  </div>
-                </div>
-
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School Logo" class="client-free-logo">
-                  <div class="client-free-info">
-                    <span class="client-free-title">SUNSHINE MONTESSORI</span>
-                    <span class="client-free-meta">Enseignement &bull; Bypass</span>
-                  </div>
-                </div>
-
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar Logo" class="client-free-logo" style="height: 68px;">
-                  <div class="client-free-info">
-                    <span class="client-free-title">ANKA MADAGASCAR</span>
-                    <span class="client-free-meta">Collecte Terrain ESG &bull; AFD</span>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- GROUPE 2 (CLONE PARFAIT POUR DÉFILEMENT CONTINU INFINI SANS SAUT) -->
-              <div class="marquee-group" aria-hidden="true">
-                
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/oka_forest_lodge_white.png" alt="Oka Forest Lodge Logo" class="client-free-logo" style="height: 76px;">
-                  <div class="client-free-info">
-                    <span class="client-free-title">OKA FOREST LODGE</span>
-                    <span class="client-free-meta">Hôtellerie Éco-Luxe &bull; Nature</span>
-                  </div>
-                </div>
-
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/manjary_soa_white.png" alt="Lycée Privé Manjary Soa Sceau" class="client-free-logo">
-                  <div class="client-free-info">
-                    <span class="client-free-title">LYCÉE MANJARY SOA</span>
-                    <span class="client-free-meta">Scolarité, Notes &bull; Antananarivo</span>
-                  </div>
-                </div>
-
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/kanana_square_white.svg" alt="Kanana Camp Logo" class="client-free-logo">
-                  <div class="client-free-info">
-                    <span class="client-free-title">KANANA CAMP</span>
-                    <span class="client-free-meta">Lodge &bull; Lac Mantasoa</span>
-                  </div>
-                </div>
-
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/andrini_soa_white.png" alt="Ny Andrin'ny Soa Logo" class="client-free-logo">
-                  <div class="client-free-info">
-                    <span class="client-free-title">NY ANDRIN'NY SOA</span>
-                    <span class="client-free-meta">Résidence &amp; Restauration</span>
-                  </div>
-                </div>
-
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School Logo" class="client-free-logo">
-                  <div class="client-free-info">
-                    <span class="client-free-title">SUNSHINE MONTESSORI</span>
-                    <span class="client-free-meta">Enseignement &bull; Bypass</span>
-                  </div>
-                </div>
-
-                <div class="client-free-entity">
-                  <img src="assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar Logo" class="client-free-logo" style="height: 68px;">
-                  <div class="client-free-info">
-                    <span class="client-free-title">ANKA MADAGASCAR</span>
-                    <span class="client-free-meta">Collecte Terrain ESG &bull; AFD</span>
-                  </div>
-                </div>
-
-              </div>
-
+          <div class="trust-clients-grid">
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/oka_forest_lodge_white.webp" alt="Oka Forest Lodge" class="trust-client-logo" width="96" height="46" loading="lazy">
+              <span class="trust-client-name">Oka Forest Lodge</span>
+              <span class="trust-client-meta">Hospitality</span>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/manjary_soa_white.webp" alt="Lycée Manjary Soa" class="trust-client-logo" width="46" height="46" loading="lazy">
+              <span class="trust-client-name">Lycée Manjary Soa</span>
+              <span class="trust-client-meta">Education</span>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/kanana_square_white.svg" alt="Kanana Camp" class="trust-client-logo" width="46" height="46" loading="lazy">
+              <span class="trust-client-name">Kanana Camp</span>
+              <span class="trust-client-meta">Eco-Lodge</span>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/andrini_soa_white.webp" alt="Ny Andrin'ny Soa" class="trust-client-logo" width="46" height="46" loading="lazy">
+              <span class="trust-client-name">Ny Andrin'ny Soa</span>
+              <span class="trust-client-meta">Hospitality &amp; Dining</span>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori" class="trust-client-logo" width="46" height="46" loading="lazy">
+              <span class="trust-client-name">Sunshine Montessori</span>
+              <span class="trust-client-meta">Education</span>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar" class="trust-client-logo" width="46" height="46" loading="lazy">
+              <span class="trust-client-name">ANKA Madagascar</span>
+              <span class="trust-client-meta">ESG Field Data</span>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- ==========================================================================
-         SECTION UNIFIÉE : GARANTIES SOUVERAINES & FAQ (CORRECTION POINT 7)
-         ========================================================================== -->
-    <section id="garanties" class="unified-authority-section">
+    <!-- FAQ -->
+    <section id="faq" class="section-block section-surface">
       <div class="container">
-        
         <div class="section-header-center">
-          <span class="sec-kicker" data-i18n="guar_kicker">INGÉNIERIE SOUVERAINE &amp; QUESTIONS FRÉQUENTES</span>
-          <h2 class="sec-title" data-i18n="guar_title">Transparence totale avant votre déploiement</h2>
-          <p class="sec-desc" data-i18n="guar_desc">
-            Nos engagements techniques fondamentaux d'un côté, et les réponses directes à vos questions de l'autre.
-          </p>
+          <span class="sec-kicker">FAQ Internationale</span>
+          <h2 class="sec-title">Questions fréquentes des décideurs</h2>
         </div>
 
-        <div class="authority-grid">
-          
-          <!-- COLONNE GAUCHE : LES 3 GARANTIES MISSI INNOVATION -->
-          <div class="guarantee-column">
-            
-            <div class="guarantee-card">
-              <div class="guarantee-tag-row">
-                <span data-i18n="guar1_tag">01 &bull; RÉSILIENCE OPÉRATIONNELLE</span>
-                <span style="color: var(--status-emerald);">✓ SQLite WAL</span>
-              </div>
-              <h3 class="guarantee-title" data-i18n="guar1_title">Autonomie 100% Hors-Ligne (Field-Tested)</h3>
-              <p class="guarantee-desc" data-i18n="guar1_desc">
-                Contrairement aux SaaS cloud qui paralysent vos opérations dès que la fibre coupe ou que le délestage survient, nos progiciels intègrent un moteur local autonome SQLite WAL. Encaissements, impressions et saisies continuent sans aucune interruption.
-              </p>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-summary">
+              <span>Quel est le décalage horaire avec la France et l'Europe ?</span>
+              <span aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-content">
+              Nos équipes opèrent en UTC+3 (+1 heure par rapport à Paris en été, +2 heures en hiver). Nous collaborons en synchrone sur vos plages ouvrées européennes.
             </div>
+          </details>
 
-            <div class="guarantee-card">
-              <div class="guarantee-tag-row">
-                <span data-i18n="guar2_tag">02 &bull; MODÈLE ÉTHIQUE SANS PIÈGE</span>
-                <span style="color: var(--brand-copper);">✓ Zéro Rente Captive</span>
-              </div>
-              <h3 class="guarantee-title" data-i18n="guar2_title">Liberté d'Acquisition : Licence ou Mensuel</h3>
-              <p class="guarantee-desc" data-i18n="guar2_desc">
-                Vous avez le choix absolu : soit un abonnement souple avec assistance continue, soit l'achat de la Licence Définitive perpétuelle. Vos données restent hébergées chez vous, sans frais cachés ni menace de blocage d'accès.
-              </p>
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Comment fonctionne le pôle Service Client &amp; Opérations E-commerce ?</span>
+              <span aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-content">
+              Nous intervenons directement dans vos outils (Shopify, WooCommerce, Zendesk, Freshdesk, réseaux sociaux) selon votre ton de marque, avec des plages horaires et un SLA définis sur-mesure selon votre volume de tickets.
             </div>
+          </details>
 
-            <div class="guarantee-card">
-              <div class="guarantee-tag-row">
-                <span data-i18n="guar3_tag">03 &bull; RIGUEUR LOCALE &amp; INTERNATIONALE</span>
-                <span style="color: var(--status-emerald);">✓ Multi-Devises &amp; DGI</span>
-              </div>
-              <h3 class="guarantee-title" data-i18n="guar3_title">Conformité Fiscale &amp; Multi-Devises (EUR/USD/MGA)</h3>
-              <p class="guarantee-desc" data-i18n="guar3_desc">
-                Billetage physique scellé, Ticket Z irréversible, conformité légale NIF/STAT et gestion multi-devises fluide pour les clients locaux comme internationaux.
-              </p>
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Qui détient la propriété intellectuelle du code source ?</span>
+              <span aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-content">
+              Vous êtes propriétaire à 100 % du code source, des dépôts Git et de la documentation dès le règlement des livrables. Un accord de confidentialité (NDA) est disponible sur demande.
             </div>
+          </details>
 
-          </div>
-
-          <!-- COLONNE DROITE : ACCORDÉON FAQ DIRECT & ACCESSIBLE -->
-          <div class="faq-column">
-            
-            <details class="faq-item" open>
-              <summary class="faq-summary">
-                <span>✦ Vos logiciels continuent-ils d'encaisser sans électricité ou sans Internet ?</span>
-                <span class="faq-icon-cross">+</span>
-              </summary>
-              <div class="faq-content">
-                Oui, à 100%. Grâce au moteur local SQLite WAL embarqué sur chaque poste ou serveur local d'établissement, vos caissiers, secrétaires et réceptionnistes continuent d'enregistrer et d'imprimer des tickets même sans connexion Internet. Dès le retour du réseau, la synchronisation Supabase s'exécute de façon transparente en tâche de fond.
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-summary">
-                <span>✦ Vos factures et reçus sont-ils conformes à la réglementation fiscale malagasy ?</span>
-                <span class="faq-icon-cross">+</span>
-              </summary>
-              <div class="faq-content">
-                Absolument. Toutes les factures et tickets émis intègrent vos mentions légales obligatoires (NIF, STAT, RCS), la gestion de la TVA à 20% (ou franchise légale pour l'Impôt Synthétique), et la traçabilité complète des règlements (espèces, chèque, virement ou Mobile Money MVola/Orange).
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-summary">
-                <span>✦ Comment fonctionne le blocage Facebook et YouTube sur les postes ?</span>
-                <span class="faq-icon-cross">+</span>
-              </summary>
-              <div class="faq-content">
-                Notre kit de restriction intervient directement sur les registres système et les stratégies de groupe (GPO) de Google Chrome et Microsoft Edge. Le blocage est hermétique et inviolable par les employés. Nous configurons également votre box fibre (Yas, Orange, Telma) par filtrage d'adresses MAC strict pour interdire tout squat Wi-Fi.
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-summary">
-                <span>✦ Quels sont les délais d'installation et de formation de vos équipes ?</span>
-                <span class="faq-icon-cross">+</span>
-              </summary>
-              <div class="faq-content">
-                Après validation de votre devis, nos ingénieurs interviennent sous 48 heures pour installer le logiciel sur vos ordinateurs en réseau local, paramétrer vos modèles d'impression officiels et former vos collaborateurs jusqu'à maîtrise complète.
-              </div>
-            </details>
-
-          </div>
-
+          <details class="faq-item">
+            <summary class="faq-summary">
+              <span>Quels sont vos modes de tarification et de facturation ?</span>
+              <span aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-content">
+              Facturation en EUR ou USD par virement international : dès 35 €/h en régie, devis forfaitaire jalonné sur cahier des charges, ou forfait mensuel calibré pour les opérations SAV.
+            </div>
+          </details>
         </div>
-
       </div>
     </section>
 
-    <!-- ==========================================================================
-         BANNIÈRE EXÉCUTIVE FINALE (CTA ENGAGEMENT)
-         ========================================================================== -->
-    <div class="container cta-banner-wrap">
-      <div class="cta-banner">
-        <div class="cta-text-side">
-          <h2 class="cta-title" data-i18n="cta_title">Modernisez vos opérations avec un partenaire d'ingénierie fiable.</h2>
-          <p class="cta-desc" data-i18n="cta_desc">
-            Que vous cherchiez un prestataire pour maintenir votre parc informatique, réussir votre passage au digital ou concevoir un logiciel de haute précision, échangeons dès aujourd'hui.
-          </p>
-        </div>
-        <div class="cta-buttons-side">
-          <a href="configurateur.html" class="btn btn-copper" style="padding: 0.82rem 1.55rem; font-size: 0.92rem;" data-i18n="cta_btn_config">
-            🛠️ Lancer le Configurateur de Devis
-          </a>
-          <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20convenir%20d'un%20rendez-vous%20ou%20d'une%20démonstration." target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 0.82rem 1.35rem; font-size: 0.92rem;" data-i18n="cta_btn_wa">
-            💬 WhatsApp Direct
-          </a>
+    <!-- CTA FINAL -->
+    <section id="contact" class="section-block">
+      <div class="container">
+        <div class="cta-banner">
+          <div class="cta-text-side">
+            <h2 class="cta-title">Planifier un appel découverte de 20 minutes</h2>
+            <p class="cta-desc">
+              Présentez-nous votre besoin logiciel, d'automatisation IA ou de support e-commerce : recevez une réponse structurée et un créneau confirmé sous peu.
+            </p>
+          </div>
+          <div class="cta-buttons-side">
+            <button type="button" class="btn btn-primary btn-lg" data-open-booking>Réserver un appel (20 min)</button>
+            <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation%2C%20je%20souhaite%20planifier%20un%20appel%20d%C3%A9couverte%20de%2020%20min." target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">WhatsApp Direct</a>
+          </div>
         </div>
       </div>
-    </div>
-
+    </section>
   </main>
 
-  <!-- ==========================================================================
-       PIED DE PAGE (FOOTER INSTITUTIONNEL SOUVERAIN)
-       ========================================================================== -->
   <footer class="site-footer">
     <div class="container">
-      
       <div class="footer-grid">
-        
-        <div class="footer-col-brand">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <div class="brand-logo-mark">
-              <img src="assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22">
-            </div>
-            <div class="brand-name" style="font-size: 1.15rem;">
-              MISSI <span class="brand-name-accent">INNOVATION</span>
-            </div>
+        <div>
+          <div style="margin-bottom: 0.75rem;">
+            <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="115" height="40" loading="lazy">
           </div>
-          <p class="footer-desc" data-i18n-html="footer_desc">
-            Société d'ingénierie logicielle, prestataire informatique 360° &amp; éditeur de progiciels métiers de haute précision. Systèmes résilients 100% hors-ligne, maintenance de parcs informatiques et transformation digitale à Madagascar et à l'International.
+          <p style="font-size: 0.84rem; color: var(--text-muted); max-width: 350px;">
+            Société d'ingénierie logicielle B2B : applications web/mobile offline-first, automatisation IA et support client e-commerce externalisé.
           </p>
-          <div style="font-size: 0.8rem; color: var(--text-muted);">
-            📍 Antananarivo, Madagascar &bull; Déploiements sur tout le territoire national.
-          </div>
         </div>
 
         <div>
-          <h4 class="footer-title">Suites Métiers</h4>
+          <h3 class="footer-title">Expertises &amp; Portails</h3>
           <ul class="footer-links">
-            <li><a href="education/presentation-visuelle.html">Study Agent Pro (Scolaire)</a></li>
-            <li><a href="hotellerie/presentation-visuelle.html">ResiPro Suite (Hôtellerie)</a></li>
-            <li><a href="entreprises/erp-societe.html">ERP Société &amp; Commerce</a></li>
-            <li><a href="tourisme/tour-operator.html">TourAgent Pro (Tourisme)</a></li>
-            <li><a href="education/homeschooling-pwa.html">Study Home PWA (Homeschooling)</a></li>
-            <li><a href="web/site-vitrine.html">Pôle Sites Vitrines &amp; Web</a></li>
+            <li><a href="#poles">Ingénierie Logicielle &amp; Offline-First</a></li>
+            <li><a href="#poles">Automatisation &amp; Intégration IA</a></li>
+            <li><a href="#poles">SAV E-commerce &amp; Relation Client</a></li>
+            <li><a href="/en">English Version (Global)</a></li>
+            <li><a href="/mg">Portail Local Madagascar (/mg)</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-title">Ingénierie &amp; Sécurité</h4>
+          <h3 class="footer-title">Contact &amp; Légal</h3>
           <ul class="footer-links">
-            <li><a href="services/prestations-sur-mesure-et-securite.html">Kit Restriction Réseau &amp; Box Fibre</a></li>
-            <li><a href="services/prestations-sur-mesure-et-securite.html">Maintenance &amp; Infogérance de Parc</a></li>
-            <li><a href="services/prestations-sur-mesure-et-securite.html">Développement Logiciel Sur-Mesure</a></li>
-            <li><a href="services/prestations-sur-mesure-et-securite.html">Audits de Sécurité &amp; Sauvegardes</a></li>
+            <li><a href="mailto:missiinnovation@gmail.com">missiinnovation@gmail.com</a></li>
+            <li><a href="https://wa.me/261347151789" target="_blank" rel="noopener">WhatsApp : +261 34 71 517 89</a></li>
+            <li><a href="/mentions-legales">Mentions légales &amp; Confidentialité (NDA)</a></li>
           </ul>
         </div>
-
-        <div>
-          <h4 class="footer-title">Contact &amp; Devis</h4>
-          <ul class="footer-links">
-            <li><a href="configurateur.html">🛠️ Configurateur de Devis en Ligne</a></li>
-            <li><a href="https://wa.me/261347151789" target="_blank" rel="noopener">💬 WhatsApp : +261 34 71 517 89</a></li>
-            <li><a href="mailto:contact@missi-innovation.com">✉️ Assistance Direction</a></li>
-          </ul>
-        </div>
-
       </div>
 
       <div class="footer-bottom">
-        <div>
-          &copy; 2026-2027 Missi Innovation Madagascar. Tous droits réservés. Progiciels sous architecture résiliente hors-ligne.
-        </div>
-        <div style="display: flex; gap: 1rem;">
-          <span>Mentions Légales</span>
-          <span>&bull;</span>
-          <span>Confidentialité &bull; Aucune donnée sensible collectée sans consentement</span>
-        </div>
+        <span>&copy; 2026 Missi Innovation. Tous droits réservés.</span>
+        <span>UTC+3 &bull; EUR / USD &bull; <a href="/en" style="color: inherit;">English</a> &bull; <a href="/mg" style="color: inherit;">Madagascar</a></span>
       </div>
-
     </div>
   </footer>
 
-  <!-- ==========================================================================
-       SCRIPTS : ONGLET INTERACTIF & AMBIENT CURSOR GLOW (LÉGER & 60FPS)
-       ========================================================================== -->
-  <script>
+  <!-- MODAL DE RÉSERVATION INTÉGRÉ -->
+  <dialog id="booking-dialog" class="booking-dialog" closedby="any" aria-labelledby="booking-title" data-market="intl-fr">
+    <div class="booking-dialog-inner">
+      <div class="booking-dialog-head">
+        <div>
+          <h1 id="booking-title" class="booking-dialog-title">Planifier un appel découverte (20 min)</h1>
+          <p class="booking-dialog-sub">Échange sans engagement avec notre équipe technique ou opérations.</p>
+        </div>
+        <button id="bk-close" type="button" class="booking-close-btn" aria-label="Fermer">&times;</button>
+      </div>
 
-    // ==========================================================================
-    // MOTEUR D'EXPÉRIENCE MARCHÉ & INTERNATIONALISATION (MG LOCAL / FR INT / EN INT)
-    // ==========================================================================
-    window.MISSI_I18N = {
-      // ------------------------------------------------------------------------
-      // 1. MG : EXPÉRIENCE LOCALE MADAGASCAR (En Français, Réalités de Terrain, Ariary, JIRAMA)
-      // ------------------------------------------------------------------------
-      mg: {
-        page_title: "Missi Innovation Madagascar | Progiciels Métiers & Prestataire Informatique Terrain",
-        brand_tagline: "Ingénierie Logicielle &bull; Madagascar (100% Hors-Ligne)",
-        nav_suites: "Progiciels",
-        nav_services: "Services IT & Maintenance",
-        nav_garanties: "Garanties & FAQ",
-        nav_configurateur: "Configurateur",
-        nav_quote: "🛠️ Devis Sur-Mesure",
-        hero_badge: '<span class="pulsing-dot"></span> Société d\'Ingénierie Logicielle &bull; Éditeur de Progiciels Métiers Madagascar',
-        hero_title: 'Des progiciels de haute précision, <span class="copper-word">taillés pour la réalité</span> du terrain malagasy.',
-        hero_desc: 'Systèmes de gestion tout-terrain : <strong>100% opérationnels hors-ligne (résilience JIRAMA)</strong>, scellés conformes <strong>NIF/STAT</strong> et sans abonnement cloud forcé. Déployés clés en main sous 48h à Antananarivo et en provinces.',
-        hero_btn_explore: "Explorer les Progiciels Métiers ↓",
-        hero_btn_quote: "🛠️ Catalogue par Besoin & Devis",
-        hero_btn_engineer: "💬 Échanger avec un Ingénieur",
-        hero_discover: "Découvrir les Progiciels &amp; Services Locaux",
-        stat1_header: "100% Hors-Ligne (JIRAMA Proof)",
-        stat1_desc: "Moteur SQLite local WAL. Encaissements et impressions sans Internet ni coupures de courant.",
-        stat2_header: "Zéro Écart Caisse &amp; Billetage",
-        stat2_desc: "Billetage physique de 20 000 à 100 Ar scellé par Ticket Z de caisse non falsifiable.",
-        stat3_header: "Licence Définitive ou Mensuel",
-        stat3_desc: "Liberté d\'acquisition : achetez votre licence perpétuelle ou optez pour l\'abonnement souple.",
-        stat4_header: "Déploiement Sur Site 48h",
-        stat4_desc: "Installation technique réseau, paramétrage légal et formation sur site à Madagascar.",
-        hub_kicker: "SUITES LOGICIELLES MÉTIERS SPÉCIALISÉES MADAGASCAR",
-        hub_title: "Une solution d\'ingénierie taillée pour chaque secteur",
-        hub_desc: "Sélectionnez votre domaine d\'activité pour découvrir l\'architecture logicielle, les captures d\'écrans réelles et les formules de déploiement en Ariary.",
-        tab_edu: "Éducation &amp; Scolarité",
-        tab_hotel: "Hôtellerie &amp; Bar-Resto",
-        tab_erp: "Entreprises &amp; ERP",
-        tab_tour: "Tourisme &amp; Agences",
-        tab_services: "Sécurité Box &amp; Maintenance",
-        tab5_tagline: "✦ Cybersécurité, Restriction Réseau &amp; Maintenance Locale",
-        tab5_title: "Sécurisation Box Fibre, Filtrage MAC &amp; Maintenance de Parc",
-        tab5_desc: "Éliminez jusqu\'à 80% des pertes de productivité et de bande passante dans votre entreprise à Madagascar. Verrouillage hermétique des réseaux sociaux distrayants, sécurisation root de vos box Yas/Orange/Telma et maintenance de vos ordinateurs.",
-        tab5_feat1: "<strong>Maintenance &amp; Dépannage de Parc Informatique :</strong> Entretien préventif de vos PC et serveurs locaux, sauvegardes régulières et interventions rapides à Antananarivo.",
-        tab5_feat2: "<strong>Blocage hermétique YouTube &amp; Facebook :</strong> Verrouillage inviolable sur Google Chrome et Edge par registre système et stratégies de groupe (GPO).",
-        tab5_feat3: "<strong>Sécurisation Box Fibre (Yas / Orange / Telma) :</strong> Filtrage MAC strict anti-squat Wi-Fi avec script exclusif réservé à la direction.",
-        tab5_feat4: "<strong>Développement Applicatif Sur-Mesure :</strong> Création d\'outils métiers, web apps et applications PWA adaptées aux contraintes de connectivité locales.",
-        tab5_price_sub: "Pack Restriction &amp; Sécurité Box",
-        tab5_price_main: '150 000 Ar <small style="font-size: 0.78rem; color: var(--text-soft);">/ intervention sur site</small>',
-        tab5_price_opt: "Intervention rapide sur site à Antananarivo &amp; assistance provinces",
-        tab5_btn_catalog: "🛡️ Consulter le Dossier Technique A4",
-        tab5_btn_contact: "💬 Devis Réseau &amp; Maintenance Immédiat",
-        tab5_window_title: "CYBERSECURITE // BOX FIBRE &amp; ROUTEUR SECURISE",
-        tab5_badge_bottom: "🔒 Filtrage MAC Actif &bull; Zéro Squat Wi-Fi",
-        tab5_badge_top: "🛡️ GPO Chrome &amp; Edge Inviolable",
-        ribbon_kicker: "DÉPLOYÉ &amp; ÉPROUVÉ CHEZ NOS CLIENTS DE RÉFÉRENCE À MADAGASCAR",
-        guar_kicker: "INGÉNIERIE SOUVERAINE &amp; QUESTIONS FRÉQUENTES",
-        guar_title: "Transparence totale avant votre déploiement",
-        guar_desc: "Nos engagements techniques fondamentaux d\'un côté, et les réponses directes à vos questions de l\'autre.",
-        guar1_tag: "01 &bull; RÉSILIENCE OPÉRATIONNELLE",
-        guar1_title: "Autonomie 100% Hors-Ligne (JIRAMA Proof)",
-        guar1_desc: "Contrairement aux SaaS cloud qui paralysent vos opérations dès que la fibre coupe ou que le délestage survient, nos progiciels intègrent un moteur local autonome SQLite WAL. Encaissements, impressions et saisies continuent sans aucune interruption.",
-        guar2_tag: "02 &bull; MODÈLE ÉTHIQUE SANS PIÈGE",
-        guar2_title: "Liberté d\'Acquisition : Licence ou Mensuel",
-        guar2_desc: "Vous avez le choix absolu : soit un abonnement souple avec assistance continue, soit l\'achat de la Licence Définitive perpétuelle. Vos données restent hébergées chez vous, sans frais cachés ni menace de blocage d\'accès.",
-        guar3_tag: "03 &bull; RIGUEUR LOCALE D\'ÉLITE",
-        guar3_title: "Conformité Fiscale &amp; Billetage en Ariary",
-        guar3_desc: "Billetage physique scellé de 20 000 à 100 Ar, Ticket Z de clôture irréversible, conformité légale NIF/STAT et déclarations salariales CNaPS/IRSA.",
-        cta_title: "Modernisez vos opérations avec un partenaire d\'ingénierie fiable.",
-        cta_desc: "Simulez votre devis personnalisé en moins de 2 minutes avec notre configurateur interactif, ou convenez d\'une démonstration sur site avec un ingénieur Missi Innovation.",
-        cta_btn_config: "🛠️ Lancer le Configurateur de Devis",
-        cta_btn_wa: "💬 WhatsApp Direct (+261 34 71 517 89)",
-        footer_desc: "Société d\'ingénierie logicielle &amp; éditeur de progiciels métiers de haute précision à Madagascar. Systèmes résilients 100% hors-ligne pour l\'Éducation, l\'Hôtellerie, les Entreprises et le Tourisme."
-      },
+      <div id="booking-form-view">
+        <form id="booking-form" class="booking-form" method="post" novalidate>
+          <div class="visually-hidden-hp" aria-hidden="true">
+            <label for="bk-hp">Ne pas remplir</label>
+            <input id="bk-hp" name="website_url" type="text" tabindex="-1" autocomplete="off">
+          </div>
 
-      // ------------------------------------------------------------------------
-      // 2. FR : EXPÉRIENCE INTERNATIONALE FRANCOPHONE (Europe, Océan Indien, Afrique)
-      // ------------------------------------------------------------------------
-      fr: {
-        page_title: "Missi Innovation | Ingénierie Logicielle, Infogérance & Transformation Digitale",
-        brand_tagline: "Ingénierie Logicielle &bull; Solutions Haute Résilience (International)",
-        nav_suites: "Progiciels Métiers",
-        nav_services: "Services IT & Infogérance",
-        nav_garanties: "Garanties & FAQ",
-        nav_configurateur: "Devis & Estimation",
-        nav_quote: "🛠️ Devis Sur-Mesure",
-        hero_badge: '<span class="pulsing-dot"></span> Ingénierie Logicielle &bull; Infogérance &amp; Pôle Offshore International',
-        hero_title: 'Ingénierie logicielle &amp; infogérance : l\'excellence technologique, <span class="copper-word">éprouvée sur les terrains les plus exigeants</span>.',
-        hero_desc: 'Votre partenaire informatique 360° : <strong>développement logiciel sur-mesure (forfait ou régie offshore)</strong>, maintenance continue de parc, infogérance et progiciels à <strong>haute tolérance aux pannes</strong> (architectures offline-first résilientes).',
-        hero_btn_explore: "Explorer les Progiciels Métiers ↓",
-        hero_btn_quote: "🛠️ Catalogue par Besoin & Devis",
-        hero_btn_engineer: "💬 Échanger avec un Ingénieur",
-        hero_discover: "Découvrir nos Solutions &amp; Pôle Offshore",
-        stat1_header: "Haute Résilience &amp; Offline-First",
-        stat1_desc: "Moteur local SQLite WAL + synchro cloud. Zéro interruption de service même en cas de panne réseau critique.",
-        stat2_header: "Infogérance &amp; Maintenance TMA",
-        stat2_desc: "Prise en charge complète du parc, maintenance corrective/évolutive, sauvegardes chiffrées et support réactif.",
-        stat3_header: "Pôle Offshore &amp; Compétitivité",
-        stat3_desc: "Développeurs seniors francophones aux normes internationales (TypeScript, Node, Python, Cloud GCP/AWS).",
-        stat4_header: "SLA Garanti &amp; Télémaintenance",
-        stat4_desc: "Support réactif sous 24h-48h, télé-assistance sécurisée et reporting technique hebdomadaire transparent.",
-        hub_kicker: "SUITES LOGICIELLES MÉTIERS &amp; PRESTATIONS INFORMATIQUES 360°",
-        hub_title: "Une expertise technologique pour chaque défi opérationnel",
-        hub_desc: "Découvrez nos progiciels métiers résilients prêts à l\'emploi et notre offre globale de prestations informatiques (infogérance, passage au digital, développement sur-mesure).",
-        tab_edu: "Éducation &amp; Scolarité",
-        tab_hotel: "Hôtellerie &amp; Bar-Resto",
-        tab_erp: "Entreprises &amp; ERP",
-        tab_tour: "Tourisme &amp; Agences",
-        tab_services: "Services IT, Maintenance &amp; Cloud",
-        tab5_tagline: "✦ Infogérance, Maintenance Continue &amp; Transformation Digitale",
-        tab5_title: "Prestataire Informatique 360° — Maintenance, Cloud &amp; Dév Sur-Mesure",
-        tab5_desc: "Un interlocuteur unique pour l\'ensemble de votre écosystème technologique. Nous assurons la maintenance préventive et corrective de vos outils, menons votre transition numérique zéro-papier et réalisons vos développements logiciels en sous-traitance offshore ou régie agile.",
-        tab5_feat1: "<strong>Maintenance &amp; Infogérance de Parc (TMA) :</strong> Maintien en condition opérationnelle, dépannage express, sauvegardes automatiques chiffrées et suivi SLA rigoureux.",
-        tab5_feat2: "<strong>Accompagnement Passage au Digital :</strong> Dématérialisation zéro papier, automatisation des flux métiers et tableaux de bord de pilotage en direct.",
-        tab5_feat3: "<strong>Ingénierie Logicielle &amp; Pôle Offshore :</strong> Web apps, mobiles PWA offline-first, API, connecteurs de paiement (Stripe, PayPal) et renfort d\'ingénierie.",
-        tab5_feat4: "<strong>Cybersécurité, VPN &amp; Réseaux :</strong> Sécurisation des postes de travail, audit d\'étanchéité, interconnexion réseau et politique de restriction d\'accès.",
-        tab5_price_sub: "Contrats TMA &amp; Forfaits d\'Ingénierie",
-        tab5_price_main: 'Dès 35 € / heure <small style="font-size: 0.78rem; color: var(--text-soft);">ou forfait projet sur devis</small>',
-        tab5_price_opt: "Télémaintenance internationale réactive &amp; convention de service SLA",
-        tab5_btn_catalog: "🛡️ Dossier Complet des Services IT",
-        tab5_btn_contact: "💬 Échanger sur un Contrat de Maintenance / Projet",
-        tab5_window_title: "MISSI // INFOGÉRANCE, MAINTENANCE &amp; DÉVELOPPEMENT OFFSHORE",
-        tab5_badge_bottom: "🛠️ Maintenance Préventive &amp; Curative SLA",
-        tab5_badge_top: "🚀 Transition Digitale &amp; Cloud Hybride",
-        ribbon_kicker: "DÉPLOYÉ &amp; ÉPROUVÉ CHEZ NOS CLIENTS DE RÉFÉRENCE",
-        guar_kicker: "INGÉNIERIE SOUVERAINE &amp; QUESTIONS FRÉQUENTES",
-        guar_title: "Transparence totale avant votre collaboration",
-        guar_desc: "Nos engagements techniques fondamentaux d\'un côté, et les réponses directes à vos questions de l\'autre.",
-        guar1_tag: "01 &bull; RÉSILIENCE OPÉRATIONNELLE",
-        guar1_title: "Tolérance Absolue aux Pannes (Zero Downtime)",
-        guar1_desc: "Nos architectures logicielles intègrent un moteur local autonome SQLite WAL couplé à une synchronisation Cloud hybride. Vos opérations continuent sans interruption, même en cas de coupure réseau inattendue.",
-        guar2_tag: "02 &bull; MODÈLE ÉTHIQUE SANS PIÈGE",
-        guar2_title: "Transparence Budgétaire : Forfait, Régie ou Licence",
-        guar2_desc: "Vous avez le choix absolu : forfait clé en main, régie agile au sprint, ou achat de Licence Définitive perpétuelle. Zéro frais cachés, code propre et transférabilité assurée.",
-        guar3_tag: "03 &bull; STANDARDS EUROPÉENS",
-        guar3_title: "Multi-Devises (EUR/USD) &amp; Souveraineté des Données",
-        guar3_desc: "Facturation en devises internationales, conformité aux exigences de sécurité RGPD, et hébergement souverain de vos bases de données.",
-        cta_title: "Externalisez vos développements et sécurisez vos opérations IT.",
-        cta_desc: "Que vous cherchiez un prestataire pour maintenir vos systèmes ou une équipe d\'ingénieurs rigoureuse et rentable pour concevoir vos logiciels, échangeons dès aujourd\'hui.",
-        cta_btn_config: "🛠️ Lancer le Simulateur de Devis",
-        cta_btn_wa: "💬 WhatsApp Direct (+261 34 71 517 89)",
-        footer_desc: "Entreprise d\'ingénierie logicielle, prestataire informatique 360° &amp; éditeur de progiciels haute résilience. Maintenance de parcs informatiques, transition digitale et développement offshore à Madagascar et à l\'International."
-      },
+          <div class="booking-row-2">
+            <div class="booking-field">
+              <label for="bk-name">Nom complet *</label>
+              <input id="bk-name" name="full_name" type="text" autocomplete="name" required autofocus placeholder="Ex. Camille Martin">
+            </div>
+            <div class="booking-field">
+              <label for="bk-org">Entreprise / Organisation</label>
+              <input id="bk-org" name="organization" type="text" autocomplete="organization" placeholder="Ex. Studio / PME / Boutique">
+            </div>
+          </div>
 
-      // ------------------------------------------------------------------------
-      // 3. EN : GLOBAL INTERNATIONAL EXPERIENCE (US, UK, Diaspora, Global Partners)
-      // ------------------------------------------------------------------------
-      en: {
-        page_title: "Missi Innovation | Software Engineering, Managed IT & Offshore Hub",
-        brand_tagline: "Software Engineering &bull; High-Resilience Systems (Global)",
-        nav_suites: "Business Suites",
-        nav_services: "Managed IT & Maintenance",
-        nav_garanties: "Guarantees & FAQ",
-        nav_configurateur: "Estimator",
-        nav_quote: "🛠️ Custom Quote",
-        hero_badge: '<span class="pulsing-dot"></span> Software Engineering &bull; Managed IT Services &amp; Global Offshore Hub',
-        hero_title: 'Software engineering &amp; digital transformation: high-caliber technology, <span class="copper-word">battle-tested for mission-critical</span> environments.',
-        hero_desc: '360° Full-spectrum IT Partner: <strong>bespoke software engineering (international &amp; offshore)</strong>, continuous fleet maintenance, managed services, and <strong>100% offline-operational</strong> resilient business suites. From digital transition to 24/7 reliability.',
-        hero_btn_explore: "Explore Business Suites ↓",
-        hero_btn_quote: "🛠️ Configure by Need & Quote",
-        hero_btn_engineer: "💬 Talk to an Engineer",
-        hero_discover: "Discover Suites &amp; Offshore Engineering",
-        stat1_header: "100% Offline &amp; Resilient",
-        stat1_desc: "Local SQLite WAL engine. Uninterrupted operations with zero forced cloud dependence.",
-        stat2_header: "Full IT Lifecycle &amp; Maintenance",
-        stat2_desc: "Fleet management, ongoing software maintenance, encrypted backups & digital shift.",
-        stat3_header: "Global Engineering Standards",
-        stat3_desc: "Custom web, mobile & cloud engineering delivered to international specs at competitive rates.",
-        stat4_header: "Turnkey Rollout &amp; Rapid SLA",
-        stat4_desc: "Fast deployment, comprehensive user training, and instant global remote support.",
-        hub_kicker: "ENTERPRISE SOFTWARE SUITES &amp; 360° MANAGED IT SERVICES",
-        hub_title: "High-caliber technology engineered for real-world operations",
-        hub_desc: "Choose your industry to discover our autonomous offline-first suites or our full IT managed services (maintenance, digital transition, custom dev & security).",
-        tab_edu: "Education &amp; Schools",
-        tab_hotel: "Hospitality &amp; Dining",
-        tab_erp: "Enterprise &amp; ERP",
-        tab_tour: "Tourism &amp; Travel",
-        tab_services: "Managed IT, Maintenance &amp; Cloud",
-        tab5_tagline: "✦ Managed IT Services, Fleet Maintenance &amp; Custom Software",
-        tab5_title: "360° Full IT Provider — Fleet Maintenance, Digital Shift &amp; Bespoke Software",
-        tab5_desc: "A single strategic partner for your entire technology ecosystem. We manage preventive and corrective maintenance for your computer fleet, drive your paperless digital transformation, and engineer bespoke software for global organizations.",
-        tab5_feat1: "<strong>IT Fleet Maintenance &amp; Managed Support (MSP) :</strong> Preventive and corrective care for PCs and local servers, encrypted automated backups, SLA-guaranteed support.",
-        tab5_feat2: "<strong>Digital Transformation &amp; Modernization :</strong> Transition from paper registers and scattered spreadsheets to automated cloud-synchronized management dashboards.",
-        tab5_feat3: "<strong>Custom Software &amp; Offshore Engineering Hub :</strong> Web platforms, offline-first mobile PWAs, APIs, payment gateways (Stripe, PayPal), and high-productivity offshore development.",
-        tab5_feat4: "<strong>Cybersecurity, Fiber Routers &amp; Access Control :</strong> MAC address whitelisting, anti-squat Wi-Fi protection, strict Chrome/Edge distraction locking, and structured cabling.",
-        tab5_price_sub: "Custom Plans &amp; Managed IT Maintenance",
-        tab5_price_main: 'From $35 / hr <small style="font-size: 0.78rem; color: var(--text-soft);">or milestone-based pricing</small>',
-        tab5_price_opt: "Dedicated English-speaking engineering team &amp; global remote support",
-        tab5_btn_catalog: "🛡️ Complete IT Services Dossier",
-        tab5_btn_contact: "💬 Discuss an IT Maintenance Agreement",
-        tab5_window_title: "MISSI // MANAGED IT SERVICES &amp; BESPOKE ENGINEERING",
-        tab5_badge_bottom: "🛠️ Preventive &amp; Corrective Fleet Maintenance",
-        tab5_badge_top: "🚀 Digital Shift &amp; Hybrid Cloud Sync",
-        ribbon_kicker: "FIELD-TESTED &amp; TRUSTED BY INDUSTRY LEADERS",
-        guar_kicker: "SOVEREIGN ENGINEERING &amp; FREQUENT QUESTIONS",
-        guar_title: "Complete transparency before your deployment",
-        guar_desc: "Our core engineering commitments on one side, direct answers to your questions on the other.",
-        guar1_tag: "01 &bull; OPERATIONAL RESILIENCE",
-        guar1_title: "100% Operational Resilience (Field-Tested)",
-        guar1_desc: "Unlike brittle cloud-only SaaS that halts when network cuts or power drops, our systems feature an autonomous local SQLite WAL engine. Billing, receipt printing, and logging keep running with zero downtime.",
-        guar2_tag: "02 &bull; ZERO VENDOR LOCK-IN",
-        guar2_title: "Ownership Freedom: Perpetual License or Monthly",
-        guar2_desc: "Complete freedom: choose between an agile subscription with continuous support, or purchase a perpetual lifetime license. Your data stays on your premises, with zero hidden lock-in fees.",
-        guar3_tag: "03 &bull; GLOBAL STANDARDS",
-        guar3_title: "Multi-Currency (USD/EUR) &amp; Data Sovereignty",
-        guar3_desc: "Multi-currency invoicing, GDPR-compliant security practices, and sovereign hosting options for your sensitive business data.",
-        cta_title: "Upgrade your operations with a battle-tested engineering partner.",
-        cta_desc: "Whether you need continuous IT fleet maintenance, a seamless digital transition, or high-precision bespoke software development, let's talk today.",
-        cta_btn_config: "🛠️ Launch Online Quote Estimator",
-        cta_btn_wa: "💬 WhatsApp Direct (+261 34 71 517 89)",
-        footer_desc: "Software engineering company, 360° IT managed service provider &amp; publisher of high-precision business suites. 100% offline-resilient systems, fleet maintenance, and digital transformation in Madagascar and internationally."
-      }
-    };
+          <div class="booking-row-2">
+            <div class="booking-field">
+              <label for="bk-whatsapp">WhatsApp (avec indicatif) *</label>
+              <input id="bk-whatsapp" name="whatsapp" type="tel" autocomplete="tel" placeholder="Ex. +33 6 12 34 56 78">
+            </div>
+            <div class="booking-field">
+              <label for="bk-email">Email professionnel</label>
+              <input id="bk-email" name="email" type="email" autocomplete="email" autocorrect="off" autocapitalize="none" spellcheck="false" placeholder="Ex. nom@entreprise.com">
+            </div>
+          </div>
 
-    function setLanguage(lang) {
-      if (!window.MISSI_I18N[lang]) lang = 'fr';
-      const dict = window.MISSI_I18N[lang];
+          <div class="booking-field">
+            <label for="bk-pole">Pôle concerné *</label>
+            <select id="bk-pole" name="service_pole" required>
+              <option value="Ingénierie Web/Mobile & Offline-First">Ingénierie Logicielle, Web/Mobile &amp; Offline-First</option>
+              <option value="Automatisation & Intégration IA">Automatisation de Processus &amp; Intégration IA</option>
+              <option value="SAV E-commerce & Relation Client">Service Client Externalisé &amp; Opérations E-commerce</option>
+              <option value="Renfort d'équipe / TMA">Renfort d'équipe agile / TMA</option>
+            </select>
+          </div>
 
-      document.documentElement.lang = lang;
+          <div class="booking-row-2">
+            <div class="booking-field">
+              <label for="bk-date">Date souhaitée *</label>
+              <input id="bk-date" name="preferred_date" type="date" required>
+            </div>
+            <div class="booking-field">
+              <label for="bk-slot">Créneau horaire *</label>
+              <select id="bk-slot" name="preferred_slot" required>
+                <option value="09:00-11:00">Matin (09h00 – 11h00 EAT)</option>
+                <option value="11:00-13:00">Fin de matinée (11h00 – 13h00 EAT)</option>
+                <option value="14:00-16:00">Après-midi (14h00 – 16h00 EAT)</option>
+                <option value="16:00-18:00">Fin de journée (16h00 – 18h00 EAT)</option>
+              </select>
+            </div>
+          </div>
 
-      // Update switcher buttons
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        const isCurrent = btn.getAttribute('data-lang') === lang;
-        btn.classList.toggle('active', isCurrent);
-        btn.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
-      });
+          <div id="bk-tz-preview" class="booking-tz-box" aria-live="polite"></div>
 
-      // Update text nodes
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (dict[key] !== undefined) {
-          el.textContent = dict[key];
-        }
-      });
+          <div class="booking-field">
+            <label for="bk-msg">Contexte en 2 lignes (optionnel)</label>
+            <textarea id="bk-msg" name="message" maxlength="600" placeholder="Ex. Refonte back-office, automatisation CRM ou renfort SAV Shopify..."></textarea>
+          </div>
 
-      // Update HTML nodes
-      document.querySelectorAll('[data-i18n-html]').forEach(el => {
-        const key = el.getAttribute('data-i18n-html');
-        if (dict[key] !== undefined) {
-          el.innerHTML = dict[key];
-        }
-      });
+          <div id="bk-error" class="booking-error" role="alert" hidden></div>
 
-      if (dict.page_title) {
-        document.title = dict.page_title;
-      }
+          <div class="booking-actions">
+            <a href="https://wa.me/261347151789" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp direct</a>
+            <button id="bk-submit" type="submit" class="btn btn-primary">Valider ma demande de créneau</button>
+          </div>
+        </form>
+      </div>
 
-      try {
-        localStorage.setItem('missi_preferred_lang', lang);
-      } catch (e) {}
-    }
-
-    // Initialize Language from preference (Default: MG Local Market)
-    try {
-      const savedLang = localStorage.getItem('missi_preferred_lang');
-      if (savedLang && window.MISSI_I18N[savedLang]) {
-        setLanguage(savedLang);
-      } else {
-        const navLang = (navigator.language || navigator.userLanguage || '').slice(0, 2).toLowerCase();
-        if (navLang === 'en') setLanguage('en');
-        else if (navLang === 'fr') setLanguage('mg'); // Default for Francophone/Madagascar is MG local
-        else setLanguage('mg');
-      }
-    } catch (e) {}
-
-    function switchTab(tabId) {
-      const buttons = document.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => {
-        const isActive = btn.getAttribute('data-tab') === tabId;
-        btn.classList.toggle('active', isActive);
-        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      });
-
-      const panels = document.querySelectorAll('.tab-panel');
-      panels.forEach(panel => {
-        panel.classList.toggle('active', panel.id === tabId);
-      });
-
-      if (history.replaceState) {
-        history.replaceState(null, '', '#' + tabId);
-      }
-    }
-
-    // Gestion du hash d'URL au chargement
-    window.addEventListener('DOMContentLoaded', () => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash) {
-        const map = {
-          'scolaire': 'tab-education',
-          'education': 'tab-education',
-          'hotellerie': 'tab-hotellerie',
-          'resipro': 'tab-hotellerie',
-          'entreprises': 'tab-entreprises',
-          'erp': 'tab-entreprises',
-          'tourisme': 'tab-tourisme',
-          'prestations': 'tab-prestations',
-          'securite': 'tab-prestations'
-        };
-        const targetId = map[hash] || (document.getElementById(hash) ? hash : null);
-        if (targetId && document.getElementById(targetId)) {
-          switchTab(targetId);
-        }
-      }
-
-    });
-
-    // ==========================================================================
-    // SIMULATION PHYSIQUE D'EAU PURE ET CRISTALLINE (DISSIPATION ASYMPTOTIQUE NATURELLE)
-    // - Résolution native intégrale de l'écran (ZÉRO pixellisation, ZÉRO saccade)
-    // - Survol : Véritable sillage d'étrave continu en V (apaisement doux sur ~3,2s)
-    // - Clic : Gouttelette pure s'élargissant majestueusement sur ~3,8s avec décroissance
-    //          spatiale 1/sqrt(R) et aplanissement continu (ZÉRO coupure brusque / countdown)
-    // - Rendu : Eau 100% transparente au repos, reflets spéculaires purs et caustiques
-    //           GARANTIE ABSOLUE : ZÉRO noircissement, ZÉRO grisaille sur le fond écru
-    //           Conforme aux spécifications WebGL strictes (zéro alerte console / driver)
-    // ==========================================================================
-    (function initPureWaterCanvas() {
-      /** @type {HTMLCanvasElement} */
-      const canvas = /** @type {HTMLCanvasElement} */ (document.getElementById('ambient-canvas'));
-      if (!(canvas instanceof HTMLCanvasElement)) return;
-
-      /** @type {WebGLRenderingContext | null} */
-      const gl = /** @type {WebGLRenderingContext | null} */ (
-        canvas.getContext('webgl', { alpha: true, premultipliedAlpha: true, antialias: true }) ||
-        canvas.getContext('experimental-webgl', { alpha: true, premultipliedAlpha: true, antialias: true })
-      );
-
-      if (!gl) return;
-
-      canvas.addEventListener('webglcontextlost', (e) => { e.preventDefault(); }, false);
-
-      let width = window.innerWidth;
-      let height = window.innerHeight;
-      let dpr = Math.min(window.devicePixelRatio || 1, 2);
-
-      function resize() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
-        canvas.width = Math.floor(width * dpr);
-        canvas.height = Math.floor(height * dpr);
-        gl.viewport(0, 0, canvas.width, canvas.height);
-      }
-      resize();
-      window.addEventListener('resize', resize, { passive: true });
-
-      const quadBuffer = gl.createBuffer();
-      gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-        -1, -1,
-         1, -1,
-        -1,  1,
-        -1,  1,
-         1, -1,
-         1,  1
-      ]), gl.STATIC_DRAW);
-
-      const vsSource = `
-        attribute vec2 a_pos;
-        varying vec2 v_uv;
-        void main() {
-          v_uv = (a_pos + 1.0) * 0.5;
-          gl_Position = vec4(a_pos, 0.0, 1.0);
-        }
-      `;
-
-      // Fragment Shader haute définition : dissipation physique continue
-      // Vecteurs d'uniforms optimisés (44 vecteurs <= limite matérielle stricte de 64)
-      const fsSource = `
-        precision highp float;
-        varying vec2 v_uv;
-        uniform vec2 u_resolution;
-        uniform float u_time;
-
-        #define MAX_DROPS 6
-        uniform vec4 u_drops[MAX_DROPS]; // x, y, birthTime, strength
-
-        #define MAX_WAKE 36
-        uniform vec4 u_wake[MAX_WAKE]; // x, y, birthTime, speed
-
-        void main() {
-          vec2 screenPos = v_uv * u_resolution;
-          
-          float totalH = 0.0;
-          vec2 grad = vec2(0.0);
-
-          // 1. SILLAGE D'ÉTRAVE EN V AU SURVOL (3.2s de dissipation progressive & noble)
-          for (int i = 0; i < MAX_WAKE; i++) {
-            vec4 w = u_wake[i];
-            float age = u_time - w.z;
-            if (age > 0.0 && age < 3.2) {
-              vec2 diff = screenPos - w.xy;
-              float dist = length(diff);
-              if (dist > 0.5) {
-                vec2 dir = diff / dist;
-                
-                // Onde d'étrave transversale s'écartant latéralement
-                float waveR = age * 95.0;
-                float dR = dist - waveR;
-                
-                // Dispersion spatiale : la crête s'élargit et s'adoucit avec le temps
-                float sigma = 15.0 + age * 12.0;
-                float env = exp(-(dR * dR) / (2.0 * sigma * sigma));
-                
-                // Amortissement visqueux fluide naturel
-                float damping = exp(-age * 1.35);
-                
-                // Atténuation progressive avec la distance
-                float dispersion = 1.0 / sqrt(1.0 + dist * 0.006);
-                
-                // Fenêtre C1 hermitienne sans rupture abrupte
-                float window = smoothstep(3.2, 2.0, age);
-                
-                float k = 0.16;
-                float amp = 0.45 * env * damping * dispersion * window * min(1.2, w.w * 0.9);
-                
-                totalH += amp * cos(k * dR);
-                grad += dir * amp * (-k * sin(k * dR) - (dR / (sigma * sigma)) * cos(k * dR));
-              }
-            }
-          }
-
-          // 2. ONDES CIRCULAIRES AU CLIC (3.8s d'élargissement majestueux et aplanissement)
-          for (int j = 0; j < MAX_DROPS; j++) {
-            vec4 d = u_drops[j];
-            float age = u_time - d.z;
-            if (age > 0.0 && age < 3.8) {
-              vec2 diff = screenPos - d.xy;
-              float dist = length(diff);
-              if (dist > 0.5) {
-                vec2 dir = diff / dist;
-                
-                // Vitesse d'expansion naturelle d'une onde d'eau
-                float waveR = age * 135.0;
-                float dR = dist - waveR;
-                
-                // La crête de l'onde s'élargit au fur et à mesure qu'elle voyage
-                float sigma = 18.0 + age * 11.0;
-                float env = exp(-(dR * dR) / (2.0 * sigma * sigma));
-                
-                // Amortissement visqueux continu
-                float damping = exp(-age * 1.05);
-                
-                // Atténuation d'énergie circulaire 1/sqrt(R)
-                float dispersion = 1.0 / sqrt(1.0 + waveR * 0.008);
-                
-                // Fenêtre de transition C1 ultra-douce (zéro compte à rebours brusque)
-                float window = smoothstep(3.8, 2.5, age);
-                
-                float k = 0.14;
-                float amp = 0.65 * env * damping * dispersion * window * d.w;
-                
-                totalH += amp * cos(k * dR);
-                grad += dir * amp * (-k * sin(k * dR) - (dR / (sigma * sigma)) * cos(k * dR));
-              }
-            }
-          }
-
-          float slope = length(grad);
-          if (slope < 0.0001 && abs(totalH) < 0.0001) {
-            gl_FragColor = vec4(0.0);
-            return;
-          }
-
-          // Normale physique 3D continue
-          vec3 normal = normalize(vec3(-grad * 22.0, 1.0));
-
-          // Éclairage zénithal doux
-          vec3 light = normalize(vec3(-0.35, 0.45, 0.8));
-          vec3 eye = vec3(0.0, 0.0, 1.0);
-          vec3 halfVec = normalize(light + eye);
-
-          // Reflet spéculaire étincelant sur les crêtes de l'eau
-          float spec = pow(max(0.0, dot(normal, halfVec)), 26.0);
-
-          // Caustique de concentration lumineuse
-          float crest = max(0.0, totalH);
-          float caustic = crest * slope * 2.2;
-
-          // Rendu eau pure : éclats de lumière cristalline
-          vec3 specColor = vec3(1.0, 1.0, 1.0) * spec * 2.4;
-          vec3 waterSheen = vec3(0.92, 0.96, 1.0) * (caustic * 1.1 + slope * 0.14);
-          vec3 amberGlint = vec3(0.96, 0.68, 0.36) * (spec * 0.20 + caustic * 0.16);
-
-          vec3 finalColor = specColor + waterSheen + amberGlint;
-          float alpha = clamp(spec * 1.4 + caustic * 0.85 + slope * 0.35, 0.0, 0.85);
-
-          // Premultiplied alpha pour composition sans bavure sur le DOM HTML
-          gl_FragColor = vec4(finalColor * alpha, alpha);
-        }
-      `;
-
-      function createShader(type, src) {
-        const s = gl.createShader(type);
-        gl.shaderSource(s, src);
-        gl.compileShader(s);
-        if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
-          console.error('Shader compile error:', gl.getShaderInfoLog(s));
-        }
-        return s;
-      }
-
-      const program = gl.createProgram();
-      gl.attachShader(program, createShader(gl.VERTEX_SHADER, vsSource));
-      gl.attachShader(program, createShader(gl.FRAGMENT_SHADER, fsSource));
-      gl.linkProgram(program);
-      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-        console.error('Program link error:', gl.getProgramInfoLog(program));
-      }
-
-      gl.useProgram(program);
-
-      const uResolution = gl.getUniformLocation(program, 'u_resolution');
-      const uTime = gl.getUniformLocation(program, 'u_time');
-      // Conforme à la spécification WebGL : les tableaux de uniforms se requêtent avec [0]
-      const uDropsLoc = gl.getUniformLocation(program, 'u_drops[0]');
-      const uWakeLoc = gl.getUniformLocation(program, 'u_wake[0]');
-
-      const aPos = gl.getAttribLocation(program, 'a_pos');
-      gl.enableVertexAttribArray(aPos);
-      gl.bindBuffer(gl.ARRAY_BUFFER, quadBuffer);
-      gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
-
-      // Données Clics
-      const MAX_DROPS = 6;
-      const dropsData = new Float32Array(MAX_DROPS * 4);
-      let dropIndex = 0;
-
-      function addDrop(x, y, strength) {
-        const str = strength !== undefined ? strength : 1.0;
-        const idx = dropIndex % MAX_DROPS;
-        dropsData[idx * 4 + 0] = x * dpr;
-        dropsData[idx * 4 + 1] = (height - y) * dpr;
-        dropsData[idx * 4 + 2] = performance.now() / 1000.0;
-        dropsData[idx * 4 + 3] = str;
-        dropIndex++;
-      }
-
-      // Données Sillage (36 points pour 3.2s de mémoire continue haute performance)
-      const MAX_WAKE = 36;
-      const wakeData = new Float32Array(MAX_WAKE * 4);
-      let wakeIndex = 0;
-      let lastWakeX = 0, lastWakeY = 0, lastWakeTime = 0;
-
-      function addWakePoint(x, y, speed) {
-        const idx = wakeIndex % MAX_WAKE;
-        wakeData[idx * 4 + 0] = x * dpr;
-        wakeData[idx * 4 + 1] = (height - y) * dpr;
-        wakeData[idx * 4 + 2] = performance.now() / 1000.0;
-        wakeData[idx * 4 + 3] = speed;
-        wakeIndex++;
-      }
-
-      window.addEventListener('pointermove', (e) => {
-        const now = performance.now();
-        if (now - lastWakeTime > 250) {
-          lastWakeX = e.clientX;
-          lastWakeY = e.clientY;
-          lastWakeTime = now;
-          return;
-        }
-
-        const dt = Math.max(8, Math.min(60, now - lastWakeTime));
-        const dist = Math.hypot(e.clientX - lastWakeX, e.clientY - lastWakeY);
-        if (dist > 14) {
-          const speed = Math.min(dist / dt, 2.5);
-          addWakePoint(e.clientX, e.clientY, speed);
-          lastWakeX = e.clientX;
-          lastWakeY = e.clientY;
-          lastWakeTime = now;
-        }
-      }, { capture: true, passive: true });
-
-      window.addEventListener('pointerdown', (e) => {
-        addDrop(e.clientX, e.clientY, 1.25);
-        lastWakeX = e.clientX;
-        lastWakeY = e.clientY;
-        lastWakeTime = performance.now();
-      }, { capture: true, passive: true });
-
-      // Gouttelette d'eau spontanée zen toutes les 12s
-      let nextSpontaneous = performance.now() + 3000;
-
-      gl.enable(gl.BLEND);
-      gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-
-      function render() {
-        const now = performance.now();
-        const tSec = now / 1000.0;
-
-        if (now > nextSpontaneous) {
-          addDrop(width * (0.25 + Math.random() * 0.5), height * (0.25 + Math.random() * 0.5), 0.95);
-          nextSpontaneous = now + 10000 + Math.random() * 6000;
-        }
-
-        gl.clearColor(0.0, 0.0, 0.0, 0.0);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-
-        gl.useProgram(program);
-        gl.uniform2f(uResolution, canvas.width, canvas.height);
-        gl.uniform1f(uTime, tSec);
-        if (uDropsLoc) gl.uniform4fv(uDropsLoc, dropsData);
-        if (uWakeLoc) gl.uniform4fv(uWakeLoc, wakeData);
-
-        gl.drawArrays(gl.TRIANGLES, 0, 6);
-
-        requestAnimationFrame(render);
-      }
-
-      requestAnimationFrame(render);
-    })();
-    </script>
-
+      <div id="booking-success-view" class="booking-success-card" hidden>
+        <p id="bk-db-notice" role="status" style="font-weight: 600; color: var(--emerald);"></p>
+        <div id="bk-recap" class="booking-recap"></div>
+        <div class="booking-actions">
+          <button id="bk-new" type="button" class="btn btn-secondary">Modifier / Autre demande</button>
+          <a id="bk-wa-confirm" href="https://wa.me/261347151789" target="_blank" rel="noopener" class="btn btn-whatsapp">Confirmer instantanément sur WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>

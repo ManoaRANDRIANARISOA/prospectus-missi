@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
     <title>ResiPro Suite — Présentation Visuelle &amp; Démo Écrans Hôtellerie &amp; Restauration Madagascar | Missi Innovation</title>
     
     <!-- SEO & MÉTADONNÉES LOCALES HÔTELLERIE -->
     <meta name="description" content="Découvrez ResiPro Suite en images réelles : planning interactif des chambres sans surbooking, caisse tactile bar/restaurant, note sur chambre, économat, fiches techniques et facturation NIF/STAT 100% hors-ligne à Madagascar.">
     <meta name="keywords" content="logiciel hotel madagascar, logiciel restaurant nosy be, pms hotelier sainte marie, caisse tactile restaurant tana, facturation nif stat hotel madagascar, resipro missi innovation">
-    <link rel="canonical" href="https://missi-innovation.web.app/hotellerie/presentation-visuelle.html">
+    <link rel="canonical" href="https://missi-innovation.web.app/hotellerie/presentation-visuelle">
 
     <!-- OPEN GRAPH -->
     <meta property="og:type" content="article">
     <meta property="og:locale" content="fr_MG">
     <meta property="og:title" content="ResiPro Suite — Présentation Visuelle &amp; Démo Écrans Hôtellerie Madagascar">
     <meta property="og:description" content="Planning chambres, caisse tactile restaurant, fiches techniques et facturation légale. Amorti dès la 1ère nuitée louée par mois !">
-    <meta property="og:url" content="https://missi-innovation.web.app/hotellerie/presentation-visuelle.html">
-    <meta property="og:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png">
+    <meta property="og:url" content="https://missi-innovation.web.app/hotellerie/presentation-visuelle">
+    <meta property="og:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.webp">
 
     <!-- TWITTER CARD -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ResiPro Suite — Démo Écrans Hôtellerie &amp; Restauration Madagascar">
     <meta name="twitter:description" content="Progiciel de gestion hôtelière 100% hors-ligne. Planning sans surbooking, caisse tactile et fiches techniques.">
-    <meta name="twitter:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.png">
+    <meta name="twitter:image" content="https://missi-innovation.web.app/assets/img/resipro_01_dashboard.webp">
 
     <!-- SCHEMA.ORG STRUCTURED DATA -->
     <script type="application/ld+json">
@@ -45,7 +46,7 @@
     }
     </script>
 
-    <link rel="icon" type="image/svg+xml" href="../assets/img/missi_logo.svg">
+    <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -55,7 +56,7 @@
             --rust-dark: #824229;
             --rust-light: #FBF4F0;
             --rust-subtle: #F3E5DC;
-            --text-dark: #1C1917;
+            --text-dark: #3B2820;
             --text-gray: #57534E;
             --text-light: #78716C;
             --border: #E8E5DD;
@@ -133,7 +134,7 @@
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
-            color: #1C1917;
+            color: #3B2820;
             flex-shrink: 0;
         }
 
@@ -141,7 +142,7 @@
             width: 36px;
             height: 36px;
             border-radius: 9px;
-            background: #1C1917;
+            background: #3B2820;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -277,7 +278,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.12);
             color: #D6D3D1;
             font-size: 11px;
-            background: #1C1917;
+            background: #3B2820;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
         }
@@ -1103,7 +1104,7 @@
     <!-- HEADER NAVIGATION UNIFIÉE MISSI INNOVATION -->
     <header class="top-nav no-print">
         <div class="nav-inner">
-            <a href="../index.html" class="brand-link" title="Retour au portail Missi Innovation">
+            <a href="/mg" class="brand-link" title="Retour au portail Missi Innovation">
                 <div class="brand-logo-mark">
                     <img src="../assets/img/missi_logo.svg" alt="Missi Innovation Logo" width="22" height="22">
                 </div>
@@ -1116,10 +1117,10 @@
             </a>
 
             <div class="nav-actions">
-                <a href="../configurateur.html?secteur=hotellerie" class="nav-link-btn" title="Simuler votre devis ResiPro en ligne">
+                <a href="../configurateur?secteur=hotellerie" class="nav-link-btn" title="Simuler votre devis ResiPro en ligne">
                     ⚙️ Configurateur Devis
                 </a>
-                <a href="resipro.html" class="nav-link-btn" title="Consulter le dossier tarifaire A4 officiel">
+                <a href="resipro" class="nav-link-btn" title="Consulter le dossier tarifaire A4 officiel">
                     📄 Dossier Commercial A4
                 </a>
                 <button onclick="window.print()" class="btn-print-copper" title="Imprimer ou exporter en PDF officiel">
@@ -1173,7 +1174,7 @@
             </div>
 
             <!-- Grand Écran 01 : Dashboard -->
-            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_01_dashboard.png', 'Cockpit Directionnel ResiPro — Taux d'occupation, CA Hébergement vs Restauration et arrivées du jour')">
+            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_01_dashboard.webp', 'Cockpit Directionnel ResiPro — Taux d'occupation, CA Hébergement vs Restauration et arrivées du jour')">
                 <div class="window-titlebar">
                     <div class="window-dots">
                         <div class="window-dot red"></div>
@@ -1187,7 +1188,7 @@
                     <div style="font-size: 7.5px; color: var(--text-light); font-weight: 600;">Aperçu HD cliquable</div>
                 </div>
                 <div class="screen-img-wrap" style="height: 142mm;">
-                    <img src="../assets/img/resipro_01_dashboard.png" alt="Tableau de bord directionnel ResiPro">
+                    <img src="../assets/img/resipro_01_dashboard.webp" alt="Tableau de bord directionnel ResiPro" width="1440" height="907" loading="lazy">
                     <div class="zoom-overlay">🔍 Cliquez pour agrandir l'écran en haute résolution</div>
                     
                     <div class="callout-badge copper" style="top: 14px; left: 16px;">
@@ -1256,7 +1257,7 @@
             </div>
 
             <!-- Grand Écran 02 : Planning Chambres -->
-            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_02_planning_chambres.png', 'Planning Interactif des Chambres — Vue calendrier, gestion des arrivées, départs et entretien')">
+            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_02_planning_chambres.webp', 'Planning Interactif des Chambres — Vue calendrier, gestion des arrivées, départs et entretien')">
                 <div class="window-titlebar">
                     <div class="window-dots">
                         <div class="window-dot red"></div>
@@ -1270,7 +1271,7 @@
                     <div style="font-size: 7.5px; color: var(--text-light); font-weight: 600;">Aperçu HD cliquable</div>
                 </div>
                 <div class="screen-img-wrap" style="height: 146mm;">
-                    <img src="../assets/img/resipro_02_planning_chambres.png" alt="Planning des chambres ResiPro">
+                    <img src="../assets/img/resipro_02_planning_chambres.webp" alt="Planning des chambres ResiPro" width="1440" height="901" loading="lazy">
                     <div class="zoom-overlay">🔍 Cliquez pour agrandir l'écran en haute résolution</div>
 
                     <div class="callout-badge copper" style="top: 14px; left: 16px;">
@@ -1333,7 +1334,7 @@
             </div>
 
             <!-- Grand Écran 03 : Caisse Tactile -->
-            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_03_restaurant_pos.png', 'Point de Vente Restaurant & Bar — Prise de commande tactile, plan de tables et note sur chambre')">
+            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_03_restaurant_pos.webp', 'Point de Vente Restaurant & Bar — Prise de commande tactile, plan de tables et note sur chambre')">
                 <div class="window-titlebar">
                     <div class="window-dots">
                         <div class="window-dot red"></div>
@@ -1347,7 +1348,7 @@
                     <div style="font-size: 7.5px; color: var(--text-light); font-weight: 600;">Aperçu HD cliquable</div>
                 </div>
                 <div class="screen-img-wrap" style="height: 146mm;">
-                    <img src="../assets/img/resipro_03_restaurant_pos.png" alt="Caisse tactile restaurant ResiPro">
+                    <img src="../assets/img/resipro_03_restaurant_pos.webp" alt="Caisse tactile restaurant ResiPro" width="1440" height="901" loading="lazy">
                     <div class="zoom-overlay">🔍 Cliquez pour agrandir l'écran en haute résolution</div>
 
                     <div class="callout-badge copper" style="top: 14px; left: 16px;">
@@ -1410,7 +1411,7 @@
             </div>
 
             <!-- Grand Écran 04 : Facturation Finances -->
-            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_04_facturation_finances.png', 'Folio Client & Facturation — Vue globale des consommations, devises et règlements')">
+            <div class="screen-window" onclick="openLightbox('../assets/img/resipro_04_facturation_finances.webp', 'Folio Client & Facturation — Vue globale des consommations, devises et règlements')">
                 <div class="window-titlebar">
                     <div class="window-dots">
                         <div class="window-dot red"></div>
@@ -1424,7 +1425,7 @@
                     <div style="font-size: 7.5px; color: var(--text-light); font-weight: 600;">Aperçu HD cliquable</div>
                 </div>
                 <div class="screen-img-wrap" style="height: 146mm;">
-                    <img src="../assets/img/resipro_04_facturation_finances.png" alt="Facturation et finances ResiPro">
+                    <img src="../assets/img/resipro_04_facturation_finances.webp" alt="Facturation et finances ResiPro" width="1440" height="901" loading="lazy">
                     <div class="zoom-overlay">🔍 Cliquez pour agrandir l'écran en haute résolution</div>
 
                     <div class="callout-badge copper" style="top: 14px; left: 16px;">
@@ -1489,7 +1490,7 @@
             <!-- Double écran : Économat (haut) et Fiches techniques (bas) -->
             <div class="grid-2col" style="margin-bottom: 9px;">
                 <!-- Écran 05 : Économat -->
-                <div class="screen-window" style="margin-bottom: 0;" onclick="openLightbox('../assets/img/resipro_05_stock_economat.png', 'Économat & Stocks — Suivi des bouteilles, denrées, seuils d'alerte et inventaires')">
+                <div class="screen-window" style="margin-bottom: 0;" onclick="openLightbox('../assets/img/resipro_05_stock_economat.webp', 'Économat & Stocks — Suivi des bouteilles, denrées, seuils d'alerte et inventaires')">
                     <div class="window-titlebar">
                         <div class="window-dots">
                             <div class="window-dot red"></div>
@@ -1502,13 +1503,13 @@
                         </div>
                     </div>
                     <div class="screen-img-wrap" style="height: 98mm;">
-                        <img src="../assets/img/resipro_05_stock_economat.png" alt="Économat et stocks ResiPro">
+                        <img src="../assets/img/resipro_05_stock_economat.webp" alt="Économat et stocks ResiPro" width="1440" height="901" loading="lazy">
                         <div class="zoom-overlay">🔍 Cliquer pour agrandir</div>
                     </div>
                 </div>
 
                 <!-- Écran 06 : Fiches techniques -->
-                <div class="screen-window" style="margin-bottom: 0;" onclick="openLightbox('../assets/img/resipro_06_fiches_techniques.png', 'Fiches Techniques Restaurant — Calcul du coût de revient par portion et contrôle des marges')">
+                <div class="screen-window" style="margin-bottom: 0;" onclick="openLightbox('../assets/img/resipro_06_fiches_techniques.webp', 'Fiches Techniques Restaurant — Calcul du coût de revient par portion et contrôle des marges')">
                     <div class="window-titlebar">
                         <div class="window-dots">
                             <div class="window-dot red"></div>
@@ -1521,7 +1522,7 @@
                         </div>
                     </div>
                     <div class="screen-img-wrap" style="height: 98mm;">
-                        <img src="../assets/img/resipro_06_fiches_techniques.png" alt="Fiches techniques cuisine ResiPro">
+                        <img src="../assets/img/resipro_06_fiches_techniques.webp" alt="Fiches techniques cuisine ResiPro" width="1440" height="901" loading="lazy">
                         <div class="zoom-overlay">🔍 Cliquer pour agrandir</div>
                     </div>
                 </div>
@@ -1580,7 +1581,7 @@
 
             <!-- Écran 07 : Fichier Clients VIP & CRM -->
             <div style="margin-bottom: 9px;">
-                <div class="screen-window" onclick="openLightbox('../assets/img/resipro_07_fichier_clients_crm.png', 'Fichier Clients VIP — Historique complet des séjours, dépenses, passeports et préférences d\'accueil')">
+                <div class="screen-window" onclick="openLightbox('../assets/img/resipro_07_fichier_clients_crm.webp', 'Fichier Clients VIP — Historique complet des séjours, dépenses, passeports et préférences d\'accueil')">
                     <div class="window-titlebar">
                         <div class="window-dots">
                             <span class="window-dot red"></span>
@@ -1594,7 +1595,7 @@
                         <div style="font-size: 8px; color: var(--rust-dark); font-weight: 700;">★ 1 482 Fiches Clients Actives</div>
                     </div>
                     <div class="screen-img-wrap" style="height: 60mm;">
-                        <img src="../assets/img/resipro_07_fichier_clients_crm.png" alt="Fichier Clients et CRM ResiPro Suite">
+                        <img src="../assets/img/resipro_07_fichier_clients_crm.webp" alt="Fichier Clients et CRM ResiPro Suite" width="1440" height="901" loading="lazy">
                         <div class="zoom-overlay">🔍 Cliquez pour agrandir l'écran Fichier Clients VIP</div>
                         <div class="callout-badge" style="top: 8px; left: 12px; background: #B45309;">
                             <span>Préférences Chambre &amp; Régime Alimentaire</span>
@@ -1608,7 +1609,7 @@
 
             <!-- Écran 08 : Clôture Z & Billetage Scellé -->
             <div style="margin-bottom: 9px;">
-                <div class="screen-window" onclick="openLightbox('../assets/img/resipro_08_cloture_caisse_billetage.png', 'Clôture de Caisse Journalière (Ticket Z) — Billetage physique de 20 000 à 100 Ar scellé, zéro écart')">
+                <div class="screen-window" onclick="openLightbox('../assets/img/resipro_08_cloture_caisse_billetage.webp', 'Clôture de Caisse Journalière (Ticket Z) — Billetage physique de 20 000 à 100 Ar scellé, zéro écart')">
                     <div class="window-titlebar">
                         <div class="window-dots">
                             <span class="window-dot red"></span>
@@ -1622,7 +1623,7 @@
                         <div style="font-size: 8px; color: #047857; font-weight: 700;">✓ Écart de caisse constaté : 0 Ar</div>
                     </div>
                     <div class="screen-img-wrap" style="height: 60mm;">
-                        <img src="../assets/img/resipro_08_cloture_caisse_billetage.png" alt="Clôture de caisse Ticket Z ResiPro Suite">
+                        <img src="../assets/img/resipro_08_cloture_caisse_billetage.webp" alt="Clôture de caisse Ticket Z ResiPro Suite" width="1440" height="901" loading="lazy">
                         <div class="zoom-overlay">🔍 Cliquez pour agrandir le Ticket Z &amp; Billetage</div>
                         <div class="callout-badge green" style="top: 8px; left: 12px;">
                             <span>Comptage Physique : 20 000, 10 000, 5 000...</span>
@@ -1683,7 +1684,7 @@
 
             <!-- Écran 09 : Plan de Salle & Tables -->
             <div style="margin-bottom: 9px;">
-                <div class="screen-window" onclick="openLightbox('../assets/img/resipro_09_plan_salle_tables.png', 'Plan de Salle Restaurant & Terrasse — Visualisation en direct des tables libres, occupées et réservées avec total en cours')">
+                <div class="screen-window" onclick="openLightbox('../assets/img/resipro_09_plan_salle_tables.webp', 'Plan de Salle Restaurant & Terrasse — Visualisation en direct des tables libres, occupées et réservées avec total en cours')">
                     <div class="window-titlebar">
                         <div class="window-dots">
                             <span class="window-dot red"></span>
@@ -1697,7 +1698,7 @@
                         <div style="font-size: 8px; color: var(--rust-dark); font-weight: 700;">18 / 26 Tables Occupées (69%)</div>
                     </div>
                     <div class="screen-img-wrap" style="height: 60mm;">
-                        <img src="../assets/img/resipro_09_plan_salle_tables.png" alt="Plan de Salle Restaurant ResiPro Suite">
+                        <img src="../assets/img/resipro_09_plan_salle_tables.webp" alt="Plan de Salle Restaurant ResiPro Suite" width="1440" height="901" loading="lazy">
                         <div class="zoom-overlay">🔍 Cliquez pour agrandir le Plan de Salle &amp; Tables</div>
                         <div class="callout-badge" style="top: 8px; left: 12px; background: #059669;">
                             <span>Vert : Libre  •  Orange : Occupée  •  Bleu : Réservée</span>
@@ -1711,7 +1712,7 @@
 
             <!-- Écran 10 : Tarification Saisonnière Multi-Devises -->
             <div style="margin-bottom: 9px;">
-                <div class="screen-window" onclick="openLightbox('../assets/img/resipro_10_tarifs_saisons_devises.png', 'Tarification Saisonnière & Multi-Devises — Basse saison, haute saison, fêtes et conversion temps réel EUR/USD/MGA')">
+                <div class="screen-window" onclick="openLightbox('../assets/img/resipro_10_tarifs_saisons_devises.webp', 'Tarification Saisonnière & Multi-Devises — Basse saison, haute saison, fêtes et conversion temps réel EUR/USD/MGA')">
                     <div class="window-titlebar">
                         <div class="window-dots">
                             <span class="window-dot red"></span>
@@ -1725,7 +1726,7 @@
                         <div style="font-size: 8px; color: #2563EB; font-weight: 700;">Taux BCM : 1 € = 4 900 Ar</div>
                     </div>
                     <div class="screen-img-wrap" style="height: 60mm;">
-                        <img src="../assets/img/resipro_10_tarifs_saisons_devises.png" alt="Tarification Saisonnière et Multi-Devises ResiPro Suite">
+                        <img src="../assets/img/resipro_10_tarifs_saisons_devises.webp" alt="Tarification Saisonnière et Multi-Devises ResiPro Suite" width="1440" height="901" loading="lazy">
                         <div class="zoom-overlay">🔍 Cliquez pour agrandir la Grille Tarifaire</div>
                         <div class="callout-badge" style="top: 8px; left: 12px; background: #D97706;">
                             <span>Basse Saison, Haute Saison &amp; Fêtes</span>
@@ -1870,7 +1871,7 @@
             <div class="hardware-pack-box">
                 <div class="hp-left">
                     <div class="hp-icon-box">
-                        <img src="../assets/img/pack_imprimante_cutout.png" alt="Imprimante thermique POS 80 mm">
+                        <img src="../assets/img/pack_imprimante_cutout.webp" alt="Imprimante thermique POS 80 mm" width="1081" height="760">
                     </div>
                     <div>
                         <div class="hp-title">Pack Matériel Équipement : Imprimante Thermique POS 80 mm Massicot Auto</div>
@@ -1910,7 +1911,7 @@
                     </div>
                 </div>
                 <div style="display: flex; gap: 8px; flex-shrink: 0;" class="no-print">
-                    <a href="../configurateur.html?secteur=hotellerie" class="nav-link-btn" style="height: 32px; background: white; border-color: var(--rust); color: var(--rust); font-weight: 700;">
+                    <a href="../configurateur?secteur=hotellerie" class="nav-link-btn" style="height: 32px; background: white; border-color: var(--rust); color: var(--rust); font-weight: 700;">
                         ⚙️ Personnaliser mon Devis
                     </a>
                     <a href="https://wa.me/261386121473?text=Bonjour%20Missi%20Innovation,%20je%20souhaite%20r%C3%A9server%20une%20d%C3%A9monstration%20de%20ResiPro%20pour%20mon%20h%C3%B4tel." target="_blank" class="btn-print-copper" style="height: 32px; background: #059669; border-color: #059669;">

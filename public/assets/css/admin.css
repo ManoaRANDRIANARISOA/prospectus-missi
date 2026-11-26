@@ -1,0 +1,374 @@
+/* ==========================================================================
+   MISSI ADMIN — CHARTE LIN & BRUNS NOBLES
+   ========================================================================== */
+:root {
+  --bg: #F6F1E9;
+  --surface: #FDFBF8;
+  --surface-warm: #EBE3D5;
+  --surface-subtle: #F2ECE2;
+  --border: #D8CBB8;
+  --text: #3B2820;
+  --text-muted: #624D42;
+  --accent: #7B533E;
+  --accent-dark: #5C3C2B;
+  --emerald: #047857;
+  --danger: #B91C1C;
+  --font-display: 'Bricolage Grotesque', -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  padding-bottom: 3rem;
+}
+
+.admin-container {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.admin-topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0.85rem 0;
+  margin-bottom: 1.75rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.admin-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-logo-horizontal {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+
+.admin-sub {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.admin-top-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.78rem;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #FDFBF8;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.btn-whatsapp {
+  background: var(--emerald);
+  color: #FDFBF8;
+}
+
+.btn-danger {
+  background: #FEF2F2;
+  color: var(--danger);
+  border-color: #FECACA;
+}
+
+/* AUTH CARD */
+.auth-card {
+  max-width: 440px;
+  margin: 3rem auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 10px 28px -8px rgba(43, 28, 21, 0.12);
+}
+
+.auth-card h1 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin-bottom: 0.45rem;
+}
+
+.auth-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.field label {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.field input,
+.field select,
+.field textarea {
+  font: inherit;
+  font-size: max(1rem, 0.9rem);
+  min-height: 42px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #C2AD96;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.alert-error {
+  font-size: 0.84rem;
+  color: var(--danger);
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 6px;
+  padding: 0.55rem 0.75rem;
+}
+
+/* KPIS */
+.kpis-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.kpi-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.kpi-val {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 800;
+}
+
+/* FILTERS */
+.filters-bar {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.filters-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.dash-status {
+  font-size: 0.84rem;
+  color: var(--emerald);
+  margin-bottom: 0.75rem;
+  min-height: 1.2rem;
+}
+
+/* TABLE */
+.table-wrapper {
+  overflow: auto;
+  max-inline-size: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  container-type: inline-size;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.86rem;
+}
+
+.bookings-table caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.bookings-table thead th {
+  background: var(--surface-warm);
+  padding: 0.85rem 1rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+
+.bookings-table tbody td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.badge-market {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border);
+}
+
+.row-notes {
+  width: 100%;
+  min-height: 54px;
+  margin-top: 0.4rem;
+  padding: 0.4rem 0.55rem;
+  font: inherit;
+  font-size: 0.8rem;
+  border: 1px solid #C2AD96;
+  border-radius: 6px;
+}
+
+.row-status-select {
+  width: 100%;
+  padding: 0.38rem 0.55rem;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid #C2AD96;
+}
+
+.row-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+@media (max-width: 960px) {
+  .kpis-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .filters-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@container (width < 720px) {
+  .bookings-table,
+  .bookings-table thead,
+  .bookings-table tbody,
+  .bookings-table tr,
+  .bookings-table td {
+    display: block;
+  }
+  .bookings-table thead {
+    display: none;
+  }
+  .bookings-table tbody tr {
+    border-bottom: 2px solid var(--border);
+    padding: 0.6rem 0;
+  }
+  .bookings-table tbody td {
+    border-bottom: none;
+    padding: 0.45rem 0.9rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .kpis-grid,
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,3 @@
+ID,Date_Ajout,Commercial,Marché (Local/Intl),Entreprise,Secteur,Décideur,Contact,Offre_Ciblée,Statut_Pipeline,Score_BANT,Date_Démo,Montant_Devis,Devise,Date_Encaissement,Montant_Encaissé,Taux_Commission,Commission_Due,Statut_Paiement_Comm,Notes
+EX-001,2026-11-26,Commercial A,Local,Exemple École Privée Tana,Éducation,Directeur,034 XX XXX XX,Study Agent Pro - Sérénité Caisse,Démo Planifiée,4/4,2026-11-30,119000,MGA,,,,,À valider,Ligne exemple à supprimer avant usage réel
+EX-002,2026-11-26,Commercial B,Intl,Exemple Agence Lyon,ESN / SaaS,CTO,prenom@exemple.fr,Renfort Dev Offline-First,Qualification BANT,3/4,,3500,EUR,,,,,À valider,Ligne exemple à supprimer avant usage réel
