@@ -1,62 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://missi-innovation.web.app/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://missi-innovation.web.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://missi-innovation.web.app/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://missi-innovation.web.app/"/>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://missi-innovation.web.app/en</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://missi-innovation.web.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://missi-innovation.web.app/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://missi-innovation.web.app/"/>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://missi-innovation.web.app/mg</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://missi-innovation.web.app/configurateur</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://missi-innovation.web.app/services/prestations-sur-mesure-et-securite.html</loc>
-    <lastmod>2026-11-20</lastmod>
+    <loc>https://missi-innovation.web.app/services/prestations-sur-mesure-et-securite</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://missi-innovation.web.app/hotellerie/presentation-visuelle.html</loc>
-    <lastmod>2026-11-05</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://missi-innovation.web.app/hotellerie/presentation-visuelle</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://missi-innovation.web.app/hotellerie/resipro.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>https://missi-innovation.web.app/hotellerie/resipro</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://missi-innovation.web.app/tourisme/tour-operator.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>https://missi-innovation.web.app/tourisme/tour-operator</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://missi-innovation.web.app/entreprises/erp-societe.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>https://missi-innovation.web.app/entreprises/erp-societe</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://missi-innovation.web.app/education/presentation-visuelle.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>https://missi-innovation.web.app/education/presentation-visuelle</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://missi-innovation.web.app/web/site-vitrine.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>https://missi-innovation.web.app/web/site-vitrine</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://missi-innovation.web.app/education/homeschooling-pwa.html</loc>
-    <lastmod>2026-11-05</lastmod>
+    <loc>https://missi-innovation.web.app/education/homeschooling-pwa</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
