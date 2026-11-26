@@ -5,6 +5,7 @@
     <loc>https://missi-innovation.web.app/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://missi-innovation.web.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://missi-innovation.web.app/en"/>
+    <xhtml:link rel="alternate" hreflang="fr-MG" href="https://missi-innovation.web.app/mg"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://missi-innovation.web.app/"/>
     <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -14,6 +15,7 @@
     <loc>https://missi-innovation.web.app/en</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://missi-innovation.web.app/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://missi-innovation.web.app/en"/>
+    <xhtml:link rel="alternate" hreflang="fr-MG" href="https://missi-innovation.web.app/mg"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://missi-innovation.web.app/"/>
     <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -21,6 +23,10 @@
   </url>
   <url>
     <loc>https://missi-innovation.web.app/mg</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://missi-innovation.web.app/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://missi-innovation.web.app/en"/>
+    <xhtml:link rel="alternate" hreflang="fr-MG" href="https://missi-innovation.web.app/mg"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://missi-innovation.web.app/"/>
     <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>

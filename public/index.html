@@ -12,6 +12,7 @@
   <link rel="canonical" href="https://missi-innovation.web.app/">
   <link rel="alternate" hreflang="fr" href="https://missi-innovation.web.app/">
   <link rel="alternate" hreflang="en" href="https://missi-innovation.web.app/en">
+  <link rel="alternate" hreflang="fr-MG" href="https://missi-innovation.web.app/mg">
   <link rel="alternate" hreflang="x-default" href="https://missi-innovation.web.app/">
 
   <meta property="og:type" content="website">
@@ -80,10 +81,18 @@
   <link rel="stylesheet" href="/assets/css/booking.css">
   <script defer src="/assets/js/site-config.js"></script>
   <script defer src="/assets/js/intl.js"></script>
+  <script defer src="/assets/js/water-canvas.js"></script>
   <script defer src="/assets/js/booking.js"></script>
 </head>
 
 <body>
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <div class="mg-redirect-bar">
+    Entreprise, école ou hôtel à Madagascar ?
+    <a href="/mg">&rarr; Découvrir nos progiciels métiers &amp; tarifs locaux (Ariary)</a>
+  </div>
+
   <header class="header-nav">
     <div class="container nav-inner">
       <a href="/" class="brand-link" title="Missi Innovation - Accueil">
@@ -130,6 +139,26 @@
           <a href="#poles" class="btn btn-primary btn-lg">Découvrir nos 3 pôles d'expertise</a>
           <button type="button" class="btn btn-secondary btn-lg" data-open-booking>Planifier un appel découverte (20
             min)</button>
+        </div>
+
+        <div class="hero-discover-row">
+          <a href="#poles" class="discover-cascade-pill" title="Découvrir nos 3 pôles et réalisations">
+            <div class="stream-half-left">
+              <div class="water-stream-left"></div>
+            </div>
+            <div class="stream-half-right">
+              <div class="water-stream-right"></div>
+            </div>
+            <span class="discover-inner-clean">
+              <span>Découvrir nos 3 pôles &amp; réalisations</span>
+              <span class="discover-arrow-down" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </span>
+            </span>
+          </a>
         </div>
 
         <div class="proofs-grid">
@@ -326,6 +355,9 @@
 
         <div class="cases-grid">
           <article class="case-card">
+            <img src="/assets/img/02_tableau_de_bord_directeur.webp"
+              alt="Interface du progiciel financier offline-first multi-guichets en production"
+              class="case-thumb" width="1440" height="926" loading="lazy">
             <span class="case-tag">Offline-First &amp; Multi-Postes</span>
             <h3>Progiciel financier &amp; gestion multi-guichets</h3>
             <p class="case-line"><strong>Problème :</strong> Blocage des opérations lors des coupures réseau et risques
@@ -337,25 +369,31 @@
           </article>
 
           <article class="case-card">
+            <img src="/assets/img/erp_01_facturation_crm.webp"
+              alt="Plateforme ERP de cotation, facturation CRM et automatisation documentaire"
+              class="case-thumb" width="1440" height="901" loading="lazy">
             <span class="case-tag">Automatisation &amp; Back-Office</span>
-            <h3>Plateforme de cotation, facturation &amp; documents PDF</h3>
+            <h3>Plateforme ERP, facturation &amp; documents PDF</h3>
             <p class="case-line"><strong>Problème :</strong> Saisies manuelles répétées entre devis multi-devises, suivi
-              logistique et bons fournisseurs.</p>
-            <p class="case-line"><strong>Solution :</strong> Back-office web unifié générant automatiquement devis,
-              factures, vouchers PDF et exports comptables.</p>
+              CRM, stocks et bons fournisseurs.</p>
+            <p class="case-line"><strong>Solution :</strong> Back-office web et bureau unifié générant automatiquement
+              devis, factures, documents PDF et exports comptables.</p>
             <p class="case-line"><strong>Impact :</strong> Réduction des erreurs de marge et centralisation temps réel
               des dossiers.</p>
           </article>
 
           <article class="case-card">
-            <span class="case-tag">Collecte Terrain &amp; Cloud</span>
-            <h3>Application PWA de suivi opérationnel &amp; reporting</h3>
-            <p class="case-line"><strong>Problème :</strong> Remontée lente d'informations terrain depuis des zones
-              isolées avec fichiers hétérogènes.</p>
-            <p class="case-line"><strong>Solution :</strong> Application mobile/web PWA avec cache local structuré et
-              synchronisation sécurisée vers API Cloud.</p>
-            <p class="case-line"><strong>Impact :</strong> Données consolidées dès la reconnexion et tableaux de bord
-              exploitables par la direction.</p>
+            <img src="/assets/img/resipro_01_dashboard.webp"
+              alt="Suite logicielle hôtellerie PMS, point de vente tactile et reporting multi-devises"
+              class="case-thumb" width="1440" height="907" loading="lazy">
+            <span class="case-tag">Suite Métier &amp; Temps Réel</span>
+            <h3>Suite PMS Hôtellerie, POS &amp; Reporting Multi-Devises</h3>
+            <p class="case-line"><strong>Problème :</strong> Outils dispersés entre réservations, caisse point de vente,
+              stocks et consolidation financière.</p>
+            <p class="case-line"><strong>Solution :</strong> Progiciel unifié temps réel avec planning interactif, POS
+              tactile et conversion multi-devises EUR/USD.</p>
+            <p class="case-line"><strong>Impact :</strong> Pilotage consolidé des opérations et clôture comptable
+              fiabilisée en production.</p>
           </article>
         </div>
 
@@ -533,7 +571,7 @@
     <div class="booking-dialog-inner">
       <div class="booking-dialog-head">
         <div>
-          <h1 id="booking-title" class="booking-dialog-title">Planifier un appel découverte (20 min)</h1>
+          <h2 id="booking-title" class="booking-dialog-title">Planifier un appel découverte (20 min)</h2>
           <p class="booking-dialog-sub">Échange sans engagement avec notre équipe technique ou opérations.</p>
         </div>
         <button id="bk-close" type="button" class="booking-close-btn" aria-label="Fermer">&times;</button>

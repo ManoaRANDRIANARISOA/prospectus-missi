@@ -263,3 +263,171 @@ dialog::backdrop {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* ==========================================================================
+   SHARED WEBGL WATER CANVAS & CASCADE PILL (LIN & BRUNS NOBLES)
+   ========================================================================== */
+#ambient-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.95;
+}
+
+.hero-discover-row {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 2.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.discover-cascade-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 9999px;
+  padding: 2px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #EBE3D5;
+  box-shadow: 0 4px 16px rgba(59, 40, 32, 0.08);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.discover-cascade-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(123, 83, 62, 0.20), 0 2px 6px rgba(59, 40, 32, 0.10);
+}
+
+.stream-half-left,
+.stream-half-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.stream-half-left {
+  left: 0;
+}
+
+.stream-half-right {
+  right: 0;
+}
+
+.water-stream-left {
+  position: absolute;
+  top: -300%;
+  left: -50%;
+  width: 300%;
+  height: 700%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    transparent 200deg,
+    rgba(123, 83, 62, 0.14) 225deg,
+    #7B533E 248deg,
+    #C8A282 264deg,
+    #FFFFFF 270deg,
+    transparent 271deg,
+    transparent 360deg
+  );
+  animation: stream-flow-left 4.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.water-stream-right {
+  position: absolute;
+  top: -300%;
+  right: -50%;
+  width: 300%;
+  height: 700%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    transparent 90deg,
+    #FFFFFF 90.5deg,
+    #C8A282 96deg,
+    #7B533E 112deg,
+    rgba(123, 83, 62, 0.14) 135deg,
+    transparent 160deg,
+    transparent 360deg
+  );
+  animation: stream-flow-right 4.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes stream-flow-left {
+  0% { transform: rotate(90deg); opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { transform: rotate(-90deg); opacity: 0; }
+}
+
+@keyframes stream-flow-right {
+  0% { transform: rotate(-90deg); opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { transform: rotate(90deg); opacity: 0; }
+}
+
+.discover-cascade-pill:hover .water-stream-left,
+.discover-cascade-pill:hover .water-stream-right {
+  animation-duration: 2.8s;
+}
+
+.discover-inner-clean {
+  position: relative;
+  z-index: 2;
+  background: #FDFBF8;
+  border-radius: 9999px;
+  padding: 10px 22px 10px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #3B2820;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease, background-color 0.25s ease;
+}
+
+.discover-cascade-pill:hover .discover-inner-clean {
+  color: #5C3C2B;
+  background: #F6F1E9;
+}
+
+.discover-arrow-down {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #7B533E;
+  animation: arrow-cascade 2s ease-in-out infinite;
+}
+
+@keyframes arrow-cascade {
+  0%, 100% { transform: translateY(0); opacity: 0.72; }
+  50% { transform: translateY(3.5px); opacity: 1; }
+}
+
+@media (max-width: 768px),
+(pointer: coarse),
+(prefers-reduced-motion: reduce) {
+  #ambient-canvas {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .water-stream-left,
+  .water-stream-right,
+  .discover-arrow-down {
+    animation: none;
+  }
+}

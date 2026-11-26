@@ -12,6 +12,7 @@
   <link rel="canonical" href="https://missi-innovation.web.app/en">
   <link rel="alternate" hreflang="fr" href="https://missi-innovation.web.app/">
   <link rel="alternate" hreflang="en" href="https://missi-innovation.web.app/en">
+  <link rel="alternate" hreflang="fr-MG" href="https://missi-innovation.web.app/mg">
   <link rel="alternate" hreflang="x-default" href="https://missi-innovation.web.app/">
 
   <meta property="og:type" content="website">
@@ -80,10 +81,18 @@
   <link rel="stylesheet" href="/assets/css/booking.css">
   <script defer src="/assets/js/site-config.js"></script>
   <script defer src="/assets/js/intl.js"></script>
+  <script defer src="/assets/js/water-canvas.js"></script>
   <script defer src="/assets/js/booking.js"></script>
 </head>
 
 <body>
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+
+  <div class="mg-redirect-bar">
+    Company, school, or hotel in Madagascar?
+    <a href="/mg">&rarr; Explore our local business software &amp; pricing (Ariary)</a>
+  </div>
+
   <header class="header-nav">
     <div class="container nav-inner">
       <a href="/en" class="brand-link" title="Missi Innovation - Home">
@@ -128,6 +137,26 @@
         <div class="hero-actions">
           <a href="#poles" class="btn btn-primary btn-lg">Explore our 3 core practices</a>
           <button type="button" class="btn btn-secondary btn-lg" data-open-booking>Book a 20-min discovery call</button>
+        </div>
+
+        <div class="hero-discover-row">
+          <a href="#poles" class="discover-cascade-pill" title="Explore our 3 practices and production work">
+            <div class="stream-half-left">
+              <div class="water-stream-left"></div>
+            </div>
+            <div class="stream-half-right">
+              <div class="water-stream-right"></div>
+            </div>
+            <span class="discover-inner-clean">
+              <span>Explore our 3 practices &amp; work</span>
+              <span class="discover-arrow-down" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </span>
+            </span>
+          </a>
         </div>
 
         <div class="proofs-grid">
@@ -319,6 +348,9 @@
 
         <div class="cases-grid">
           <article class="case-card">
+            <img src="/assets/img/02_tableau_de_bord_directeur.webp"
+              alt="Offline-first multi-station financial executive dashboard in production"
+              class="case-thumb" width="1440" height="926" loading="lazy">
             <span class="case-tag">Offline-First &amp; Multi-Station</span>
             <h3>Resilient financial &amp; POS management suite</h3>
             <p class="case-line"><strong>Problem:</strong> Field operations stalling on unstable connectivity and
@@ -330,25 +362,31 @@
           </article>
 
           <article class="case-card">
+            <img src="/assets/img/erp_01_facturation_crm.webp"
+              alt="ERP billing, CRM quoting and automated PDF workflow platform"
+              class="case-thumb" width="1440" height="901" loading="lazy">
             <span class="case-tag">Workflow Automation</span>
-            <h3>Multi-currency quoting, billing &amp; PDF voucher engine</h3>
+            <h3>Multi-currency ERP, billing &amp; PDF workflow engine</h3>
             <p class="case-line"><strong>Problem:</strong> Repetitive manual entry across multi-currency quotes,
-              supplier schedules, and accounting sheets.</p>
-            <p class="case-line"><strong>Solution:</strong> Unified web back-office automating margin checks, supplier
-              PDF vouchers, and structured exports.</p>
+              CRM pipelines, inventory, and accounting sheets.</p>
+            <p class="case-line"><strong>Solution:</strong> Unified web &amp; desktop back-office automating margin
+              checks, PDF documents, and structured accounting exports.</p>
             <p class="case-line"><strong>Impact:</strong> Faster quote turnaround and real-time visibility on
               per-project net margins.</p>
           </article>
 
           <article class="case-card">
-            <span class="case-tag">Field Data &amp; Cloud Sync</span>
-            <h3>Mobile-ready PWA for field operations &amp; reporting</h3>
-            <p class="case-line"><strong>Problem:</strong> Delayed field reporting and fragmented spreadsheets across
-              remote operational teams.</p>
-            <p class="case-line"><strong>Solution:</strong> Offline-capable Progressive Web App with structured
-              validation and automated cloud sync.</p>
-            <p class="case-line"><strong>Impact:</strong> Clean, consolidated dashboards for leadership as soon as
-              devices reconnect.</p>
+            <img src="/assets/img/resipro_01_dashboard.webp"
+              alt="Hospitality PMS, touch POS and real-time multi-currency reporting suite"
+              class="case-thumb" width="1440" height="907" loading="lazy">
+            <span class="case-tag">Hospitality Suite &amp; Real-Time Ops</span>
+            <h3>Hospitality PMS, Touch POS &amp; Multi-Currency Reporting</h3>
+            <p class="case-line"><strong>Problem:</strong> Disconnected tools across room reservations, point-of-sale
+              orders, stock control, and daily reconciliation.</p>
+            <p class="case-line"><strong>Solution:</strong> Real-time unified suite combining visual scheduling, touch
+              POS billing, and EUR/USD multi-currency folios.</p>
+            <p class="case-line"><strong>Impact:</strong> Consolidated operational oversight and reliable daily financial
+              closing in live production.</p>
           </article>
         </div>
 
@@ -522,7 +560,7 @@
     <div class="booking-dialog-inner">
       <div class="booking-dialog-head">
         <div>
-          <h1 id="booking-title" class="booking-dialog-title">Book a 20-minute discovery call</h1>
+          <h2 id="booking-title" class="booking-dialog-title">Book a 20-minute discovery call</h2>
           <p class="booking-dialog-sub">No-obligation call with our engineering or customer operations lead.</p>
         </div>
         <button id="bk-close" type="button" class="booking-close-btn" aria-label="Close">&times;</button>

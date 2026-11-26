@@ -78,24 +78,6 @@ body {
   position: relative;
 }
 
-#ambient-canvas {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.9;
-}
-
-@media (max-width: 768px),
-(pointer: coarse),
-(prefers-reduced-motion: reduce) {
-  #ambient-canvas {
-    display: none;
-  }
-}
-
 h1,
 h2,
 h3,
@@ -413,7 +395,7 @@ summary:focus-visible {
 }
 
 .section-surface {
-  background: var(--surface);
+  background: rgba(253, 251, 248, 0.86);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
