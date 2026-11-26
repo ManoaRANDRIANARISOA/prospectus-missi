@@ -1,13 +1,24 @@
 (function () {
   'use strict';
 
+  const FIREBASE_SDK_BASE = 'https://www.gstatic.com/firebasejs/11.6.1';
   const cfg = window.MISSI_CONFIG || {};
-  let supabaseClient = null;
+  let fb = null;
   let allRows = [];
 
-  function initSupabase() {
-    if (!window.supabase || !cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) return null;
-    return window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
+  async function initFirebase() {
+    if (!cfg.FIREBASE_CONFIG || !cfg.FIREBASE_CONFIG.apiKey || !cfg.FIREBASE_CONFIG.projectId) {
+      return null;
+    }
+    const [appMod, authMod, fsMod] = await Promise.all([
+      import(`${FIREBASE_SDK_BASE}/firebase-app.js`),
+      import(`${FIREBASE_SDK_BASE}/firebase-auth.js`),
+      import(`${FIREBASE_SDK_BASE}/firebase-firestore.js`)
+    ]);
+    const app = appMod.getApps().length ? appMod.getApp() : appMod.initializeApp(cfg.FIREBASE_CONFIG);
+    const auth = authMod.getAuth(app);
+    const db = fsMod.getFirestore(app);
+    return { auth, db, authMod, fsMod };
   }
 
   function escapeHtml(str) {
@@ -25,6 +36,14 @@
     if (m === 'intl-en') return 'International EN';
     if (m === 'local-mg') return 'Local Madagascar';
     return m || '-';
+  }
+
+  function toIsoDate(ts) {
+    if (!ts) return '';
+    if (typeof ts.toDate === 'function') {
+      return ts.toDate().toISOString();
+    }
+    return String(ts);
   }
 
   function buildProspectWhatsAppLink(row) {
@@ -94,7 +113,7 @@
     const rows = getFilteredRows();
 
     if (rows.length === 0) {
-      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#64748B;padding:2rem;">Aucune réservation ne correspond aux filtres.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#6B574C;padding:2rem;">Aucune réservation ne correspond aux filtres.</td></tr>';
       return;
     }
 
@@ -110,13 +129,13 @@
           <td>
             <strong>${escapeHtml(r.preferred_date || '-')}</strong><br>
             <span>${escapeHtml(r.preferred_slot || '-')} EAT</span><br>
-            <small style="color:#64748B;">Fuseau : ${escapeHtml(r.visitor_timezone || '-')}</small>
+            <small style="color:#6B574C;">Fuseau : ${escapeHtml(r.visitor_timezone || '-')}</small>
           </td>
           <td>
             <strong>${escapeHtml(r.full_name)}</strong>${r.organization ? `<br><span>${escapeHtml(r.organization)}</span>` : ''}
             ${r.whatsapp ? `<br><span class="mono" style="font-size:0.78rem;">WA: ${escapeHtml(r.whatsapp)}</span>` : ''}
             ${r.email ? `<br><span style="font-size:0.78rem;">${escapeHtml(r.email)}</span>` : ''}
-            ${r.message ? `<p style="margin-top:0.35rem;font-size:0.78rem;color:#475569;">« ${escapeHtml(r.message)} »</p>` : ''}
+            ${r.message ? `<p style="margin-top:0.35rem;font-size:0.78rem;color:#4A3329;">« ${escapeHtml(r.message)} »</p>` : ''}
           </td>
           <td>
             <span class="badge-market">${escapeHtml(formatMarketLabel(r.market))}</span><br>
@@ -139,30 +158,37 @@
   }
 
   async function loadBookings() {
-    if (!supabaseClient) return;
+    if (!fb) return;
     const statusEl = document.getElementById('dash-status');
     if (statusEl) statusEl.textContent = 'Chargement...';
 
-    const { data, error } = await supabaseClient
-      .from(cfg.BOOKINGS_TABLE || 'bookings')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (error) {
+    try {
+      const { db, fsMod } = fb;
+      const q = fsMod.query(
+        fsMod.collection(db, cfg.BOOKINGS_COLLECTION || 'bookings'),
+        fsMod.orderBy('created_at', 'desc')
+      );
+      const snap = await fsMod.getDocs(q);
+      allRows = snap.docs.map((d) => {
+        const data = d.data() || {};
+        return {
+          ...data,
+          id: d.id,
+          created_at: toIsoDate(data.created_at)
+        };
+      });
+      populatePoleFilter(allRows);
+      updateKpis(allRows);
+      renderTable();
+      if (statusEl) {
+        statusEl.style.color = '#047857';
+        statusEl.textContent = `${allRows.length} réservation(s) chargée(s).`;
+      }
+    } catch (error) {
       if (statusEl) {
         statusEl.style.color = '#B91C1C';
-        statusEl.textContent = `Erreur Supabase : ${error.message}`;
+        statusEl.textContent = `Erreur Firestore : ${error.message || error}`;
       }
-      return;
-    }
-
-    allRows = data || [];
-    populatePoleFilter(allRows);
-    updateKpis(allRows);
-    renderTable();
-    if (statusEl) {
-      statusEl.style.color = '#047857';
-      statusEl.textContent = `${allRows.length} réservation(s) chargée(s).`;
     }
   }
 
@@ -218,28 +244,46 @@
     URL.revokeObjectURL(url);
   }
 
-  async function refreshAuthUi() {
-    if (!supabaseClient) return;
-    const { data } = await supabaseClient.auth.getSession();
-    const isLoggedIn = Boolean(data && data.session);
-    document.getElementById('auth-view').hidden = isLoggedIn;
-    document.getElementById('dashboard-view').hidden = !isLoggedIn;
-    document.getElementById('btn-logout').hidden = !isLoggedIn;
-    if (isLoggedIn) {
+  async function refreshAuthUi(user) {
+    const isAdmin = Boolean(user && (!cfg.EMAIL_PRO || user.email === cfg.EMAIL_PRO));
+    document.getElementById('auth-view').hidden = isAdmin;
+    document.getElementById('dashboard-view').hidden = !isAdmin;
+    document.getElementById('btn-logout').hidden = !isAdmin;
+
+    if (user && !isAdmin && fb) {
+      const err = document.getElementById('auth-error');
+      if (err) {
+        err.textContent = 'Compte non autorisé pour cet espace administrateur.';
+        err.hidden = false;
+      }
+      await fb.authMod.signOut(fb.auth);
+      return;
+    }
+
+    if (isAdmin) {
       await loadBookings();
     }
   }
 
   document.addEventListener('DOMContentLoaded', async () => {
-    supabaseClient = initSupabase();
-    if (!supabaseClient) {
+    try {
+      fb = await initFirebase();
+    } catch (_) {
+      fb = null;
+    }
+
+    if (!fb) {
       const err = document.getElementById('auth-error');
       if (err) {
-        err.textContent = 'Client Supabase non initialisé.';
+        err.textContent = 'Client Firebase non initialisé.';
         err.hidden = false;
       }
       return;
     }
+
+    fb.authMod.onAuthStateChanged(fb.auth, (user) => {
+      refreshAuthUi(user);
+    });
 
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
@@ -250,22 +294,20 @@
         const email = document.getElementById('login-email').value.trim();
         const password = document.getElementById('login-password').value;
 
-        const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
-        if (error) {
+        try {
+          await fb.authMod.signInWithEmailAndPassword(fb.auth, email, password);
+        } catch (error) {
           if (err) {
-            err.textContent = error.message;
+            err.textContent = error.message || 'Identifiants invalides.';
             err.hidden = false;
           }
-          return;
         }
-        await refreshAuthUi();
       });
     }
 
     document.getElementById('btn-logout')?.addEventListener('click', async () => {
-      await supabaseClient.auth.signOut();
+      await fb.authMod.signOut(fb.auth);
       allRows = [];
-      await refreshAuthUi();
     });
 
     document.getElementById('btn-refresh')?.addEventListener('click', loadBookings);
@@ -283,21 +325,16 @@
       if (!tr) return;
       const id = tr.getAttribute('data-id');
       const statusEl = document.getElementById('dash-status');
+      const collectionName = cfg.BOOKINGS_COLLECTION || 'bookings';
 
       if (target.classList.contains('btn-save-row')) {
         const statusVal = tr.querySelector('.row-status-select')?.value;
-        const notesVal = tr.querySelector('.row-notes')?.value;
-        const { error } = await supabaseClient
-          .from(cfg.BOOKINGS_TABLE || 'bookings')
-          .update({ status: statusVal, internal_notes: notesVal })
-          .eq('id', id);
-
-        if (error) {
-          if (statusEl) {
-            statusEl.style.color = '#B91C1C';
-            statusEl.textContent = `Erreur sauvegarde : ${error.message}`;
-          }
-        } else {
+        const notesVal = tr.querySelector('.row-notes')?.value || '';
+        try {
+          await fb.fsMod.updateDoc(fb.fsMod.doc(fb.db, collectionName, id), {
+            status: statusVal,
+            internal_notes: notesVal
+          });
           const item = allRows.find((r) => String(r.id) === String(id));
           if (item) {
             item.status = statusVal;
@@ -308,22 +345,18 @@
             statusEl.style.color = '#047857';
             statusEl.textContent = 'Modification enregistrée.';
           }
+        } catch (error) {
+          if (statusEl) {
+            statusEl.style.color = '#B91C1C';
+            statusEl.textContent = `Erreur sauvegarde : ${error.message || error}`;
+          }
         }
       }
 
       if (target.classList.contains('btn-delete-row')) {
         if (!window.confirm('Supprimer définitivement cette réservation ?')) return;
-        const { error } = await supabaseClient
-          .from(cfg.BOOKINGS_TABLE || 'bookings')
-          .delete()
-          .eq('id', id);
-
-        if (error) {
-          if (statusEl) {
-            statusEl.style.color = '#B91C1C';
-            statusEl.textContent = `Erreur suppression : ${error.message}`;
-          }
-        } else {
+        try {
+          await fb.fsMod.deleteDoc(fb.fsMod.doc(fb.db, collectionName, id));
           allRows = allRows.filter((r) => String(r.id) !== String(id));
           updateKpis(allRows);
           renderTable();
@@ -331,10 +364,13 @@
             statusEl.style.color = '#047857';
             statusEl.textContent = 'Réservation supprimée.';
           }
+        } catch (error) {
+          if (statusEl) {
+            statusEl.style.color = '#B91C1C';
+            statusEl.textContent = `Erreur suppression : ${error.message || error}`;
+          }
         }
       }
     });
-
-    await refreshAuthUi();
   });
 })();

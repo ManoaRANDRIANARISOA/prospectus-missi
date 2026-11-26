@@ -1,13 +1,17 @@
-/* ==========================================================================
-   MISSI INNOVATION — CENTRAL PUBLIC CONFIGURATION
-   Only public/publishable constants belong here. NEVER put service_role keys.
-   ========================================================================== */
 window.MISSI_CONFIG = Object.freeze({
   SITE_URL: 'https://missi-innovation.web.app',
   EMAIL_PRO: 'missiinnovation@gmail.com',
   WHATSAPP_NUMBER: '261347151789',
   WHATSAPP_DISPLAY: '+261 34 71 517 89',
-  SUPABASE_URL: 'https://uigqxexsfbjfxbnkrjfc.supabase.co',
-  SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVpZ3F4ZXhzZmJqZnhibmtyamZjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ3MDgwODksImV4cCI6MjEwMDI4NDA4OX0.RXlm61cufihn9XaKN59I-JG4Pl8IwEls_tIKogRyrcQ',
-  BOOKINGS_TABLE: 'bookings'
+  BOOKINGS_COLLECTION: 'bookings',
+  // Clé publique Web3Forms (gratuite sur https://web3forms.com pour recevoir une alerte email à chaque RDV)
+  WEB3FORMS_ACCESS_KEY: '',
+  FIREBASE_CONFIG: {
+    apiKey: 'AIzaSyCnth7trW8qEf-Trgub-u_ZlaiNKymSWUE',
+    authDomain: 'missi-inovation.firebaseapp.com',
+    projectId: 'missi-inovation',
+    storageBucket: 'missi-inovation.firebasestorage.app',
+    messagingSenderId: '664059954769',
+    appId: '1:664059954769:web:3e77f72ac70757e4ad1a70'
+  }
 });

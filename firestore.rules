@@ -1,0 +1,185 @@
+rules_version = '2';
+
+// ============================================================================
+// MISSI INNOVATION — CLOUD FIRESTORE SECURITY RULES (PROTOTYPE)
+// ============================================================================
+//
+// Assumed Data Model
+// ============================================================================
+//
+// Collection: bookings
+// Document ID: auto-generated bookingId
+// Fields (exact 14-field schema required on create):
+//   - created_at       : timestamp (required, immutable, must equal request.time / serverTimestamp())
+//   - market           : string    (required, immutable, enum: 'intl-fr' | 'intl-en' | 'local-mg')
+//   - lang             : string    (required, immutable, enum: 'fr' | 'en')
+//   - full_name        : string    (required, immutable, trimmed 2..120 chars, raw <= 160 chars)
+//   - organization     : string?   (required key, nullable, immutable, <= 160 chars if string)
+//   - whatsapp         : string?   (required key, nullable, immutable, <= 40 chars if string)
+//   - email            : string?   (required key, nullable, immutable, <= 160 chars if string)
+//                        Note: at least one of whatsapp or email must have trim().size() > 0
+//   - service_pole     : string    (required, immutable, trimmed 2..160 chars, raw <= 200 chars)
+//   - preferred_date   : string    (required, immutable, format YYYY-MM-DD: ^[0-9]{4}-[0-9]{2}-[0-9]{2}$)
+//   - preferred_slot   : string    (required, immutable, enum: '09:00-11:00' | '11:00-13:00' | '14:00-16:00' | '16:00-18:00')
+//   - visitor_timezone : string?   (required key, nullable, immutable, <= 80 chars if string)
+//   - message          : string?   (required key, nullable, immutable, <= 600 chars if string)
+//   - status           : string    (required, 'Nouveau' on create; admin-updatable enum:
+//                                   'Nouveau' | 'Confirmé' | 'Démo effectuée' | 'Devis envoyé' | 'Signé' | 'Archivé')
+//   - internal_notes   : string    (required, '' on create; admin-updatable string <= 4000 chars)
+//
+// Access & Operational Assumptions
+// ============================================================================
+//   1. Public visitors (unauthenticated or anonymous) may ONLY create booking
+//      documents with the exact 14-field schema above. They cannot read, list,
+//      update, or delete any booking document (protects all visitor PII).
+//   2. Only the Missi Innovation admin ('missiinnovation@gmail.com') may read,
+//      list, update (status & internal_notes only), or delete bookings.
+//   3. email_verified == true is intentionally NOT required here because
+//      manually creating an Email/Password user via Firebase Console ("Add user")
+//      sets email_verified = false by default.
+//      IMPORTANT: Ensure 'missiinnovation@gmail.com' is pre-created in Firebase
+//      Authentication AND public user sign-ups ("Enable create (sign-up)") are
+//      disabled in Firebase Console -> Authentication -> Settings. For stronger
+//      production hardening, verify the account email and require
+//      request.auth.token.email_verified == true (or an admin custom claim).
+//
+// ============================================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny on all paths and subcollections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // ========================================================================
+    // Helper Functions
+    // ========================================================================
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        'email' in request.auth.token &&
+        request.auth.token.email == 'missiinnovation@gmail.com';
+    }
+
+    function hasRequiredFields(data, fields) {
+      return data.keys().hasAll(fields);
+    }
+
+    function hasOnlyAllowedFields(data, fields) {
+      return data.keys().hasOnly(fields);
+    }
+
+    function isValidOptionalString(val, maxLen) {
+      return val == null || (val is string && val.size() <= maxLen);
+    }
+
+    function isValidTrimmedString(val, minTrimLen, maxTrimLen, maxRawLen) {
+      return val is string &&
+        val.size() <= maxRawLen &&
+        val.trim().size() >= minTrimLen &&
+        val.trim().size() <= maxTrimLen;
+    }
+
+    // ========================================================================
+    // Domain Validators (Bookings)
+    // ========================================================================
+
+    function isValidBookingStatus(status) {
+      return status is string &&
+        status in [
+          'Nouveau',
+          'Confirmé',
+          'Démo effectuée',
+          'Devis envoyé',
+          'Signé',
+          'Archivé'
+        ];
+    }
+
+    function isValidBookingCreate(data) {
+      let allowedFields = [
+        'created_at',
+        'market',
+        'lang',
+        'full_name',
+        'organization',
+        'whatsapp',
+        'email',
+        'service_pole',
+        'preferred_date',
+        'preferred_slot',
+        'visitor_timezone',
+        'message',
+        'status',
+        'internal_notes'
+      ];
+
+      return hasRequiredFields(data, allowedFields) &&
+        hasOnlyAllowedFields(data, allowedFields) &&
+        data.created_at is timestamp &&
+        data.created_at == request.time &&
+        data.market is string &&
+        data.market in ['intl-fr', 'intl-en', 'local-mg'] &&
+        data.lang is string &&
+        data.lang in ['fr', 'en'] &&
+        isValidTrimmedString(data.full_name, 2, 120, 160) &&
+        isValidOptionalString(data.organization, 160) &&
+        isValidOptionalString(data.whatsapp, 40) &&
+        isValidOptionalString(data.email, 160) &&
+        (
+          (data.whatsapp is string && data.whatsapp.trim().size() > 0) ||
+          (data.email is string && data.email.trim().size() > 0)
+        ) &&
+        isValidTrimmedString(data.service_pole, 2, 160, 200) &&
+        data.preferred_date is string &&
+        data.preferred_date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$') &&
+        data.preferred_slot is string &&
+        data.preferred_slot in [
+          '09:00-11:00',
+          '11:00-13:00',
+          '14:00-16:00',
+          '16:00-18:00'
+        ] &&
+        isValidOptionalString(data.visitor_timezone, 80) &&
+        isValidOptionalString(data.message, 600) &&
+        data.status is string &&
+        data.status == 'Nouveau' &&
+        data.internal_notes is string &&
+        data.internal_notes == '';
+    }
+
+    function isValidBookingUpdate() {
+      return request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'status',
+          'internal_notes'
+        ]) &&
+        isValidBookingStatus(request.resource.data.status) &&
+        request.resource.data.internal_notes is string &&
+        request.resource.data.internal_notes.size() <= 4000;
+    }
+
+    // ========================================================================
+    // Collection: bookings
+    // ========================================================================
+
+    match /bookings/{bookingId} {
+      // Admin-only read (covers both get and list queries)
+      allow read: if isAdmin();
+
+      // Public booking submission with strict schema, type, and size validation
+      allow create: if isValidBookingCreate(request.resource.data);
+
+      // Admin-only update restricted strictly to status and internal_notes
+      allow update: if isAdmin() && isValidBookingUpdate();
+
+      // Admin-only delete
+      allow delete: if isAdmin();
+    }
+  }
+}

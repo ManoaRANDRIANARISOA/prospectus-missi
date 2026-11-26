@@ -2,10 +2,30 @@
    MISSI INNOVATION — INTEGRATED BOOKING SYSTEM (/, /en, /mg)
    - Native <dialog> with showModal(), Esc & light-dismiss fallback
    - Visitor timezone detection + EAT (UTC+3) / CET conversion preview
-   - Supabase REST insert (anon INSERT-only via RLS) + instant WhatsApp CTA
+   - Cloud Firestore insert + optional Web3Forms email notify + instant WhatsApp CTA
    ========================================================================== */
 (function () {
   'use strict';
+
+  const FIREBASE_SDK_BASE = 'https://www.gstatic.com/firebasejs/11.6.1';
+  let firestoreCtxPromise = null;
+
+  async function getFirestoreCtx(cfg) {
+    if (!cfg.FIREBASE_CONFIG || !cfg.FIREBASE_CONFIG.apiKey || !cfg.FIREBASE_CONFIG.projectId) {
+      return null;
+    }
+    if (!firestoreCtxPromise) {
+      firestoreCtxPromise = Promise.all([
+        import(`${FIREBASE_SDK_BASE}/firebase-app.js`),
+        import(`${FIREBASE_SDK_BASE}/firebase-firestore.js`)
+      ]).then(([appMod, fsMod]) => {
+        const app = appMod.getApps().length ? appMod.getApp() : appMod.initializeApp(cfg.FIREBASE_CONFIG);
+        const db = fsMod.getFirestore(app);
+        return { db, fsMod };
+      });
+    }
+    return firestoreCtxPromise;
+  }
 
   const SLOT_EAT_HOURS = {
     '09:00-11:00': { startH: 9, endH: 11, labelFr: 'Matin (09h–11h EAT)', labelEn: 'Morning (09:00–11:00 EAT)' },
@@ -191,21 +211,6 @@
       }
 
       const visitorTz = getVisitorTz();
-      const payload = {
-        market,
-        lang: isEn ? 'en' : 'fr',
-        full_name: fullName,
-        organization: org || null,
-        whatsapp: whatsapp || null,
-        email: email || null,
-        service_pole: pole,
-        preferred_date: prefDate,
-        preferred_slot: prefSlot,
-        visitor_timezone: visitorTz,
-        message: message || null,
-        status: 'Nouveau'
-      };
-
       const cfg = window.MISSI_CONFIG || {};
       const origLabel = submitBtn ? submitBtn.textContent : '';
       if (submitBtn) {
@@ -214,21 +219,58 @@
       }
 
       let dbSaved = false;
-      if (cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY) {
+      try {
+        const ctx = await getFirestoreCtx(cfg);
+        if (ctx) {
+          const { db, fsMod } = ctx;
+          const docPayload = {
+            created_at: fsMod.serverTimestamp(),
+            market,
+            lang: isEn ? 'en' : 'fr',
+            full_name: fullName,
+            organization: org || null,
+            whatsapp: whatsapp || null,
+            email: email || null,
+            service_pole: pole,
+            preferred_date: prefDate,
+            preferred_slot: prefSlot,
+            visitor_timezone: visitorTz || null,
+            message: message || null,
+            status: 'Nouveau',
+            internal_notes: ''
+          };
+          await fsMod.addDoc(fsMod.collection(db, cfg.BOOKINGS_COLLECTION || 'bookings'), docPayload);
+          dbSaved = true;
+        }
+      } catch (_) {
+        dbSaved = false;
+      }
+
+      if (cfg.WEB3FORMS_ACCESS_KEY) {
         try {
-          const res = await fetch(`${cfg.SUPABASE_URL}/rest/v1/${cfg.BOOKINGS_TABLE || 'bookings'}`, {
+          await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              apikey: cfg.SUPABASE_ANON_KEY,
-              Authorization: `Bearer ${cfg.SUPABASE_ANON_KEY}`,
-              Prefer: 'return=minimal'
+              Accept: 'application/json'
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify({
+              access_key: cfg.WEB3FORMS_ACCESS_KEY,
+              subject: `[RDV ${market}] ${fullName} — ${pole}`,
+              from_name: 'Missi Innovation — Réservation',
+              replyto: email || undefined,
+              name: fullName,
+              organization: org || '-',
+              whatsapp: whatsapp || '-',
+              email: email || '-',
+              service_pole: pole,
+              preferred_date: prefDate,
+              preferred_slot: `${prefSlot} EAT (${visitorTz})`,
+              message: message || '-'
+            })
           });
-          dbSaved = res.ok;
         } catch (_) {
-          dbSaved = false;
+          // Non-blocking: Firestore booking + WhatsApp link remain unaffected
         }
       }
 
