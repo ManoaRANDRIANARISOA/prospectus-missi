@@ -5,7 +5,7 @@ window.MISSI_CONFIG = Object.freeze({
   WHATSAPP_DISPLAY: '+261 34 71 517 89',
   BOOKINGS_COLLECTION: 'bookings',
   // Clé publique Web3Forms (gratuite sur https://web3forms.com pour recevoir une alerte email à chaque RDV)
-  WEB3FORMS_ACCESS_KEY: '',
+  WEB3FORMS_ACCESS_KEY: 'f644900d-c29b-4890-99f2-88a10b8fa7ab',
   FIREBASE_CONFIG: {
     apiKey: 'AIzaSyCnth7trW8qEf-Trgub-u_ZlaiNKymSWUE',
     authDomain: 'missi-inovation.firebaseapp.com',
