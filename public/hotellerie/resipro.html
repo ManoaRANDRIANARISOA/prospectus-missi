@@ -44,7 +44,7 @@
     <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             /* Couleurs de la charte ResiPro */
@@ -80,8 +80,8 @@
             font-family: 'Playfair Display', Georgia, serif;
         }
 
-        .outfit {
-            font-family: 'Outfit', sans-serif;
+        .font-display {
+            font-family: 'Bricolage Grotesque', sans-serif;
         }
 
         /* FOOTER WEB UNIFIÉ HAUTE VISIBILITÉ (WEB ONLY) */
@@ -805,24 +805,13 @@
             text-decoration: none;
             color: #3B2820;
         }
-        .brand-logo-mark {
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
-            background: #3B2820;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
-            border: 1px solid #443E3A;
-            flex-shrink: 0;
-        }
+        .brand-logo-horizontal { height: 40px; width: auto; display: block; }
         .brand-title-wrap {
             display: flex;
             flex-direction: column;
         }
         .brand-name {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
             font-weight: 800;
             font-size: 1.15rem;
             letter-spacing: -0.01em;
@@ -853,9 +842,9 @@
             font-size: 0.75rem;
             font-weight: 600;
             padding: 4px 10px;
-            background: #FDF6F0;
+            background: #EFE6DB;
             color: #5E3D2C;
-            border: 1px solid #F5D6C1;
+            border: 1px solid #C2AD96;
             border-radius: 9999px;
         }
         .nav-link-btn {
@@ -872,7 +861,7 @@
         .nav-link-btn:hover {
             border-color: #7B533E;
             color: #7B533E;
-            background: #FDF6F0;
+            background: #EFE6DB;
         }
         .btn-print-copper {
             display: inline-flex;
@@ -913,7 +902,7 @@
 
         /* WORKFLOW & COMPARISON HÔTELIER */
         .workflow-section {
-            background: #FAF8F5;
+            background: #F6F1E9;
             border: 1px solid var(--border-warm);
             border-radius: 7px;
             padding: 7px 11px;
@@ -992,7 +981,7 @@
         }
 
         .comp-header {
-            background: #FAF8F5;
+            background: #F6F1E9;
             padding: 5px 11px;
             border-bottom: 1px solid var(--border-warm);
             display: flex;
@@ -1065,7 +1054,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 7px;
-            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%);
+            background: linear-gradient(135deg, #F6F1E9 0%, #F5EFE8 100%);
             border: 1px solid var(--border-warm);
             border-radius: 6px;
             padding: 6px 10px;
@@ -1085,7 +1074,7 @@
             font-size: 13px;
             font-weight: 800;
             color: var(--rust);
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
             line-height: 1.1;
         }
 
@@ -1106,19 +1095,13 @@
     <header class="top-nav no-print">
         <div class="nav-inner">
             <a href="/mg" class="brand-link" title="Missi Innovation — Retour au catalogue">
-                <div class="brand-logo-mark">
-                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
-                </div>
-                <div class="brand-title-wrap">
-                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
-                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
-                </div>
-            </a>
-            <div class="nav-doc-badge" style="font-size: 0.8rem; font-weight: 700; padding: 5px 12px; background: #FDF6F0; color: #5E3D2C; border: 1px solid #F5D6C1; border-radius: 9999px;">
+        <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="115" height="40">
+      </a>
+            <div class="nav-doc-badge" style="font-size: 0.8rem; font-weight: 700; padding: 5px 12px; background: #EFE6DB; color: #5E3D2C; border: 1px solid #C2AD96; border-radius: 9999px;">
                 <span>ResiPro Suite</span> &bull; Hôtellerie, Restauration &amp; Caisse
             </div>
             <div style="display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0;">
-                <a href="presentation-visuelle" class="nav-link-btn" style="height: 32px; display: inline-flex; align-items: center; padding: 0 12px; text-decoration: none; background: #FDF6F0; color: #5E3D2C; border-color: #F5D6C1; font-weight: 700;">
+                <a href="presentation-visuelle" class="nav-link-btn" style="height: 32px; display: inline-flex; align-items: center; padding: 0 12px; text-decoration: none; background: #EFE6DB; color: #5E3D2C; border-color: #C2AD96; font-weight: 700;">
                     ✨ Démo Visuelle (10 Écrans HD)
                 </a>
                 <a href="/mg" class="nav-link-btn" style="height: 32px; display: inline-flex; align-items: center; padding: 0 12px; text-decoration: none;">← Catalogue</a>
@@ -1136,7 +1119,7 @@
         <div class="header-top">
             <div style="display: flex; align-items: center; gap: 12px;">
                 <div style="width: 38px; height: 38px; border-radius: 9px; background: #3B2820; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(28, 25, 23, 0.15); border: 1px solid #443E3A; flex-shrink: 0;">
-                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
+                    <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
                 </div>
                 <div class="header-left">
                     PROPOSITION COMMERCIALE — ÉTABLISSEMENTS HÔTELIERS
@@ -1201,7 +1184,7 @@
                 </div>
                 <div class="g-item">
                     <div class="g-card-top">
-                        <div class="g-icon">🛡️</div>
+                        <div class="g-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                         <div class="g-title">Sécurité & Anti-Coulage</div>
                     </div>
                     <div class="g-desc">
@@ -1435,7 +1418,7 @@
                     </div>
                     <div class="option-desc">
                         Inventaire rapide à l'aveugle sur tablette, historique des casses et alertes.
-                        <span class="benefit-tag">🛡️ Identifiez les écarts avant qu'ils ne pèsent sur votre résultat.</span>
+                        <span class="benefit-tag"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Identifiez les écarts avant qu'ils ne pèsent sur votre résultat.</span>
                     </div>
                 </div>
                 <div class="option-item">
@@ -1474,7 +1457,7 @@
                     L'abonnement mensuel représente l'équivalent d'<strong>une seule nuitée occupée dans le mois</strong> (60 000 à 180 000 Ar). Dès votre deuxième réservation, la plateforme est intégralement rentabilisée et génère un gain net.
                 </div>
                 <div class="recap-col">
-                    <strong>🛡️ Sécurisation des Marges & Zéro Coulage</strong>
+                    <strong><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Sécurisation des Marges & Zéro Coulage</strong>
                     En automatisant la traçabilité des stocks (cuisine, bar, linge) et la facturation directe, vous éliminez les pertes invisibles de marchandises et les oublis d'encaissement qui pèsent sur votre résultat net.
                 </div>
             </div>
@@ -1576,9 +1559,9 @@
             </tbody>
         </table>
 
-        <div style="margin-top: 10px; margin-bottom: 8px; padding: 7px 11px; border: 1px solid var(--border); border-radius: 5px; background: #FAF8F5; display: flex; justify-content: space-between; align-items: center; font-size: 9.5px; color: var(--text-gray); flex-wrap: wrap; gap: 6px;">
+        <div style="margin-top: 10px; margin-bottom: 8px; padding: 7px 11px; border: 1px solid var(--border); border-radius: 5px; background: #F6F1E9; display: flex; justify-content: space-between; align-items: center; font-size: 9.5px; color: var(--text-gray); flex-wrap: wrap; gap: 6px;">
             <div><strong>⚡ Déploiement &amp; Assistance :</strong> Équipe locale à Madagascar &bull; Mise en service sous 48h</div>
-            <div><strong>🛡️ Fiabilité Locale :</strong> Conçu pour les réseaux instables &bull; Sauvegardes Cloud automatisées</div>
+            <div><strong><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Fiabilité Locale :</strong> Conçu pour les réseaux instables &bull; Sauvegardes Cloud automatisées</div>
             <div><strong>💳 Règlement :</strong> Virement bancaire ou Mobile Money (MVola)</div>
         </div>
 
@@ -1629,7 +1612,7 @@
     <!-- PIED DE PAGE WEB UNIFIÉ HAUTE VISIBILITÉ (MASQUÉ À L'IMPRESSION) -->
     <footer class="web-footer-unified no-print">
         <div class="web-footer-brand-row">
-            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
+            <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
             <span>MISSI INNOVATION &bull; Solutions Logicielles Métiers &bull; Madagascar</span>
         </div>
         <p class="web-footer-subtext">

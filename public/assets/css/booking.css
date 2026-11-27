@@ -116,9 +116,9 @@ dialog::backdrop {
 .booking-field input:focus-visible,
 .booking-field select:focus-visible,
 .booking-field textarea:focus-visible {
-  outline: 2px solid #5C3C2B;
-  outline-offset: 1px;
-  border-color: #5C3C2B;
+  outline: 2px solid #7B533E;
+  outline-offset: 2px;
+  border-color: #C2AD96;
 }
 
 .booking-field input:user-invalid,
@@ -186,72 +186,107 @@ dialog::backdrop {
 }
 
 /* ==========================================================================
-   CLIENT TRUST RIBBON (CHOCOLAT NOIR #2B1C15 & CHÂTAIGNE CLAIR #C8A282)
+   CLIENT TRUST MARQUEE RIBBON (CHOCOLAT NOIR #2B1C15 & CHÂTAIGNE CLAIR #C8A282)
    ========================================================================== */
 .trust-ribbon-dark {
-  margin-top: 2.5rem;
   background: #2B1C15;
-  border: 1px solid rgba(200, 162, 130, 0.24);
-  border-radius: 16px;
-  padding: 1.75rem 1.25rem;
+  border-top: 1px solid rgba(200, 162, 130, 0.22);
+  border-bottom: 1px solid rgba(200, 162, 130, 0.22);
+  padding: 1.5rem 0;
   color: #F6F1E9;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .trust-ribbon-header {
   text-align: center;
-  margin-bottom: 1.35rem;
+  margin-bottom: 1.15rem;
+  padding-inline: 1.25rem;
 }
 
 .trust-ribbon-kicker {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: #C8A282;
 }
 
-.trust-clients-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 1.15rem;
+.trust-marquee-viewport {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+
+.trust-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: trust-marquee-scroll 34s linear infinite;
+}
+
+.trust-marquee-viewport:hover .trust-marquee-track,
+.trust-marquee-viewport:focus-within .trust-marquee-track {
+  animation-play-state: paused;
+}
+
+.trust-marquee-group {
+  display: flex;
   align-items: center;
+  gap: 3rem;
+  padding-right: 3rem;
+}
+
+@keyframes trust-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .trust-client-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
-  gap: 0.55rem;
-  padding: 0.65rem 0.45rem;
+  gap: 0.85rem;
+  flex-shrink: 0;
+  padding: 0.25rem 0.4rem;
 }
 
 .trust-client-logo {
-  height: 46px;
+  height: 52px;
   width: auto;
-  max-width: 96px;
+  max-width: 112px;
   object-fit: contain;
   display: block;
+  flex-shrink: 0;
+}
+
+.trust-client-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0.15rem;
 }
 
 .trust-client-name {
   font-family: var(--font-display, 'Bricolage Grotesque', sans-serif);
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #F6F1E9;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .trust-client-meta {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: #C8A282;
-  line-height: 1.25;
-}
-
-@media (max-width: 960px) {
-  .trust-clients-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 @media (max-width: 580px) {
@@ -259,13 +294,42 @@ dialog::backdrop {
     grid-template-columns: 1fr;
   }
 
-  .trust-clients-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .trust-marquee-group {
+    gap: 2rem;
+    padding-right: 2rem;
+  }
+
+  .trust-client-logo {
+    height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-marquee-viewport {
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .trust-marquee-track {
+    animation: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .trust-marquee-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+    gap: 1.5rem 2.25rem;
+  }
+
+  .trust-marquee-group[aria-hidden="true"] {
+    display: none;
   }
 }
 
 /* ==========================================================================
-   SHARED WEBGL WATER CANVAS & CASCADE PILL (LIN & BRUNS NOBLES)
+   SHARED WEBGL WATER CANVAS & CASCADE PILL WITH GRAVITY DROPLET
    ========================================================================== */
 #ambient-canvas {
   position: fixed;
@@ -279,8 +343,9 @@ dialog::backdrop {
 
 .hero-discover-row {
   display: flex;
-  justify-content: center;
-  margin: 0.5rem 0 2.25rem;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0 2rem;
   position: relative;
   z-index: 2;
 }
@@ -340,7 +405,7 @@ dialog::backdrop {
     transparent 271deg,
     transparent 360deg
   );
-  animation: stream-flow-left 4.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: stream-flow-left 4.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .water-stream-right {
@@ -360,26 +425,26 @@ dialog::backdrop {
     transparent 160deg,
     transparent 360deg
   );
-  animation: stream-flow-right 4.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: stream-flow-right 4.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 @keyframes stream-flow-left {
   0% { transform: rotate(90deg); opacity: 0; }
-  12% { opacity: 1; }
-  88% { opacity: 1; }
-  100% { transform: rotate(-90deg); opacity: 0; }
+  10% { opacity: 1; }
+  58% { opacity: 1; }
+  72%, 100% { transform: rotate(-90deg); opacity: 0; }
 }
 
 @keyframes stream-flow-right {
   0% { transform: rotate(-90deg); opacity: 0; }
-  12% { opacity: 1; }
-  88% { opacity: 1; }
-  100% { transform: rotate(90deg); opacity: 0; }
+  10% { opacity: 1; }
+  58% { opacity: 1; }
+  72%, 100% { transform: rotate(90deg); opacity: 0; }
 }
 
 .discover-cascade-pill:hover .water-stream-left,
 .discover-cascade-pill:hover .water-stream-right {
-  animation-duration: 2.8s;
+  animation-duration: 3.1s;
 }
 
 .discover-inner-clean {
@@ -408,12 +473,93 @@ dialog::backdrop {
   align-items: center;
   justify-content: center;
   color: #7B533E;
-  animation: arrow-cascade 2s ease-in-out infinite;
+  animation: arrow-cascade 2.2s ease-in-out infinite;
 }
 
 @keyframes arrow-cascade {
   0%, 100% { transform: translateY(0); opacity: 0.72; }
-  50% { transform: translateY(3.5px); opacity: 1; }
+  50% { transform: translateY(3px); opacity: 1; }
+}
+
+/* Fil vertical + micro-goutte gravitaire + onde ovale au point de chute */
+.discover-drop-track {
+  position: relative;
+  width: 48px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.discover-drop-thread {
+  width: 1px;
+  height: 30px;
+  background: linear-gradient(to bottom, #D8CBB8 0%, rgba(216, 203, 184, 0) 100%);
+}
+
+.discover-droplet {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 10px;
+  height: 14px;
+  margin-left: -5px;
+  color: #7B533E;
+  opacity: 0;
+  transform-origin: top center;
+  animation: droplet-fall 4.4s cubic-bezier(0.45, 0, 0.85, 0.4) infinite;
+}
+
+.discover-drop-ripple {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  width: 34px;
+  height: 10px;
+  margin-left: -17px;
+  border: 1px solid #C8A282;
+  border-radius: 9999px;
+  opacity: 0;
+  transform: scale(0.25);
+  animation: droplet-ripple 4.4s ease-out infinite;
+}
+
+@keyframes droplet-fall {
+  0%, 42% {
+    opacity: 0;
+    transform: translateY(-2px) scale(0.45);
+  }
+  52% {
+    opacity: 0.95;
+    transform: translateY(1px) scale(0.92, 1.05);
+  }
+  70% {
+    opacity: 0.95;
+    transform: translateY(21px) scale(0.82, 1.18);
+  }
+  74%, 100% {
+    opacity: 0;
+    transform: translateY(25px) scale(0.5);
+  }
+}
+
+@keyframes droplet-ripple {
+  0%, 70% {
+    opacity: 0;
+    transform: scale(0.25);
+  }
+  74% {
+    opacity: 0.82;
+    transform: scale(0.38);
+  }
+  94% {
+    opacity: 0;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
 }
 
 @media (max-width: 768px),
@@ -427,7 +573,14 @@ dialog::backdrop {
 @media (prefers-reduced-motion: reduce) {
   .water-stream-left,
   .water-stream-right,
-  .discover-arrow-down {
+  .discover-arrow-down,
+  .discover-droplet,
+  .discover-drop-ripple {
     animation: none;
+  }
+
+  .discover-droplet,
+  .discover-drop-ripple {
+    display: none;
   }
 }

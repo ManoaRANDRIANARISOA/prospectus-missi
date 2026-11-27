@@ -43,14 +43,14 @@
     <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             /* CHARTE ÉDITORIALE PRESTIGE MISSI INNOVATION (AMBRE & CUIVRE CHAUD) */
             --brand-copper: #7B533E;
             --brand-copper-dark: #5E3D2C;
-            --brand-copper-light: #FDF6F0;
-            --brand-copper-border: #F5D6C1;
+            --brand-copper-light: #EFE6DB;
+            --brand-copper-border: #C2AD96;
             
             --brand-amber: #D97706;
             --brand-amber-light: #FEF3C7;
@@ -93,8 +93,8 @@
             font-family: 'Playfair Display', Georgia, serif;
         }
 
-        .outfit {
-            font-family: 'Outfit', sans-serif;
+        .font-display {
+            font-family: 'Bricolage Grotesque', sans-serif;
         }
 
         .mono {
@@ -181,18 +181,7 @@
             flex-shrink: 0;
         }
 
-        .brand-logo-mark {
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
-            background: #3B2820;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
-            border: 1px solid #443E3A;
-            flex-shrink: 0;
-        }
+        .brand-logo-horizontal { height: 40px; width: auto; display: block; }
 
         .brand-title-wrap {
             display: flex;
@@ -201,7 +190,7 @@
         }
 
         .brand-name {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
             font-weight: 800;
             font-size: 1.05rem;
             line-height: 1.1;
@@ -262,7 +251,7 @@
         .nav-link-btn:hover {
             border-color: var(--brand-copper);
             color: var(--brand-copper);
-            background: #FDF6F0;
+            background: #EFE6DB;
         }
 
         .btn-print-action {
@@ -342,7 +331,7 @@
 
         /* HERO BOX A4 */
         .hero-banner {
-            background: linear-gradient(135deg, #FAF8F5 0%, #FFFDFB 100%);
+            background: linear-gradient(135deg, #F6F1E9 0%, #FFFDFB 100%);
             border: 1px solid var(--brand-copper-border);
             border-left: 4.5px solid var(--brand-copper);
             border-radius: 8px;
@@ -373,8 +362,8 @@
             font-size: 8px;
             font-weight: 700;
             color: #065F46;
-            background: #ECFDF5;
-            border: 1px solid #A7F3D0;
+            background: #EAEFE9;
+            border: 1px solid #C5D2C7;
             padding: 2.5px 9px;
             border-radius: 999px;
             text-transform: uppercase;
@@ -581,7 +570,7 @@
             font-size: 14.5px;
             font-weight: 900;
             color: var(--brand-copper-dark);
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
             line-height: 1.1;
         }
 
@@ -767,14 +756,8 @@
     <header class="top-nav no-print">
         <div class="nav-inner">
             <a href="/mg" class="brand-link" title="Missi Innovation — Retour au catalogue">
-                <div class="brand-logo-mark">
-                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
-                </div>
-                <div class="brand-title-wrap">
-                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
-                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
-                </div>
-            </a>
+        <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="115" height="40">
+      </a>
             <div class="nav-badges">
                 <div class="nav-doc-badge">
                     <span>Study Home</span> &bull; Dossier Officiel Familles &amp; Homeschooling
@@ -797,7 +780,7 @@
             <div class="page-header">
                 <div class="header-logo-group">
                     <div class="header-logo-box">
-                        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 8px; display: block;">
+                        <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 8px; display: block;">
                     </div>
                     <div>
                         <div class="header-title-text">DOSSIER PÉDAGOGIQUE OFFICIEL &bull; <span>GUIDE DES FAMILLES 2026-2027</span></div>
@@ -916,7 +899,7 @@
             <div class="page-header">
                 <div class="header-logo-group">
                     <div class="header-logo-box">
-                        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 8px; display: block;">
+                        <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 8px; display: block;">
                     </div>
                     <div>
                         <div class="header-title-text">MODALITÉS D'ACCÈS &amp; INVESTISSEMENT FAMILIAL &bull; <span>FORMULES 2026</span></div>
@@ -992,18 +975,18 @@
             </div>
 
             <!-- PACK TABLETTE ÉDUCATIVE SÉCURISÉE (PRIX COÛTANT) -->
-            <div style="background: linear-gradient(135deg, #FAF8F5 0%, #FFFFFF 100%); border: 1.5px solid var(--border-color); border-radius: 7px; padding: 7px 11px; display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 7px;">
+            <div style="background: linear-gradient(135deg, #F6F1E9 0%, #FFFFFF 100%); border: 1.5px solid var(--border-color); border-radius: 7px; padding: 7px 11px; display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 7px;">
                 <div style="flex: 1;">
                     <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 2px;">
                         <span style="font-size: 9px; font-weight: 800; color: var(--text-dark);">✦ Option Confort : Tablette Éducative 10" avec Contrôle Parental Pré-activé</span>
-                        <span style="font-size: 6.8px; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 5px; border-radius: 3px; text-transform: uppercase;">Service Confort Famille</span>
+                        <span style="font-size: 6.8px; font-weight: 700; color: #065F46; background: #EAEFE9; border: 1px solid #C5D2C7; padding: 1px 5px; border-radius: 3px; text-transform: uppercase;">Service Confort Famille</span>
                     </div>
                     <div style="font-size: 7.8px; color: var(--text-gray); line-height: 1.3;">
                         Mise à disposition d'une tablette 10 pouces durcie avec coque antichoc, configurée sous contrôle parental strict (zéro accès réseaux sociaux, Study Home pré-installé, mode hors-ligne prêt à l'emploi).
                     </div>
                 </div>
                 <div style="text-align: right; white-space: nowrap; padding-left: 10px; border-left: 1px dashed var(--border-color);">
-                    <div style="font-size: 11px; font-weight: 800; color: var(--brand-copper-dark); font-family: 'Outfit', sans-serif;">Prix Coûtant Réel</div>
+                    <div style="font-size: 11px; font-weight: 800; color: var(--brand-copper-dark); font-family: 'Bricolage Grotesque', sans-serif;">Prix Coûtant Réel</div>
                     <div style="font-size: 6.8px; color: var(--text-soft); text-transform: uppercase; font-weight: 600;">Sans marge logicielle</div>
                 </div>
             </div>
@@ -1045,7 +1028,7 @@
             <div class="page-header">
                 <div class="header-logo-group">
                     <div class="header-logo-box">
-                        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 8px; display: block;">
+                        <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 8px; display: block;">
                     </div>
                     <div>
                         <div class="header-title-text">SPÉCIFICATIONS TECHNIQUES &bull; <span>ARCHITECTURE PÉDAGOGIQUE SOUVERAINE</span></div>
@@ -1169,7 +1152,7 @@
     <!-- PIED DE PAGE WEB UNIFIÉ HAUT-CONTRASTE (MASQUÉ À L'IMPRESSION) -->
     <footer class="web-footer-unified no-print">
         <div class="web-footer-brand-row">
-            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 4px; display: inline-block;">
+            <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 4px; display: inline-block;">
             <span>MISSI INNOVATION &bull; ÉCOSYSTÈME ÉDUCATIF STUDY HOME</span>
         </div>
         <p class="web-footer-subtext">

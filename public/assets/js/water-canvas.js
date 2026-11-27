@@ -1,9 +1,9 @@
 /* ==========================================================================
-   MISSI INNOVATION — WEBGL WATER RIPPLE CANVAS (LIN & BRUNS NOBLES)
-   - Crête illuminée blanc pur + nuance Châtaigne Clair (#C8A282)
-   - Réfraction ombrée très légère Brun Noyer (#3B2820) dans les creux
+   MISSI INNOVATION — WEBGL WATER RIPPLE CANVAS (LONGUE PORTÉE & LIN/BRUN)
+   - Plan d'eau calme, large et subtil : ondes dépassant les bords de l'écran
+   - Crête blanc pur + touche Châtaigne Clair (#C8A282) + micro-ombre Brun Noyer
    - Désactivé sur mobile/tactile & prefers-reduced-motion: reduce
-   - Auto-pause après 4s d'inactivité et quand l'onglet est caché
+   - Auto-pause après 7.6s d'inactivité et quand l'onglet est caché
    ========================================================================== */
 (function initPureWaterCanvas() {
   'use strict';
@@ -71,46 +71,48 @@
       float totalH = 0.0;
       vec2 grad = vec2(0.0);
 
+      // Sillage curseur : portée et amortissement doux (4.8s)
       for (int i = 0; i < MAX_WAKE; i++) {
         vec4 w = u_wake[i];
         float age = u_time - w.z;
-        if (age > 0.0 && age < 3.2) {
+        if (age > 0.0 && age < 4.8) {
           vec2 diff = screenPos - w.xy;
           float dist = length(diff);
           if (dist > 0.5) {
             vec2 dir = diff / dist;
-            float waveR = age * 95.0;
+            float waveR = age * 125.0;
             float dR = dist - waveR;
-            float sigma = 15.0 + age * 12.0;
+            float sigma = 26.0 + age * 16.0;
             float env = exp(-(dR * dR) / (2.0 * sigma * sigma));
-            float damping = exp(-age * 1.35);
-            float dispersion = 1.0 / sqrt(1.0 + dist * 0.006);
-            float window = smoothstep(3.2, 2.0, age);
-            float k = 0.16;
-            float amp = 0.48 * env * damping * dispersion * window * min(1.2, w.w * 0.9);
+            float damping = exp(-age * 0.62);
+            float dispersion = 1.0 / sqrt(1.0 + waveR * 0.0022);
+            float fadeOut = smoothstep(4.8, 3.2, age);
+            float k = 0.085;
+            float amp = 0.20 * env * damping * dispersion * fadeOut * min(1.15, w.w * 0.85);
             totalH += amp * cos(k * dR);
             grad += dir * amp * (-k * sin(k * dR) - (dR / (sigma * sigma)) * cos(k * dR));
           }
         }
       }
 
+      // Clics / gouttes : ondes larges et calmes dépassant les bords de l'écran (7.2s)
       for (int j = 0; j < MAX_DROPS; j++) {
         vec4 d = u_drops[j];
         float age = u_time - d.z;
-        if (age > 0.0 && age < 3.8) {
+        if (age > 0.0 && age < 7.2) {
           vec2 diff = screenPos - d.xy;
           float dist = length(diff);
           if (dist > 0.5) {
             vec2 dir = diff / dist;
-            float waveR = age * 135.0;
+            float waveR = age * 195.0;
             float dR = dist - waveR;
-            float sigma = 18.0 + age * 11.0;
+            float sigma = 34.0 + age * 20.0;
             float env = exp(-(dR * dR) / (2.0 * sigma * sigma));
-            float damping = exp(-age * 1.05);
-            float dispersion = 1.0 / sqrt(1.0 + waveR * 0.008);
-            float window = smoothstep(3.8, 2.5, age);
-            float k = 0.14;
-            float amp = 0.72 * env * damping * dispersion * window * d.w;
+            float damping = exp(-age * 0.38);
+            float dispersion = 1.0 / sqrt(1.0 + waveR * 0.0022);
+            float fadeOut = smoothstep(7.2, 5.1, age);
+            float k = 0.068;
+            float amp = 0.32 * env * damping * dispersion * fadeOut * d.w;
             totalH += amp * cos(k * dR);
             grad += dir * amp * (-k * sin(k * dR) - (dR / (sigma * sigma)) * cos(k * dR));
           }
@@ -123,31 +125,30 @@
         return;
       }
 
-      vec3 normal = normalize(vec3(-grad * 24.0, 1.0));
+      vec3 normal = normalize(vec3(-grad * 10.5, 1.0));
       vec3 light = normalize(vec3(-0.35, 0.45, 0.8));
       vec3 eye = vec3(0.0, 0.0, 1.0);
       vec3 halfVec = normalize(light + eye);
-      float spec = pow(max(0.0, dot(normal, halfVec)), 26.0);
+      float spec = pow(max(0.0, dot(normal, halfVec)), 22.0);
       float crest = max(0.0, totalH);
       float trough = max(0.0, -totalH);
       float backSlope = max(0.0, dot(normal, -light));
-      float caustic = crest * slope * 2.2;
+      float caustic = crest * slope * 2.0;
 
-      // Crête illuminée blanc pur + touche Châtaigne Clair (#C8A282)
       vec3 pureWhite = vec3(1.0, 1.0, 1.0);
       vec3 lightChestnut = vec3(0.784, 0.635, 0.510);
       vec3 walnutShadow = vec3(0.231, 0.157, 0.125);
 
       vec3 litColor =
-        pureWhite * (spec * 2.4 + caustic * 0.95) +
-        lightChestnut * (spec * 0.35 + caustic * 0.30 + slope * 0.16);
+        pureWhite * (spec * 1.9 + caustic * 0.85) +
+        lightChestnut * (spec * 0.24 + caustic * 0.22 + slope * 0.14);
 
-      float litAlpha = clamp(spec * 1.45 + caustic * 0.82 + slope * 0.22, 0.0, 0.86);
+      float litAlpha = clamp(spec * 1.05 + caustic * 0.72 + slope * 0.20, 0.0, 0.34);
 
-      // Creux / face opposée : réfraction ombrée très légère Brun Noyer (~0.08-0.11)
-      float shadeAlpha = clamp((trough * 0.48 + backSlope * 0.22) * min(slope * 2.8, 1.0), 0.0, 0.11);
+      // Micro-ombre de réfraction Brun Noyer (~4-6% max) dans les creux
+      float shadeAlpha = clamp((trough * 0.35 + backSlope * 0.18) * min(slope * 2.4, 1.0), 0.0, 0.06);
 
-      float totalAlpha = clamp(litAlpha + shadeAlpha, 0.0, 0.88);
+      float totalAlpha = clamp(litAlpha + shadeAlpha, 0.0, 0.36);
       vec3 premult = litColor * litAlpha + walnutShadow * shadeAlpha * (1.0 - min(litAlpha, 1.0));
       gl_FragColor = vec4(clamp(premult, 0.0, 1.0), totalAlpha);
     }
@@ -189,6 +190,7 @@
 
   let lastActivityTime = -10000;
   let rafId = null;
+  let zenTimer = null;
 
   function ensureAnimating() {
     if (document.hidden || reducedMotion.matches || mobileOrCoarse.matches) return;
@@ -222,7 +224,7 @@
     'pointermove',
     (e) => {
       const now = performance.now();
-      if (now - lastWakeTime > 250) {
+      if (now - lastWakeTime > 260) {
         lastWakeX = e.clientX;
         lastWakeY = e.clientY;
         lastWakeTime = now;
@@ -230,8 +232,8 @@
       }
       const dt = Math.max(8, Math.min(60, now - lastWakeTime));
       const dist = Math.hypot(e.clientX - lastWakeX, e.clientY - lastWakeY);
-      if (dist > 14) {
-        const speed = Math.min(dist / dt, 2.5);
+      if (dist > 16) {
+        const speed = Math.min(dist / dt, 2.2);
         addWakePoint(e.clientX, e.clientY, speed);
         lastWakeX = e.clientX;
         lastWakeY = e.clientY;
@@ -244,13 +246,23 @@
   window.addEventListener(
     'pointerdown',
     (e) => {
-      addDrop(e.clientX, e.clientY, 1.25);
+      addDrop(e.clientX, e.clientY, 1.05);
       lastWakeX = e.clientX;
       lastWakeY = e.clientY;
       lastWakeTime = performance.now();
     },
     { capture: true, passive: true }
   );
+
+  // Bonus : onde douce déclenchée au clic sur le bouton Découvrir avant le scroll
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.discover-cascade-pill').forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const rect = pill.getBoundingClientRect();
+        addDrop(rect.left + rect.width / 2, rect.bottom + 26, 0.9);
+      });
+    });
+  });
 
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && rafId !== null) {
@@ -268,8 +280,8 @@
       return;
     }
 
-    // Auto-pause after 4.0s of inactivity
-    if (now - lastActivityTime > 4000) {
+    // Pause automatique après 7.6s d'inactivité (aucune onde coupée avant sa sortie d'écran)
+    if (now - lastActivityTime > 7600) {
       gl.clearColor(0.0, 0.0, 0.0, 0.0);
       gl.clear(gl.COLOR_BUFFER_BIT);
       rafId = null;
@@ -288,10 +300,21 @@
     rafId = requestAnimationFrame(render);
   }
 
-  // Onde d'accueil unique au chargement (s'arrête automatiquement après 4s)
+  function scheduleZenDrop() {
+    const delay = 14000 + Math.random() * 4000;
+    zenTimer = setTimeout(() => {
+      if (!document.hidden && !reducedMotion.matches && !mobileOrCoarse.matches) {
+        addDrop(width * (0.28 + Math.random() * 0.44), height * (0.25 + Math.random() * 0.45), 0.65);
+      }
+      scheduleZenDrop();
+    }, delay);
+  }
+
+  // Onde d'accueil zen + gouttelette spontanée toutes les 14-18s (rAF toujours en pause quand inactif)
   setTimeout(() => {
     if (!document.hidden && !reducedMotion.matches && !mobileOrCoarse.matches) {
-      addDrop(width * 0.52, height * 0.34, 1.1);
+      addDrop(width * 0.52, height * 0.34, 0.72);
     }
-  }, 180);
+    scheduleZenDrop();
+  }, 240);
 })();

@@ -104,9 +104,9 @@
         <button id="mobile-menu-btn" class="menu-button" type="button" aria-expanded="false"
           aria-controls="site-menu">Menu</button>
         <ul id="site-menu" class="nav-menu">
-          <li><a href="#poles">Pôles</a></li>
-          <li><a href="#profils">Profils Clients</a></li>
-          <li><a href="#methodologie">Méthodologie</a></li>
+          <li><a href="#poles">Expertises</a></li>
+          <li><a href="#etudes-de-cas">Réalisations</a></li>
+          <li><a href="#methodologie">Méthode</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
@@ -117,7 +117,16 @@
           <a href="/en" hreflang="en">EN</a>
           <a href="/mg" title="Portail Local Madagascar">MG</a>
         </div>
-        <button type="button" class="btn btn-primary" data-open-booking>Planifier un appel 20 min</button>
+        <button type="button" class="btn btn-primary" data-open-booking>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          <span>Parler de votre projet</span>
+        </button>
       </div>
     </div>
   </header>
@@ -136,29 +145,47 @@
           service client externalisé.
         </p>
         <div class="hero-actions">
-          <a href="#poles" class="btn btn-primary btn-lg">Découvrir nos 3 pôles d'expertise</a>
-          <button type="button" class="btn btn-secondary btn-lg" data-open-booking>Planifier un appel découverte (20
-            min)</button>
+          <a href="#poles" class="btn btn-primary btn-lg">
+            <span>Découvrir nos 3 expertises</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </a>
+          <button type="button" class="btn btn-secondary btn-lg" data-open-booking>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            <span>Parler de votre projet</span>
+          </button>
         </div>
 
         <div class="hero-discover-row">
-          <a href="#poles" class="discover-cascade-pill" title="Découvrir nos 3 pôles et réalisations">
-            <div class="stream-half-left">
-              <div class="water-stream-left"></div>
-            </div>
-            <div class="stream-half-right">
-              <div class="water-stream-right"></div>
-            </div>
+          <a href="#poles" class="discover-cascade-pill" title="Découvrir nos expertises et réalisations">
+            <span class="stream-half-left" aria-hidden="true"><span class="water-stream-left"></span></span>
+            <span class="stream-half-right" aria-hidden="true"><span class="water-stream-right"></span></span>
             <span class="discover-inner-clean">
-              <span>Découvrir nos 3 pôles &amp; réalisations</span>
+              <span>Découvrir nos expertises &amp; réalisations</span>
               <span class="discover-arrow-down" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </span>
             </span>
           </a>
+          <div class="discover-drop-track" aria-hidden="true">
+            <div class="discover-drop-thread"></div>
+            <svg class="discover-droplet" viewBox="0 0 10 14" fill="currentColor">
+              <path d="M5 0.5 C5 0.5 9.5 6.4 9.5 9.4 A4.5 4.5 0 1 1 0.5 9.4 C0.5 6.4 5 0.5 5 0.5 Z" />
+            </svg>
+            <div class="discover-drop-ripple"></div>
+          </div>
         </div>
 
         <div class="proofs-grid">
@@ -181,6 +208,118 @@
       </div>
     </section>
 
+    <!-- RUBAN CLIENTS DÉFILANT JUSTE SOUS LE HERO -->
+    <section id="clients" class="trust-ribbon-dark" aria-label="Collaborations et déploiements">
+      <div class="trust-ribbon-header">
+        <div class="trust-ribbon-kicker">Ils nous ont fait confiance &bull; Déploiements &amp; Collaborations</div>
+      </div>
+      <div class="trust-marquee-viewport">
+        <div class="trust-marquee-track">
+          <div class="trust-marquee-group">
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/oka_forest_lodge_white.webp" alt="Oka Forest Lodge"
+                class="trust-client-logo" width="112" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Oka Forest Lodge</span>
+                <span class="trust-client-meta">Hospitality &amp; PMS</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/manjary_soa_white.webp" alt="Lycée Manjary Soa" class="trust-client-logo"
+                width="52" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Lycée Manjary Soa</span>
+                <span class="trust-client-meta">Education ERP</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/kanana_square_white.svg" alt="Kanana Camp" class="trust-client-logo"
+                width="52" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Kanana Camp</span>
+                <span class="trust-client-meta">Eco-Lodge Suite</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/andrini_soa_white.webp" alt="Ny Andrin'ny Soa" class="trust-client-logo"
+                width="52" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Ny Andrin'ny Soa</span>
+                <span class="trust-client-meta">Hospitality &amp; Dining</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori"
+                class="trust-client-logo" width="52" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Sunshine Montessori</span>
+                <span class="trust-client-meta">Education &amp; Finance</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar" class="trust-client-logo"
+                width="52" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">ANKA Madagascar</span>
+                <span class="trust-client-meta">ESG Field Data</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trust-marquee-group" aria-hidden="true">
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/oka_forest_lodge_white.webp" alt="" class="trust-client-logo" width="112"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Oka Forest Lodge</span>
+                <span class="trust-client-meta">Hospitality &amp; PMS</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/manjary_soa_white.webp" alt="" class="trust-client-logo" width="52"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Lycée Manjary Soa</span>
+                <span class="trust-client-meta">Education ERP</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/kanana_square_white.svg" alt="" class="trust-client-logo" width="52"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Kanana Camp</span>
+                <span class="trust-client-meta">Eco-Lodge Suite</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/andrini_soa_white.webp" alt="" class="trust-client-logo" width="52"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Ny Andrin'ny Soa</span>
+                <span class="trust-client-meta">Hospitality &amp; Dining</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/sunshine_square_white.svg" alt="" class="trust-client-logo" width="52"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Sunshine Montessori</span>
+                <span class="trust-client-meta">Education &amp; Finance</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/anka_square_white.svg" alt="" class="trust-client-logo" width="52"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">ANKA Madagascar</span>
+                <span class="trust-client-meta">ESG Field Data</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 3 PÔLES D'EXPERTISE -->
     <section id="poles" class="section-block section-surface">
       <div class="container">
@@ -193,116 +332,187 @@
         <div class="poles-grid-3">
           <article class="pole-card">
             <div>
-              <span class="pole-badge">Pôle 1 &bull; Software Engineering</span>
-              <h3>Ingénierie Logicielle, Web/Mobile &amp; Offline-First</h3>
+              <span class="pole-num-kicker">01 — Ingénierie Logicielle &amp; Offline-First</span>
+              <h3>Applications Web, Mobile &amp; Systèmes Résilients</h3>
               <p>Conception, refonte et tierce maintenance applicative (TMA) d'outils métiers et SaaS conçus pour durer.
               </p>
               <ul class="check-list">
-                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Applications métiers &amp; SaaS
-                      :</strong> TypeScript, React, Next.js, Node.js, Python, PostgreSQL.</span></li>
-                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>PWA &amp; Systèmes Offline-First
-                      :</strong> moteurs locaux SQLite synchronisés tolérant les coupures réseau.</span></li>
-                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Refonte, API &amp; TMA :</strong>
-                    stabilisation de code existant, Stripe, webhooks et connecteurs ERP/CRM.</span></li>
+                <li><span class="check-badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Applications métiers &amp; SaaS :</strong> TypeScript, React, Next.js,
+                    Node.js, Python, PostgreSQL.</span></li>
+                <li><span class="check-badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>PWA &amp; Systèmes Offline-First :</strong> moteurs locaux SQLite
+                    synchronisés tolérant les coupures réseau.</span></li>
+                <li><span class="check-badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Reprise, API &amp; TMA :</strong> stabilisation d'existant, Stripe,
+                    webhooks et connecteurs ERP/CRM.</span></li>
               </ul>
+              <p class="pole-ideal"><strong>Idéal pour :</strong> PME, startups et agences souhaitant livrer un produit
+                ou reprendre une base technique en main.</p>
             </div>
-            <div class="pole-footer-meta">
+            <div class="pole-footer-clean">
               <span class="pole-rate">Dès 35 € / heure (régie) ou forfait jalonné</span>
               <button type="button" class="btn btn-primary" data-open-booking
-                data-pole="Ingénierie Web/Mobile & Offline-First">Cadrer un projet</button>
+                data-pole="Développement Web, Mobile ou Logiciel Sur-Mesure">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+                <span>Cadrer un projet</span>
+              </button>
             </div>
           </article>
 
           <article class="pole-card">
             <div>
-              <span class="pole-badge">Pôle 2 &bull; AI &amp; Automation</span>
-              <h3>Automatisation de Processus &amp; Intégration IA</h3>
-              <p>Suppression des tâches manuelles répétitives et connexion de vos outils internes avec contrôle humain
-                dans la boucle.</p>
+              <span class="pole-num-kicker">02 — Automatisation &amp; IA</span>
+              <h3>Orchestration de Flux &amp; Tableaux de Bord</h3>
+              <p>Suppression des ressaisies manuelles grâce à des workflows robustes connectés par API à vos ERP, CRM
+                et tableaux de bord temps réel.</p>
               <ul class="check-list">
-                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Workflows &amp; Orchestration
-                      :</strong> synchronisation CRM, facturation, reporting et alertes temps réel.</span></li>
-                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Back-offices &amp; Outils
-                      Internes :</strong> consoles d'administration sur-mesure pour vos équipes.</span></li>
-                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Agents IA &amp; Extraction
-                      :</strong> traitement documentaire, qualification et assistants métier auditables.</span></li>
+                <li><span class="check-badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Synchronisation CRM &amp; ERP :</strong> connecteurs bidirectionnels,
+                    facturation et alertes temps réel.</span></li>
+                <li><span class="check-badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Back-offices &amp; Outils Internes :</strong> consoles d'administration
+                    et reporting financier sur-mesure.</span></li>
+                <li><span class="check-badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Extraction &amp; Qualification :</strong> traitement documentaire PDF,
+                    parsing structuré et routage automatisé.</span></li>
               </ul>
+              <p class="pole-ideal"><strong>Idéal pour :</strong> directions opérationnelles voulant remplacer leurs
+                tableurs critiques par des flux fiables.</p>
             </div>
-            <div class="pole-footer-meta">
+            <div class="pole-footer-clean">
               <span class="pole-rate">Audit automatisation &amp; devis en 48h</span>
               <button type="button" class="btn btn-secondary" data-open-booking
-                data-pole="Automatisation & Intégration IA">Discuter d'un workflow</button>
+                data-pole="Automatisation de Processus & Intégration IA">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+                <span>Discuter d'un workflow</span>
+              </button>
             </div>
           </article>
 
           <article class="pole-card">
             <div>
-              <span class="pole-badge">Pôle 3 &bull; Customer Ops &amp; BPO</span>
-              <h3>Service Client Externalisé &amp; Opérations E-commerce</h3>
+              <span class="pole-num-kicker">03 — Service Client &amp; E-commerce</span>
+              <h3>Relation Client Externalisée &amp; Support Boutique</h3>
               <p>Support dédié, réactif et aligné sur votre charte de marque, avec un SLA défini sur-mesure selon vos
                 volumes.</p>
               <ul class="check-list">
-                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>SAV Multicanal :</strong> gestion
-                    structurée email, live chat et messages réseaux sociaux.</span></li>
-                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Suivi Commandes &amp; Retours
-                      :</strong> intégration directe Shopify, WooCommerce, Zendesk et Freshdesk.</span></li>
-                <li><span class="check-badge" aria-hidden="true">✓</span><span><strong>Modération &amp; Communauté
-                      :</strong> modération commentaires, réponses pré-vente et remontée d'incidents.</span></li>
+                <li><span class="check-badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>SAV Multicanal :</strong> gestion structurée email, live chat et
+                    messagerie sociale.</span></li>
+                <li><span class="check-badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Suivi Commandes &amp; Retours :</strong> intégration directe Shopify,
+                    WooCommerce, Zendesk et Freshdesk.</span></li>
+                <li><span class="check-badge" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Modération &amp; Pré-vente :</strong> qualification des demandes,
+                    réponses commentaires et escalade incidents.</span></li>
               </ul>
+              <p class="pole-ideal"><strong>Idéal pour :</strong> marques e-commerce et éditeurs souhaitant absorber les
+                pics de tickets sans perdre en qualité.</p>
             </div>
-            <div class="pole-footer-meta">
+            <div class="pole-footer-clean">
               <span class="pole-rate">Forfait mensuel calibré sur vos tickets</span>
               <button type="button" class="btn btn-secondary" data-open-booking
-                data-pole="SAV E-commerce & Relation Client">Évaluer vos besoins SAV</button>
+                data-pole="Externalisation Service Client & SAV E-commerce">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+                <span>Évaluer vos besoins SAV</span>
+              </button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- PROFILS CLIENTS -->
-    <section id="profils" class="section-block">
+    <!-- RÉALISATIONS & PREUVES PRODUIT -->
+    <section id="etudes-de-cas" class="section-block">
       <div class="container">
         <div class="section-header-center">
-          <span class="sec-kicker">Profils Clients</span>
-          <h2 class="sec-title">Comment nous collaborons avec chaque organisation</h2>
+          <span class="sec-kicker">Réalisations &amp; Preuves Produit</span>
+          <h2 class="sec-title">Progiciels &amp; architectures en production</h2>
+          <p class="sec-desc">Systèmes déployés sur le terrain et back-offices temps réel opérés au quotidien.</p>
         </div>
 
-        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="intl-profiles-caption">
-          <table class="profiles-table">
-            <caption id="intl-profiles-caption">Profils clients internationaux, objectifs et mode d'intervention
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">Profil Client</th>
-                <th scope="col">Objectif Principal</th>
-                <th scope="col">Action Missi Innovation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">PME &amp; ETI</th>
-                <td data-label="Objectif Principal">Remplacer des processus manuels ou des tableurs critiques par un
-                  outil métier fiable et automatisé.</td>
-                <td data-label="Action Missi Innovation">Cadrage fonctionnel, développement au forfait jalonné,
-                  déploiement sécurisé et contrat TMA évolutif.</td>
-              </tr>
-              <tr>
-                <th scope="row">Startups &amp; Scale-ups</th>
-                <td data-label="Objectif Principal">Livrer un MVP robuste ou accélérer la roadmap produit sans alourdir
-                  la masse salariale fixe.</td>
-                <td data-label="Action Missi Innovation">Équipe ingénierie dédiée en sprints agiles, intégration directe
-                  à votre Git/CI et revues hebdomadaires.</td>
-              </tr>
-              <tr>
-                <th scope="row">E-commerçants &amp; Agences</th>
-                <td data-label="Objectif Principal">Fluidifier le SAV boutique (Shopify/WooCommerce), absorber les pics
-                  de charge ou renforcer les équipes tech.</td>
-                <td data-label="Action Missi Innovation">Équipe SAV multicanale alignée sur votre charte + renfort
-                  technique en marque blanche ou co-traitance.</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="cases-grid">
+          <article class="case-card">
+            <img src="/assets/img/02_tableau_de_bord_directeur.webp"
+              alt="Interface du progiciel financier offline-first multi-guichets en production" class="case-thumb"
+              width="1440" height="926" loading="lazy">
+            <span class="case-tag">Offline-First &amp; Multi-Postes</span>
+            <h3>Progiciel financier &amp; gestion multi-guichets</h3>
+            <p class="case-line"><strong>Problème :</strong> Blocage des opérations lors des coupures réseau et risques
+              de conflits de saisie entre postes.</p>
+            <p class="case-line"><strong>Solution :</strong> Architecture TypeScript/React + moteur local SQLite WAL
+              avec réconciliation automatique vers PostgreSQL.</p>
+            <p class="case-line"><strong>Impact :</strong> Zéro interruption hors-ligne et journal d'audit horodaté
+              cohérent sur tous les postes.</p>
+          </article>
+
+          <article class="case-card">
+            <img src="/assets/img/resipro_01_dashboard.webp"
+              alt="Suite logicielle hôtellerie PMS, point de vente tactile et reporting multi-devises" class="case-thumb"
+              width="1440" height="907" loading="lazy">
+            <span class="case-tag">Suite Métier &amp; Temps Réel</span>
+            <h3>Suite PMS Hôtellerie, POS &amp; Reporting Multi-Devises</h3>
+            <p class="case-line"><strong>Problème :</strong> Outils dispersés entre réservations, caisse point de vente,
+              stocks et consolidation financière.</p>
+            <p class="case-line"><strong>Solution :</strong> Progiciel unifié temps réel avec planning interactif, POS
+              tactile et conversion multi-devises EUR/USD.</p>
+            <p class="case-line"><strong>Impact :</strong> Pilotage consolidé des opérations et clôture comptable
+              fiabilisée en production.</p>
+          </article>
+
+          <article class="case-card">
+            <img src="/assets/img/erp_01_facturation_crm.webp"
+              alt="Plateforme ERP de cotation, facturation CRM et automatisation documentaire" class="case-thumb"
+              width="1440" height="901" loading="lazy">
+            <span class="case-tag">Automatisation &amp; Back-Office</span>
+            <h3>Plateforme ERP, facturation &amp; documents PDF</h3>
+            <p class="case-line"><strong>Problème :</strong> Saisies manuelles répétées entre devis multi-devises, suivi
+              CRM, stocks et bons fournisseurs.</p>
+            <p class="case-line"><strong>Solution :</strong> Back-office web et bureau unifié générant automatiquement
+              devis, factures, documents PDF et exports comptables.</p>
+            <p class="case-line"><strong>Impact :</strong> Réduction des erreurs de marge et centralisation temps réel
+              des dossiers.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -325,7 +535,7 @@
           <div class="step-card">
             <span class="step-num">02</span>
             <h3>Prototype &amp; Onboarding</h3>
-            <p>Validation des parcours écrans / procédures de réponses, accès Git, Zendesk/Shopify et environnement de
+            <p>Validation des parcours écrans ou procédures de réponses, accès Git, Zendesk/Shopify et environnement de
               test.</p>
           </div>
           <div class="step-card">
@@ -343,179 +553,102 @@
       </div>
     </section>
 
-    <!-- ÉTUDES DE CAS & RUBAN CLIENTS SOBER -->
-    <section id="etudes-de-cas" class="section-block">
+    <!-- SECTION COMBINÉE FAQ (GAUCHE 60%) + CONTACT STICKY (DROITE 40%) -->
+    <section id="faq" class="section-block">
       <div class="container">
         <div class="section-header-center">
-          <span class="sec-kicker">Déploiements &amp; Collaborations</span>
-          <h2 class="sec-title">Cas d'usage livrés &amp; structures accompagnées</h2>
-          <p class="sec-desc">Systèmes en production et collaborations actives sur le terrain et en environnement cloud.
-          </p>
+          <span class="sec-kicker">FAQ &amp; Contact Direct</span>
+          <h2 class="sec-title">Questions fréquentes &amp; prise de contact</h2>
         </div>
 
-        <div class="cases-grid">
-          <article class="case-card">
-            <img src="/assets/img/02_tableau_de_bord_directeur.webp"
-              alt="Interface du progiciel financier offline-first multi-guichets en production"
-              class="case-thumb" width="1440" height="926" loading="lazy">
-            <span class="case-tag">Offline-First &amp; Multi-Postes</span>
-            <h3>Progiciel financier &amp; gestion multi-guichets</h3>
-            <p class="case-line"><strong>Problème :</strong> Blocage des opérations lors des coupures réseau et risques
-              de conflits de saisie entre postes.</p>
-            <p class="case-line"><strong>Solution :</strong> Architecture TypeScript/React + moteur local SQLite WAL
-              avec réconciliation automatique vers PostgreSQL.</p>
-            <p class="case-line"><strong>Impact :</strong> Zéro interruption hors-ligne et journal d'audit horodaté
-              cohérent sur tous les postes.</p>
-          </article>
+        <div class="faq-contact-grid">
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-summary">
+                <span>Quel est le décalage horaire avec la France et l'Europe ?</span>
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-content">
+                Nos équipes opèrent en UTC+3 (+1 heure par rapport à Paris en été, +2 heures en hiver). Nous
+                collaborons en synchrone sur vos plages ouvrées européennes.
+              </div>
+            </details>
 
-          <article class="case-card">
-            <img src="/assets/img/erp_01_facturation_crm.webp"
-              alt="Plateforme ERP de cotation, facturation CRM et automatisation documentaire"
-              class="case-thumb" width="1440" height="901" loading="lazy">
-            <span class="case-tag">Automatisation &amp; Back-Office</span>
-            <h3>Plateforme ERP, facturation &amp; documents PDF</h3>
-            <p class="case-line"><strong>Problème :</strong> Saisies manuelles répétées entre devis multi-devises, suivi
-              CRM, stocks et bons fournisseurs.</p>
-            <p class="case-line"><strong>Solution :</strong> Back-office web et bureau unifié générant automatiquement
-              devis, factures, documents PDF et exports comptables.</p>
-            <p class="case-line"><strong>Impact :</strong> Réduction des erreurs de marge et centralisation temps réel
-              des dossiers.</p>
-          </article>
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>Comment fonctionne le pôle Service Client &amp; Opérations E-commerce ?</span>
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-content">
+                Nous intervenons directement dans vos outils (Shopify, WooCommerce, Zendesk, Freshdesk, réseaux sociaux)
+                selon votre ton de marque, avec des plages horaires et un SLA définis sur-mesure selon votre volume de
+                tickets.
+              </div>
+            </details>
 
-          <article class="case-card">
-            <img src="/assets/img/resipro_01_dashboard.webp"
-              alt="Suite logicielle hôtellerie PMS, point de vente tactile et reporting multi-devises"
-              class="case-thumb" width="1440" height="907" loading="lazy">
-            <span class="case-tag">Suite Métier &amp; Temps Réel</span>
-            <h3>Suite PMS Hôtellerie, POS &amp; Reporting Multi-Devises</h3>
-            <p class="case-line"><strong>Problème :</strong> Outils dispersés entre réservations, caisse point de vente,
-              stocks et consolidation financière.</p>
-            <p class="case-line"><strong>Solution :</strong> Progiciel unifié temps réel avec planning interactif, POS
-              tactile et conversion multi-devises EUR/USD.</p>
-            <p class="case-line"><strong>Impact :</strong> Pilotage consolidé des opérations et clôture comptable
-              fiabilisée en production.</p>
-          </article>
-        </div>
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>Qui détient la propriété intellectuelle du code source ?</span>
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-content">
+                Vous êtes propriétaire à 100 % du code source, des dépôts Git et de la documentation dès le règlement des
+                livrables. Un accord de confidentialité (NDA) est disponible sur demande.
+              </div>
+            </details>
 
-        <div class="trust-ribbon-dark" aria-label="Collaborations et déploiements">
-          <div class="trust-ribbon-header">
-            <div class="trust-ribbon-kicker">Ils nous ont fait confiance &bull; Déploiements &amp; Collaborations</div>
+            <details class="faq-item">
+              <summary class="faq-summary">
+                <span>Quels sont vos modes de tarification et de facturation ?</span>
+                <span aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-content">
+                Facturation en EUR ou USD par virement international : dès 35 €/h en régie, devis forfaitaire jalonné
+                sur cahier des charges, ou forfait mensuel calibré pour les opérations SAV.
+              </div>
+            </details>
           </div>
-          <div class="trust-clients-grid">
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/oka_forest_lodge_white.webp" alt="Oka Forest Lodge"
-                class="trust-client-logo" width="96" height="46" loading="lazy">
-              <span class="trust-client-name">Oka Forest Lodge</span>
-              <span class="trust-client-meta">Hospitality</span>
-            </div>
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/manjary_soa_white.webp" alt="Lycée Manjary Soa" class="trust-client-logo"
-                width="46" height="46" loading="lazy">
-              <span class="trust-client-name">Lycée Manjary Soa</span>
-              <span class="trust-client-meta">Education</span>
-            </div>
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/kanana_square_white.svg" alt="Kanana Camp" class="trust-client-logo"
-                width="46" height="46" loading="lazy">
-              <span class="trust-client-name">Kanana Camp</span>
-              <span class="trust-client-meta">Eco-Lodge</span>
-            </div>
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/andrini_soa_white.webp" alt="Ny Andrin'ny Soa" class="trust-client-logo"
-                width="46" height="46" loading="lazy">
-              <span class="trust-client-name">Ny Andrin'ny Soa</span>
-              <span class="trust-client-meta">Hospitality &amp; Dining</span>
-            </div>
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori"
-                class="trust-client-logo" width="46" height="46" loading="lazy">
-              <span class="trust-client-name">Sunshine Montessori</span>
-              <span class="trust-client-meta">Education</span>
-            </div>
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar" class="trust-client-logo"
-                width="46" height="46" loading="lazy">
-              <span class="trust-client-name">ANKA Madagascar</span>
-              <span class="trust-client-meta">ESG Field Data</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section-block section-surface">
-      <div class="container">
-        <div class="section-header-center">
-          <span class="sec-kicker">FAQ Internationale</span>
-          <h2 class="sec-title">Questions fréquentes des décideurs</h2>
-        </div>
-
-        <div class="faq-list">
-          <details class="faq-item" open>
-            <summary class="faq-summary">
-              <span>Quel est le décalage horaire avec la France et l'Europe ?</span>
-              <span aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-content">
-              Nos équipes opèrent en UTC+3 (+1 heure par rapport à Paris en été, +2 heures en hiver). Nous collaborons
-              en synchrone sur vos plages ouvrées européennes.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-summary">
-              <span>Comment fonctionne le pôle Service Client &amp; Opérations E-commerce ?</span>
-              <span aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-content">
-              Nous intervenons directement dans vos outils (Shopify, WooCommerce, Zendesk, Freshdesk, réseaux sociaux)
-              selon votre ton de marque, avec des plages horaires et un SLA définis sur-mesure selon votre volume de
-              tickets.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-summary">
-              <span>Qui détient la propriété intellectuelle du code source ?</span>
-              <span aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-content">
-              Vous êtes propriétaire à 100 % du code source, des dépôts Git et de la documentation dès le règlement des
-              livrables. Un accord de confidentialité (NDA) est disponible sur demande.
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary class="faq-summary">
-              <span>Quels sont vos modes de tarification et de facturation ?</span>
-              <span aria-hidden="true">+</span>
-            </summary>
-            <div class="faq-content">
-              Facturation en EUR ou USD par virement international : dès 35 €/h en régie, devis forfaitaire jalonné sur
-              cahier des charges, ou forfait mensuel calibré pour les opérations SAV.
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section id="contact" class="section-block">
-      <div class="container">
-        <div class="cta-banner">
-          <div class="cta-text-side">
-            <h2 class="cta-title">Planifier un appel découverte de 20 minutes</h2>
-            <p class="cta-desc">
-              Présentez-nous votre besoin logiciel, d'automatisation IA ou de support e-commerce : recevez une réponse
-              structurée et un créneau confirmé sous peu.
+          <aside id="contact" class="contact-sticky-card" aria-label="Prise de contact directe">
+            <span class="contact-sticky-kicker">Échange Technique ou Opérations</span>
+            <h3>Parlons de votre prochain livrable</h3>
+            <p class="contact-sticky-desc">
+              Premier échange gratuit et sans engagement pour cadrer votre produit logiciel, votre reprise TMA, vos
+              workflows API ou votre support client — réponse sous 24 h ouvrées.
             </p>
-          </div>
-          <div class="cta-buttons-side">
-            <button type="button" class="btn btn-primary btn-lg" data-open-booking>Réserver un appel (20 min)</button>
-            <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation%2C%20je%20souhaite%20planifier%20un%20appel%20d%C3%A9couverte%20de%2020%20min."
-              target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">WhatsApp Direct</a>
-          </div>
+            <div class="contact-sticky-actions">
+              <button type="button" class="btn btn-primary btn-lg" data-open-booking>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+                <span>Parler de votre projet</span>
+              </button>
+              <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation%2C%20je%20souhaite%20discuter%20d%27un%20projet."
+                target="_blank" rel="noopener" class="btn btn-on-dark btn-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+                <span>Écrire sur WhatsApp</span>
+              </a>
+            </div>
+            <div class="contact-sticky-meta">
+              <a href="mailto:missiinnovation@gmail.com">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                <span>missiinnovation@gmail.com</span>
+              </a>
+              <span>Fuseau UTC+3 &bull; Facturation EUR / USD &bull; NDA disponible</span>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -531,17 +664,17 @@
           </div>
           <p style="font-size: 0.84rem; color: var(--text-muted); max-width: 350px;">
             Société d'ingénierie logicielle B2B : applications web/mobile offline-first, automatisation IA et support
-            client e-commerce externalisé.
+            client e-commerce.
           </p>
         </div>
 
         <div>
           <h3 class="footer-title">Expertises &amp; Portails</h3>
           <ul class="footer-links">
-            <li><a href="#poles">Ingénierie Logicielle &amp; Offline-First</a></li>
-            <li><a href="#poles">Automatisation &amp; Intégration IA</a></li>
-            <li><a href="#poles">SAV E-commerce &amp; Relation Client</a></li>
-            <li><a href="/en">English Version (Global)</a></li>
+            <li><a href="#poles">Ingénierie Web, Mobile &amp; TMA</a></li>
+            <li><a href="#poles">Automatisation &amp; API</a></li>
+            <li><a href="#poles">Service Client &amp; SAV E-commerce</a></li>
+            <li><a href="/en">English Version (/en)</a></li>
             <li><a href="/mg">Portail Local Madagascar (/mg)</a></li>
           </ul>
         </div>
@@ -571,8 +704,8 @@
     <div class="booking-dialog-inner">
       <div class="booking-dialog-head">
         <div>
-          <h2 id="booking-title" class="booking-dialog-title">Planifier un appel découverte (20 min)</h2>
-          <p class="booking-dialog-sub">Échange sans engagement avec notre équipe technique ou opérations.</p>
+          <h2 id="booking-title" class="booking-dialog-title">Parler de votre projet</h2>
+          <p class="booking-dialog-sub">Premier échange gratuit et sans engagement — réponse sous 24 h ouvrées.</p>
         </div>
         <button id="bk-close" type="button" class="booking-close-btn" aria-label="Fermer">&times;</button>
       </div>
@@ -610,14 +743,19 @@
           </div>
 
           <div class="booking-field">
-            <label for="bk-pole">Pôle concerné *</label>
+            <label for="bk-pole">Solution ou prestation souhaitée *</label>
             <select id="bk-pole" name="service_pole" required>
-              <option value="Ingénierie Web/Mobile & Offline-First">Ingénierie Logicielle, Web/Mobile &amp;
-                Offline-First</option>
-              <option value="Automatisation & Intégration IA">Automatisation de Processus &amp; Intégration IA</option>
-              <option value="SAV E-commerce & Relation Client">Service Client Externalisé &amp; Opérations E-commerce
-              </option>
-              <option value="Renfort d'équipe / TMA">Renfort d'équipe agile / TMA</option>
+              <option value="Développement Web, Mobile ou Logiciel Sur-Mesure">Développement Web, Mobile ou Logiciel
+                Sur-Mesure</option>
+              <option value="Maintenance, Suivi & Évolution Applicative (TMA)">Maintenance, Suivi &amp; Évolution
+                Applicative (TMA)</option>
+              <option value="Automatisation de Processus & Intégration IA">Automatisation de Processus &amp;
+                Intégration IA</option>
+              <option value="Externalisation Service Client & SAV E-commerce">Externalisation Service Client &amp; SAV
+                E-commerce</option>
+              <option value="Renfort d'Équipe Technique (Régie / Offshore)">Renfort d'Équipe Technique (Régie /
+                Offshore)</option>
+              <option value="Autre besoin sur-mesure">Autre besoin sur-mesure</option>
             </select>
           </div>
 
@@ -648,15 +786,21 @@
           <div id="bk-error" class="booking-error" role="alert" hidden></div>
 
           <div class="booking-actions">
-            <a href="https://wa.me/261347151789" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp
-              direct</a>
-            <button id="bk-submit" type="submit" class="btn btn-primary">Valider ma demande de créneau</button>
+            <a href="https://wa.me/261347151789" target="_blank" rel="noopener" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+              <span>WhatsApp direct</span>
+            </a>
+            <button id="bk-submit" type="submit" class="btn btn-primary">Valider ma demande</button>
           </div>
         </form>
       </div>
 
       <div id="booking-success-view" class="booking-success-card" hidden>
-        <p id="bk-db-notice" role="status" style="font-weight: 600; color: var(--emerald);"></p>
+        <p id="bk-db-notice" role="status" style="font-weight: 600; color: var(--olive);"></p>
         <div id="bk-recap" class="booking-recap"></div>
         <div class="booking-actions">
           <button id="bk-new" type="button" class="btn btn-secondary">Modifier / Autre demande</button>

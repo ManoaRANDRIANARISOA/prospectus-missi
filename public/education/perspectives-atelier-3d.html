@@ -8,15 +8,15 @@
     <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-canvas: #EFECE6;
             --paper-sheet: #FFFFFF;
-            --paper-warm: #FAF8F5;
+            --paper-warm: #F6F1E9;
             --copper: #7B533E;
             --copper-dark: #5E3D2C;
-            --copper-light: #FDF6F0;
+            --copper-light: #EFE6DB;
             --copper-border: #F0DFC8;
             --wire-gold: #C99B72;
             --wire-gold-subtle: rgba(201, 155, 114, 0.4);
@@ -60,8 +60,8 @@
             font-family: 'Playfair Display', Georgia, serif;
         }
 
-        .outfit {
-            font-family: 'Outfit', sans-serif;
+        .font-display {
+            font-family: 'Bricolage Grotesque', sans-serif;
         }
 
         /* TOP NAVIGATION UNIFIÉE MISSI INNOVATION (64PX STANDARD) */
@@ -105,18 +105,7 @@
             flex-shrink: 0;
         }
 
-        .brand-logo-mark {
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
-            background: #3B2820;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
-            border: 1px solid #443E3A;
-            flex-shrink: 0;
-        }
+        .brand-logo-horizontal { height: 40px; width: auto; display: block; }
 
         .brand-title-wrap {
             display: flex;
@@ -125,7 +114,7 @@
         }
 
         .brand-name {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
             font-weight: 800;
             font-size: 1.05rem;
             line-height: 1.1;
@@ -186,7 +175,7 @@
         .nav-link-btn:hover {
             border-color: var(--copper);
             color: var(--copper);
-            background: #FDF6F0;
+            background: #EFE6DB;
         }
 
         .btn-print-copper {
@@ -659,14 +648,8 @@
     <header class="top-nav no-print">
         <div class="nav-inner">
             <a href="/mg" class="brand-link">
-                <div class="brand-logo-mark">
-                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
-                </div>
-                <div class="brand-title-wrap">
-                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
-                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
-                </div>
-            </a>
+        <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="115" height="40">
+      </a>
             <div class="nav-badges">
                 <div class="nav-doc-badge">
                     <span>Study Agent</span> &bull; Style 1 : Atelier 3D & Flow Tactile
@@ -751,7 +734,7 @@
             <span style="color: var(--copper);">📱</span> Portail Mobile Familles
         </div>
         <div class="speech-pin-card" style="top: 390px; left: 80px;">
-            <span style="color: #059669;">⚡</span> 100% Hors-Ligne Résilient
+            <span style="color: #4A5D4E;">⚡</span> 100% Hors-Ligne Résilient
         </div>
         <div class="speech-pin-card" style="top: 470px; left: 110px;">
             <span style="color: var(--copper);">🏛️</span> Marque Blanche Pure
@@ -812,7 +795,7 @@
                 <span style="font-size: 7.2px; font-weight: 700; color: var(--copper-dark); background: var(--copper-light); border: 1px solid var(--copper-border); padding: 2px 7px; border-radius: 4px;">
                     ★ Le Plus Demandé
                 </span>
-                <span style="font-size: 7.2px; font-weight: 600; color: #047857; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 2px 7px; border-radius: 4px;">
+                <span style="font-size: 7.2px; font-weight: 600; color: #4A5D4E; background: #EAEFE9; border: 1px solid #C5D2C7; padding: 2px 7px; border-radius: 4px;">
                     -80% Files d'Attente
                 </span>
             </div>
@@ -841,7 +824,7 @@
                     Émission instantanée du ticket thermique 80 mm POS avec billetage physique scellé.
                 </div>
                 <div style="background: var(--paper-warm); padding: 8px 10px; border-radius: 6px; border: 1px solid #EFE6DC;">
-                    <strong style="color: var(--copper-dark); display: block; margin-bottom: 2px;">🛡️ Sauvegarde Miroir 18h :</strong>
+                    <strong style="color: var(--copper-dark); display: block; margin-bottom: 2px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Sauvegarde Miroir 18h :</strong>
                     Restauration immédiate sur PC de secours sous 4h en cas de sinistre matériel.
                 </div>
             </div>
@@ -954,7 +937,7 @@
     <!-- PIED DE PAGE WEB UNIFIÉ HAUTE VISIBILITÉ (MASQUÉ À L'IMPRESSION) -->
     <footer class="web-footer-unified no-print">
         <div class="web-footer-brand-row">
-            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
+            <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
             <span>MISSI INNOVATION &bull; Solutions Logicielles Métiers &bull; Madagascar</span>
         </div>
         <p class="web-footer-subtext">

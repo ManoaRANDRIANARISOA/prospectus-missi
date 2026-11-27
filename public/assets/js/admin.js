@@ -50,8 +50,8 @@
     const rawNum = (row.whatsapp || '').replace(/[^0-9]/g, '');
     const isEn = row.market === 'intl-en' || row.lang === 'en';
     const text = isEn
-      ? `Hello ${row.full_name}, thank you for booking a 20-min call with Missi Innovation regarding "${row.service_pole}". Confirming your slot on ${row.preferred_date} (${row.preferred_slot} EAT).`
-      : `Bonjour ${row.full_name}, merci pour votre demande d'échange de 20 min avec Missi Innovation concernant « ${row.service_pole} ». Nous vous confirmons le créneau du ${row.preferred_date} (${row.preferred_slot} EAT).`;
+      ? `Hello ${row.full_name}, thank you for contacting Missi Innovation regarding "${row.service_pole}". Confirming your slot on ${row.preferred_date} (${row.preferred_slot} EAT).`
+      : `Bonjour ${row.full_name}, merci pour votre prise de contact avec Missi Innovation concernant « ${row.service_pole} ». Nous vous confirmons le créneau du ${row.preferred_date} (${row.preferred_slot} EAT).`;
     if (!rawNum) {
       return `https://wa.me/${cfg.WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
     }
@@ -181,7 +181,7 @@
       updateKpis(allRows);
       renderTable();
       if (statusEl) {
-        statusEl.style.color = '#047857';
+        statusEl.style.color = '#4A5D4E';
         statusEl.textContent = `${allRows.length} réservation(s) chargée(s).`;
       }
     } catch (error) {
@@ -342,7 +342,7 @@
           }
           updateKpis(allRows);
           if (statusEl) {
-            statusEl.style.color = '#047857';
+            statusEl.style.color = '#4A5D4E';
             statusEl.textContent = 'Modification enregistrée.';
           }
         } catch (error) {
@@ -361,7 +361,7 @@
           updateKpis(allRows);
           renderTable();
           if (statusEl) {
-            statusEl.style.color = '#047857';
+            statusEl.style.color = '#4A5D4E';
             statusEl.textContent = 'Réservation supprimée.';
           }
         } catch (error) {

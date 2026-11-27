@@ -28,10 +28,10 @@
   --brand-copper-light: #EFE6DB;
   --brand-copper-border: #C2AD96;
 
-  --status-emerald: #047857;
-  --status-emerald-dark: #065F46;
-  --status-emerald-bg: #ECFDF5;
-  --status-emerald-border: #A7F3D0;
+  --status-olive: #4A5D4E;
+  --status-olive-dark: #3B4B3E;
+  --status-olive-bg: #EAEFE9;
+  --status-olive-border: #C5D2C7;
 
   --font-display: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -265,16 +265,53 @@ summary:focus-visible {
 }
 
 .btn-whatsapp {
-  background: var(--status-emerald);
+  background: var(--brand-primary);
   color: #FDFBF8;
-  border-color: var(--status-emerald);
-  box-shadow: 0 2px 8px rgba(4, 120, 87, 0.24);
+  border-color: var(--brand-primary);
+  box-shadow: 0 2px 8px rgba(59, 40, 32, 0.22);
 }
 
 .btn-whatsapp:hover {
-  background: var(--status-emerald-dark);
-  border-color: var(--status-emerald-dark);
+  background: var(--surface-dark);
+  border-color: var(--surface-dark);
   color: #FDFBF8;
+}
+
+.btn-on-dark {
+  background: transparent;
+  color: #F6F1E9;
+  border-color: rgba(200, 162, 130, 0.52);
+}
+
+.btn-on-dark:hover {
+  background: rgba(200, 162, 130, 0.14);
+  border-color: #C8A282;
+  color: #FDFBF8;
+}
+
+.lang-links {
+  display: inline-flex;
+  align-items: center;
+  background: var(--surface-warm);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.lang-links a {
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.24rem 0.52rem;
+  border-radius: 999px;
+  color: var(--text-muted);
+}
+
+.lang-links a[aria-current="page"] {
+  background: var(--surface-dark);
+  color: #F6F1E9;
 }
 
 .btn-lg {
@@ -580,19 +617,17 @@ summary:focus-visible {
 }
 
 .check-icon {
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  background: var(--status-emerald-bg);
-  color: var(--status-emerald);
-  border: 1px solid var(--status-emerald-border);
-  display: flex;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--surface-warm);
+  color: var(--brand-accent);
+  border: 1px solid var(--border);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
-  font-weight: 900;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .price-pill-banner {
@@ -691,7 +726,7 @@ summary:focus-visible {
 }
 
 .dot-green {
-  background: #10B981;
+  background: #4A5D4E;
 }
 
 .window-title-text {
@@ -706,7 +741,7 @@ summary:focus-visible {
   font-weight: 800;
   background: var(--surface);
   border: 1px solid var(--border);
-  color: var(--status-emerald-dark);
+  color: var(--status-olive-dark);
   padding: 2px 6px;
   border-radius: 4px;
 }
@@ -788,7 +823,7 @@ summary:focus-visible {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--status-emerald-dark);
+  color: var(--status-olive-dark);
   padding-top: 0.5rem;
   border-top: 1px dashed var(--border);
 }
@@ -981,12 +1016,99 @@ summary:focus-visible {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--status-emerald-dark);
-  background: var(--status-emerald-bg);
-  border: 1px solid var(--status-emerald-border);
+  color: var(--status-olive);
+  background: var(--status-olive-bg);
+  border: 1px solid var(--status-olive-border);
   padding: 3px 9px;
   border-radius: 999px;
   width: fit-content;
+}
+
+.faq-contact-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 2.25rem;
+  align-items: start;
+}
+
+.contact-sticky-card {
+  position: sticky;
+  top: 92px;
+  background: var(--surface-dark);
+  color: #F6F1E9;
+  border: 1px solid rgba(200, 162, 130, 0.25);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-sticky-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brand-accent-on-dark);
+}
+
+.contact-sticky-card h3 {
+  font-size: 1.45rem;
+  line-height: 1.22;
+  color: #FDFBF8;
+}
+
+.contact-sticky-desc {
+  font-size: 0.9rem;
+  color: #D8CBB8;
+  line-height: 1.55;
+}
+
+.contact-sticky-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 0.25rem;
+}
+
+.contact-sticky-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+.contact-sticky-meta {
+  border-top: 1px solid rgba(200, 162, 130, 0.2);
+  padding-top: 0.9rem;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  color: #C8A282;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.contact-sticky-meta a {
+  color: #F6F1E9;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.contact-sticky-meta a:hover {
+  color: var(--brand-accent-on-dark);
+}
+
+@media (max-width: 960px) {
+  .faq-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-sticky-card {
+    position: static;
+  }
 }
 
 .case-card h3 {

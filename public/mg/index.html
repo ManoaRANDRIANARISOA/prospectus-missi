@@ -76,34 +76,26 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Vos logiciels fonctionnent-ils sans connexion Internet ni électricité stable ?",
+            "name": "Vos logiciels fonctionnent-ils sans Internet ou pendant les coupures JIRAMA ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Oui. Nos progiciels reposent sur un moteur local SQLite WAL installé sur vos postes ou serveur local. Vos encaissements, reçus thermiques 80 mm et saisies restent 100% opérationnels pendant les coupures JIRAMA ou réseau, avec synchronisation cloud automatique au retour de la connexion."
+              "text": "Oui. Chaque progiciel utilise un moteur SQLite WAL local sur vos postes et continue d'encaisser et d'imprimer même sans Internet ni serveur Cloud."
             }
           },
           {
             "@type": "Question",
-            "name": "Peut-on acquérir une licence définitive sans abonnement mensuel ?",
+            "name": "Les factures et bulletins de paie sont-ils conformes NIF/STAT, TVA, CNaPS et IRSA ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Oui. Vous choisissez librement entre un abonnement mensuel souple avec assistance continue et l'acquisition d'une licence définitive sur site pour capitaliser sur votre outil sans rente captive."
+              "text": "Oui. Toutes nos solutions intègrent les mentions obligatoires NIF, STAT, RCS, la TVA 20 % ainsi que le billetage physique et les retenues CNaPS/IRSA/OSTIE."
             }
           },
           {
             "@type": "Question",
-            "name": "Vos factures et bulletins sont-ils conformes à la fiscalité malagasy ?",
+            "name": "Comment bloquer YouTube, Facebook et le squat Wi-Fi dans une entreprise ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Oui. Les factures et devis proforma intègrent les mentions NIF, STAT, RCS, la TVA à 20% paramétrable, ainsi que le calcul de paie CNaPS, OSTIE et IRSA."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quels sont vos délais d'installation et de formation sur site ?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Après validation de votre devis, nos techniciens déploient le logiciel sur vos postes en réseau local, configurent vos modèles officiels et forment vos équipes sous 48 heures à Antananarivo et en provinces."
+              "text": "Nous sécurisons votre box fibre (Yas, Orange, Telma) par filtrage strict d'adresses MAC et configurons des stratégies Windows GPO sur vos postes clients."
             }
           }
         ]
@@ -141,18 +133,29 @@
           <span>Menu</span>
         </button>
         <ul id="site-menu" class="nav-menu">
-          <li><a href="#poles">Nos Pôles</a></li>
-          <li><a href="#solutions">Solutions</a></li>
-          <li><a href="#methodologie">Méthodologie</a></li>
+          <li><a href="#solutions">Logiciels</a></li>
+          <li><a href="#services-it">Services IT</a></li>
+          <li><a href="/configurateur">Tarifs</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <a href="/"
-          style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-decoration: none; padding: 0.35rem 0.6rem; border: 1px solid var(--border); border-radius: 999px;"
-          title="Portail International FR / EN">Intl</a>
-        <button type="button" class="btn btn-copper" data-open-booking>Planifier une démo 20 min</button>
+        <div class="lang-links" aria-label="Choix de langue ou marché">
+          <a href="/" hreflang="fr">FR</a>
+          <a href="/en" hreflang="en">EN</a>
+          <a href="/mg" aria-current="page" title="Portail Local Madagascar">MG</a>
+        </div>
+        <button type="button" class="btn btn-copper" data-open-booking>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          <span>Demander une démo</span>
+        </button>
       </div>
     </div>
   </header>
@@ -178,36 +181,69 @@
         </p>
 
         <div class="hero-actions">
-          <a href="#solutions" class="btn btn-copper btn-lg">Découvrir nos logiciels métiers</a>
-          <a href="/configurateur" class="btn btn-secondary btn-lg">Calculer mon tarif en Ariary</a>
+          <a href="#solutions" class="btn btn-copper btn-lg">
+            <span>Découvrir nos logiciels métiers</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </a>
+          <a href="/configurateur" class="btn btn-secondary btn-lg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="2" width="16" height="20" rx="2" />
+              <line x1="8" y1="6" x2="16" y2="6" />
+              <line x1="8" y1="10" x2="8.01" y2="10" />
+              <line x1="12" y1="10" x2="12.01" y2="10" />
+              <line x1="16" y1="10" x2="16.01" y2="10" />
+              <line x1="8" y1="14" x2="8.01" y2="14" />
+              <line x1="12" y1="14" x2="12.01" y2="14" />
+              <line x1="16" y1="14" x2="16.01" y2="14" />
+              <line x1="8" y1="18" x2="16" y2="18" />
+            </svg>
+            <span>Calculer mon tarif en Ariary</span>
+          </a>
           <button type="button" class="btn btn-outline btn-lg" data-open-booking
-            data-pole="Services IT, Sécurité Box & Sur-Mesure">Demander un projet / maintenance IT</button>
+            data-pole="Maintenance, Suivi & Évolution de Solution Existante (TMA / Parc IT)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+              <line x1="16" y1="2" x2="16" y2="6" />
+              <line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+            <span>Demander une démonstration</span>
+          </button>
         </div>
 
         <div class="hero-discover-row">
           <a href="#solutions" class="discover-cascade-pill" title="Découvrir les progiciels et services IT">
-            <div class="stream-half-left">
-              <div class="water-stream-left"></div>
-            </div>
-            <div class="stream-half-right">
-              <div class="water-stream-right"></div>
-            </div>
+            <span class="stream-half-left" aria-hidden="true"><span class="water-stream-left"></span></span>
+            <span class="stream-half-right" aria-hidden="true"><span class="water-stream-right"></span></span>
             <span class="discover-inner-clean">
               <span>Découvrir les Progiciels &amp; Services IT</span>
               <span class="discover-arrow-down" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                   stroke-linecap="round" stroke-linejoin="round">
                   <path d="M6 9l6 6 6-6" />
                 </svg>
               </span>
             </span>
           </a>
+          <div class="discover-drop-track" aria-hidden="true">
+            <div class="discover-drop-thread"></div>
+            <svg class="discover-droplet" viewBox="0 0 10 14" fill="currentColor">
+              <path d="M5 0.5 C5 0.5 9.5 6.4 9.5 9.4 A4.5 4.5 0 1 1 0.5 9.4 C0.5 6.4 5 0.5 5 0.5 Z" />
+            </svg>
+            <div class="discover-drop-ripple"></div>
+          </div>
         </div>
 
         <div class="hero-proofs-grid" aria-label="Engagements vérifiables">
           <div class="proof-card">
             <div class="proof-header">
-              <svg width="16" height="16" fill="none" stroke="var(--status-emerald)" viewBox="0 0 24 24"
+              <svg width="16" height="16" fill="none" stroke="var(--status-olive)" viewBox="0 0 24 24"
                 stroke-width="2.2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
@@ -218,7 +254,7 @@
           </div>
           <div class="proof-card">
             <div class="proof-header">
-              <svg width="16" height="16" fill="none" stroke="var(--brand-copper-dark)" viewBox="0 0 24 24"
+              <svg width="16" height="16" fill="none" stroke="var(--brand-accent-dark)" viewBox="0 0 24 24"
                 stroke-width="2.2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -230,7 +266,7 @@
           </div>
           <div class="proof-card">
             <div class="proof-header">
-              <svg width="16" height="16" fill="none" stroke="var(--status-emerald)" viewBox="0 0 24 24"
+              <svg width="16" height="16" fill="none" stroke="var(--status-olive)" viewBox="0 0 24 24"
                 stroke-width="2.2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -244,11 +280,124 @@
       </div>
     </section>
 
+    <!-- RUBAN CLIENTS DÉFILANT JUSTE SOUS LE HERO -->
+    <section id="clients" class="trust-ribbon-dark" aria-label="Structures ayant collaboré avec Missi Innovation">
+      <div class="trust-ribbon-header">
+        <div class="trust-ribbon-kicker">Ils nous ont fait confiance &bull; Déploiements &amp; Collaborations à
+          Madagascar</div>
+      </div>
+      <div class="trust-marquee-viewport">
+        <div class="trust-marquee-track">
+          <div class="trust-marquee-group">
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/oka_forest_lodge_white.webp" alt="Oka Forest Lodge"
+                class="trust-client-logo" width="112" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Oka Forest Lodge</span>
+                <span class="trust-client-meta">Hôtellerie Éco-Luxe &bull; Nature</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/manjary_soa_white.webp" alt="Lycée Privé Manjary Soa"
+                class="trust-client-logo" width="52" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Lycée Manjary Soa</span>
+                <span class="trust-client-meta">Scolarité &bull; Antananarivo</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/kanana_square_white.svg" alt="Kanana Camp" class="trust-client-logo"
+                width="52" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Kanana Camp</span>
+                <span class="trust-client-meta">Lodge &bull; Lac Mantasoa</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/andrini_soa_white.webp" alt="Ny Andrin'ny Soa" class="trust-client-logo"
+                width="52" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Ny Andrin'ny Soa</span>
+                <span class="trust-client-meta">Résidence &amp; Restauration</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School"
+                class="trust-client-logo" width="52" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Sunshine Montessori</span>
+                <span class="trust-client-meta">Enseignement &bull; Bypass</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar" class="trust-client-logo"
+                width="52" height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">ANKA Madagascar</span>
+                <span class="trust-client-meta">Collecte Terrain ESG</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trust-marquee-group" aria-hidden="true">
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/oka_forest_lodge_white.webp" alt="" class="trust-client-logo" width="112"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Oka Forest Lodge</span>
+                <span class="trust-client-meta">Hôtellerie Éco-Luxe &bull; Nature</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/manjary_soa_white.webp" alt="" class="trust-client-logo" width="52"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Lycée Manjary Soa</span>
+                <span class="trust-client-meta">Scolarité &bull; Antananarivo</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/kanana_square_white.svg" alt="" class="trust-client-logo" width="52"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Kanana Camp</span>
+                <span class="trust-client-meta">Lodge &bull; Lac Mantasoa</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/andrini_soa_white.webp" alt="" class="trust-client-logo" width="52"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Ny Andrin'ny Soa</span>
+                <span class="trust-client-meta">Résidence &amp; Restauration</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/sunshine_square_white.svg" alt="" class="trust-client-logo" width="52"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">Sunshine Montessori</span>
+                <span class="trust-client-meta">Enseignement &bull; Bypass</span>
+              </div>
+            </div>
+            <div class="trust-client-item">
+              <img src="/assets/img/clients/anka_square_white.svg" alt="" class="trust-client-logo" width="52"
+                height="52" loading="lazy">
+              <div class="trust-client-info">
+                <span class="trust-client-name">ANKA Madagascar</span>
+                <span class="trust-client-meta">Collecte Terrain ESG</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PÔLE 1 : PROGICIELS MÉTIERS HORS-LIGNE CLÉS EN MAIN -->
     <section id="poles" class="section-block">
       <div id="solutions" class="container">
         <div class="section-header-center">
-          <span class="pole-pill">Pôle 1 &bull; Progiciels Métiers Hors-Ligne Clés en Main</span>
+          <span class="pole-pill">Pôle 01 &bull; Progiciels Métiers Hors-Ligne Clés en Main</span>
           <h2 class="sec-title">Des logiciels prêts à l'emploi pour votre secteur à Madagascar</h2>
           <p class="sec-desc">
             Tarifs transparents en Ariary, conformité fiscale locale et fonctionnement autonome sans dépendance au
@@ -305,24 +454,47 @@
                 physique et bulletins conformes MEN sans connexion Internet.
               </p>
               <ul class="features-checklist">
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Traque active des impayés
-                      :</strong> alertes dès l'ouverture de la fiche et relances structurées.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Billetage 20 000 à 100 Ar &amp;
-                      Ticket Z :</strong> clôture journalière infalsifiable et reçus thermiques 80 mm.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Bulletins MEN &amp; Paie RH
-                      :</strong> moyennes automatiques, CNaPS 1 % et IRSA intégrés.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Multi-postes local :</strong>
-                    caisses et direction synchronisées en réseau local avec sauvegarde Cloud.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Traque active des impayés :</strong> alertes dès l'ouverture de la fiche
+                    et relances structurées.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Billetage 20 000 à 100 Ar &amp; Ticket Z :</strong> clôture journalière
+                    infalsifiable et reçus thermiques 80 mm.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Bulletins MEN &amp; Paie RH :</strong> moyennes automatiques, CNaPS 1 % et
+                    IRSA intégrés.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Multi-postes local :</strong> caisses et direction synchronisées en
+                    réseau local avec sauvegarde Cloud.</span></li>
               </ul>
               <div class="price-pill-banner">
                 <div class="price-label-wrap">
-                  <span class="price-sub">Formules selon effectif (Petite / Moyenne / Grande)</span>
+                  <span class="price-sub">Idéal pour écoles &amp; lycées privés (Petite / Moyenne / Grande)</span>
                   <span class="price-main">Dès 69 000 Ar <small>/ mois (Sérénité dès 119 000 Ar)</small></span>
                 </div>
                 <span class="price-badge-opt">Option Licence Définitive disponible</span>
               </div>
               <div class="showcase-actions">
-                <a href="/education/presentation-visuelle" class="btn btn-copper">Voir les 12 écrans HD</a>
+                <a href="/education/presentation-visuelle" class="btn btn-copper">
+                  <span>Voir les 12 écrans HD</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
                 <a href="/configurateur?secteur=education" class="btn btn-secondary">Simuler mon tarif</a>
                 <a href="/education/homeschooling-pwa" class="btn btn-outline">Study Home PWA (Familles)</a>
               </div>
@@ -355,25 +527,48 @@
                 amorti dès une nuitée louée dans le mois.
               </p>
               <ul class="features-checklist">
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Planning visuel sans surbooking
-                      :</strong> multi-séjours, check-in/out rapide et tarifs saisonniers.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Caisse tactile restaurant &amp;
-                      bar :</strong> transfert en 1 clic sur la note de chambre.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Économat, linge &amp; anti-coulage
-                      :</strong> alertes de stock critique, suivi pressing et fiches techniques.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Facturation NIF/STAT &amp; devises
-                      :</strong> devis proforma séparés, folios MGA/EUR/USD et MVola.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Planning visuel sans surbooking :</strong> multi-séjours, check-in/out
+                    rapide et tarifs saisonniers.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Caisse tactile restaurant &amp; bar :</strong> transfert en 1 clic sur la
+                    note de chambre.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Économat, linge &amp; anti-coulage :</strong> alertes de stock critique,
+                    suivi pressing et fiches techniques.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Facturation NIF/STAT &amp; devises :</strong> devis proforma séparés,
+                    folios MGA/EUR/USD et MVola.</span></li>
               </ul>
               <div class="price-pill-banner">
                 <div class="price-label-wrap">
-                  <span class="price-sub">Module Spécialisé 79 000 Ar &bull; Pack Intégral</span>
+                  <span class="price-sub">Idéal pour hôtels, lodges &amp; restos &bull; Module dès 79 000 Ar</span>
                   <span class="price-main">129 000 Ar <small>/ mois (1er trimestre, puis 179k ou 139k
                       annuel)</small></span>
                 </div>
                 <span class="price-badge-opt">Formation sur site offerte</span>
               </div>
               <div class="showcase-actions">
-                <a href="/hotellerie/presentation-visuelle" class="btn btn-copper">Voir les 10 écrans HD</a>
+                <a href="/hotellerie/presentation-visuelle" class="btn btn-copper">
+                  <span>Voir les 10 écrans HD</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
                 <a href="/hotellerie/resipro" class="btn btn-secondary">Dossier commercial A4</a>
                 <a href="/configurateur?secteur=hotellerie" class="btn btn-outline">Configurer mon hôtel</a>
               </div>
@@ -406,24 +601,47 @@
                 hors de prix.
               </p>
               <ul class="features-checklist">
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Facturation normalisée :</strong>
-                    devis proforma, factures A4/A5 avec NIF, STAT, RCS et TVA 20 %.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Stocks multi-dépôts :</strong>
-                    inventaires valorisés, seuils bas et bons de livraison.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Créances &amp; caisse scellée
-                      :</strong> suivi des acomptes, relances et billetage 18h.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Paie légale malagasy :</strong>
-                    fiches de paie PDF avec retenues CNaPS, IRSA et OSTIE.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Facturation normalisée :</strong> devis proforma, factures A4/A5 avec
+                    NIF, STAT, RCS et TVA 20 %.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Stocks multi-dépôts :</strong> inventaires valorisés, seuils bas et bons
+                    de livraison.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Créances &amp; caisse scellée :</strong> suivi des acomptes, relances et
+                    billetage 18h.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Paie légale malagasy :</strong> fiches de paie PDF avec retenues CNaPS,
+                    IRSA et OSTIE.</span></li>
               </ul>
               <div class="price-pill-banner">
                 <div class="price-label-wrap">
-                  <span class="price-sub">Émergence Mono-poste 99 000 Ar &bull; Excellence Multi-postes</span>
+                  <span class="price-sub">Idéal pour PME &amp; grossistes &bull; Mono-poste dès 99 000 Ar</span>
                   <span class="price-main">199 000 Ar <small>/ mois (1er trimestre promo)</small></span>
                 </div>
                 <span class="price-badge-opt">Option Licence Définitive disponible</span>
               </div>
               <div class="showcase-actions">
-                <a href="/entreprises/erp-societe" class="btn btn-copper">Dossier commercial A4</a>
+                <a href="/entreprises/erp-societe" class="btn btn-copper">
+                  <span>Dossier commercial A4</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
                 <a href="/configurateur?secteur=entreprises" class="btn btn-secondary">Configurer mes postes</a>
               </div>
             </div>
@@ -455,24 +673,47 @@
                 et suivi carburant/entretien de votre flotte.
               </p>
               <ul class="features-checklist">
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Cotations multi-devises :</strong>
-                    EUR, USD et Ariary avec taux MID et calcul de marge nette.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Vouchers PDF automatiques
-                      :</strong> bons d'échange hôtels, parcs nationaux et prestataires.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Flotte 4x4 &amp; guides :</strong>
-                    planning véhicules, suivi gasoil, vidanges et caisse circuit.</span></li>
-                <li><span class="check-icon" aria-hidden="true">✓</span><span><strong>Facturation &amp;
-                      rétro-commissions :</strong> factures NIF/STAT et suivi des acomptes B2B.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Cotations multi-devises :</strong> EUR, USD et Ariary avec taux MID et
+                    calcul de marge nette.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Vouchers PDF automatiques :</strong> bons d'échange hôtels, parcs
+                    nationaux et prestataires.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Flotte 4x4 &amp; guides :</strong> planning véhicules, suivi gasoil,
+                    vidanges et caisse circuit.</span></li>
+                <li><span class="check-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"
+                      fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg></span><span><strong>Facturation &amp; rétro-commissions :</strong> factures NIF/STAT et
+                    suivi des acomptes B2B.</span></li>
               </ul>
               <div class="price-pill-banner">
                 <div class="price-label-wrap">
-                  <span class="price-sub">Essentiel 119 000 Ar &bull; Tour-Opérateur Intégral</span>
+                  <span class="price-sub">Idéal pour agences réceptives &bull; Essentiel dès 119 000 Ar</span>
                   <span class="price-main">179 000 Ar <small>/ mois (ou dès 119 000 Ar/mois)</small></span>
                 </div>
                 <span class="price-badge-opt">Devis circuits illimités</span>
               </div>
               <div class="showcase-actions">
-                <a href="/tourisme/tour-operator" class="btn btn-copper">Dossier commercial A4</a>
+                <a href="/tourisme/tour-operator" class="btn btn-copper">
+                  <span>Dossier commercial A4</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
                 <a href="/configurateur?secteur=tourisme" class="btn btn-secondary">Simuler mon agence</a>
               </div>
             </div>
@@ -496,18 +737,24 @@
     </section>
 
     <!-- PÔLE 2 : INGÉNIERIE SUR-MESURE & SERVICES IT TERRAIN -->
-    <section id="pole-it" class="section-block section-surface">
+    <section id="services-it" class="section-block section-surface">
       <div class="container">
         <div class="pole-header-bar">
           <div>
-            <span class="pole-pill">Pôle 2 &bull; Ingénierie Sur-Mesure &amp; Services IT Terrain</span>
+            <span class="pole-pill">Pôle 02 &bull; Ingénierie Sur-Mesure &amp; Services IT Terrain</span>
             <h2 class="sec-title" style="margin-bottom: 0.3rem;">Sécurisez votre parc, votre réseau et vos outils
               sur-mesure</h2>
             <p class="sec-desc">Interventions rapides sur site à Antananarivo et accompagnement technique en provinces.
             </p>
           </div>
-          <a href="/services/prestations-sur-mesure-et-securite" class="btn btn-copper">Voir le catalogue Services
-            IT</a>
+          <a href="/services/prestations-sur-mesure-et-securite" class="btn btn-copper">
+            <span>Voir le catalogue Services IT</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </a>
         </div>
 
         <div class="it-grid">
@@ -580,101 +827,13 @@
       </div>
     </section>
 
-    <!-- PROFILS CLIENTS (TABLEAU RESPONSIVE) -->
-    <section id="profils" class="section-block">
-      <div class="container">
-        <div class="section-header-center">
-          <span class="sec-kicker">Profils Clients</span>
-          <h2 class="sec-title">Quelle solution correspond à votre structure ?</h2>
-          <p class="sec-desc">Chaque organisation a un point de friction prioritaire. Voici comment nous intervenons.
-          </p>
-        </div>
-
-        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="profils-table-caption">
-          <table class="profiles-table">
-            <caption id="profils-table-caption">Correspondance entre profils clients, objectifs principaux et actions
-              Missi Innovation</caption>
-            <thead>
-              <tr>
-                <th scope="col">Profil Client</th>
-                <th scope="col">Objectif Principal</th>
-                <th scope="col">Action Missi Innovation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Écoles &amp; Centres de formation</th>
-                <td data-label="Objectif Principal">Sécuriser les encaissements d'écolages, suivre les impayés en temps
-                  réel et éditer les bulletins sans subir les coupures réseau.</td>
-                <td data-label="Action Missi Innovation">Déploiement de <strong>Study Agent Pro</strong> (SQLite WAL
-                  hors-ligne, billetage 18h, Ticket Z scellé et paie CNaPS/IRSA) avec formation en 48h.</td>
-              </tr>
-              <tr>
-                <th scope="row">Hôtels, Lodges &amp; Restaurants</th>
-                <td data-label="Objectif Principal">Éliminer le surbooking, imputer les additions bar/resto sur la note
-                  de chambre et contrôler l'économat sans coulage.</td>
-                <td data-label="Action Missi Innovation">Mise en place de <strong>ResiPro Suite</strong> (PMS + POS
-                  tactile + stocks/linge + facturation NIF/STAT) et, en option, site vitrine connecté.</td>
-              </tr>
-              <tr>
-                <th scope="row">PME, Tour-Opérateurs &amp; Commerces</th>
-                <td data-label="Objectif Principal">Émettre des factures conformes TVA 20 %, suivre dépôts/flotte 4x4 et
-                  protéger la connexion Internet professionnelle du bureau.</td>
-                <td data-label="Action Missi Innovation">Déploiement d'<strong>ERP Société</strong> ou <strong>TourAgent
-                    Pro</strong>, couplé au <strong>Pack Sécurité Box Fibre &amp; Maintenance IT</strong>.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- MÉTHODOLOGIE EN 4 ÉTAPES -->
-    <section id="methodologie" class="section-block section-surface">
-      <div class="container">
-        <div class="section-header-center">
-          <span class="sec-kicker">Méthodologie</span>
-          <h2 class="sec-title">Un déploiement encadré en 4 étapes</h2>
-          <p class="sec-desc">Pas de tunnel technique interminable : vous validez l'outil sur vos cas réels avant le
-            déploiement.</p>
-        </div>
-
-        <div class="steps-grid">
-          <div class="step-card">
-            <span class="step-num">01</span>
-            <h3>Audit &amp; Cadrage</h3>
-            <p>Échange de 20 minutes sur vos postes, flux de caisse, contraintes réseau et besoins fiscaux (NIF/STAT,
-              effectifs, chambres ou dépôts).</p>
-          </div>
-          <div class="step-card">
-            <span class="step-num">02</span>
-            <h3>Démo / Maquettage</h3>
-            <p>Démonstration concrète sur l'application (ou maquette de votre projet sur-mesure) et chiffrage
-              transparent en Ariary sans coûts cachés.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-num">03</span>
-            <h3>Déploiement &amp; Formation (48h)</h3>
-            <p>Installation sur site sous 48 heures, paramétrage de votre logo et documents officiels, puis formation
-              pratique de vos équipes.</p>
-          </div>
-          <div class="step-card">
-            <span class="step-num">04</span>
-            <h3>Suivi &amp; Évolution</h3>
-            <p>Assistance réactive par WhatsApp, sauvegardes automatiques vérifiées et ajout de nouveaux modules selon
-              la croissance de votre structure.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RÉFÉRENCES CLIENTS RÉACTIVÉES + ÉTUDES DE CAS TERRAIN -->
+    <!-- ÉTUDES DE CAS TERRAIN -->
     <section id="etudes-de-cas" class="section-block">
       <div class="container">
         <div class="section-header-center">
-          <span class="sec-kicker">Retours Terrain &amp; Références</span>
-          <h2 class="sec-title">Ils nous ont fait confiance sur le terrain</h2>
-          <p class="sec-desc">Établissements et structures équipés à Madagascar, et cas concrets de déploiement.</p>
+          <span class="sec-kicker">Retours Terrain</span>
+          <h2 class="sec-title">Cas concrets de déploiement à Madagascar</h2>
+          <p class="sec-desc">Problèmes résolus et impacts opérationnels vérifiés sur le terrain.</p>
         </div>
 
         <div class="cases-grid">
@@ -711,94 +870,58 @@
               réservée aux outils de travail.</p>
           </article>
         </div>
+      </div>
+    </section>
 
-        <div class="trust-ribbon-dark" aria-label="Structures ayant collaboré avec Missi Innovation">
-          <div class="trust-ribbon-header">
-            <div class="trust-ribbon-kicker">Ils nous ont fait confiance &bull; Déploiements &amp; Collaborations à
-              Madagascar</div>
+    <!-- MÉTHODOLOGIE EN 4 ÉTAPES -->
+    <section id="methodologie" class="section-block section-surface">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="sec-kicker">Méthodologie</span>
+          <h2 class="sec-title">Un déploiement encadré en 4 étapes</h2>
+          <p class="sec-desc">Pas de tunnel technique interminable : vous validez l'outil sur vos cas réels avant le
+            déploiement.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <h3>Audit &amp; Cadrage</h3>
+            <p>Premier échange gratuit sur vos postes, flux de caisse, contraintes réseau et besoins fiscaux (NIF/STAT,
+              effectifs, chambres ou dépôts).</p>
           </div>
-          <div class="trust-clients-grid">
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/oka_forest_lodge_white.webp" alt="Oka Forest Lodge"
-                class="trust-client-logo" width="96" height="46" loading="lazy">
-              <span class="trust-client-name">Oka Forest Lodge</span>
-              <span class="trust-client-meta">Hôtellerie Éco-Luxe &bull; Nature</span>
-            </div>
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/manjary_soa_white.webp" alt="Lycée Privé Manjary Soa"
-                class="trust-client-logo" width="46" height="46" loading="lazy">
-              <span class="trust-client-name">Lycée Manjary Soa</span>
-              <span class="trust-client-meta">Scolarité &bull; Antananarivo</span>
-            </div>
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/kanana_square_white.svg" alt="Kanana Camp" class="trust-client-logo"
-                width="46" height="46" loading="lazy">
-              <span class="trust-client-name">Kanana Camp</span>
-              <span class="trust-client-meta">Lodge &bull; Lac Mantasoa</span>
-            </div>
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/andrini_soa_white.webp" alt="Ny Andrin'ny Soa" class="trust-client-logo"
-                width="46" height="46" loading="lazy">
-              <span class="trust-client-name">Ny Andrin'ny Soa</span>
-              <span class="trust-client-meta">Résidence &amp; Restauration</span>
-            </div>
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/sunshine_square_white.svg" alt="Sunshine Montessori School"
-                class="trust-client-logo" width="46" height="46" loading="lazy">
-              <span class="trust-client-name">Sunshine Montessori</span>
-              <span class="trust-client-meta">Enseignement &bull; Bypass</span>
-            </div>
-            <div class="trust-client-item">
-              <img src="/assets/img/clients/anka_square_white.svg" alt="ANKA Madagascar" class="trust-client-logo"
-                width="46" height="46" loading="lazy">
-              <span class="trust-client-name">ANKA Madagascar</span>
-              <span class="trust-client-meta">Collecte Terrain ESG</span>
-            </div>
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <h3>Démo / Maquettage</h3>
+            <p>Démonstration concrète sur l'application (ou maquette de votre projet sur-mesure) et chiffrage
+              transparent en Ariary sans coûts cachés.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <h3>Déploiement &amp; Formation (48h)</h3>
+            <p>Installation sur site sous 48 heures, paramétrage de votre logo et documents officiels, puis formation
+              pratique de vos équipes.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">04</span>
+            <h3>Suivi &amp; Évolution</h3>
+            <p>Assistance réactive par WhatsApp, sauvegardes automatiques vérifiées et ajout de nouveaux modules selon
+              la croissance de votre structure.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- GARANTIES & FAQ ANTI-OBJECTIONS -->
-    <section id="faq" class="section-block section-surface">
+    <!-- SECTION COMBINÉE FAQ (GAUCHE) + CONTACT STICKY (DROITE) -->
+    <section id="faq" class="section-block">
       <div class="container">
         <div class="section-header-center">
-          <span class="sec-kicker">Garanties &amp; FAQ</span>
-          <h2 class="sec-title">Réponses directes avant votre déploiement</h2>
+          <span class="sec-kicker">Garanties, FAQ &amp; Contact</span>
+          <h2 class="sec-title">Réponses directes &amp; demande de démonstration</h2>
           <p class="sec-desc">Tout ce qu'un dirigeant vérifie avant d'équiper son établissement.</p>
         </div>
 
-        <div class="authority-grid">
-          <div class="guarantee-column">
-            <div class="guarantee-card">
-              <div class="guarantee-tag-row">
-                <span>01 &bull; Résilience Terrain</span>
-                <span style="color: var(--status-emerald);">SQLite WAL</span>
-              </div>
-              <h3 class="guarantee-title">100% Opérationnel Hors-Ligne</h3>
-              <p class="guarantee-desc">Vos données tournent localement sur votre poste ou serveur d'établissement, sans
-                blocage en cas de coupure JIRAMA ou fibre.</p>
-            </div>
-            <div class="guarantee-card">
-              <div class="guarantee-tag-row">
-                <span>02 &bull; Modèle Souple</span>
-                <span>Zéro Piège</span>
-              </div>
-              <h3 class="guarantee-title">Abonnement Mensuel ou Licence Définitive</h3>
-              <p class="guarantee-desc">Démarrez en abonnement mensuel ou optez pour l'acquisition définitive sur site.
-                Vous gardez la maîtrise de vos données.</p>
-            </div>
-            <div class="guarantee-card">
-              <div class="guarantee-tag-row">
-                <span>03 &bull; Conformité Madagascar</span>
-                <span style="color: var(--status-emerald);">NIF / STAT / CNaPS</span>
-              </div>
-              <h3 class="guarantee-title">Adapté à la Fiscalité &amp; Paie Locales</h3>
-              <p class="guarantee-desc">Factures normalisées, TVA 20 %, billetage en Ariary et bulletins de salaire
-                conformes dès le premier jour.</p>
-            </div>
-          </div>
-
+        <div class="faq-contact-grid">
           <div class="faq-column">
             <details class="faq-item" open>
               <summary class="faq-summary">
@@ -857,25 +980,48 @@
               </div>
             </details>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- CTA FINAL SANS FRICTION -->
-    <section id="contact" class="section-block">
-      <div class="container">
-        <div class="cta-banner">
-          <div class="cta-text-side">
-            <h2 class="cta-title">Planifier une démonstration ou un échange de 20 minutes sans engagement</h2>
-            <p class="cta-desc">
-              Réservez votre créneau en ligne en 30 secondes ou calculez votre devis en Ariary avec notre configurateur
-              interactif.
+          <aside id="contact" class="contact-sticky-card" aria-label="Demande de démonstration et contact">
+            <span class="contact-sticky-kicker">Antananarivo &amp; Provinces</span>
+            <h3>Équipez votre structure en 48h</h3>
+            <p class="contact-sticky-desc">
+              Premier échange gratuit et sans engagement — réponse sous 24 h ouvrées. Choisissez une démonstration
+              personnalisée ou simulez votre devis en Ariary.
             </p>
-          </div>
-          <div class="cta-buttons-side">
-            <button type="button" class="btn btn-whatsapp btn-lg" data-open-booking>Planifier une démo 20 min</button>
-            <a href="/configurateur" class="btn btn-secondary btn-lg">Simuler mon devis en Ariary</a>
-          </div>
+            <div class="contact-sticky-actions">
+              <button type="button" class="btn btn-copper btn-lg" data-open-booking>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+                <span>Demander une démonstration</span>
+              </button>
+              <a href="/configurateur" class="btn btn-secondary btn-lg">Simuler mon devis en Ariary</a>
+              <a href="https://wa.me/261347151789?text=Bonjour%20Missi%20Innovation%2C%20je%20souhaite%20demander%20une%20d%C3%A9monstration."
+                target="_blank" rel="noopener" class="btn btn-on-dark btn-lg">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+                <span>Écrire sur WhatsApp</span>
+              </a>
+            </div>
+            <div class="contact-sticky-meta">
+              <a href="mailto:missiinnovation@gmail.com">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                <span>missiinnovation@gmail.com</span>
+              </a>
+              <span>+261 34 71 517 89 &bull; Hors-ligne SQLite WAL &bull; NIF / STAT</span>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
@@ -900,7 +1046,7 @@
         </div>
 
         <div>
-          <h3 class="footer-title">Expertises &amp; Solutions</h3>
+          <h3 class="footer-title">Nos Progiciels &amp; Services</h3>
           <ul class="footer-links">
             <li><a href="/education/presentation-visuelle">Study Agent Pro (Éducation)</a></li>
             <li><a href="/hotellerie/presentation-visuelle">ResiPro Suite (Hôtellerie &amp; Resto)</a></li>
@@ -938,8 +1084,8 @@
     <div class="booking-dialog-inner">
       <div class="booking-dialog-head">
         <div>
-          <h2 id="booking-title" class="booking-dialog-title">Planifier une démo ou un échange (20 min)</h2>
-          <p class="booking-dialog-sub">Réponse rapide pour les établissements et entreprises à Madagascar.</p>
+          <h2 id="booking-title" class="booking-dialog-title">Demander une démonstration</h2>
+          <p class="booking-dialog-sub">Premier échange gratuit et sans engagement — réponse sous 24 h ouvrées.</p>
         </div>
         <button id="bk-close" type="button" class="booking-close-btn" aria-label="Fermer">&times;</button>
       </div>
@@ -979,15 +1125,21 @@
           <div class="booking-field">
             <label for="bk-pole">Solution ou prestation souhaitée *</label>
             <select id="bk-pole" name="service_pole" required>
-              <option value="Study Agent Pro (Éducation)">Study Agent Pro (Écoles &amp; Lycées)</option>
-              <option value="ResiPro Suite (Hôtellerie & Resto)">ResiPro Suite (Hôtels, Lodges &amp; Restaurants)
+              <option value="Study Agent Pro — Gestion Écoles & Lycées">Study Agent Pro — Gestion Écoles &amp; Lycées
               </option>
-              <option value="ERP Société & Commerce">ERP Société &amp; Commerce (NIF/STAT, Stocks, Paie)</option>
-              <option value="TourAgent Pro (Tour-Opérateur)">TourAgent Pro (Circuits, Vouchers &amp; Flotte 4x4)
-              </option>
-              <option value="Services IT, Sécurité Box & Sur-Mesure">Services IT, Sécurisation Box Fibre &amp;
-                Sur-Mesure</option>
-              <option value="Site Vitrine Connecté">Création de Site Vitrine Connecté</option>
+              <option value="ResiPro Suite — Gestion Hôtels, Lodges & Restaurants">ResiPro Suite — Gestion Hôtels,
+                Lodges &amp; Restaurants</option>
+              <option value="ERP Société & Commerce — Facturation, Stocks & Paie">ERP Société &amp; Commerce —
+                Facturation, Stocks &amp; Paie</option>
+              <option value="TourAgent Pro — Circuits, Vouchers & Flotte 4×4">TourAgent Pro — Circuits, Vouchers &amp;
+                Flotte 4×4</option>
+              <option value="Développement d'Application ou Solution Sur-Mesure">Développement d'Application ou
+                Solution Sur-Mesure</option>
+              <option value="Maintenance, Suivi & Évolution de Solution Existante (TMA / Parc IT)">Maintenance, Suivi
+                &amp; Évolution de Solution Existante (TMA / Parc IT)</option>
+              <option value="Création ou Refonte de Site Web">Création ou Refonte de Site Web</option>
+              <option value="Sécurisation Réseau & Box Fibre">Sécurisation Réseau &amp; Box Fibre</option>
+              <option value="Autre besoin / Conseil technique">Autre besoin / Conseil technique</option>
             </select>
           </div>
 
@@ -1010,23 +1162,29 @@
           <div id="bk-tz-preview" class="booking-tz-box" aria-live="polite"></div>
 
           <div class="booking-field">
-            <label for="bk-msg">Précisions (effectif, chambres, postes...)</label>
+            <label for="bk-msg">Précisions (effectif, postes, ville — optionnel)</label>
             <textarea id="bk-msg" name="message" maxlength="600"
-              placeholder="Ex. 450 élèves, 2 caisses, ou sécurisation box fibre 6 PC..."></textarea>
+              placeholder="Ex. 450 élèves à Antananarivo, besoin caisse + bulletins..."></textarea>
           </div>
 
           <div id="bk-error" class="booking-error" role="alert" hidden></div>
 
           <div class="booking-actions">
-            <a href="https://wa.me/261347151789" target="_blank" rel="noopener" class="btn btn-secondary">WhatsApp
-              direct</a>
+            <a href="https://wa.me/261347151789" target="_blank" rel="noopener" class="btn btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+              <span>WhatsApp direct</span>
+            </a>
             <button id="bk-submit" type="submit" class="btn btn-copper">Valider ma demande de démo</button>
           </div>
         </form>
       </div>
 
       <div id="booking-success-view" class="booking-success-card" hidden>
-        <p id="bk-db-notice" role="status" style="font-weight: 600; color: var(--status-emerald);"></p>
+        <p id="bk-db-notice" role="status" style="font-weight: 600; color: var(--status-olive);"></p>
         <div id="bk-recap" class="booking-recap"></div>
         <div class="booking-actions">
           <button id="bk-new" type="button" class="btn btn-secondary">Modifier / Autre demande</button>

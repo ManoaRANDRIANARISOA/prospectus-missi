@@ -125,7 +125,7 @@
   <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -135,7 +135,7 @@
       --brand-copper-border: #E6D8CD;
       --brand-slate: #3B2820;
       --brand-slate-soft: #4A3329;
-      --brand-emerald: #059669;
+      --brand-emerald: #4A5D4E;
       --brand-emerald-soft: rgba(5, 150, 105, 0.12);
       --surface-warm: #FAF5F0;
       --surface-card: #FFFFFF;
@@ -246,12 +246,13 @@
     }
 
     .brand-logo-wrap img {
-      width: 44px;
-      height: 44px;
+      height: 40px;
+      width: auto;
+      display: block;
     }
 
     .brand-title {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 1.45rem;
       font-weight: 800;
       color: var(--text);
@@ -282,7 +283,7 @@
     }
 
     .sheet-title {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 2.2rem;
       font-weight: 800;
       color: var(--text);
@@ -329,7 +330,7 @@
     }
 
     .section-h2 {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 1.55rem;
       font-weight: 800;
       color: var(--text);
@@ -376,7 +377,7 @@
     }
 
     .service-title {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 1.2rem;
       font-weight: 700;
       color: var(--text);
@@ -423,7 +424,7 @@
     }
 
     .price-pill strong {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 1.15rem;
       font-weight: 800;
       color: var(--brand-copper-dark);
@@ -438,7 +439,7 @@
     /* DEEP DIVE BENTO (RESTRICT ACCESS / SECURITY) - ALIGNÉ CHARTE MISSI INNOVATION */
     .bento-highlight {
       background: linear-gradient(135deg, #3B2820 0%, #4A3329 100%);
-      color: #FAF8F5;
+      color: #F6F1E9;
       border-radius: 16px;
       padding: 36px 40px;
       margin-bottom: 40px;
@@ -447,7 +448,7 @@
     }
 
     .bento-highlight h3 {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 1.6rem;
       font-weight: 800;
       color: #FFFFFF;
@@ -512,7 +513,7 @@
       background: var(--surface-warm);
       padding: 14px 18px;
       text-align: left;
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 0.85rem;
       font-weight: 700;
       color: var(--brand-copper-dark);
@@ -533,7 +534,7 @@
     }
 
     .tariff-table .amount {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-weight: 800;
       color: var(--brand-copper-dark);
       white-space: nowrap;
@@ -556,7 +557,7 @@
     }
 
     .faq-card h4 {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 0.98rem;
       font-weight: 700;
       color: var(--text);
@@ -582,7 +583,7 @@
     }
 
     .footer-content h3 {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 1.45rem;
       font-weight: 800;
       margin-bottom: 6px;
@@ -606,7 +607,7 @@
       gap: 8px;
       padding: 12px 24px;
       border-radius: 10px;
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-size: 0.95rem;
       font-weight: 700;
       text-decoration: none;
@@ -703,12 +704,7 @@
       <!-- HEADER -->
       <header class="sheet-header">
         <div class="brand-row">
-          <div class="brand-logo-wrap">
-            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation Madagascar">
-            <div>
-              <div class="brand-title">MISSI INNOVATION</div>
-              <div class="brand-sub">Ingénierie Logicielle &amp; Services Informatiques &bull; Madagascar</div>
-            </div>
+          <div class="brand-logo-wrap"><img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="115" height="40"></div>
           </div>
           <span class="badge-doc">
             ★ Dossier de Prestations &amp; Projets Sur-Mesure
@@ -817,7 +813,7 @@
           
           <div class="service-box">
             <div>
-              <div class="service-icon">🛠️</div>
+              <div class="service-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
               <h3 class="service-title">Maintenance Préventive &amp; Curative</h3>
               <p class="service-desc">
                 Supervision régulière de la santé de vos ordinateurs et serveurs : nettoyage système, suppression des malwares, mises à jour critiques et remplacement préventif des disques.
@@ -881,7 +877,7 @@
         <div class="bento-highlight" style="margin-top: 36px;">
           <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
             <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; background: rgba(164, 90, 61, 0.2); border: 1px solid #A45A3D; color: #E89E78; border-radius: 999px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase;">
-              🛡️ Pôle 2 &bull; Cybersécurité &amp; Contrôle des Parcs Informatiques
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Pôle 2 &bull; Cybersécurité &amp; Contrôle des Parcs Informatiques
             </span>
             <span style="font-size: 0.8rem; color: #A8A29E; font-weight: 600;">
               Intervention rapide à Antananarivo &amp; Télé-déploiement

@@ -8,7 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --rust: #A45A3D;
@@ -796,7 +796,7 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 10px;
             margin-bottom: 9px;
-            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%);
+            background: linear-gradient(135deg, #F6F1E9 0%, #F5EFE8 100%);
             border: 1px solid #E4DACF;
             border-left: 3.5px solid var(--rust);
             border-radius: 6px;
@@ -949,7 +949,7 @@
         }
 
         .catalog-footer-strip {
-            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%);
+            background: linear-gradient(135deg, #F6F1E9 0%, #F5EFE8 100%);
             border: 1px solid #E2D9CF;
             border-left: 3.5px solid var(--rust);
             border-radius: 6px;
@@ -1025,24 +1025,13 @@
             text-decoration: none;
             color: #3B2820;
         }
-        .brand-logo-mark {
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
-            background: #3B2820;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
-            border: 1px solid #443E3A;
-            flex-shrink: 0;
-        }
+        .brand-logo-horizontal { height: 40px; width: auto; display: block; }
         .brand-title-wrap {
             display: flex;
             flex-direction: column;
         }
         .brand-name {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
             font-weight: 800;
             font-size: 1.15rem;
             letter-spacing: -0.01em;
@@ -1073,9 +1062,9 @@
             font-size: 0.75rem;
             font-weight: 600;
             padding: 4px 10px;
-            background: #FDF6F0;
+            background: #EFE6DB;
             color: #5E3D2C;
-            border: 1px solid #F5D6C1;
+            border: 1px solid #C2AD96;
             border-radius: 9999px;
             display: inline-flex;
             align-items: center;
@@ -1095,7 +1084,7 @@
         .nav-link-btn:hover {
             border-color: #7B533E;
             color: #7B533E;
-            background: #FDF6F0;
+            background: #EFE6DB;
         }
         .btn-print-copper {
             display: inline-flex;
@@ -1212,14 +1201,8 @@
     <header class="top-nav no-print">
         <div class="nav-inner">
             <a href="/mg" class="brand-link">
-                <div class="brand-logo-mark">
-                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
-                </div>
-                <div class="brand-title-wrap">
-                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
-                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
-                </div>
-            </a>
+        <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="115" height="40">
+      </a>
             <div class="nav-badges">
                 <div class="nav-doc-badge">
                     <span>Study Agent</span> &bull; Édition Performance & Maîtrise (A4)
@@ -1238,7 +1221,7 @@
         <div class="header-top">
             <div style="display: flex; align-items: center; gap: 12px;">
                 <div style="width: 38px; height: 38px; border-radius: 9px; background: #3B2820; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(28, 25, 23, 0.15); border: 1px solid #443E3A; flex-shrink: 0;">
-                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
+                    <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
                 </div>
                 <div class="header-left">
                     PROPOSITION COMMERCIALE — ERP SCOLAIRE
@@ -1424,7 +1407,7 @@
                     <div class="h-title">
                         <svg style="width: 16px; height: 16px; color: var(--rust);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
                         Pack Matériel Clés en Main : Imprimante 80 mm POS
-                        <span style="font-size: 8px; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 6px; border-radius: 3px; text-transform: uppercase; margin-left: 6px;">Service Confort Clés en Main</span>
+                        <span style="font-size: 8px; font-weight: 700; color: #065F46; background: #EAEFE9; border: 1px solid #C5D2C7; padding: 1px 6px; border-radius: 3px; text-transform: uppercase; margin-left: 6px;">Service Confort Clés en Main</span>
                     </div>
                     <p>Imprimante thermique professionnelle 80 mm neuve, massicot automatique, zéro coût d'encre + 5 bobines thermiques offertes + câblage USB blindé + configuration complète des ports Windows <br>
                     <span style="color: var(--rust); font-weight: 600;">✦ Mise à disposition d'équipement physique à prix coûtant sans marge logicielle dissimulée : nous sélectionnons et paramétrons le matériel pour votre confort.</span></p>
@@ -1858,7 +1841,7 @@
     <!-- PIED DE PAGE WEB UNIFIÉ (MASQUÉ À L'IMPRESSION) -->
     <footer class="no-print" style="margin: 35px auto 20px auto; max-width: 900px; text-align: center; color: var(--text-gray); font-size: 11px; padding: 20px 10px; border-top: 1px solid rgba(0,0,0,0.08);">
         <div style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
-            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
+            <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="22" height="22" style="border-radius: 5px;">
             <span>MISSI INNOVATION &bull; Solutions Logicielles &bull; Madagascar</span>
         </div>
         <div>Éditeur de progiciels métiers de haute précision &bull; Document officiel calibré pour affichage web et impression A4</div>

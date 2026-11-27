@@ -43,22 +43,22 @@
     <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --rust: #7B533E;
             --rust-dark: #5E3D2C;
-            --rust-light: #FDF6F0;
+            --rust-light: #EFE6DB;
             --rust-subtle: #F6E2D0;
             --text-dark: #3B2820;
             --text-gray: #57534E;
             --text-light: #78716C;
             --border: #E8E5DD;
             --border-warm: #E8D3BF;
-            --green: #059669;
-            --green-dark: #047857;
-            --green-light: #ECFDF5;
-            --green-border: #A7F3D0;
+            --green: #4A5D4E;
+            --green-dark: #4A5D4E;
+            --green-light: #EAEFE9;
+            --green-border: #C5D2C7;
             --blue: #2563EB;
             --blue-light: #EFF6FF;
             --amber: #D97706;
@@ -134,18 +134,7 @@
             flex-shrink: 0;
         }
 
-        .brand-logo-mark {
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
-            background: #3B2820;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
-            border: 1px solid #443E3A;
-            flex-shrink: 0;
-        }
+        .brand-logo-horizontal { height: 40px; width: auto; display: block; }
 
         .brand-title-wrap {
             display: flex;
@@ -153,7 +142,7 @@
         }
 
         .brand-name {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
             font-weight: 800;
             font-size: 1.15rem;
             letter-spacing: -0.01em;
@@ -244,7 +233,7 @@
         .nav-link-btn:hover {
             border-color: #7B533E;
             color: #7B533E;
-            background: #FDF6F0;
+            background: #EFE6DB;
         }
 
         .btn-print-copper {
@@ -381,7 +370,7 @@
 
         /* ENCART MARQUE BLANCHE PRESTIGE (PAGE 1) */
         .white-label-banner {
-            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%);
+            background: linear-gradient(135deg, #F6F1E9 0%, #F5EFE8 100%);
             border: 1px solid #E2D9CF;
             border-left: 4px solid var(--rust);
             border-radius: 7px;
@@ -431,12 +420,12 @@
         .wlb-offline-tag {
             font-size: 8.5px;
             font-weight: 700;
-            color: #047857;
+            color: #4A5D4E;
             white-space: nowrap;
-            background: #ECFDF5;
+            background: #EAEFE9;
             padding: 3.5px 9px;
             border-radius: 9999px;
-            border: 1px solid #A7F3D0;
+            border: 1px solid #C5D2C7;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -481,7 +470,7 @@
         }
         .window-dot.red { background: #EF4444; }
         .window-dot.yellow { background: #F59E0B; }
-        .window-dot.green { background: #10B981; }
+        .window-dot.green { background: #4A5D4E; }
 
         .window-title {
             font-size: 8.5px;
@@ -505,7 +494,7 @@
         .screen-img-wrap {
             position: relative;
             overflow: hidden;
-            background: #FAF8F5;
+            background: #F6F1E9;
         }
 
         .screen-img-wrap img {
@@ -553,7 +542,7 @@
         }
 
         .callout-badge.green {
-            background: #047857;
+            background: #4A5D4E;
         }
 
         .callout-badge.blue {
@@ -612,7 +601,7 @@
         }
 
         .pillar-mini {
-            background: #FAF8F5;
+            background: #F6F1E9;
             border: 1px solid var(--border);
             border-radius: 5px;
             padding: 6px 8px;
@@ -741,7 +730,7 @@
 
         /* ROADMAP & INNOVATIONS BOX (PAGE 4) */
         .roadmap-box {
-            background: #FAF8F5;
+            background: #F6F1E9;
             border: 1px solid var(--border-warm);
             border-radius: 6px;
             padding: 7px 10px;
@@ -857,7 +846,7 @@
         .lb-tool-btn {
             background: transparent;
             border: none;
-            color: #FAF8F5;
+            color: #F6F1E9;
             font-size: 13px;
             font-weight: 700;
             padding: 5px 9px;
@@ -1046,7 +1035,7 @@
                 <button class="lb-tool-btn" onclick="zoomOut()" title="Zoomer arrière (−)">−</button>
                 <button id="lb-zoom-level" class="lb-tool-btn" onclick="resetZoom()" title="Réinitialiser zoom (100%)">100%</button>
                 <button class="lb-tool-btn" onclick="zoomIn()" title="Zoomer avant (+)">+</button>
-                <button class="lb-tool-btn" onclick="toggleZoom()" title="Basculer Zoom">🔍</button>
+                <button class="lb-tool-btn" onclick="toggleZoom()" title="Basculer Zoom"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button>
             </div>
             <span class="lb-tip">💡 Cliquez sur l'image ou molette pour zoomer / déplacer</span>
             <button id="lightbox-close" onclick="closeLightbox(event)" title="Fermer (Échap)">✕</button>
@@ -1067,14 +1056,8 @@
     <header class="top-nav no-print">
         <div class="nav-inner">
             <a href="/mg" class="brand-link">
-                <div class="brand-logo-mark">
-                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
-                </div>
-                <div class="brand-title-wrap">
-                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
-                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
-                </div>
-            </a>
+        <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="115" height="40">
+      </a>
             <!-- SÉLECTEUR DE STRUCTURE EN NAVIGATION (FIXE & NORMÉ) -->
             <div class="formula-switcher-nav" title="Changer l'échelle d'établissement pour adapter les tarifs">
                 <button id="nav-btn-petite" class="switch-btn" onclick="switchFormula('petite')">Petite Structure</button>
@@ -1103,7 +1086,7 @@
             <div class="header-top">
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <div style="width: 38px; height: 38px; border-radius: 9px; background: #3B2820; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(28, 25, 23, 0.15); border: 1px solid #443E3A; flex-shrink: 0;">
-                        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
+                        <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
                     </div>
                     <div class="header-left">
                         <span>DOSSIER DE PRÉSENTATION TECHNIQUE & VISUELLE — ERP SCOLAIRE</span>
@@ -1128,7 +1111,7 @@
                     </div>
                 </div>
                 <div class="wlb-offline-tag">
-                    <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #059669;"></span>
+                    <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #4A5D4E;"></span>
                     100% Hors-Ligne &bull; Zéro Dépendance Web
                 </div>
             </div>
@@ -1153,7 +1136,7 @@
                     <span class="p-desc">Base SQLite WAL locale autonome. Zéro coupure pendant les pannes JIRAMA ou réseau.</span>
                 </div>
                 <div class="pillar-mini">
-                    <span class="p-icon-title">🛡️ Zéro Écart Caisse</span>
+                    <span class="p-icon-title"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Zéro Écart Caisse</span>
                     <span class="p-desc">Billetage physique 20 000 à 100 Ar, Ticket Z 80 mm scellé et contre-passation anti-fraude.</span>
                 </div>
                 <div class="pillar-mini">
@@ -1176,7 +1159,7 @@
                     </div>
                     <div class="window-title">
                         <span>Écran 01 : Cockpit Direction & Pilotage Global en Temps Réel</span>
-                        <span class="window-badge" style="background: #FDF6F0; color: #5E3D2C; border: 1px solid #F6E2D0;">Vue Direction</span>
+                        <span class="window-badge" style="background: #EFE6DB; color: #5E3D2C; border: 1px solid #F6E2D0;">Vue Direction</span>
                     </div>
                     <div style="font-size: 8px; color: #64748B;">Recherche instantanée &bull; Cloud synchronisé</div>
                 </div>
@@ -1265,7 +1248,7 @@
                     </div>
                     <div class="window-title">
                         <span>Écran 02 : Répertoire Général des Élèves, Classes &amp; Inscriptions</span>
-                        <span class="window-badge" style="background: #FDF6F0; color: #5E3D2C; border: 1px solid #F6E2D0;">Fichier Central</span>
+                        <span class="window-badge" style="background: #EFE6DB; color: #5E3D2C; border: 1px solid #F6E2D0;">Fichier Central</span>
                     </div>
                     <div style="font-size: 8px; color: #64748B;">Recherche par matricule &bull; Gestion fratries</div>
                 </div>
@@ -1297,9 +1280,9 @@
                     </div>
                     <div class="window-title">
                         <span>Écran 03 : Dossier Financier Individuel &amp; Calendrier des Écolages</span>
-                        <span class="window-badge" style="background: #ECFDF5; color: #047857;">Mois par Mois</span>
+                        <span class="window-badge" style="background: #EAEFE9; color: #4A5D4E;">Mois par Mois</span>
                     </div>
-                    <div style="font-size: 8px; color: #047857; font-weight: 700;">Septembre à Juin &bull; Échéancier en temps réel</div>
+                    <div style="font-size: 8px; color: #4A5D4E; font-weight: 700;">Septembre à Juin &bull; Échéancier en temps réel</div>
                 </div>
                 <div class="screen-img-wrap" style="height: 75mm;">
                     <img src="../assets/img/12_dossier_eleve_suivi_paiements.webp" alt="Dossier individuel de suivi financier élève" style="object-position: top center;" width="1024" height="725" loading="lazy">
@@ -1500,7 +1483,7 @@
                     </div>
                     <div class="screen-img-wrap" style="height: 80mm;">
                         <img src="../assets/img/06_alertes_recouvrement_impayes.webp" alt="Alertes impayés Study Agent Pro" width="1440" height="1064" loading="lazy">
-                        <div class="zoom-overlay">🔍 Agrandir l'écran Alertes Impayés</div>
+                        <div class="zoom-overlay"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> Agrandir l'écran Alertes Impayés</div>
                         <div class="callout-badge" style="top: 12px; left: 20px; background: #DC2626;">
                             <span>500 Élèves en Retard Détectés Automatiquement</span>
                         </div>
@@ -1524,11 +1507,11 @@
                         <div class="window-title">
                             <span>Écran 07 : Saisie des Notes &amp; Bulletins</span>
                         </div>
-                        <span class="window-badge" style="background: #FDF6F0; color: #5E3D2C; border: 1px solid #F6E2D0;">TPS à Terminale</span>
+                        <span class="window-badge" style="background: #EFE6DB; color: #5E3D2C; border: 1px solid #F6E2D0;">TPS à Terminale</span>
                     </div>
                     <div class="screen-img-wrap" style="height: 72mm;">
                         <img src="../assets/img/09_saisie_notes_bulletins.webp" alt="Saisie des notes et calcul des moyennes" width="1024" height="742" loading="lazy">
-                        <div class="zoom-overlay">🔍 Agrandir Saisie des Notes</div>
+                        <div class="zoom-overlay"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> Agrandir Saisie des Notes</div>
                         <div class="callout-badge" style="top: 8px; left: 10px;">
                             <span>Calcul auto : Moyennes, Rang, Appréciations</span>
                         </div>
@@ -1553,7 +1536,7 @@
                     </div>
                     <div class="screen-img-wrap" style="height: 72mm;">
                         <img src="../assets/img/10_pointage_bus_cantine.webp" alt="Pointage transport et cantine" width="1440" height="1055" loading="lazy">
-                        <div class="zoom-overlay">🔍 Agrandir Pointage Bus</div>
+                        <div class="zoom-overlay"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> Agrandir Pointage Bus</div>
                         <div class="callout-badge green" style="bottom: 8px; left: 10px;">
                             <span>Contrôle par arrêt : Ambohidrazaka, Mandroseza...</span>
                         </div>
@@ -1618,7 +1601,7 @@
                     </div>
                     <div class="screen-img-wrap" style="height: 36mm;">
                         <img src="../assets/img/07_gestion_personnel_salaires.webp" alt="Gestion du personnel" width="1440" height="1060" loading="lazy">
-                        <div class="zoom-overlay" style="font-size: 8px;">🔍 Agrandir</div>
+                        <div class="zoom-overlay" style="font-size: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> Agrandir</div>
                     </div>
                 </div>
 
@@ -1630,7 +1613,7 @@
                     </div>
                     <div class="screen-img-wrap" style="height: 36mm;">
                         <img src="../assets/img/08_alertes_impayes_rh.webp" alt="Traçabilité des dépenses" width="1440" height="495" loading="lazy">
-                        <div class="zoom-overlay" style="font-size: 8px;">🔍 Agrandir</div>
+                        <div class="zoom-overlay" style="font-size: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> Agrandir</div>
                     </div>
                 </div>
 
@@ -1642,7 +1625,7 @@
                     </div>
                     <div class="screen-img-wrap" style="height: 36mm;">
                         <img src="../assets/img/11_rapports_comptables_exports.webp" alt="Centre de rapports" width="1440" height="506" loading="lazy">
-                        <div class="zoom-overlay" style="font-size: 8px;">🔍 Agrandir</div>
+                        <div class="zoom-overlay" style="font-size: 8px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> Agrandir</div>
                     </div>
                 </div>
             </div>
@@ -1726,7 +1709,7 @@
             <!-- ENCADRÉ MATÉRIEL & MARQUE BLANCHE (EFFET POSTER POP-OUT HARMONISÉ) -->
             <div style="display: grid; grid-template-columns: 1.18fr 0.82fr; gap: 8px; margin-bottom: 6px; align-items: stretch;">
                 <!-- Pack Matériel : Effet Studio Pop-Out sans aucun fond blanc -->
-                <div style="background: linear-gradient(135deg, #FAF8F5 0%, #FFFFFF 100%); border: 1.5px solid var(--rust); border-radius: 7px; padding: 6px 10px 6px 6px; display: flex; justify-content: space-between; align-items: center; gap: 10px; position: relative; overflow: visible; box-shadow: 0 2px 8px rgba(194, 103, 43, 0.05);">
+                <div style="background: linear-gradient(135deg, #F6F1E9 0%, #FFFFFF 100%); border: 1.5px solid var(--rust); border-radius: 7px; padding: 6px 10px 6px 6px; display: flex; justify-content: space-between; align-items: center; gap: 10px; position: relative; overflow: visible; box-shadow: 0 2px 8px rgba(194, 103, 43, 0.05);">
                     <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0;">
                         <!-- Imprimante thermique & bobines 3D sans fond (proportions harmonisées avec le texte) -->
                         <div style="position: relative; flex-shrink: 0; width: 86px; height: 58px; display: flex; align-items: center; justify-content: center;">
@@ -1735,7 +1718,7 @@
                         <div style="min-width: 0;">
                             <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 1.5px;">
                                 <div style="font-size: 8.5px; font-weight: 800; color: var(--text-dark); letter-spacing: -0.01em;">Pack Matériel : Imprimante 80 mm POS</div>
-                                <span style="font-size: 6.5px; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 4px; border-radius: 3px; text-transform: uppercase; white-space: nowrap;">Service Confort Clés en Main</span>
+                                <span style="font-size: 6.5px; font-weight: 700; color: #065F46; background: #EAEFE9; border: 1px solid #C5D2C7; padding: 1px 4px; border-radius: 3px; text-transform: uppercase; white-space: nowrap;">Service Confort Clés en Main</span>
                             </div>
                             <div style="font-size: 7.5px; color: var(--text-gray); line-height: 1.25;">
                                 Imprimante thermique neuve USB massicot auto &bull; 5 bobines 80 mm fournies &bull; Zéro coût d'encre.<br>
@@ -1744,13 +1727,13 @@
                         </div>
                     </div>
                     <div style="text-align: right; white-space: nowrap; flex-shrink: 0; padding-left: 8px; border-left: 1px dashed var(--border-warm);">
-                        <div style="font-size: 11px; font-weight: 800; color: var(--rust-dark); font-family: 'Outfit', sans-serif;">450 000 Ar</div>
+                        <div style="font-size: 11px; font-weight: 800; color: var(--rust-dark); font-family: 'Bricolage Grotesque', sans-serif;">450 000 Ar</div>
                         <div style="font-size: 6.8px; color: var(--text-light); text-transform: uppercase; font-weight: 700; letter-spacing: 0.3px;">Forfait unique</div>
                     </div>
                 </div>
 
                 <!-- Engagement Marque Blanche -->
-                <div style="background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%); border: 1px solid var(--border-warm); border-left: 3.5px solid var(--rust); border-radius: 6px; padding: 6px 10px; display: flex; flex-direction: column; justify-content: center;">
+                <div style="background: linear-gradient(135deg, #F6F1E9 0%, #F5EFE8 100%); border: 1px solid var(--border-warm); border-left: 3.5px solid var(--rust); border-radius: 6px; padding: 6px 10px; display: flex; flex-direction: column; justify-content: center;">
                     <div style="font-size: 8.5px; font-weight: 800; color: var(--rust-dark); display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
                         <span>🏛️ Personnalisation Marque Blanche Offerte</span>
                     </div>
@@ -2092,7 +2075,7 @@
     <!-- PIED DE PAGE WEB UNIFIÉ HAUTE VISIBILITÉ (MASQUÉ À L'IMPRESSION) -->
     <footer class="web-footer-unified no-print">
         <div class="web-footer-brand-row">
-            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
+            <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
             <span>MISSI INNOVATION &bull; Solutions Logicielles Métiers &bull; Madagascar</span>
         </div>
         <p class="web-footer-subtext">

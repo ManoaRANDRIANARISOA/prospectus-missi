@@ -48,7 +48,7 @@
       "@type": "Organization",
       "name": "Missi Innovation",
       "url": "https://missi-innovation.web.app",
-      "logo": "https://missi-innovation.web.app/assets/img/missi_logo.svg",
+      "logo": "https://missi-innovation.web.app/assets/img/missi_favicon.svg",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Antananarivo",
@@ -61,7 +61,7 @@
   <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -83,15 +83,15 @@
       --brand-charcoal: #4A3329;
       --brand-copper: #7B533E;
       --brand-copper-dark: #5E3D2C;
-      --brand-copper-light: #FDF6F0;
-      --brand-copper-border: #F5D6C1;
+      --brand-copper-light: #EFE6DB;
+      --brand-copper-border: #C2AD96;
       
       --brand-amber: #D97706;
       --brand-amber-light: #FEF3C7;
       
-      --status-emerald: #059669;
-      --status-bg: #ECFDF5;
-      --status-border: #A7F3D0;
+      --status-emerald: #4A5D4E;
+      --status-bg: #EAEFE9;
+      --status-border: #C5D2C7;
 
       --shadow-sm: 0 1px 3px 0 rgba(28, 25, 23, 0.04);
       --shadow-md: 0 4px 10px -1px rgba(28, 25, 23, 0.06), 0 2px 4px -2px rgba(28, 25, 23, 0.03);
@@ -116,7 +116,7 @@
     }
 
     .serif { font-family: 'Playfair Display', Georgia, serif; }
-    .outfit { font-family: 'Outfit', sans-serif; }
+    .font-display { font-family: 'Bricolage Grotesque', sans-serif; }
     .mono { font-family: 'JetBrains Mono', monospace; }
 
     /* HEADER */
@@ -146,21 +146,14 @@
       text-decoration: none;
     }
 
-    .logo-box {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      background: #3B2820;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
-      border: 1px solid #443E3A;
-      flex-shrink: 0;
+    .brand-logo-horizontal {
+      height: 40px;
+      width: auto;
+      display: block;
     }
 
     .brand-text-name {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-weight: 800;
       font-size: 1.15rem;
       line-height: 1.1;
@@ -426,7 +419,7 @@
       font-size: 1.85rem;
       font-weight: 900;
       color: var(--brand-copper-dark);
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       line-height: 1;
     }
 
@@ -581,7 +574,7 @@
     }
 
     .module-rate {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-weight: 800;
       font-size: 0.95rem;
       color: var(--text);
@@ -741,7 +734,7 @@
     }
 
     .quote-stat-val {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Bricolage Grotesque', sans-serif;
       font-weight: 800;
       font-size: 1.25rem;
       line-height: 1.2;
@@ -825,15 +818,7 @@
   <header class="top-header">
     <div class="header-inner">
       <a href="/mg" class="brand-wrap">
-        <div class="logo-box">
-          <img src="assets/img/missi_logo.svg" alt="Missi Innovation" width="34" height="34" style="border-radius: 9px; display: block;">
-        </div>
-        <div>
-          <div class="brand-text-name">
-            MISSI <span style="color: var(--brand-copper); font-size: 0.72rem; letter-spacing: 0.12em;">INNOVATION</span>
-          </div>
-          <div class="brand-text-sub">Progiciels Métiers &bull; Madagascar 2026</div>
-        </div>
+        <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="115" height="40">
       </a>
 
       <div class="header-nav">
@@ -842,7 +827,7 @@
           Accueil &amp; Prospectus
         </a>
         <a href="#customInquiryZone" class="btn btn-copper-light">
-          💬 Besoin Sur-Mesure
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> Besoin Sur-Mesure
         </a>
       </div>
     </div>
@@ -978,7 +963,7 @@
             📋 Copier le Récapitulatif Devis
           </button>
           <button type="button" class="btn btn-copper" onclick="sendViaWhatsApp()" style="background: #25D366; border-color: #20BA5A; font-size: 0.88rem; padding: 0.65rem 1.35rem; font-weight: 800;">
-            💬 Envoyer Ma Demande sur WhatsApp Direct
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> Envoyer Ma Demande sur WhatsApp Direct
           </button>
         </div>
       </div>
@@ -2394,7 +2379,7 @@
         card.innerHTML = `
           <div class="module-thumb-wrap" onclick="openLightbox('${mod.img}', '${safeTitle}')">
             <img src="${mod.img}" alt="${mod.title}" loading="lazy" ${mod.hardware > 0 ? 'style="object-fit: contain; padding: 1.25rem; background: white;"' : ''}>
-            <div class="module-zoom-badge">🔍 Zoom Interface</div>
+            <div class="module-zoom-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg> Zoom Interface</div>
           </div>
           <div class="module-body">
             <div class="module-meta-row">
@@ -2538,7 +2523,7 @@
         selectedFileAttachment = input.files[0];
         const sizeMb = (selectedFileAttachment.size / (1024 * 1024)).toFixed(2);
         document.getElementById("fileUploadLabel").textContent = "✓ Fichier joint : " + selectedFileAttachment.name;
-        document.getElementById("fileUploadLabel").style.color = "#059669";
+        document.getElementById("fileUploadLabel").style.color = "#4A5D4E";
         document.getElementById("fileNamePreview").textContent = "Taille : " + sizeMb + " Mo • Prêt pour transmission";
       }
     }

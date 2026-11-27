@@ -8,13 +8,13 @@
     <link rel="icon" type="image/svg+xml" href="/assets/img/missi_favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --brand-copper: #7B533E;
             --brand-copper-dark: #5E3D2C;
-            --brand-copper-light: #FDF6F0;
-            --brand-copper-border: #F5D6C1;
+            --brand-copper-light: #EFE6DB;
+            --brand-copper-border: #C2AD96;
             --bg-bento: #FAF7F2;
             --card-glass: rgba(255, 255, 255, 0.92);
             --card-glass-subtle: rgba(255, 255, 255, 0.72);
@@ -49,8 +49,8 @@
             font-family: 'Playfair Display', Georgia, serif;
         }
 
-        .outfit {
-            font-family: 'Outfit', sans-serif;
+        .font-display {
+            font-family: 'Bricolage Grotesque', sans-serif;
         }
 
         /* TOP NAVIGATION UNIFIÉE MISSI INNOVATION (64PX STANDARD) */
@@ -94,18 +94,7 @@
             flex-shrink: 0;
         }
 
-        .brand-logo-mark {
-            width: 36px;
-            height: 36px;
-            border-radius: 9px;
-            background: #3B2820;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(28, 25, 23, 0.2);
-            border: 1px solid #443E3A;
-            flex-shrink: 0;
-        }
+        .brand-logo-horizontal { height: 40px; width: auto; display: block; }
 
         .brand-title-wrap {
             display: flex;
@@ -114,7 +103,7 @@
         }
 
         .brand-name {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Bricolage Grotesque', sans-serif;
             font-weight: 800;
             font-size: 1.05rem;
             line-height: 1.1;
@@ -175,7 +164,7 @@
         .nav-link-btn:hover {
             border-color: var(--brand-copper);
             color: var(--brand-copper);
-            background: #FDF6F0;
+            background: #EFE6DB;
         }
 
         .btn-print-copper {
@@ -417,7 +406,7 @@
             width: 7px;
             height: 7px;
             border-radius: 50%;
-            background: #059669;
+            background: #4A5D4E;
             box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.2);
         }
 
@@ -765,7 +754,7 @@
         }
 
         .specs-bento-table th {
-            background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%);
+            background: linear-gradient(135deg, #F6F1E9 0%, #F5EFE8 100%);
             color: var(--brand-copper-dark);
             font-size: 8.8px;
             font-weight: 700;
@@ -861,14 +850,8 @@
     <header class="top-nav no-print">
         <div class="nav-inner">
             <a href="/mg" class="brand-link">
-                <div class="brand-logo-mark">
-                    <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="36" height="36" style="border-radius: 9px; flex-shrink: 0; display: block;">
-                </div>
-                <div class="brand-title-wrap">
-                    <div class="brand-name">MISSI <span class="brand-name-accent">INNOVATION</span></div>
-                    <div class="brand-tagline">Portail Officiel des Progiciels</div>
-                </div>
-            </a>
+        <img src="/assets/img/brand/missi-logo-horizontal.svg" alt="Missi Innovation" class="brand-logo-horizontal" width="115" height="40">
+      </a>
             <div class="nav-badges">
                 <div class="nav-doc-badge">
                     <span>Study Agent</span> &bull; Option B : Bento Glass & Widgets (4 Pages)
@@ -892,7 +875,7 @@
             <div class="bento-header">
                 <div style="display: flex; align-items: center; gap: 12px;">
                     <div style="width: 38px; height: 38px; border-radius: 9px; background: #3B2820; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(28, 25, 23, 0.15); border: 1px solid #443E3A; flex-shrink: 0;">
-                        <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
+                        <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="38" height="38" style="border-radius: 9px; display: block;">
                     </div>
                     <div class="bento-header-left">
                         PROPOSITION COMMERCIALE &bull; <span>ERP SCOLAIRE CLÉS-EN-MAIN 2026-2027</span>
@@ -946,7 +929,7 @@
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
                         <div class="bento-kpi-card">
                             <div class="bento-kpi-label">Délestage JIRAMA</div>
-                            <div class="bento-kpi-val" style="color: #059669;">0 sec</div>
+                            <div class="bento-kpi-val" style="color: #4A5D4E;">0 sec</div>
                             <div class="bento-kpi-sub">Tolérance totale aux coupures réseau</div>
                         </div>
                         <div class="bento-kpi-card">
@@ -1153,7 +1136,7 @@
             </div>
 
             <!-- Option Licence Définitive Bento Strip -->
-            <div style="background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%); border: 1px solid var(--border-glass); border-left: 3.5px solid var(--brand-copper); border-radius: var(--radius-bento); padding: 7px 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+            <div style="background: linear-gradient(135deg, #F6F1E9 0%, #F5EFE8 100%); border: 1px solid var(--border-glass); border-left: 3.5px solid var(--brand-copper); border-radius: var(--radius-bento); padding: 7px 12px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
                 <div>
                     <strong style="font-size: 8.8px; color: var(--brand-copper-dark);">Option Achat de Licence Définitive (Plein Titre de Propriété) :</strong>
                     <span style="font-size: 7.8px; color: var(--text-gray); display: block;">Pour les établissements souhaitant acquérir le progiciel sans abonnement mensuel avec maintenance annuelle.</span>
@@ -1389,7 +1372,7 @@
             </div>
 
             <!-- Footer Strip Bento -->
-            <div style="background: linear-gradient(135deg, #FAF8F5 0%, #F5EFE8 100%); border: 1px solid var(--border-glass); border-left: 3.5px solid var(--brand-copper); border-radius: var(--radius-bento); padding: 7px 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; box-shadow: var(--shadow-bento);">
+            <div style="background: linear-gradient(135deg, #F6F1E9 0%, #F5EFE8 100%); border: 1px solid var(--border-glass); border-left: 3.5px solid var(--brand-copper); border-radius: var(--radius-bento); padding: 7px 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; box-shadow: var(--shadow-bento);">
                 <div style="font-size: 8.5px; color: var(--text-dark); line-height: 1.35;">
                     <strong style="color: var(--brand-copper-dark);">✦ Évolutivité Garantie sans Rupture Technique :</strong> Tous ces modules s'intègrent nativement à votre base de données locale et Cloud existante. Votre investissement initial est 100% protégé et pérenne.
                 </div>
@@ -1491,7 +1474,7 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
                 <div style="background: #FFFFFF; border: 1px solid var(--border-glass); border-radius: var(--radius-bento); padding: 7px 10px; box-shadow: var(--shadow-bento);">
                     <div style="font-size: 8.5px; font-weight: 700; color: var(--brand-copper-dark); display: flex; align-items: center; gap: 4px;">
-                        <span>🛠️ Accompagnement &amp; SLA Garanti</span>
+                        <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Accompagnement &amp; SLA Garanti</span>
                     </div>
                     <div style="font-size: 7.6px; color: var(--text-gray); line-height: 1.25; margin-top: 2px;">
                         Mises à jour réglementaires et correctives incluses. Prêt immédiat d'un PC de secours sous 4h en cas de panne matérielle de votre établissement.
@@ -1506,7 +1489,7 @@
                         <div>
                             <div style="display: flex; align-items: center; gap: 6px;">
                                 <div style="font-size: 8.8px; font-weight: 800; color: var(--text-dark);">Pack Matériel : Imprimante 80 mm POS</div>
-                                <span style="font-size: 6.8px; font-weight: 700; color: #065F46; background: #ECFDF5; border: 1px solid #A7F3D0; padding: 1px 5px; border-radius: 3px; text-transform: uppercase;">Service Confort Clés en Main</span>
+                                <span style="font-size: 6.8px; font-weight: 700; color: #065F46; background: #EAEFE9; border: 1px solid #C5D2C7; padding: 1px 5px; border-radius: 3px; text-transform: uppercase;">Service Confort Clés en Main</span>
                             </div>
                             <div style="font-size: 7.6px; color: var(--text-gray); line-height: 1.25; margin-top: 1px;">
                                 Imprimante neuve USB massicot auto + 5 bobines  Zéro coût d'encre.<br>
@@ -1555,7 +1538,7 @@
     <!-- PIED DE PAGE WEB UNIFIÉ HAUTE VISIBILITÉ (MASQUÉ À L'IMPRESSION) -->
     <footer class="web-footer-unified no-print">
         <div class="web-footer-brand-row">
-            <img src="../assets/img/missi_logo.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
+            <img src="/assets/img/brand/missi-medaillon.svg" alt="Missi Innovation" width="26" height="26" style="border-radius: 6px;">
             <span>MISSI INNOVATION &bull; Solutions Logicielles Métiers &bull; Madagascar</span>
         </div>
         <p class="web-footer-subtext">

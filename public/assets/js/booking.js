@@ -313,8 +313,8 @@
       if (waBtn) {
         const waNum = cfg.WHATSAPP_NUMBER || '261347151789';
         const waMsg = isEn
-          ? `Hello Missi Engineering, I just booked a 20-min call:\n- Name: ${fullName}${org ? ` (${org})` : ''}\n- Need: ${pole}\n- Preferred slot: ${prefDate} (${prefSlot} EAT / ${visitorTz})${message ? `\n- Note: ${message}` : ''}`
-          : `Bonjour Missi Innovation, je viens de planifier un échange de 20 min :\n- Nom : ${fullName}${org ? ` (${org})` : ''}\n- Besoin : ${pole}\n- Créneau souhaité : ${prefDate} (${prefSlot} EAT / ${visitorTz})${message ? `\n- Précision : ${message}` : ''}`;
+          ? `Hello Missi Engineering, I would like to discuss a project:\n- Name: ${fullName}${org ? ` (${org})` : ''}\n- Need: ${pole}\n- Preferred slot: ${prefDate} (${prefSlot} EAT / ${visitorTz})${message ? `\n- Note: ${message}` : ''}`
+          : `Bonjour Missi Innovation, je souhaite échanger au sujet d'un projet :\n- Nom : ${fullName}${org ? ` (${org})` : ''}\n- Besoin : ${pole}\n- Créneau souhaité : ${prefDate} (${prefSlot} EAT / ${visitorTz})${message ? `\n- Précision : ${message}` : ''}`;
         waBtn.href = `https://wa.me/${waNum}?text=${encodeURIComponent(waMsg)}`;
       }
 
